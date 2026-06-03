@@ -1,4 +1,5 @@
 #include "core/powerSave.h"
+#include "core/utils.h"
 #include <Wire.h>
 
 /***************************************************************************************
@@ -75,6 +76,30 @@ void _post_setup_gpio() {
     /* IR pins — default IR_RX pins may collide with I²C */
     bruceConfigPins.irTx     = 14;
     bruceConfigPins.irRx     = 21;
+
+#if defined(USE_TFT_eSPI_TOUCH)
+    /* Load touch calibration from LittleFS, or calibrate on first boot */
+    pinMode(TOUCH_CS, OUTPUT);
+    uint16_t calData[5];
+    File caldata = LittleFS.open("/calData", "r");
+    if (!caldata) {
+        tft.setRotation(ROTATION);
+        tft.calibrateTouch(calData, TFT_WHITE, TFT_BLACK, 10);
+        caldata = LittleFS.open("/calData", "w");
+        if (caldata) {
+            caldata.printf("%d\n%d\n%d\n%d\n%d\n",
+                calData[0], calData[1], calData[2], calData[3], calData[4]);
+            caldata.close();
+        }
+    } else {
+        for (int i = 0; i < 5; i++) {
+            String line = caldata.readStringUntil('\n');
+            calData[i] = line.toInt();
+        }
+        caldata.close();
+    }
+    tft.setTouch(calData);
+#endif
 }
 
 /*********************************************************************
@@ -94,19 +119,49 @@ void _setBrightness(uint8_t brightval) {
 
 /*********************************************************************
 ** InputHandler()
-** Reads PCF8574 at 0x20, translates bits into Bruce key events.
-**
-** Debounce logic:
-**  - Initial press is accepted after DEBOUNCE_MS (40 ms).
-**  - After the initial press, the button must be released and
-**    re-pressed to trigger again (no auto-repeat for nav keys).
-**  - UP/DOWN have auto-repeat after REPEAT_SCROLL_MS for scrolling.
-**  - Dual LEFT+RIGHT → Esc/Back.
+** Reads PCF8574 at 0x20 + polls XPT2046 touchscreen.
 **********************************************************************/
 void InputHandler(void) {
     checkPowerSaveTime();
 
-    static uint8_t  prevReg   = 0xFF;   // previous PCF8574 read (0 = pressed)
+    /* ── Touch via TFT_eSPI (USE_TFT_eSPI_TOUCH) ── */
+#if defined(USE_TFT_eSPI_TOUCH)
+    static unsigned long touchTimer = 0;
+    if (millis() - touchTimer > 200 || LongPress) {
+        touchTimer = millis();
+        TouchPoint t;
+        bool touched = tft.getTouch(&t.x, &t.y);
+        if (touched) {
+            /* Rotation-aware coordinate transform */
+            if (bruceConfigPins.rotation == 3) {
+                t.y = (tftHeight + 20) - t.y;
+                t.x = tftWidth - t.x;
+            }
+            if (bruceConfigPins.rotation == 0) {
+                int tmp = t.x;
+                t.x = tftWidth - t.y;
+                t.y = tmp;
+            }
+            if (bruceConfigPins.rotation == 2) {
+                int tmp = t.x;
+                t.x = t.y;
+                t.y = (tftHeight + 20) - tmp;
+            }
+
+            if (!wakeUpScreen()) {
+                AnyKeyPress = true;
+                touchPoint.x = t.x;
+                touchPoint.y = t.y;
+                touchPoint.pressed = true;
+                touchHeatMap(touchPoint);
+            }
+            return;  // touch handled, skip button poll this cycle
+        }
+    }
+#endif /* USE_TFT_eSPI_TOUCH */
+
+    /* ── PCF8574 Buttons ── */
+    static uint8_t  prevReg   = 0xFF;
     static unsigned long lastEvent = 0;
     static unsigned long lastRepeat = 0;
     static bool         repeated     = false;
@@ -114,7 +169,6 @@ void InputHandler(void) {
     unsigned long now = millis();
     uint8_t reg = pcf_read();
 
-    /* Bits: 0 = pressed (active-low) */
     bool pressedUp    = !(reg & (1 << PCF_BIT_UP));
     bool pressedDown  = !(reg & (1 << PCF_BIT_DOWN));
     bool pressedLeft  = !(reg & (1 << PCF_BIT_LEFT));
@@ -127,10 +181,10 @@ void InputHandler(void) {
         else return;
     }
 
-    /* Detect edge: just pressed (was released before) */
-    uint8_t pressedBits = (~reg) & 0xF8;          // mask P3-P7, invert → 1 = pressed
+    /* Edge detection */
+    uint8_t pressedBits = (~reg) & 0xF8;
     uint8_t wasPressed  = (~prevReg) & 0xF8;
-    uint8_t freshBits   = pressedBits & ~wasPressed;  // newly pressed this cycle
+    uint8_t freshBits   = pressedBits & ~wasPressed;
     prevReg = reg;
 
     bool freshLeft  = freshBits & (1 << PCF_BIT_LEFT);
@@ -139,20 +193,16 @@ void InputHandler(void) {
     bool freshDown  = freshBits & (1 << PCF_BIT_DOWN);
     bool freshSel   = freshBits & (1 << PCF_BIT_SELECT);
 
-    /* Debounce: ignore fresh events within DEBOUNCE_MS of last */
     if (now - lastEvent < DEBOUNCE_MS) {
-        /* But allow repeat-scroll if we're in repeat mode */
         if (!repeated || now - lastRepeat < REPEAT_SCROLL_MS) return;
     }
 
     bool didAction = false;
 
-    /* LEFT = Prev + Back (Esc), RIGHT = Next, SELECT = Enter */
     if (freshLeft)  { PrevPress = true; EscPress = true; didAction = true; }
     if (freshRight) { NextPress = true; didAction = true; }
     if (freshSel)   { SelPress  = true; didAction = true; }
 
-    /* UP / DOWN — fire on fresh press AND auto-repeat while held */
     if (freshUp || (pressedUp && repeated && now - lastRepeat >= REPEAT_SCROLL_MS)) {
         UpPress       = true;
         PrevPagePress = true;
@@ -164,11 +214,8 @@ void InputHandler(void) {
         didAction      = true;
     }
 
-    if (didAction) {
-        lastEvent = now;
-    }
+    if (didAction) lastEvent = now;
 
-    /* Track repeat state: if any nav-key is held, enter repeat mode */
     bool held = pressedUp | pressedDown;
     if (held && lastEvent > 0 && now - lastEvent >= LONG_PRESS_MS) {
         repeated   = true;

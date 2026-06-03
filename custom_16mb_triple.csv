@@ -1,0 +1,18 @@
+# ESP32-DIV Triple-Boot (16MB Flash)
+# ota_0 = Boot-Menü (4MB) — startet immer bei Kaltstart
+# ota_1 = CiferTech (2MB)
+# ota_2 = Bruce Full (4MB)
+# Spiffs = Rest (~6MB)
+# 
+# Funktionsweise:
+# - Kaltstart → otadata→ota_0 → Boot-Menü
+# - Boot-Menü wählt CiferTech/Bruce → setzt otadata → reboot
+# - Gewählte FW läuft
+# - Bruce hat "Zurück zum Menü" Knopf → setzt otadata→ota_0 → reboot
+# - CiferTech: GPIO0 halten beim Boot zum Zurückkommen
+nvs,data,nvs,0x9000,0x4000
+otadata,data,ota,0xD000,0x2000
+ota_0,app,ota_0,0x10000,0x400000
+ota_1,app,ota_1,0x410000,0x200000
+ota_2,app,ota_2,0x610000,0x400000
+spiffs,data,spiffs,0xA10000,0x5F0000

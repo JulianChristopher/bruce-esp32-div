@@ -1,54 +1,48 @@
-# ESP32-DIV Dual-Boot (16MB Flash)
+# ESP32-DIV Triple-Boot (16MB Flash, Custom Bootloader)
 
-## Voraussetzung
-```bash
-esptool.py --chip esp32s3 --port /dev/ttyACM0 flash_id
+## 🎯 Lösung: Custom ESP-IDF Bootloader mit Factory Reset
+
+Der V4 Pro hat den ESP-IDF Bootloader MIT `CONFIG_BOOTLOADER_FACTORY_RESET` aus dem Quellcode gebaut.
+
+### So funktioniert's:
+
+| Aktion | Ergebnis |
+|--------|---------|
+| **Normal einschalten** | Bootloader bootet factory → **Boot-Menü erscheint auf Display** |
+| **CiferTech wählen** | Boot-Menü setzt otadata auf ota_0 + reboot → CiferTech läuft |
+| **Bruce wählen** | Boot-Menü setzt otadata auf ota_1 + reboot → Bruce läuft |
+| **GPIO0 5s halten beim Einschalten** | Bootloader löscht otadata → bootet factory → **Boot-Menü erscheint** |
+| **Nächster Kaltstart** | otadata zeigt auf ota_X → Ziel-FW startet direkt |
+
+### Layout (16MB Flash)
 ```
-Muss `16MB` anzeigen.
-
-## Layout
-```
-0x000000 — 0x010000  Bootloader + Partition Table + NVS + OTADATA
-0x010000 — 0x090000  Factory: Boot-Menü (512KB)
-0x090000 — 0x270000  OTA_0: CiferTech v1.6.0 (1.875MB)
-0x270000 — 0x670000  OTA_1: Bruce FULL (4MB)
-0x670000 — 0x1000000 Spiffs: ~9.5MB
+0x000000 — Bootloader (custom, 24KB, mit Factory-Reset via GPIO0)
+0x008000 — Partition Table
+0x00E000 — OTA Data (leer → bootloader bootet factory)
+0x020000 — Factory: Boot-Menü (315KB) — zeigt UI bei jedem ersten Boot
+0x320000 — ota_0: CiferTech v1.6.0 (4MB Slot)
+0x720000 — ota_1: Bruce Full (4MB Slot)
+0xB20000 — Storage/Spiffs (~5MB)
 ```
 
-## Boot-Menü
-Beim Start erscheint ein Auswahlmenü auf dem Display:
-- **CiferTech Original** ← default (autoboot nach 10s)
-- **Bruce Full**
+### Boot-Menü Feature
+- ILI9341 Display mit 6x8 Font, eigener Treiber (kein TFT_eSPI nötig)
+- PCF8574 Buttons via I²C (UP/DOWN/SELECT/LEFT/RIGHT)
+- Auswahl: CiferTech / Bruce Full
+- 10s Timeout → autoboot CiferTech
+- GPIO0 Recovery: 5s gedrückt halten → zurück zum Menü
 
-Navigation: UP/DOWN zum Auswählen, SELECT zum Booten.
-Nach 10s ohne Eingabe → CiferTech.
+## Flash
+```
+scp marvin@deepclaw:/tmp/bruce-esp32-div/DualBoot-esp32-div.bin .
+```
+Dann via https://esptool.spacehuhn.com/ (ESP32-S3, DIO, 80MHz, 16MB)
 
 ## Build
 ```bash
-# Boot-Menü
-cd /tmp/esp32-div-dualboot
-pio run --environment esp32-dualboot
+# Boot-Menü + Bootloader (einmalig)
+cd /tmp/esp32-dualboot2 && pio run --environment esp32-s3-devkitc-1
 
-# Bruce
-cd /tmp/bruce-esp32-div
-pio run --environment esp32-div
+# Bruce Full
+cd /tmp/bruce-esp32-div && pio run --environment esp32-div
 ```
-
-## Alles flashen
-```bash
-esptool.py --chip esp32s3 --port /dev/ttyACM0 --baud 921600 \
-  write_flash --flash_size 16MB \
-  0x0000   bootloader.bin \
-  0x8000   partitions.bin \
-  0xE000   boot_app0.bin \
-  0x10000  boot-menu.bin \
-  0x90000  cifertech-v1.6.0.bin \
-  0x270000 Bruce-esp32-div.bin
-```
-
-## Binaries
-| Datei | Größe | Beschreibung |
-|-------|-------|-------------|
-| boot-menu.bin | 341KB | Boot-Menü (Factory) |
-| cifertech-v1.6.0.bin | 1.6MB | CiferTech Original |
-| Bruce-esp32-div.bin | 3.5MB | Bruce Full |

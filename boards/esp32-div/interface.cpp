@@ -147,8 +147,8 @@ void InputHandler(void) {
 
     bool didAction = false;
 
-    /* LEFT / RIGHT / SELECT — fire only on fresh press (no auto-repeat) */
-    if (freshLeft)  { PrevPress = true; didAction = true; }
+    /* LEFT = Prev + Back (Esc), RIGHT = Next, SELECT = Enter */
+    if (freshLeft)  { PrevPress = true; EscPress = true; didAction = true; }
     if (freshRight) { NextPress = true; didAction = true; }
     if (freshSel)   { SelPress  = true; didAction = true; }
 
@@ -162,13 +162,6 @@ void InputHandler(void) {
         DownPress      = true;
         NextPagePress  = true;
         didAction      = true;
-    }
-
-    /* LEFT + RIGHT simultaneously → Esc / Back */
-    if (pressedLeft && pressedRight && freshLeft && freshRight) {
-        EscPress  = true;
-        NextPress = false;
-        PrevPress = false;
     }
 
     if (didAction) {

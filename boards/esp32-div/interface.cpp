@@ -55,7 +55,15 @@ void _setup_gpio() {
 ** _post_setup_gpio()
 **********************************************************************/
 void _post_setup_gpio() {
-    /* Nothing extra needed */
+    /* Force CC1101 as RF module — default rfTx/rfRx use GROVE_SDA/SCL (GPIO8/9) which
+       would short the I²C bus used by the PCF8574 input expander. */
+    bruceConfigPins.rfModule = CC1101_SPI_MODULE;
+    bruceConfigPins.rfTx     = 6;   // CC1101 GDO0
+    bruceConfigPins.rfRx     = 3;   // CC1101 GDO2
+
+    /* IR pins — default IR_RX pins may collide with I²C */
+    bruceConfigPins.irTx     = 14;
+    bruceConfigPins.irRx     = 21;
 }
 
 /*********************************************************************

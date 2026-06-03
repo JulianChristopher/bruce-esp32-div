@@ -78,26 +78,12 @@ void _post_setup_gpio() {
     bruceConfigPins.irRx     = 21;
 
 #if defined(USE_TFT_eSPI_TOUCH)
-    /* Load touch calibration from LittleFS, or calibrate on first boot */
+    /* Use predefined calibration from .ini — skip runtime calibration to
+       avoid hanging if touch isn't responding during first boot. */
     pinMode(TOUCH_CS, OUTPUT);
-    uint16_t calData[5];
-    File caldata = LittleFS.open("/calData", "r");
-    if (!caldata) {
-        tft.setRotation(ROTATION);
-        tft.calibrateTouch(calData, TFT_WHITE, TFT_BLACK, 10);
-        caldata = LittleFS.open("/calData", "w");
-        if (caldata) {
-            caldata.printf("%d\n%d\n%d\n%d\n%d\n",
-                calData[0], calData[1], calData[2], calData[3], calData[4]);
-            caldata.close();
-        }
-    } else {
-        for (int i = 0; i < 5; i++) {
-            String line = caldata.readStringUntil('\n');
-            calData[i] = line.toInt();
-        }
-        caldata.close();
-    }
+    uint16_t calData[5] = {
+        TOUCH_X_MIN, TOUCH_X_MAX, TOUCH_Y_MIN, TOUCH_Y_MAX, (uint16_t)(TOUCH_X_MIN + TOUCH_X_MAX) / 2
+    };
     tft.setTouch(calData);
 #endif
 }

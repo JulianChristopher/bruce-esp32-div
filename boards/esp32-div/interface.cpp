@@ -22,6 +22,17 @@ static uint8_t pcf_read(void) {
 #define PCF_BIT_RIGHT   4
 #define PCF_BIT_LEFT    3
 
+/*─ Debounce / repeat timings (ms) ──────────────────*/
+#ifndef DEBOUNCE_MS
+#define DEBOUNCE_MS      40
+#endif
+#ifndef LONG_PRESS_MS
+#define LONG_PRESS_MS    800
+#endif
+#ifndef REPEAT_SCROLL_MS
+#define REPEAT_SCROLL_MS 120
+#endif
+
 /*────────────────── Power / battery ────────────────────*/
 /* No battery ADC populated on this board */
 int getBattery() { return 0; }
@@ -84,42 +95,93 @@ void _setBrightness(uint8_t brightval) {
 /*********************************************************************
 ** InputHandler()
 ** Reads PCF8574 at 0x20, translates bits into Bruce key events.
+**
+** Debounce logic:
+**  - Initial press is accepted after DEBOUNCE_MS (40 ms).
+**  - After the initial press, the button must be released and
+**    re-pressed to trigger again (no auto-repeat for nav keys).
+**  - UP/DOWN have auto-repeat after REPEAT_SCROLL_MS for scrolling.
+**  - Dual LEFT+RIGHT → Esc/Back.
 **********************************************************************/
 void InputHandler(void) {
     checkPowerSaveTime();
 
-    static unsigned long lastPoll = 0;
+    static uint8_t  prevReg   = 0xFF;   // previous PCF8574 read (0 = pressed)
+    static unsigned long lastEvent = 0;
+    static unsigned long lastRepeat = 0;
+    static bool         repeated     = false;
+
     unsigned long now = millis();
-    if (now - lastPoll < 40) return;   // 40 ms debounce
-    lastPoll = now;
-
     uint8_t reg = pcf_read();
-    /* Bit == 0  ⇒  button pressed (active-low after pull-up) */
 
+    /* Bits: 0 = pressed (active-low) */
     bool pressedUp    = !(reg & (1 << PCF_BIT_UP));
     bool pressedDown  = !(reg & (1 << PCF_BIT_DOWN));
     bool pressedLeft  = !(reg & (1 << PCF_BIT_LEFT));
     bool pressedRight = !(reg & (1 << PCF_BIT_RIGHT));
     bool pressedSel   = !(reg & (1 << PCF_BIT_SELECT));
-
     bool any = pressedUp | pressedDown | pressedLeft | pressedRight | pressedSel;
 
     if (any) {
         if (!wakeUpScreen()) AnyKeyPress = true;
-        else return;   // screen was asleep, don't process the press itself
+        else return;
     }
 
-    if (pressedLeft)           { PrevPress = true; }
-    if (pressedRight)          { NextPress = true; }
-    if (pressedUp)             { UpPress = true; PrevPagePress = true; }
-    if (pressedDown)           { DownPress = true; NextPagePress = true; }
-    if (pressedSel)            { SelPress = true; }
+    /* Detect edge: just pressed (was released before) */
+    uint8_t pressedBits = (~reg) & 0xF8;          // mask P3-P7, invert → 1 = pressed
+    uint8_t wasPressed  = (~prevReg) & 0xF8;
+    uint8_t freshBits   = pressedBits & ~wasPressed;  // newly pressed this cycle
+    prevReg = reg;
+
+    bool freshLeft  = freshBits & (1 << PCF_BIT_LEFT);
+    bool freshRight = freshBits & (1 << PCF_BIT_RIGHT);
+    bool freshUp    = freshBits & (1 << PCF_BIT_UP);
+    bool freshDown  = freshBits & (1 << PCF_BIT_DOWN);
+    bool freshSel   = freshBits & (1 << PCF_BIT_SELECT);
+
+    /* Debounce: ignore fresh events within DEBOUNCE_MS of last */
+    if (now - lastEvent < DEBOUNCE_MS) {
+        /* But allow repeat-scroll if we're in repeat mode */
+        if (!repeated || now - lastRepeat < REPEAT_SCROLL_MS) return;
+    }
+
+    bool didAction = false;
+
+    /* LEFT / RIGHT / SELECT — fire only on fresh press (no auto-repeat) */
+    if (freshLeft)  { PrevPress = true; didAction = true; }
+    if (freshRight) { NextPress = true; didAction = true; }
+    if (freshSel)   { SelPress  = true; didAction = true; }
+
+    /* UP / DOWN — fire on fresh press AND auto-repeat while held */
+    if (freshUp || (pressedUp && repeated && now - lastRepeat >= REPEAT_SCROLL_MS)) {
+        UpPress       = true;
+        PrevPagePress = true;
+        didAction     = true;
+    }
+    if (freshDown || (pressedDown && repeated && now - lastRepeat >= REPEAT_SCROLL_MS)) {
+        DownPress      = true;
+        NextPagePress  = true;
+        didAction      = true;
+    }
 
     /* LEFT + RIGHT simultaneously → Esc / Back */
-    if (pressedLeft && pressedRight) {
-        EscPress = true;
+    if (pressedLeft && pressedRight && freshLeft && freshRight) {
+        EscPress  = true;
         NextPress = false;
         PrevPress = false;
+    }
+
+    if (didAction) {
+        lastEvent = now;
+    }
+
+    /* Track repeat state: if any nav-key is held, enter repeat mode */
+    bool held = pressedUp | pressedDown;
+    if (held && lastEvent > 0 && now - lastEvent >= LONG_PRESS_MS) {
+        repeated   = true;
+        lastRepeat = now;
+    } else if (!held) {
+        repeated = false;
     }
 }
 

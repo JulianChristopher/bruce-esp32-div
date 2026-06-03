@@ -1,11 +1,11 @@
-# ESP32-DIV Dual-Boot (16MB Flash)
-# Factory = Boot-Selector (64KB)
-# OTA_0 = CiferTech v1.6.0 (1.625MB)
+# ESP32-DIV Dual-Boot mit Display-Menü (16MB Flash)
+# Factory = Boot-Menü (512KB, TFT + PCF8574 + Fonts)
+# OTA_0 = CiferTech v1.6.0 (1.875MB)
 # OTA_1 = Bruce FULL (4MB)
-# Spiffs = Rest (~10MB)
+# Spiffs = Rest (~9.5MB)
 nvs,data,nvs,0x9000,0x4000
 otadata,data,ota,0xD000,0x2000
-factory,app,factory,0x10000,0x10000
-ota_0,app,ota_0,0x20000,0x1A0000
-ota_1,app,ota_1,0x1C0000,0x400000
-spiffs,data,spiffs,0x5C0000,0xA40000
+factory,app,factory,0x10000,0x80000
+ota_0,app,ota_0,0x90000,0x1E0000
+ota_1,app,ota_1,0x270000,0x400000
+spiffs,data,spiffs,0x670000,0x990000

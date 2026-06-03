@@ -222,8 +222,3 @@ void checkReboot() {
     }
 }
 
-/*********************************************************************
-** keyboard()
-** No physical keyboard — returns empty.
-**********************************************************************/
-String keyboard(String mytext, int maxSize, String msg) { (void)mytext; (void)maxSize; (void)msg; return ""; }

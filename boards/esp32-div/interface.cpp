@@ -43,24 +43,37 @@ bool isCharging() { return false; }
 ** _setup_gpio()
 ***************************************************************************************/
 void _setup_gpio() {
-    /* Backlight GPIO7 — LEDC PWM */
+    /* Backlight GPIO7 — LEDC PWM (ESP32-S3 LEDC: 6 timers, 8 channels)
+       Channel 0 on GPIO7 is valid and not shared with other peripherals. */
     pinMode(7, OUTPUT);
     ledcAttachChannel(7, 5000, 8, 0);  // 5 kHz, 8-bit, channel 0
 
-    /* I²C for PCF8574 (S3 defaults: SDA=8, SCL=9) */
+    /* I²C for PCF8574 at 0x20 (SDA=8, SCL=9)
+       ⚠️  PCF8574 requires external pull-up resistors (4.7 kΩ typ) on SDA/SCL.
+       Internal ESP32-S3 pull-ups (~45 kΩ) are too weak for reliable I²C at 100 kHz.
+       Ensure external pull-ups are populated on the PCB. */
     Wire.begin(8, 9);
 
-    /* Drive radio CS lines high so they stay deselected at boot */
+    /* SPI Bus B (VSPI/FSPI) — shared by SD, CC1101, NRF24×3, PN532 */
+    SPI.begin(SDCARD_SCK, SDCARD_MISO, SDCARD_MOSI, SDCARD_CS);  // 12, 13, 11, 10
+
+    /* Drive all radio / peripheral CS lines high so they stay deselected at boot */
     pinMode(CC1101_SS_PIN, OUTPUT);  // GPIO5
-    pinMode(NRF24_SS_PIN, OUTPUT);   // GPIO4 (shared with PN532)
-    pinMode(15, OUTPUT);              // NRF24 #1 CE
-    pinMode(47, OUTPUT);              // NRF24 #2 CE
-    pinMode(14, OUTPUT);              // NRF24 #3 CE
+    pinMode(NRF24_SS_PIN, OUTPUT);   // GPIO48 (NRF24 module #2, CSN=48)
+    pinMode(SDCARD_CS, OUTPUT);      // GPIO10
+    pinMode(PN532_SS, OUTPUT);       // GPIO4
     digitalWrite(CC1101_SS_PIN, HIGH);
     digitalWrite(NRF24_SS_PIN, HIGH);
-    digitalWrite(15, HIGH);
-    digitalWrite(47, HIGH);
-    digitalWrite(14, HIGH);
+    digitalWrite(SDCARD_CS, HIGH);
+    digitalWrite(PN532_SS, HIGH);
+
+    /* NRF24 CE pins — drive LOW (standby); nrf_start() will re-init as needed */
+    pinMode(15, OUTPUT);              // NRF24 #1 CE
+    pinMode(47, OUTPUT);              // NRF24 #2 CE (active module)
+    pinMode(14, OUTPUT);              // NRF24 #3 CE
+    digitalWrite(15, LOW);
+    digitalWrite(47, LOW);
+    digitalWrite(14, LOW);
 }
 
 /*********************************************************************

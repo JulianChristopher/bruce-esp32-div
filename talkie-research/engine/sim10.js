@@ -841,7 +841,7 @@ async function duty(k, situation, yesText, noText, yesWord) {
   let yes = 0, no = 0, why = '';
   for (let v = 0; v < 3; v++) {
     const a = (await ask(prompt)) || '';
-    const isNo = new RegExp(`\\b(does not|do not|doesn't|will not|won't|not ${yesWord}|refuses|declines)\\b`, 'i').test(a.split(/because/i)[0]);
+    const isNo = new RegExp(`\\b(does not|do not|doesn't|will not|won't|not ${yesWord}|refuses|declines|asks? (him|her) to wait|begs? (him|her) to wait|puts? (him|her) off)\\b`, 'i').test(a.split(/because/i)[0]);
     const isYes = !isNo && new RegExp(`\\b${yesWord}`, 'i').test(a.split(/because/i)[0]);
     if (isYes) yes++; else if (isNo) no++;
     if (!why && a) why = a;
@@ -1321,7 +1321,7 @@ async function interrupts(d, t) {
   if (F.rentDue && !W.rentPaid[d] && !W['rentAsked' + d] && t >= hm(19) && t <= hm(20, 30) && A.ada.place === 'ada_home') {
     W['rentAsked' + d] = true;
     const weeks = 1 + (F.rentOwing ? (W.rentOwingCount || 1) : 0), due = 84 * weeks, has = A.ada.money;
-    const r = await duty('ada', `Mr. Gedge, the landlord's collector, is at the door for the rent: ${weeks > 1 ? `${weeks} weeks, ${money(due)} in all, with the arrears` : 'the week\'s seven shillings'}. She has ${money(Math.max(0, has))} in her purse.`, `pays him`, `asks him to wait`);
+    const r = await duty('ada', `Mr. Gedge, the landlord's collector, is at the door for the rent: ${weeks > 1 ? `${weeks} weeks, ${money(due)} in all, with the arrears` : 'the week\'s seven shillings'}. She has ${money(Math.max(0, has))} in her purse.`, `pays him`, `asks him to wait`, 'pay');
     if (r.yes && has >= due) { A.ada.money -= due; payRent(true); W.rentOwingCount = 0; WORLD.people.gedge && (WORLD.people.gedge.money = (WORLD.people.gedge.money || 0) + due); say(`   🏠 Ada pays Mr. Gedge ${money(due)}.`); }
     else if (r.yes && has >= 84) { A.ada.money -= 84; payRent(false); W.rentOwingCount = Math.max(1, weeks - 1); remember('ada', `She paid Mr. Gedge seven shillings off what she owes; the rest is to wait till Monday.`, ['gedge', 'rent'], 3); say('   🏠 Ada pays part of the rent.'); }
     else { payRent(false); say(`   🏠 Ada asks Mr. Gedge to wait${has >= due ? ' (though she has the money)' : ''}.`); if (weeks >= 3) { remember('ada', 'Mr. Gedge said that if the arrears are not cleared by next week the landlord will give her notice to quit.', ['gedge', 'rent'], 3); } }

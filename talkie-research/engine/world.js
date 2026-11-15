@@ -44,16 +44,19 @@ class World {
   // ---------- space ----------
   place(id) { return this.places[id]; }
   district(id) { return this.places[id]?.district; }
-  travel(a, b) {   // minutes on foot or by tram
+  travel(a, b, who = this.mover) {   // minutes on foot or by tram: real distances where the places have positions (geo1931.js)
     if (!a || !b || a === b) return 0;
+    const g = require('./geo1931.js').minutes(a, b, who);
+    if (g !== null) return Math.round(g * (this.fogFactor || 1));
     const da = this.district(a), db = this.district(b);
-    if (da === db) return 5;
-    return this.routes[da]?.[db] ?? this.routes[db]?.[da] ?? 40;
+    const fogF = this.fogFactor || 1;   // in a thick fog everything goes at a crawl
+    if (da === db) return Math.round(5 * fogF);
+    return Math.round((this.routes[da]?.[db] ?? this.routes[db]?.[da] ?? 40) * fogF);
   }
   isOpen(id) { const pl = this.places[id]; return !pl.open || pl.open(this); }
   peopleAt(place, except = null) { return Object.values(this.people).filter(p => p.place === place && p.id !== except && !p.away); }
   presentWith(id) { const p = this.people[id]; return p.place ? this.peopleAt(p.place, id) : []; }
-  move(id, place) { const p = this.people[id]; if (p.place === place) return; const from = p.place; p.place = place; if (p.main) this.stats.moves++; else this.stats.npcMoves++; if (from) this.emit(from, `${p.short} left.`, id, { quiet: true }); this.emit(place, `${p.short} came in.`, id, { quiet: true }); }
+  move(id, place) { const p = this.people[id]; if (p.place === place) return; const from = p.place; p.place = place; if (this.trackOn) (this.track = this.track || []).push([this.t, id, from, place]); if (p.main) this.stats.moves++; else this.stats.npcMoves++; if (from) this.emit(from, `${p.short} left.`, id, { quiet: true }); this.emit(place, `${p.short} came in.`, id, { quiet: true }); }
 
   // ---------- things ----------
   obj(id) { return this.objects[id]; }
@@ -120,7 +123,7 @@ class World {
 
   // ---------- affordances: what this person could do here and now, ranked by need and habit ----------
   affordances(id) {
-    const p = this.people[id], out = [];
+    this.mover = id; const p = this.people[id], out = [];
     for (const a of this.actions) {
       if (a.who && !a.who.includes(id)) continue;
       const argsList = a.args ? a.args(this, p) : [null];
@@ -152,8 +155,8 @@ class World {
 
   // ---------- doing: apply cost, effect, needs; the person is busy for the duration ----------
   perform(id, aff) {
-    const p = this.people[id], a = aff.a;
-    if (aff.walk) this.move(id, aff.at);
+    this.mover = id; const p = this.people[id], a = aff.a;
+    if (aff.walk) { const fr = require('./geo1931.js').fare(p.place, aff.at, id); if (fr && p.money >= fr) { p.money -= fr; this.stats.fares = (this.stats.fares || 0) + fr; } this.move(id, aff.at); }
     const dur = (typeof a.dur === 'function' ? a.dur(this, p, aff.x) : (a.dur ?? 15)) + aff.walk;
     if (aff.cost) this.pay(id, a.payee ? a.payee(this, p, aff.x) : null, aff.cost);
     const meets = typeof a.meets === 'function' ? a.meets(this, p, aff.x) : (a.meets || {});
@@ -195,7 +198,7 @@ World.prototype.urgency = function (id) {
   if (n.energy > 80) out.push({ key: 'tired', w: n.energy - 20 });
   if (id === 'ada' && f.rentDue) out.push({ key: 'rent', w: this.mod >= 18 * 60 ? 90 : 60 });
   if (p.money < 0) out.push({ key: 'debt', w: Math.min(80, 30 - p.money / 6) });
-  if (id === 'ada' && !f.adaDismissed && this.dow() !== 'sun' && this.between(7 * 60, 8 * 60 + 30) && p.cleanedDay !== this.day) out.push({ key: 'work', w: 85 });
+  if (id === 'ada' && !f.adaDismissed && this.dow() !== 'sun' && this.between(6 * 60 + 45, 8 * 60 + 30) && p.cleanedDay !== this.day) out.push({ key: 'work', w: 85 });
   if (id === 'arthur' && this.dow() !== 'sun' && this.between(8 * 60 + 15, 17 * 60) && p.place !== 'office' && !f.ill_arthur) out.push({ key: 'work', w: 60 });
   if (id === 'arthur' && f.joanIll && !f.doctorCalled) out.push({ key: 'child', w: 70 });
   return out.sort((a, b) => b.w - a.w);
@@ -217,6 +220,7 @@ World.prototype.wellbeing = function (id) {
   if (id === 'ada') v += (f.extraWork ? 8 : 0) - (f.owesNolan ? 3 : 0) - (f.relief ? 6 : 0) - ['ring', 'kettle', 'coat', 'boots'].filter(x => this.objects[x] && this.objects[x].at === 'lamb').length * 3;
   // a theft: found out, it means the police court and the end of a character (and of a charwoman's places); not found out, the fear and the conscience
   const th = f['theft_' + id]; if (th) v -= th === 'caught' ? 60 : 20;
+  if (f['summons_' + id] !== undefined) v -= 8;   // a summons for street betting: the fine and the shame
   return v;
 };
 // roll the world on from a fork: the person does `aff` (an affordance found in the fork) and then lives by habit

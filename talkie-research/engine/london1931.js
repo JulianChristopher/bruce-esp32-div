@@ -11,7 +11,7 @@ const sat = w => w.dow() === 'sat', sun = w => w.dow() === 'sun', fri = w => w.d
 const s = n => n * 12;   // shillings -> pence
 
 // ---------- places: a tree of buildings in districts ----------
-const outdoor = w => ({ 'bitterly cold': 5, foggy: 20, 'raw and grey': 20, 'frosty and bright': 15, sleeting: 10, 'thick fog': 15, 'cold and wet': 15, frosty: 12, grey: 25, 'snowing a little': 8, 'raw and windy': 15, 'mild for February': 35, 'fine and cold': 25, 'cold and windy': 18, raining: 20, mild: 40 })[w.weather(w.day)] ?? 25;
+const outdoor = w => ({ 'thick yellow fog': 8, 'raw and misty': 15, 'bitterly cold': 5, foggy: 20, 'raw and grey': 20, 'frosty and bright': 15, sleeting: 10, 'thick fog': 15, 'cold and wet': 15, frosty: 12, grey: 25, 'snowing a little': 8, 'raw and windy': 15, 'mild for February': 35, 'fine and cold': 25, 'cold and windy': 18, raining: 20, mild: 40 })[w.weather(w.day)] ?? 25;
 const places = {
   ada_home: { name: "Mrs. Turner's two rooms in Bermondsey", kind: 'home', district: 'bermondsey', warmth: w => (w.flags.fire_ada_home > w.t ? 62 : 22) },
   nolan_rooms: { name: "Mrs. Nolan's rooms across the landing", kind: 'home', district: 'bermondsey', warmth: 50 },
@@ -58,6 +58,9 @@ const people = [
     routine: (w) => (!sun(w) && w.between(hm(9), hm(19)) ? 'pawnshop' : null) },
   { id: 'gedge', name: 'Mr. Gedge', short: 'Mr. Gedge', f: false, home: null, sheet: "Mr. Gedge, the landlord's collector, aged forty-five; brisk and hard, but takes a story if it is told him straight.",
     routine: () => null },
+  // the constable on the beat (M Division): the street corner, the market, Barker's, the Nelson at closing time
+  { id: 'pc', name: 'Police-Constable Dawe', short: 'P.C. Dawe', f: false, home: 'police_station', sheet: "Police-Constable Harold Dawe, aged thirty-eight, on the Bermondsey beat these nine years; slow-spoken, heavy, knows every family in the Buildings, turns a blind eye to small things and none to cruelty.",
+    routine: (w) => { const m = w.mod; if (m < hm(6) || m >= hm(22, 30)) return 'police_station'; const beat = ['street_corner', 'market', 'chandler', 'pawnshop', 'pub']; const i = Math.floor(m / 40 + w.day) % beat.length; return w.between(hm(22), hm(22, 30)) ? 'pub' : beat[i] === 'pub' && !CHRONOS.pubOpen(w.day, m) ? 'street_corner' : beat[i]; } },
   { id: 'fenn', name: 'young Mr. Fenn', short: 'Fenn', f: false, home: null, sheet: "Mr. Leonard Fenn, aged nineteen, the junior clerk; cheerful, careless, mad about football and the pictures.",
     routine: (w) => (!sun(w) && w.between(hm(9), sat(w) ? hm(13) : hm(17, 30)) ? (w.between(hm(12, 30), hm(13, 30)) && !sat(w) ? 'teashop' : 'office') : null) },
   { id: 'dunn', name: 'Mrs. Dunn', short: 'Mrs. Dunn', f: true, home: 'thomas_home', sheet: "Mrs. Dunn, Mr. Thomas's daily housekeeper, aged sixty; Scottish, thrifty, devoted to him, hears all the news of Highbury.",
@@ -94,6 +97,8 @@ places.mission = { name: 'the Salvation Army hall in Bermondsey', kind: 'mission
 places.library_islington = { name: 'the public library in Islington', kind: 'library', district: 'islington', warmth: 60, open: w => !sun(w) && w.between(hm(10), hm(21)) };
 places.pictures_islington = { name: 'the Blue Hall picture house in Upper Street', kind: 'pictures', district: 'islington', warmth: 60, open: w => w.between(hm(13, 30), hm(23)) && (!sun(w) || w.mod >= hm(17)) };
 places.post_office_bermondsey = { name: 'the post office in Bermondsey', kind: 'shop', district: 'bermondsey', warmth: 45, open: w => !sun(w) && w.between(hm(8), hm(19)) };
+places.police_station = { name: 'the police station in Bermondsey', kind: 'office', district: 'bermondsey', warmth: 45 };
+places.police_court = { name: 'the police court at Tower Bridge', kind: 'office', district: 'bermondsey', warmth: 40, open: w => !sun(w) && w.between(hm(10), hm(16)) };
 places.den = { name: 'the Den, Millwall\'s ground in Cold Blow Lane', kind: 'ground', district: 'bermondsey', warmth: outdoor, open: w => !!CHRONOS.homeGame(w.day, 'Millwall') && w.between(hm(14), hm(17)) };
 places.highbury_ground = { name: 'the Arsenal Stadium at Highbury', kind: 'ground', district: 'highbury', warmth: outdoor, open: w => !!CHRONOS.homeGame(w.day, 'Arsenal') && w.between(hm(14), hm(17)) };
 places.market_islington = { name: 'Chapel Market in Islington', kind: 'market', district: 'islington', warmth: outdoor, open: w => !sun(w) && w.between(hm(8), hm(19)) };
@@ -131,7 +136,7 @@ const actions = [
     label: () => 'Go round the street-market for cheap vegetables and a bit of company', habit: w => sat(w) && w.between(hm(14), hm(17)),
     effect: (w, p) => { p.marketDay = w.day; if (p.money >= 4) { w.pay('ada', null, 4); w.add('ada', 'food', 1); return 'Ada bought cheap vegetables at the market (4d.).'; } return 'Ada walked round the market.'; } },
   // --- work ---
-  { id: 'clean_office', who: ['ada'], at: () => 'office', where: () => true, when: (w, p) => !sun(w) && !w.flags.adaDismissed && w.between(hm(7), hm(8, 30)) && p.cleanedDay !== w.day, dur: w => hm(9) - w.mod - 5, base: 10, meets: {},
+  { id: 'clean_office', who: ['ada'], at: () => 'office', where: () => true, when: (w, p) => !sun(w) && !w.flags.adaDismissed && w.between(hm(6, 45), hm(8, 30)) && p.cleanedDay !== w.day, dur: w => hm(9) - w.mod - 5, base: 10, meets: {},
     label: () => 'Clean the Moorgate office: scrub the floor under the clerks\' desks, empty the baskets and dust', habit: () => true,
     effect: (w, p) => { p.cleanedDay = w.day; return H(w).cleanOffice(); } },
   { id: 'finsbury', who: ['ada'], at: () => 'finsbury', where: () => true, when: (w, p) => !sun(w) && w.between(hm(8, 45), hm(10)) && p.finsburyDay !== w.day, dur: w => hm(12, 30) - w.mod, base: 10,

@@ -10,6 +10,7 @@
 // that for a child; a hundredweight of coal 1s. 2d. in winter. The weekly pledge (Monday in, Saturday out) and the
 // grocer's slate carried most families from one pay-day to the next.
 'use strict';
+const HEALTH = require('./health1931.js');
 function rng(seed) { let a = seed >>> 0; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 const SURN = ['Doyle', 'Murphy', 'Collins', 'Hayes', 'Driscoll', 'Mahoney', 'Smith', 'Clark', 'Ward', 'Bennett', 'Price', 'Dawson', 'Lane', 'Gibbs', 'Mason', 'Rolfe', 'Peck', 'Atkins', 'Burrows', 'Hollis',
   'Fenton', 'Cripps', 'Saunders', 'Wicks', 'Tull', 'Penfold', 'Gurney', 'Booth', 'Knight', 'Shaw', 'Riley', 'Moss', 'Cotter', 'Dunne'];
@@ -53,7 +54,7 @@ function makeStreet(seed = 31) {
       trait: pick(TRAITS), trait2: pick(TRAITS), weekly: R() < 0.3, owesAda: 0, ill: {}, notice: false, out: false, landing: Math.floor(i / 6),
       title: head.m ? `Mr. ${head.first} ${sur}` : `Mrs. ${head.first} ${sur}`, wifeTitle: `Mrs. ${(head.m ? members[1] : head).first} ${sur}`, unemployed: {} });
   }
-  const S = { hh, day: -1, slateTotal: 0, events: [], log: [], R };
+  const S = { hh, day: -1, slateTotal: 0, events: [], log: [], R, standing: {} };
   const people = h => h.members.filter(x => !h.out);
   const nameOf = (h, x) => (x.m ? (x.age < 18 ? `young ${x.first} ${h.sur}` : `${x.first} ${h.sur}`) : (x.age < 18 ? `${x.first} ${h.sur}` : `Mrs. ${x.first} ${h.sur}`));
   // one day of the Buildings; ctx: { dow: 'mon'..'sun', tmin (°C), frost, cold, wages (true on Friday/Saturday), barkerLimit (pence) }
@@ -65,7 +66,7 @@ function makeStreet(seed = 31) {
       // earnings
       for (const x of people(h)) {
         if (!x.job || h.ill[x.first]) continue; const J = JOBS[x.job];
-        if (J.casual) { if (ctx.dow === 'sun' || x.unemployedUntil > d) continue; if (R() < (ctx.frost && J.frost ? J.frost : J.p)) h.cash += J.day; }
+        if (J.casual) { if (ctx.dow === 'sun' || x.unemployedUntil > d) continue; const fogStop = ctx.fog === 'thick' && x.job === 'docker'; if (R() < (fogStop ? 0.1 : ctx.frost && J.frost ? J.frost : J.p)) h.cash += J.day; }
         else if (ctx.dow === (J.pension ? 'fri' : 'sat')) { if (x.unemployedUntil > d) h.cash += x.age >= 18 ? (x.m ? 204 : 108) : 0; else h.cash += J.week; }
       }
       // the dole for the man out of steady work (signing at the Exchange; paid Fridays)
@@ -98,14 +99,22 @@ function makeStreet(seed = 31) {
       // pledges unredeemed for a year and a week are forfeit; here: a long run of bad weeks
       // illness: winter, cold rooms, hunger, and catching it from the family
       for (const x of people(h)) {
-        if (h.ill[x.first]) { if (--h.ill[x.first].left <= 0) { delete h.ill[x.first]; } else if (h.ill[x.first].bad && R() < (x.age < 3 || x.age > 70 ? 0.004 : 0.0012)) { h.members = h.members.filter(y => y !== x); delete h.ill[x.first]; say(h, `${nameOf(h, x)} of No. ${h.no} died in the night${x.age < 5 ? ', a little thing of ' + x.age : ''}`, 'death'); } continue; }
-        const p = 0.0015 + (ctx.cold ? 0.0015 : 0) + (h.hungry ? 0.004 : 0) + (Object.keys(h.ill).length ? 0.012 : 0) + (x.age < 5 || x.age > 65 ? 0.002 : 0);
+        if (h.ill[x.first]) { const ill = h.ill[x.first]; if (--ill.left <= 0) { delete h.ill[x.first]; } else if ((ill.flu && R() < HEALTH.fluFatality(x.age) / 6) || (ill.bad && R() < (x.age < 3 || x.age > 70 ? 0.004 : 0.0012))) { h.members = h.members.filter(y => y !== x); delete h.ill[x.first]; say(h, `${nameOf(h, x)} of No. ${h.no} died in the night${x.age < 5 ? ', a little thing of ' + x.age : ''}`, 'death'); } continue; }
+        // background deaths at Bermondsey's rate (12.5 a thousand; infants 57 a thousand)
+        if (R() < HEALTH.baseDeath(x.age)) { h.members = h.members.filter(y => y !== x); say(h, `${nameOf(h, x)} of No. ${h.no} died${x.age < 1 ? ', a baby of a few months' : x.age > 65 ? ', at a great age for the Buildings' : ''}`, 'death'); continue; }
+        // the influenza of 1931, caught in the street or from the family
+        const fluIn = Object.values(h.ill).some(v => v.flu);
+        if (R() < HEALTH.fluHazard(d, h.members.length / h.rooms > 2) * (fluIn ? 10 : 1)) { h.ill[x.first] = { left: 6 + Math.floor(R() * 6), flu: true }; if (x.age >= 55 || x.age < 5 || R() < 0.4) say(h, `${nameOf(h, x)} of No. ${h.no} is down with the influenza`, 'flu', { who: x.first }); continue; }
+        const p = 0.0015 + (ctx.cold ? 0.0015 : 0) + (ctx.fog ? 0.001 : 0) + (h.hungry ? 0.004 : 0) + (Object.keys(h.ill).length ? 0.012 : 0) + (x.age < 5 || x.age > 65 ? 0.002 : 0);
         if (R() < p) { const bad = R() < 0.12; h.ill[x.first] = { left: bad ? 10 + Math.floor(R() * 10) : 3 + Math.floor(R() * 5), bad }; if (bad || x.age < 5) say(h, `${nameOf(h, x)} of No. ${h.no} is down with ${bad ? (x.age < 10 ? 'the measles' : 'bronchitis') : 'a feverish cold'}`, 'ill', { who: x.first }); }
       }
       // work lost and found
-      for (const x of people(h)) if (x.job && !JOBS[x.job].casual && !JOBS[x.job].pension && !(x.unemployedUntil > d) && R() < 0.002) { x.unemployedUntil = d + 14 + Math.floor(R() * 60); say(h, `${nameOf(h, x)} of No. ${h.no} has been stood off from ${JOBS[x.job].name.replace(/^an? /, 'his place as ')}`, 'stoodoff'); }
+      for (const x of people(h)) if (x.job && !JOBS[x.job].casual && !JOBS[x.job].pension && !(x.unemployedUntil > d) && R() < 0.002) { x.unemployedUntil = d + 14 + Math.floor(R() * 60); say(h, `${nameOf(h, x)} of No. ${h.no} has been stood off ${/^at /.test(JOBS[x.job].name) ? JOBS[x.job].name : 'from ' + (x.m ? 'his' : 'her') + ' place as ' + JOBS[x.job].name}`, 'stoodoff'); }
       // the drinker on pay-night; the quarrelsome on the landing
-      if (ctx.dow === 'sat' && (h.trait === 'a drinker' || h.trait2 === 'a drinker') && R() < 0.35 && people(h).some(x => x.m && x.age >= 18)) { h.cash = Math.max(0, h.cash - 30); say(h, `${h.title} of No. ${h.no} came home from the Nelson the worse for drink, and there was a row`, 'row'); }
+      if (ctx.dow === 'sat' && (h.trait === 'a drinker' || h.trait2 === 'a drinker') && R() < 0.35 && people(h).some(x => x.m && x.age >= 18)) { h.cash = Math.max(0, h.cash - 30); say(h, `${h.title} of No. ${h.no} came home from the Nelson the worse for drink, and there was a row`, 'row');
+        // drunk and disorderly: the constable takes him in; Monday at Tower Bridge, five shillings or five days
+        if (R() < 0.15) { h.court = { day: d + 2, text: `${h.title} of No. ${h.no} was fined five shillings at Tower Bridge Police Court for being drunk and disorderly`, fine: 60 }; say(h, `P.C. Dawe took ${h.title} of No. ${h.no} to the station for being drunk and disorderly`, 'arrest'); } }
+      if (h.court && h.court.day === d) { if (h.cash >= h.court.fine) { h.cash -= h.court.fine; say(h, h.court.text, 'court'); } else { say(h, h.court.text.replace('was fined five shillings', 'went to prison for five days, not having the five shillings fine,'), 'court'); } h.court = null; h.standing = (h.standing || 0) - 1; }
       if ((h.trait === 'quarrelsome') && R() < 0.03) { const o = pick(hh.filter(g => g !== h && !g.out && g.landing === h.landing)); if (o) say(h, `${h.wifeTitle} and ${o.wifeTitle} had words on the landing over the copper in the wash-house`, 'quarrel', { other: o.id }); }
       // births: about eighteen in a thousand a year
       if (people(h).some(x => !x.m && x.age >= 20 && x.age <= 40) && R() < 0.065 / 365) { h.members.push({ first: pick(KIDS), age: 0, m: R() < 0.5 }); say(h, `${h.wifeTitle} of No. ${h.no} has had a baby`, 'birth'); }
@@ -136,7 +145,7 @@ function makeStreet(seed = 31) {
     const live = hh.filter(h => !h.out);
     return { households: live.length, people: live.reduce((s, h) => s + h.members.length, 0), slateAtBarkers: money(S.slateTotal), pledgedAtLambs: live.reduce((s, h) => s + h.pledged.length, 0),
       inArrears: live.filter(h => h.arrears > 0).length, noticeToQuit: live.filter(h => h.notice).length, evicted: hh.filter(h => h.out).length, hungry: live.filter(h => h.hungry).length,
-      ill: live.reduce((s, h) => s + Object.keys(h.ill).length, 0), outOfSteadyWork: live.reduce((s, h) => s + h.members.filter(x => x.unemployedUntil > S.day).length, 0) };
+      ill: live.reduce((s, h) => s + Object.keys(h.ill).length, 0), flu: live.reduce((s, h) => s + Object.values(h.ill).filter(v => v.flu).length, 0), outOfSteadyWork: live.reduce((s, h) => s + h.members.filter(x => x.unemployedUntil > S.day).length, 0) };
   };
   S.describe = h => `${h.title} and family, No. ${h.no}: ${h.members.map(x => `${x.first} (${x.age}${x.job ? ', ' + JOBS[x.job].name : ''})`).join(', ')}; ${h.rooms} room${h.rooms > 1 ? 's' : ''} at ${money(h.rent)}; ${h.trait}.`;
   return S;

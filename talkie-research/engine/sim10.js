@@ -195,7 +195,8 @@ const isRest = d => DOW(d) === 'sun' || BANK.includes(d) || d === GOODFRI;
 const { newsFor } = require('./news1931.js'); const CHRONOS = require('./chronos1931.js');
 const paperText = d => newsFor(d).map(x => x.text).join(' ');
 function readPaper(k, name, cost) {
-  const items = [...newsFor(W.day), ...CHRONOS.paperItems(W.day, k, WORLD.mod)]; A[k].money -= cost; A[k].readDay = W.day;
+  const local = k === 'ada' && DOW(W.day) === 'fri' ? STREET.log.filter(e => e.day > W.day - 7 && ['court', 'eviction'].includes(e.kind)).slice(-2).map(e => ({ text: `LOCAL NEWS. ${e.text[0].toUpperCase() + e.text.slice(1)}.` })) : [];
+  const items = [...newsFor(W.day), ...CHRONOS.paperItems(W.day, k, WORLD.mod), ...local]; A[k].money -= cost; A[k].readDay = W.day;
   if (!items.length) return `${A[k].short} read ${name}, but found nothing of great note.`;
   A[k].lastNews = items[0].text;
   W.factQ = W.factQ || {};
@@ -251,7 +252,7 @@ for (const pl of Object.values(WORLD.places)) if (['market', 'park', 'work'].inc
 WORLD.coldSnap = d => { let n = 0; for (let i = Math.max(0, d - 2); i <= d; i++) if (LIFEMOD.weatherOf(i).tmean < 1) n++; return n >= 3; };   // three hard days running: coal dearer
 const F = WORLD.flags; Object.assign(F, { bertWork: true, joanIll: false, brayVisiting: false, thomasIll: false, rentDue: false, rentOwing: false });
 const STREETMOD = require('./street1931.js'), VERBSMOD = require('./verbs.js');
-const STREET = STREETMOD.makeStreet(+(process.env.SEED || 31));
+const STREET = STREETMOD.makeStreet(+(process.env.SEED || 31)); const POS = []; WORLD.trackOn = true;
 const BARKER0 = (WORLD.people.barker || {}).sheet || '';
 const A = {}, NPC = {};
 for (const p of Object.values(WORLD.people)) (p.main ? A : NPC)[p.id] = p;
@@ -404,14 +405,21 @@ function morningEvents() {   // chance and rule (life1931.js) + the company's ow
   if (F.joanIll && !joanBefore) F.doctorCalled = false;
   // the Buildings: thirty households live their day by rule; what happens becomes talk on the landing
   const wx = LIFEMOD.weatherOf(d);
-  const sev = STREET.step(d, { dow: w, frost: wx.tmin < 0, cold: wx.tmean < 6, barkerLimit: STREET.slateTotal > 900 ? 60 : 120 });
+  const HEALTH = require('./health1931.js'), fogd = HEALTH.fog(d); WORLD.fogFactor = fogd === 'thick' ? 1.5 : fogd === 'mist' ? 1.1 : 1;
+  const sev = STREET.step(d, { dow: w, fog: fogd, frost: wx.tmin < 0, cold: wx.tmean < 6, barkerLimit: STREET.slateTotal > 900 ? 60 : 120 });
   for (const e of sev) {
     if (e.kind === 'repay') { A.ada.money += e.amount; remember('ada', e.text + '.', [], 3); continue; }
-    if (['pawn', 'row', 'quarrel', 'ill', 'hunger', 'arrears', 'notice', 'eviction', 'death', 'birth', 'stoodoff'].includes(e.kind) && (['notice', 'eviction', 'death', 'birth', 'stoodoff'].includes(e.kind) || STREET.R() < 0.35))
+    if (['pawn', 'row', 'quarrel', 'ill', 'flu', 'hunger', 'arrears', 'notice', 'eviction', 'death', 'birth', 'stoodoff'].includes(e.kind) && (['notice', 'eviction', 'death', 'birth', 'stoodoff'].includes(e.kind) || STREET.R() < 0.35))
       rumour(e.text[0].toUpperCase() + e.text.slice(1) + '.', 'street', ['nolan', ...(['eviction', 'death'].includes(e.kind) ? ['barker', 'ada'] : [])]);
     if (['eviction', 'death'].includes(e.kind)) jolt('ada', 'shock', 15);
   }
-  if (WORLD.people.barker) WORLD.people.barker.sheet = BARKER0 + ` Just now the families in the Buildings owe him ${money(STREET.slateTotal)} on his slate between them${STREET.slateTotal > 900 ? ', and he is giving no more credit than he must' : ''}.`;
+  const st = STREET.standing.ada || 0, standWords = st >= 3 ? 'Mrs. Turner is thought well of in the Buildings, honest and a good neighbour' : st <= -2 ? 'Mrs. Turner has been much talked about in the Buildings lately' : '';
+  if (WORLD.people.barker) WORLD.people.barker.sheet = BARKER0 + ` Just now the families in the Buildings owe him ${money(STREET.slateTotal)} on his slate between them${STREET.slateTotal > 900 ? ', and he is giving no more credit than he must' : ''}.${standWords ? ' He has heard that ' + standWords + '.' : ''}`;
+  W.standWords = standWords;
+  // who knows what: the map of the talk of the street, kept for the dashboard
+  METRICS.knowledge = Object.values(W.gossip || {}).filter(g => W.day - g.day <= 14).map(g => ({ id: g.id, day: g.day, about: g.about, text: g.text.slice(0, 140), reach: g.reach || 1, maxHops: g.maxHops || 0, distorted: g.distorted || 0,
+    knownBy: Object.values(WORLD.people).filter(p => p.know && p.know[g.id]).map(p => p.id) }));
+  METRICS.standing = METRICS.standing || []; METRICS.standing.push({ day: d, ada: +(STREET.standing.ada || 0).toFixed(1) });
   METRICS.street = METRICS.street || []; METRICS.street.push({ day: d, ...STREET.stats(), events: sev.map(e => e.kind) });
   // the company's calendar: the year's books in January, the auditors on the second Monday, the salary review after
   if (d === 6) { remember('arthur', 'Mr. Thomas announced that the auditors come on Monday, and the books must be ready for them.', ['thomas', 'audit'], 3); remember('thomas', 'He told Mr. Hale that the auditors come on Monday.', ['arthur', 'audit'], 3); W.auditDue = true; fact('arthur', 'What did Mr. Thomas announce in the week before the audit?', ['The auditors were coming on Monday', 'The office would close early', 'Wages would be paid late'], 0); say('   ★ The audit is announced for Monday (company calendar).'); }
@@ -424,8 +432,8 @@ function neighbourAtDoor(t) {
   const d = W.day, vis = W.visitor;
   if (vis) {   // what came of it: did she lend, did she sit with the child?
     const p = WORLD.people[vis.id], gave = p.money - vis.money0;
-    if (gave > 0 && !vis.done) { vis.done = true; STREET.lend(vis.hh, gave); remember('ada', `${A.ada.short} lent ${vis.from} ${money(gave)}; she is to pay it back on Saturday.`, [], 3); }
-    if (WORLD.t >= vis.until) { p.place = null; p.away = true; if (!vis.done) remember('ada', `${vis.from} went away again${vis.req.kind === 'loan' ? ' without the loan' : ''}.`, [], 2); W.visitor = null; }
+    if (gave > 0 && !vis.done) { vis.done = true; STREET.lend(vis.hh, gave); STREET.standing.ada = (STREET.standing.ada || 0) + 1; rumour(`Mrs. Turner lent ${vis.from} ${money(gave)} when she was hard up`, 'ada', ['nolan']); remember('ada', `${A.ada.short} lent ${vis.from} ${money(gave)}; she is to pay it back on Saturday.`, [], 3); }
+    if (WORLD.t >= vis.until) { p.place = null; p.away = true; if (!vis.done) { remember('ada', `${vis.from} went away again${vis.req.kind === 'loan' ? ' without the loan' : ''}.`, [], 2); STREET.standing.ada = (STREET.standing.ada || 0) - 0.3; } W.visitor = null; }
     return;
   }
   if (t < hm(18) || t > hm(20, 30) || A.ada.place !== 'ada_home' || W.visitDay === d) return;
@@ -471,10 +479,22 @@ WORLD.hooks = {
   doctor: () => { F.doctorCalled = true; LIFE.doctor('joan'); W.doctor = 'called'; setState('joan', ['arthur'], 'Joan is mending; Dr. Gray has seen her'); note('arthur', 'account-book', 'Dr. Gray for Joan, 3s. 6d.'); remember('arthur', 'He fetched Dr. Gray to Joan, who said it was a bad cold, not bronchitis, and she would mend.', ['joan', 'money'], 3); fact('arthur', 'Did you fetch the doctor to Joan when she was ill?', ['Yes', 'No'], 0); return 'Arthur fetched Dr. Gray; Joan has a bad cold and will mend.'; },
   rent: pay => { jolt('ada', pay ? 'relief' : 'shock', pay ? 20 : 25); return payRent(pay); },
   rel: (k, q, d) => { if (A[k] && A[k].op) A[k].op[q] = Math.max(-2, Math.min(2, (A[k].op[q] || 0) + d)); if (A[q] && A[q].op) A[q].op[k] = Math.max(-2, Math.min(2, (A[q].op[k] || 0) + d / 2)); },
-  nurse: (who, n) => { if (/^nb_/.test(who)) { STREET.help(who.slice(3)); remember('ada', `${A.ada.short} sat with the sick child at ${WORLD.people[who].name}'s.`, [who], 3); return; } if (LIFE && LIFE.ill[who]) { LIFE.ill[who].left -= n; LIFE.ill[who].nursed = true; } },
+  nurse: (who, n) => { if (/^nb_/.test(who)) { STREET.help(who.slice(3)); STREET.standing.ada = (STREET.standing.ada || 0) + 1; remember('ada', `${A.ada.short} sat with the sick child at ${WORLD.people[who].name}'s.`, [who], 3); return; } if (LIFE && LIFE.ill[who]) { LIFE.ill[who].left -= n; LIFE.ill[who].nursed = true; } },
   letter: (k, q, text, opt) => { const what = (text.match(/,\s*(telling|asking|saying)\b(.*)$/i) || [])[0] || ''; remember(k, `${A[k].short} wrote a letter${q ? ' to ' + nameOf(q) : ''}${what}`, q ? [q] : [], 2); if (q && A[q]) WORLD.schedule(opt && opt.telegram ? WORLD.t + 90 : (W.day + 1) * 1440 + 7 * 60 + 30, () => letter(q, nameOf(k), (what.replace(/^,\s*/, '') || 'a few lines'), [k], null), 'post'); },
   chance: p => Math.random() < p,
   lookup: (k, text) => ({ lookup: text }),
+  police: (kind, k, detail) => {   // the police as an institution: found property, a report, a raid and its summons
+    if (kind === 'found') {
+      if (k === 'ada' && W.coin.where === 'ada') { W.coin.where = 'police'; A.ada.money -= 30; remember('ada', "Ada handed in the half-crown she found under Mr. Hale's desk at the police station, as found property; the sergeant wrote it in his book.", ['pc', 'coin'], 3);
+        rumour("Mrs. Turner took a half-crown she found at the office to the police station, honest as the day", 'ada', ['pc']); STREET.standing.ada = (STREET.standing.ada || 0) + 2;
+        WORLD.schedule(WORLD.t + 2 * 1440, () => { if (W.coin.where === 'police') { remember('arthur', 'A letter from the police: a half-crown found at the office by the charwoman, Mrs. Turner, has been handed in; he may claim it at the station in Bermondsey.', ['ada', 'coin'], 3); } }, 'police letter');
+        return 'Ada handed the half-crown in at the police station.'; }
+      remember(k, `${A[k].short} handed in what ${isF(k) ? 'she' : 'he'} had found at the police station.`, ['pc'], 2); return `${A[k].short} went to the police station.`;
+    }
+    if (kind === 'raid') { if (detail) { WORLD.schedule(WORLD.t + 3 * 1440, () => { const fine = 60; A[k].money -= fine; remember(k, `${A[k].short} was fined five shillings at Tower Bridge Police Court for street betting.`, ['pc'], 3); rumour(`Mrs. Turner was fined at Tower Bridge Police Court for betting in the street`, 'ada', ['nolan']); STREET.standing[k] = (STREET.standing[k] || 0) - 2; jolt(k, 'shock', 25); }, 'police court'); } rumour('The police came down on the bookie\'s runner at the corner', 'street', ['pc', 'nolan']); return null; }
+    if (kind === 'report') { remember(k, `${A[k].short} spoke to the constable: ${String(detail).replace(/^(she|he)\s+/i, '').slice(0, 80)}`, ['pc'], 2); return `${A[k].short} spoke to the police.`; }
+    return null;
+  },
   ask: (q, k, kind, detail) => {
     if (kind === 'work') return resolve(k, { verb: 'seekwork', _inner: true, text: 'She looks for more work.' }).aff.a.effect();
     const about = detail && detail.text ? detail.text.replace(/^.*?\b(asks?|begs?|borrows?|requests?|applies to|appeals to)\b\s*(\w+\.? \w+ )?/i, '').replace(/\.$/, '') : null;
@@ -485,7 +505,7 @@ WORLD.hooks = {
   talkLabel: (k, q) => { const t = topicFor(k, q); W.topicCache = W.topicCache || {}; W.topicCache[k + '>' + q] = t; return `Talk with ${nameOf(q)} about ${t.topic}`; }
 };
 WORLD.simHooks = {
-  rel() {}, nurse() {}, letter() {}, chance: () => false,
+  rel() {}, nurse() {}, letter() {}, chance: () => false, police: () => 'went to the police', lookup: () => 'looked it up',
   ask(q, k, kind) {   // a rule of thumb for the engine's foresight; in the live run the person asked decides
     const w = this.w, p = w.people[k], f = w.flags;
     if (kind === 'credit') { if (p.money > -60) { f.creditBarker = 60; return 'credit'; } f.creditRefusedDay = w.day; return 'refused'; }
@@ -560,6 +580,7 @@ function core(k) {
   if (k === 'ada' && W.rentDue && !W.rentPaid[W.day]) f.push('The rent of seven shillings is due tonight.');
   if (k === 'ada' && W.loan) f.push(W.loan);
   if (k === 'ada' && W.visitor) f.push(`${W.visitor.req.text}.`);
+  if (k === 'ada' && W.standWords) f.push(W.standWords.replace('Mrs. Turner is', 'She knows she is').replace('Mrs. Turner has', 'She knows she has') + '.');
   if (k === 'arthur' && W.loan) f.push(W.loan.replace('She owes Mr. Hale', 'Mrs. Turner owes him'));
   if (k === 'arthur' && W.joanIll) f.push('Joan is ill in bed' + (W.doctor === 'not called' ? ', and the doctor has not been called.' : '.'));
   if (k === 'arthur' && W.auditDue && !W.audit.verdict) f.push('The auditors come on Monday; the books must be ready.');
@@ -867,13 +888,23 @@ function shareGossip(k, q, spoken) {   // after a conversation: each tells the o
     STATS.gossip = (STATS.gossip || 0) + 1;
   }
 }
-function npcGossip() {   // background people at the same place pass news on, without a model and without change
+// what a story becomes in the telling: sums grow, words become blows, a cold becomes 'very bad' (rule-based, after
+// the classic serial-reproduction finding that retold stories sharpen and exaggerate)
+const GROW = [[/\bsixpence\b/, 'a shilling'], [/\ba shilling\b/, 'two shillings'], [/\btwo shillings\b/, 'five shillings'], [/\bfive shillings\b/, 'half a sovereign'], [/\bhad words\b/, 'came to blows'],
+  [/\ba row\b/, 'a terrible row'], [/\bis down with a feverish cold\b/, 'is very bad, they say'], [/\bis down with the influenza\b/, 'is very bad with the influenza'], [/\btwo weeks behind\b/, 'a month behind'],
+  [/\bwas fined five shillings\b/, 'was very nearly sent to prison'], [/\btook ([\w' ]+?) to Lamb's\b/, "has been pawning everything she has"]];
+function retell(text) {
+  if (Math.random() > 0.3) return { text, changed: false };
+  for (const [re, by] of GROW) if (re.test(text)) return { text: text.replace(re, by), changed: true };
+  return Math.random() < 0.5 && !/^They say/.test(text) ? { text: 'They say ' + text[0].toLowerCase() + text.slice(1), changed: true } : { text, changed: false };
+}
+function npcGossip() {   // background people at the same place pass news on, without a model; the story changes as it goes
   const npcs = Object.values(WORLD.people).filter(p => !p.main && !p.away && p.place);
   for (const p of npcs) for (const q of npcs) {
     if (p.id >= q.id || p.place !== q.place || Math.random() > 0.08) continue;
     for (const [from, to] of [[p, q], [q, p]]) {
       const it = Object.entries(from.know).find(([id]) => !to.know[id] && W.gossip[id] && W.gossip[id].about !== to.id);
-      if (it) { to.know[it[0]] = { text: it[1].text, source: from.short, hops: it[1].hops + 1, day: W.day }; W.gossip[it[0]].reach = (W.gossip[it[0]].reach || 1) + 1; STATS.npcGossip = (STATS.npcGossip || 0) + 1; }
+      if (it) { const r = retell(it[1].text); to.know[it[0]] = { text: r.text, source: from.short, hops: it[1].hops + 1, day: W.day }; W.gossip[it[0]].reach = (W.gossip[it[0]].reach || 1) + 1; if (r.changed) { W.gossip[it[0]].distorted = (W.gossip[it[0]].distorted || 0) + 1; STATS.distorted = (STATS.distorted || 0) + 1; } STATS.npcGossip = (STATS.npcGossip || 0) + 1; }
     }
   }
 }
@@ -1186,6 +1217,7 @@ function scene(k) {   // what the place is like just now: the senses, the fire, 
   else if (pl === 'thomas_home') out.push(WORLD.people.dunn.place === 'thomas_home' ? 'Mrs. Dunn is about the house.' : 'The house is quiet.');
   if (['pawnshop', 'chandler', 'market'].includes(pl)) for (const n of STREET.presentAt(pl, W.day, WORLD.mod)) out.push(`${n.name} from the Buildings is here, ${n.doing}.`);
   if (CHRONOS.isDark(W.day, WORLD.mod)) out.push(pl === 'ada_home' ? (F.gas_ada_home > WORLD.t ? 'The gas is lit.' : 'It is dark but for the fire; there is no penny in the meter.') : WORLD.places[pl] && !/home|office|shop|cafe|pub/.test(WORLD.places[pl].kind) ? 'The street-lamps are lit.' : '');
+  if (WORLD.fogFactor >= 1.5 && WORLD.places[pl] && !/home|office|shop|cafe|pub/.test(WORLD.places[pl].kind)) out.push('The fog is so thick one can hardly see across the street; the lamps are lit at midday and the trams crawl.');
   if (DOW(W.day) === 'sat' && CHRONOS.homeGame(W.day, 'Arsenal') && WORLD.mod >= 13 * 60 && WORLD.mod < 17 * 60 + 30 && WORLD.places[pl] && WORLD.places[pl].district === 'highbury') out.push('The streets are thick with people going to the Arsenal.');
   return out.filter(Boolean).join(' ');
 }
@@ -1200,7 +1232,7 @@ function presentAt(k) { return Object.keys(A).filter(o => o !== k && !A[o].away 
 const KEYACT = /half-crown|^Give Edith|^Buy |Pay Mr\. Gedge|Pawn|Redeem|Fetch Dr\.|rent/;
 // one decision: the engine offers what can be done here and now, ranked by need and habit; talkie chooses
 async function act(k) {
-  const a = A[k];
+  const a = A[k]; WORLD.mover = k;
   for (const p of presentAt(k)) if (!a.metToday.has(p)) await greet(k, p);
   for (const o of a.obs.splice(0)) if (!/came in|left\./.test(o.text)) remember(k, `(Seen) ${o.text}`, [], 1);
   const all = WORLD.affordances(k);
@@ -1322,6 +1354,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     for (let t = hm(6, 15); t <= hm(23); t += STEP) {
       WORLD.t = d * 1440 + t; W.t = t;
       WORLD.runDue(); WORLD.stepBackground(); WORLD.decay(STEP); dueMoney(t); institutions(t); npcGossip(); for (const k in A) chemStep(k, STEP); neighbourAtDoor(t);
+      POS.push([d, t, Object.fromEntries(Object.values(WORLD.people).filter(p => p.place && !p.away).map(p => [p.id, p.place]))]);
       await interrupts(d, t);
       const idle = Object.keys(A).filter(k => A[k].busyUntil <= WORLD.t);
       if (t >= hm(23)) { for (const k of idle) { A[k].busyUntil = (d + 1) * 1440 + hm(6, 15); A[k].needs.energy = 20; say(`   (${A[k].short} drops off to sleep at last.)`); } break; }
@@ -1337,6 +1370,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
         }
       }));
     }
+    try { fs.appendFileSync(path.join(OUT, 'positions.jsonl'), POS.splice(0).map(x => JSON.stringify(x)).join('\n') + '\n'); fs.appendFileSync(path.join(OUT, 'moves.jsonl'), (WORLD.track || []).splice(0).map(x => JSON.stringify(x)).join('\n') + '\n'); } catch (e) {}
     fs.writeFileSync(path.join(OUT, 'state.json'), JSON.stringify({ W, STATS, world: { t: WORLD.t, flags: WORLD.flags, stats: WORLD.stats, objects: WORLD.objects, people: Object.fromEntries(Object.entries(WORLD.people).map(([k, p]) => [k, { place: p.place, money: p.money, inv: p.inv, needs: p.needs }])) }, agents: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, { place: a.place, money: a.money, op: a.op, mem: a.mem }])) }, null, 1));
     const keyDay = [0, 3, 5, 10, 11, 29, 30, 43, 57, 59, 73, 84].includes(d) || W.facts.some(f => f.day === d);
     try {

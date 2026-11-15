@@ -10,7 +10,7 @@ const PEOPLE = [
   [/\b(mr\.? pollock|jim pollock)\b/, 'pollock'], [/\b(mrs\.? simms)\b/, 'simms'], [/\b(mrs\.? dunn|his housekeeper)\b/, 'dunn'], [/\b(mrs\.? nolan|kate nolan|her neighbour|the neighbour)\b/, 'nolan'],
   [/\b(bert|her son|the boy)\b/, 'bert'], [/\b(mr\.? barker|barker'?s?|the grocer|the chandler)\b/, 'barker'], [/\b(mr\.? lamb|the pawnbroker)\b/, 'lamb'], [/\b(mr\.? gedge|the collector|the landlord|the rent-collector)\b/, 'gedge'],
   [/\b(edith|his wife|mrs\.? hale)\b/, 'edith'], [/\b(joan|his daughter|the child|the little girl)\b/, 'joan'], [/\b(fenn|the junior|the office-boy)\b/, 'fenn'], [/\b(mrs\.? bray|his mother-in-law)\b/, 'bray'],
-  [/\b(mr\.? hale|arthur)\b/, 'arthur'], [/\b(mr\.? thomas|the chief clerk|his chief)\b/, 'thomas'], [/\b(mrs\.? turner|ada|the charwoman)\b/, 'ada'], [/\b(dr\.? gray|the doctor)\b/, 'doctor']
+  [/\b(p\.? ?c\.? dawe|dawe|the constable|a constable|the policeman|a policeman|the copper|the police)\b/, 'pc'], [/\b(mr\.? hale|arthur)\b/, 'arthur'], [/\b(mr\.? thomas|the chief clerk|his chief)\b/, 'thomas'], [/\b(mrs\.? turner|ada|the charwoman)\b/, 'ada'], [/\b(dr\.? gray|the doctor)\b/, 'doctor']
 ];
 const PLACES = [
   [/\b(home|his house|her rooms|her room|indoors)\b/, 'HOME'], [/\b(office|clerks' room|his desk|the city)\b/, 'office'], [/\bfinsbury\b/, 'finsbury'], [/\bmarket\b/, 'MARKET'],
@@ -18,7 +18,7 @@ const PLACES = [
   [/\b(pub|public-house|public house|tavern|lord nelson|inn)\b/, 'pub'], [/\b(cookshop|eating-house|lyons|tea-shop|teashop|caf[eé]|coffee-stall|fried fish shop|chip shop)\b/, 'EAT'],
   [/\b(docks?|dock gates)\b/, 'docks'], [/\b(doctor'?s?|surgery)\b/, 'doctor'], [/\b(post office)\b/, 'post_office'], [/\b(park|fields|heath)\b/, 'park'], [/\b(chemist'?s?|druggist)\b/, 'CHEMIST'],
   [/\b(baker'?s?)\b/, 'baker'], [/\b(newsagent'?s?|paper-shop|tobacconist'?s?)\b/, 'newsagent'], [/\b(labour exchange|employment exchange)\b/, 'labour_exchange'], [/\b(relieving office)\b/, 'relieving_office'],
-  [/\b(mrs\.? nolan'?s?|across the landing)\b/, 'nolan_rooms'], [/\b(the pollocks'?|downstairs)\b/, 'pollock_rooms'], [/\b(street corner|bookie|bookmaker'?s? runner)\b/, 'street_corner'], [/\b(free library|public library|the library|reading-room)\b/, 'LIBRARY'], [/\b(wash-?house|public baths|the baths)\b/, 'washhouse'],
+  [/\b(mrs\.? nolan'?s?|across the landing)\b/, 'nolan_rooms'], [/\b(the pollocks'?|downstairs)\b/, 'pollock_rooms'], [/\b(street corner|bookie|bookmaker'?s? runner)\b/, 'street_corner'], [/\b(police[- ]station|the police)\b/, 'police_station'], [/\b(free library|public library|the library|reading-room)\b/, 'LIBRARY'], [/\b(wash-?house|public baths|the baths)\b/, 'washhouse'],
   [/\b(pictures|picture palace|picture house|cinema|kinema|blue hall)\b/, 'PICTURES'], [/\b(salvation army|the army hall|mission hall|the mission|soup kitchen)\b/, 'mission']
 ];
 const ITEMS = [[/\bwatch\b/, 'watch'], [/\b(wedding[- ]ring|ring)\b/, 'ring'], [/\bkettle\b/, 'kettle'], [/\b(winter coat|coat|overcoat|greatcoat|top-?coat)\b/, 'coat'], [/\b(sunday boots|bert's boots|(a pair of |his |her |the )?boots)\b/, 'boots'], [/\b(medals?)\b/, 'medals'], [/\b(clock)\b/, 'clock'], [/\b(blankets?)\b/, 'blanket'],
@@ -43,6 +43,7 @@ function frame(text) {
   const persons = PEOPLE.map(([re, v]) => [v, (t.match(re) || { index: -1 }).index]).filter(([, i]) => i >= 0).sort((a, b) => a[1] - b[1]).map(([v]) => v), place = find(PLACES, t), goods = goodsIn(t), item = find(ITEMS, t), amount = moneyIn(t);
   const purpose = (t.match(/\b(?:to|so as to|in order to|for)\s+(pay the rent|pay (?:the |her )?(?:debt|slate)|buy|keep warm|get coal|get food|bert|joan|the rent|supper|her (?:cough|cold|chest))\b[^.,;]*/) || [])[0] || null;
   const V = [
+    ['police', /\b(hands? (it|them|the [\w-]+) (in )?(at|to) the police|takes? (it|them|the [\w-]+) to the police|goes? to the police|reports? (it|this|the \w+)? ?to the police|tells? (a |the )?(policeman|constable|police)|fetch(es)? (a |the )?(policeman|constable|copper)|calls? (a |the )?(policeman|constable))\b/],
     ['match', /\b(goes to (see )?(the )?(match|football|millwall|the arsenal|arsenal|the den|highbury)|watch(es)? (the )?(match|football|millwall|the arsenal)|to the den\b|stands? on the terraces?)/],
     // going to, asking or consulting the doctor is calling the doctor in (before 'ask' and 'go' can take it)
     ['fetch', /\b(goes|hurries|runs|walks|calls|asks|consults|sees|visits|takes \w+|sends|fetches|fetch|goes for|calls in|sends for|summons|brings)\b[^.;]{0,30}?\b(the doctor|a doctor|dr\.? gray|the surgery|doctor's|medical (aid|man|advice)|the parish doctor)/],
@@ -101,7 +102,7 @@ function personHere(w, p, q) { const o = w.people[q]; if (!o || o.away) return {
 function stock(w, who, g, n = 1) { if (g.meals && !g.eatNow) w.add(who, 'food', Math.max(1, Math.round(g.meals * n))); else if (g.fuel) w.add(who, 'coal', Math.max(1, Math.round(g.fuel * n))); else w.add(who, g.id, n); }
 function consume(w, p, g) { const n = p.needs; if (g.meals) n.hunger = Math.max(0, n.hunger - 60 * Math.min(1, g.meals)); if (g.warm) n.warmth = Math.max(0, n.warmth - 15 * g.warm); if (g.drink) n.social = Math.max(0, n.social - 15); }
 function deed(w, k, f) {
-  const p = w.people[k], H = w.hooks;
+  w.mover = k; const p = w.people[k], H = w.hooks;
   let q = f.persons && f.persons.find(x => x !== k && x !== 'doctor') || null;
   if (['ask', 'borrow'].includes(f.verb) && f.place === 'SHOP' && /trust|slate|tick|credit/.test(f.text.toLowerCase())) q = 'barker';   // asking for trust at Barker's is asking Barker
   const purse = c => p.money >= c || (w.flags.creditBarker && p.money - c >= -w.flags.creditBarker);
@@ -192,7 +193,12 @@ function deed(w, k, f) {
       return { aff: mk(w, p, f.verb, `${f.verb === 'talk' ? 'Speak to' : f.verb[0].toUpperCase() + f.verb.slice(1)} ${PN(w, q)}: ${f.text.replace(/^(he|she)\s+/i, '').slice(0, 70)}`, o.at, 15, 0, (w2, p2) => { w2.hooks.rel && w2.hooks.rel(p2.id, q, d); return { talk: q, topic: f.text.replace(/^(he|she)\s+\w+\s+/i, '').replace(/\.$/, '').slice(0, 100), verb: f.verb }; }, { social: 30 }) };
     }
     case 'write': case 'post': { if (!purse(2)) return { why: 'not the price of a stamp' }; return { aff: mk(w, p, 'write', `Write a letter${q ? ' to ' + PN(w, q) : ''}`, p.home, 40, 2, (w2, p2) => { w2.hooks.letter && w2.hooks.letter(p2.id, q, f.text); return `${p2.short} wrote a letter.`; }) }; }
-    case 'bet': { const stake = f.amount || 6; if (!purse(stake)) return { why: 'not the money for a bet' }; return { aff: mk(w, p, 'bet', `Put ${money(stake)} on a horse with the bookie's runner`, 'street_corner', 10, stake, (w2, p2) => { const win = w2.hooks.chance ? w2.hooks.chance(1 / 6) : false; if (win) p2.money += stake * 6; return `${p2.short} put ${money(stake)} on a horse${win ? ' and won!' : ', and lost it'}.`; }) }; }
+    case 'bet': { const stake = f.amount || 6; if (!purse(stake)) return { why: 'not the money for a bet' };
+      // street betting was against the law (Street Betting Act 1906): the runner kept watch for the constable; now and then a raid
+      return { aff: mk(w, p, 'bet', `Put ${money(stake)} on a horse with the bookie's runner`, 'street_corner', 10, stake, (w2, p2) => {
+        const pcThere = w2.people.pc && w2.people.pc.place === 'street_corner', raid = w2.hooks.chance ? w2.hooks.chance(pcThere ? 0.5 : 0.04) : false;
+        if (raid) { const summoned = w2.hooks.chance ? w2.hooks.chance(0.3) : false; w2.flags['summons_' + p2.id] = summoned ? w2.day : w2.flags['summons_' + p2.id]; w2.hooks.remember && w2.hooks.remember(p2.id, `The police came down on the bookie's runner just as ${p2.short} was putting ${money(stake)} on a horse${summoned ? '; the constable took her name' : ''}.`, ['pc'], 3); w2.hooks.police && w2.hooks.police('raid', p2.id, summoned); return `${p2.short} was caught in a raid on the bookie's runner${summoned ? ' and summoned' : ''}.`; }
+        const win = w2.hooks.chance ? w2.hooks.chance(1 / 6) : false; if (win) p2.money += stake * 6; return `${p2.short} put ${money(stake)} on a horse${win ? ' and won!' : ', and lost it'}.`; }) }; }
     case 'save': case 'hide': { const amt = f.amount || 12; if (p.money < amt) return { why: `${SHE(p)} has not ${money(amt)} to put by` }; return { aff: mk(w, p, 'save', `Put ${money(amt)} by${f.verb === 'hide' ? ' where nobody will find it' : ''}`, p.place, 5, amt, (w2, p2) => { w2.add(p2.id, 'savings', amt); return `${p2.short} put ${money(amt)} by.`; }) }; }
     case 'pray': { const a = w.affordances(k).find(x => x.a.id === 'worship'); return { aff: a || mk(w, p, 'pray', 'Pray quietly', p.place, 15, 0, (w2, p2) => `${p2.short} prayed.`) }; }
     case 'read': { if (w.lit && !w.lit(k) && p.place === p.home && !f.place) return { why: 'it is too dark to read; there is no penny in the gas meter' }; const a = w.affordances(k).find(x => x.a.id === 'read_paper'); return { aff: a || mk(w, p, 'read', 'Read for a while', p.place, 40, 0, (w2, p2) => `${p2.short} read for a while.`, { energy: 10 }) }; }
@@ -254,6 +260,11 @@ function deed(w, k, f) {
     case 'lookup': {   // a book of the time answers (talkie, as the book); in a rollout it only costs the time
       const at = /library/.test(f.text.toLowerCase()) ? (nearestOpen(w, p, ['library', 'library_islington']) || p.place) : p.place;
       return { aff: mk(w, p, 'lookup', `Look it up in ${/library/.test(f.text.toLowerCase()) ? 'the free library' : k === 'ada' ? 'the old copy of Enquire Within' : 'the household encyclopaedia'}`, at, 30, 0, (w2, p2) => (w2.hooks.lookup ? w2.hooks.lookup(p2.id, f.text) : `${p2.short} looked it up.`) ) };
+    }
+    case 'police': {   // to the police: a thing found handed in, a row or a theft reported, the constable fetched
+      const t = f.text.toLowerCase(), found = /hands?|takes?|found|half-crown|coin|purse|money/.test(t) && /(it|them|half-crown|coin|purse|money)/.test(t);
+      const pcNear = w.people.pc && w.people.pc.place && w.travel(p.place, w.people.pc.place) <= 10, at = /fetch|call|tell/.test(t) && pcNear ? w.people.pc.place : 'police_station';
+      return { aff: mk(w, p, 'police', found ? 'Hand it in at the police station as found property' : /fetch|call/.test(t) ? 'Fetch the constable' : /tell|speak/.test(t) && pcNear ? 'Speak to the constable on the beat' : 'Go to the police', at, found ? 30 : 20, 0, (w2, p2) => (w2.hooks.police ? w2.hooks.police(found ? 'found' : 'report', p2.id, f.text) : `${p2.short} went to the police.`)) };
     }
     default: return null;
   }

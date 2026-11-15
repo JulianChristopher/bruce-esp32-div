@@ -91,3 +91,25 @@ at Barker's, going short, illness (cold, hunger, contagion), being stood off, no
 pay-night, births and deaths. What happens there becomes gossip through Mrs. Nolan; Barker's willingness to give
 credit follows the street's slate; in the evening a neighbour may come to Ada's door to ask for a loan or for help
 with a sick child, and Ada answers by her own free deed. `node streettest.js` runs the street alone for 90 days.
+
+## Health, fog, police, gossip, geography (v10.2)
+
+- `health1931.js` – the influenza epidemic of 1931 in London (LCC Medical Officer of Health, report for 1931: epidemic
+  from January, peak in the week ended 14 February with 116 deaths, 797 deaths in the 13 weeks to 4 April, about 70 %
+  aged 55 and over; weekly series reconstructed around those two figures); infections run ahead of deaths; fatality by
+  age; crowded rooms and a sick household raise the chance. Background deaths at Bermondsey's 1931 rates (12.5 a
+  thousand, infants 57 a thousand; Report of the MOH for Bermondsey, 1931). The Wednesday paper reports the epidemic
+  (the figure 116 only where it is on record, otherwise in words). Fog days from the real weather (dry, cold, small
+  day-night range): 14 in the quarter, two of them thick; then the ships are not worked, the ways are half as long
+  again, the lamps burn at midday and chests suffer.
+- Police: P.C. Dawe walks the Bermondsey beat; street betting with the bookie's runner can end in a raid and a summons
+  (Street Betting Act 1906; a fine at Tower Bridge Police Court); a drunk on pay-night may be taken in (five shillings
+  or five days); found property can be handed in at the station (the half-crown storyline); the constable can be
+  fetched. Court cases of the Buildings appear in Ada's Friday paper as local news.
+- Gossip: stories change as they are passed on without a model (sums grow, words become blows, 'They say…'); each
+  person has a standing in the Buildings (lending, sitting with a sick child, honesty raise it; refusing, court lower it);
+  Barker hears of it; Ada knows how she stands. `METRICS.knowledge` keeps who knows what.
+- `geo1931.js` – every place has a position; ways are timed from real distances (walking ~4.5 km/h, streets a third
+  longer than the straight line; the clerks take the tram for a penny or twopence, Ada walks). Ada's walk to Moorgate:
+  44 minutes; Arthur by tram: 26. Every quarter hour the place of every named person is written to `positions.jsonl`,
+  every move with its time to `moves.jsonl`.

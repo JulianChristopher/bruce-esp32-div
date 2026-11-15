@@ -18,6 +18,7 @@ function weatherOf(d) {
   else if (lo < -1) words = hi > 3 ? 'frosty and bright' : 'bitterly cold, with a hard frost';
   else if (m >= 8) words = 'mild';
   else words = hi >= 7 ? 'grey and chilly' : 'raw and grey';
+  const fg = require('./health1931.js').fog(d); if (fg === 'thick') words = 'thick yellow fog'; else if (fg === 'mist') words = 'raw and misty';
   return { words, tmean: m, tmax: hi, tmin: lo, rain: r, text: `${words} (${Math.round(lo)}° to ${Math.round(hi)}°C)` };
 }
 const outdoorWarmth = d => Math.max(0, Math.min(60, 12 + weatherOf(d).tmean * 4));
@@ -38,11 +39,12 @@ function makeLife(env) {   // env: { WORLD, F, W, A, NPC, remember, fact, setSta
     const d = W.day, w = env.DOW(d), wx = weatherOf(d), weekday = !['sat', 'sun'].includes(w);
     // casual dock labour: taken on or not at the call-on; hard frost and snow stop the ships being worked
     if (weekday && !L.ill.bert) {
-      const bad = wx.tmin < -2 || wx.words === 'snowing';
+      const HEALTH = require('./health1931.js'), fogd = HEALTH.fog(d);
+      const bad = wx.tmin < -2 || wx.words === 'snowing' || fogd === 'thick';   // frost, snow and thick fog keep the ships from being worked
       if (F.bertWork && chance(0.035 + (bad ? 0.08 : 0))) {
         F.bertWork = false; W.bertOutSince = d;
         env.setState('bert', ['ada'], 'Bert is out of work');
-        env.remember('ada', `Bert came home from the dock gates: he was not taken on, and the foreman says there will be nothing for him this week${bad ? ' with the frost holding up the ships' : ''}.`, ['bert', 'money'], 3);
+        env.remember('ada', `Bert came home from the dock gates: he was not taken on, and the foreman says there will be nothing for him this week${bad ? (fogd === 'thick' ? ' with the fog holding up the ships in the river' : ' with the frost holding up the ships') : ''}.`, ['bert', 'money'], 3);
         if (!W.bertFactDone) { W.bertFactDone = true; env.fact('ada', `What happened to Bert at the docks in the week of ${env.SHORTDATE(d)}?`, ['He was stood off and lost his work', 'He was made a foreman', 'Nothing; he worked as usual'], 0); }
         ev('work', `Bert has lost his work at the docks${bad ? ' (frost)' : ''}.`);
       } else if (!F.bertWork && chance(bad ? 0.04 : 0.13)) {
@@ -62,8 +64,10 @@ function makeLife(env) {   // env: { WORLD, F, W, A, NPC, remember, fact, setSta
       const p = WORLD.people[id], cold = p.main ? p.needs.warmth > 50 : WORLD.warmthOf(p.home) < 35, hungry = p.main && p.needs.hunger > 70;
       const HOME = { ada: 'ada_home', bert: 'ada_home', arthur: 'arthur_home', edith: 'arthur_home', joan: 'arthur_home', thomas: 'thomas_home' };
       const sickAtHome = Object.keys(L.ill).some(o => o !== id && HOME[o] === HOME[id]);   // colds and influenza go round a household
-      const pr = 0.004 + (d < 59 ? 0.004 : 0.002) + (cold ? 0.008 : 0) + (hungry ? 0.006 : 0) + (wx.tmean < 1 ? 0.003 : 0) + (sickAtHome ? 0.05 : 0);
-      if (chance(pr)) fallIll(id, name, 3 + Math.floor(R() * 6));
+      const H2 = require('./health1931.js'), flu = H2.fluHazard(d, id === 'ada' || id === 'bert') * (sickAtHome ? 8 : 1);   // the real epidemic of 1931; Bermondsey's crowded rooms
+      const pr = 0.003 + (d < 59 ? 0.003 : 0.0015) + (cold ? 0.006 : 0) + (hungry ? 0.005 : 0) + (wx.tmean < 1 ? 0.002 : 0) + (H2.fog(d) ? 0.002 : 0) + (sickAtHome ? 0.04 : 0);
+      if (chance(flu)) fallIll(id, name, 5 + Math.floor(R() * 6) + (id === 'thomas' ? 4 : 0), 'influenza');
+      else if (chance(pr)) fallIll(id, name, 3 + Math.floor(R() * 6));
     }
     // the post: letters from relations come when they come; one may announce a visit
     if (w !== 'sun') {
@@ -85,9 +89,9 @@ function makeLife(env) {   // env: { WORLD, F, W, A, NPC, remember, fact, setSta
     if (L.ill.arthur) A.arthur.busyUntil = Math.max(A.arthur.busyUntil, (d + 1) * 1440 + 6 * 60 + 15);
     F.joanIll = !!L.ill.joan; F.thomasIll = !!L.ill.thomas;
   }
-  function fallIll(id, name, days) {
-    const d = W.day; L.ill[id] = { left: days, since: d, doctor: false }; F['ill_' + id] = true;
-    const what = pickOne(['a feverish chill', 'a bad cough', 'influenza', 'a heavy cold on the chest']);
+  function fallIll(id, name, days, kind) {
+    const d = W.day; L.ill[id] = { left: days, since: d, doctor: false, kind }; F['ill_' + id] = true;
+    const what = kind || pickOne(['a feverish chill', 'a bad cough', 'a heavy cold on the chest']);
     ev('ill', `${name} has fallen ill with ${what}.`);
     if (id === 'joan') { env.setState('joan', ['arthur'], `Joan is ill in bed with ${what}`); env.remember('arthur', `Joan, his daughter, has fallen ill with ${what}; Edith is anxious.`, ['joan', 'edith'], 3); env.fact('arthur', `Who in your family fell ill in the week of ${env.SHORTDATE(d)}?`, ['Joan, my daughter', 'Edith, my wife', 'Nobody'], 0); }
     else if (id === 'edith') { env.setState('edith', ['arthur'], `Edith is ill with ${what}`); env.remember('arthur', `Edith has fallen ill with ${what}; he must manage the house and Joan.`, ['edith'], 3); env.fact('arthur', `Who in your family fell ill in the week of ${env.SHORTDATE(d)}?`, ['Edith, my wife', 'Joan, my daughter', 'Nobody'], 0); }

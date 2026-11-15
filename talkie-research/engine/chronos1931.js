@@ -76,13 +76,24 @@ function parliamentNews(d) {
   }
   return null;
 }
+// influenza in the papers: the one weekly figure we have from the record (116 deaths, week ended 14 February) in
+// figures; the other weeks only in words, rising or falling as the epidemic did
+function fluNews(d) {
+  const H = require('./health1931.js'), wd = dateOf(d).getUTCDay(); if (wd !== 3) return null;   // the Registrar-General's return, in Wednesday's papers
+  if (iso(d) === '1931-02-18') return 'INFLUENZA. Deaths from influenza in London in the week ended Saturday numbered 116, the highest figure of the winter; doctors report the epidemic at its height.';
+  const now = H.fluDeathsWeek(d - 4), before = H.fluDeathsWeek(d - 11);
+  if (now < 20) return null;
+  return now > before * 1.1 ? 'INFLUENZA. The influenza is spreading in London; the deaths from it rose again last week, and doctors are busy in every district.'
+    : now < before * 0.9 ? 'INFLUENZA. The deaths from influenza in London fell last week, and it is hoped that the epidemic has passed its worst.' : 'INFLUENZA. The influenza still has a hold on London.';
+}
 // the paper of the day as each household would have it: what they read beyond the cables
 function paperItems(d, who, mod = 1200) {
   const out = [];
   if (dateOf(d).getUTCDay() === 6 && mod < 1020) d = d - 1;   // a morning paper on Saturday has not the afternoon's matches
   const keen = who === 'ada' ? ['Millwall'] : who === 'arthur' ? ['Arsenal', 'Millwall'] : ['Arsenal'];
   const f = footballNews(d, keen); if (f.length) out.push({ text: `FOOTBALL. ${f.map(x => x[0].toUpperCase() + x.slice(1)).join('. ')}.`, kind: 'football' });
+  const fl = fluNews(d); if (fl) out.push({ text: fl, kind: 'health' });
   if (who !== 'ada') { const p = parliamentNews(d); if (p && dateOf(d).getUTCDay() !== 1) out.push({ text: p, kind: 'parliament' }); }
   return out;
 }
-module.exports = { sun, moon, isDark, pubOpen, matchesOn, homeGame, resultWords, footballNews, parliamentNews, paperItems, CLUB, iso };
+module.exports = { fluNews, sun, moon, isDark, pubOpen, matchesOn, homeGame, resultWords, footballNews, parliamentNews, paperItems, CLUB, iso };

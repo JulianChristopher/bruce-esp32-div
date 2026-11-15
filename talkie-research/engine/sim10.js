@@ -1072,7 +1072,8 @@ async function resolveFree(k, said) {
 // every few hours, or when a person keeps failing: is the person stuck, or caught in a literary pattern? the world's ordinary answer
 async function gmReview(k) {
   const a = A[k]; a.gmReviewAt = WORLD.t; a.gmMiss = 0;
-  const g = await GM.review(gmCtx(k)); if (!g || !g.stuck || g.answer === 'none') return;
+  const g = await GM.review({ ...gmCtx(k), pressing: WORLD.urgency(k).map(u => `${u.key} (${Math.round(u.w)})`), failures: a.gmMissTotal || 0 }); if (!g || !g.stuck || g.answer === 'none') return;
+  a.gmLast = a.gmLast || {}; if (WORLD.t - (a.gmLast[g.answer] ?? -9999) < 720) return; a.gmLast[g.answer] = WORLD.t;
   STATS.gmReviews = STATS.gmReviews || {}; STATS.gmReviews[g.pattern + '>' + g.answer] = (STATS.gmReviews[g.pattern + '>' + g.answer] || 0) + 1;
   say(`   🎲 game master: ${a.short} ${g.pattern.replace('_', ' ')} → ${g.answer.replace(/_/g, ' ')}`);
   const home = () => { a.place = a.home; WORLD.people[k].place = a.home; };
@@ -1220,13 +1221,14 @@ async function deliberate(k, N = 3) {
   for (let i = 0; i < N; i++) {
     const ans = await ask(`${ctx}\n\nWhat does ${a.short} do now, as ${heshe(k)} truly would? Answer in the form: ${He} ... (one sentence)`);
     const said = sentences(ans || '', 1); if (!said) continue; const rf = await resolveFree(k, said), it = rf.it, r = rf.r; if (!it) continue;
-    if (r.why) { a.gmMiss = (a.gmMiss || 0) + 1; refused.push(`${said.replace(/^(he|she)\s+/i, '').replace(/\.$/, '')}, but ${r.why}`); continue; }
+    if (r.why) { a.gmMiss = (a.gmMiss || 0) + 1; a.gmMissTotal = (a.gmMissTotal || 0) + 1; refused.push(`${said.replace(/^(he|she)\s+/i, '').replace(/\.$/, '')}, but ${r.why}`); continue; }
     const key = r.aff.a.id + '|' + r.aff.label; const e = ideas.get(key) || { aff: r.aff, n: 0, said }; e.n++; ideas.set(key, e);
   }
   STATS.deliberations = (STATS.deliberations || 0) + 1;
   for (const x of refused.slice(0, 1)) remember(k, `${a.short} thought of trying to ${x.replace(/^./, c => c.toLowerCase())}.`, [], 1);
-  const list = [...ideas.values()].sort((x, y) => y.n - x.n);
+  let list = [...ideas.values()].sort((x, y) => y.n - x.n);
   if (!list.length) return null;
+  if (list.some(x => x.aff.a.id === 'd_despair')) { const dsp = list.find(x => x.aff.a.id === 'd_despair'); if (dsp.n < Math.ceil(N * 0.6) && list.length > 1) list = list.filter(x => x !== dsp); }
   if (list.length === 1 || list[0].n >= Math.ceil(N * 0.6)) { STATS.agreed = (STATS.agreed || 0) + 1; return { aff: list[0].aff, said: `${list[0].said} (${list[0].n} of ${N} thoughts agree)` }; }
   const order = list.map((_, i) => i).sort(() => Math.random() - 0.5);
   const labels = order.map(i => list[i].aff.label.replace(/ \(\d+ minutes' walk\)$/, ''));
@@ -1301,7 +1303,7 @@ const KEYACT = /half-crown|^Give Edith|^Buy |Pay Mr\. Gedge|Pawn|Redeem|Fetch Dr
 // one decision: the engine offers what can be done here and now, ranked by need and habit; talkie chooses
 async function act(k) {
   const a = A[k]; WORLD.mover = k;
-  if (GMON && ((a.gmMiss || 0) >= 2 || WORLD.t - (a.gmReviewAt ?? WORLD.t - 999) >= 180)) { try { await gmReview(k); } catch (e) { STATS.gmErrors = (STATS.gmErrors || 0) + 1; } }
+  if (GMON && ((a.gmMiss || 0) >= 2 || WORLD.t - (a.gmReviewAt ?? WORLD.t - 999) >= 360)) { try { await gmReview(k); } catch (e) { STATS.gmErrors = (STATS.gmErrors || 0) + 1; } }
   for (const p of presentAt(k)) if (!a.metToday.has(p)) await greet(k, p);
   for (const o of a.obs.splice(0)) if (!/came in|left\./.test(o.text)) remember(k, `(Seen) ${o.text}`, [], 1);
   const all = WORLD.affordances(k);

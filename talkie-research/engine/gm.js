@@ -44,6 +44,7 @@ function describe(ctx) {
     ctx.present && ctx.present.length ? `Here: ${ctx.present.map(p => `${p.name} [${p.id}]`).join('; ')}.` : 'Nobody else here.',
     `People who can be named (id): ${ctx.people.map(p => `${p.id}=${p.name}`).join(', ')}.`,
     `Places (id, open now?): ${ctx.places.map(p => `${p.id}${p.open ? '' : ' (shut)'}`).join(', ')}.`,
+    ctx.pressing ? `Pressing now (engine's measure, 0-100): ${ctx.pressing.length ? ctx.pressing.join(', ') : 'nothing'}.` : '', ctx.failures ? `Attempts the world refused or did not understand today: ${ctx.failures}.` : '',
     ctx.recent && ctx.recent.length ? `Recently:\n- ${ctx.recent.join('\n- ')}` : ''].filter(Boolean).join('\n');
 }
 const S_INTERPRET = { type: 'object', additionalProperties: false, required: ['op', 'item', 'goods', 'person', 'place', 'pence', 'plausible'], properties: {
@@ -58,6 +59,6 @@ async function interpret(ctx, sentence) {
 const S_REVIEW = { type: 'object', additionalProperties: false, required: ['stuck', 'pattern', 'answer'], properties: {
   stuck: { type: 'boolean' }, pattern: { type: 'string', enum: ['none', 'despair', 'pawning_spiral', 'melodrama', 'repetition', 'forgetting_facts'] },
   answer: { type: 'string', enum: ['none', 'neighbour_calls', 'constable_speaks', 'goes_home_to_rest', 'ask_directly_about_rent', 'remind_of_purse', 'friend_offers_work'] } } };
-async function review(ctx) { return call(`${describe(ctx)}\n\nLook at the person's recent course. Is the person stuck (doing nothing that answers what presses, or the same thing again and again), or caught in a literary pattern rather than the sober course a real person of 1931 would take? Which ordinary answer of the world fits best?`, S_REVIEW); }
+async function review(ctx) { return call(`${describe(ctx)}\n\nLook at the person's recent course. Ordinary routine repeated (work at the office, meals, sleep, housework, the daily round) is normal life and NOT stuck. Answer stuck=true only if (a) something pressing is going unanswered while the person does unrelated or failing things, or (b) the same failing attempt is repeated, or (c) the person's words show despair or melodrama out of proportion to the facts (money in hand, food, rent). If not clearly so, answer stuck=false, pattern none, answer none. Which ordinary answer of the world fits best?`, S_REVIEW); }
 function setLog(dir) { LOG = path.join(dir, 'gm_log.jsonl'); }
 module.exports = { interpret, review, describe, STATS, OPS, setLog, MODEL };

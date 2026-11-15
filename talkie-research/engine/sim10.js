@@ -1035,6 +1035,54 @@ function mk(k, id, label, at, dur, cost, effect, meets = {}) { const walk = at ?
 function findAff(k, id, pred = () => true) { return WORLD.affordances(k).find(x => x.a.id === id && pred(x)) || null; }
 // returns { aff } to perform, or { why } when the world does not allow it
 const VERBS = require('./verbs.js');
+// ---------- the game master (gm.js): a modern model that maps free sentences to engine operations and notices when a
+// person is stuck or caught in a literary pattern; it answers only in fixed structures, never in words a character sees
+const GM = require('./gm.js'); GM.setLog(OUT); const GMON = !FAKE && process.env.GM !== '0';
+const { goodsIn } = require('./goods1931.js');
+function gmCtx(k) {
+  const a = A[k], present = WORLD.presentWith(k).map(p => ({ id: p.id, name: p.name }));
+  const key = ['ada', 'arthur', 'thomas', 'bert', 'nolan', 'barker', 'lamb', 'gedge', 'edith', 'joan', 'fenn', 'pc', 'doctor', 'hughes', 'relieving', 'pollock', 'mrspollock', 'bray', 'dunn', 'simms'];
+  const people = [...new Set([...key, ...present.map(p => p.id)])].filter(id => WORLD.people[id] || id === 'doctor').map(id => ({ id, name: WORLD.people[id] ? WORLD.people[id].name : 'Dr. Gray' }));
+  const places = Object.keys(WORLD.places).map(id => ({ id, open: !WORLD.places[id].open || WORLD.isOpen(id) }));
+  const objs = Object.values(WORLD.objects);
+  return { date: DAYS[W.day], time: clock(WORLD.mod), who: k, name: a.name, place: `${PLACE[a.place]} [${a.place}]`, purse: money(Math.max(0, a.money)),
+    rentDue: k === 'ada' && (F.rentDue || F.rentOwing) ? (F.rentOwing ? 'owing; the collector comes again on Monday evening' : 'due tonight; the collector calls at seven') : '',
+    own: objs.filter(o => o.at === k && o.value).map(o => o.name), inPawn: k === 'ada' ? objs.filter(o => o.at === 'lamb').map(o => o.name) : [],
+    present, people, places, recent: TRACE.filter(x => x.agent === k).slice(-6).map(x => `${x.time}: ${String(x.result || x.choice).slice(0, 120)}`) };
+}
+const findItem = t => { const s = ' ' + (t || '').toLowerCase() + ' '; const hit = VERBS.ITEMS.find(([re]) => re.test(s)); return hit ? hit[1] : null; };
+// a free sentence to a deed: the grammar first; if it cannot place the sentence, the game master
+async function resolveFree(k, said) {
+  const it = INTENT.parse(said); let r = it ? resolve(k, it) : null;
+  const frameVerb = (VERBS.frame(said) || {}).verb;
+  const unclear = !it || !r || (r.why && /not clear|nobody to|nothing of that kind|nowhere of that kind|not understood/.test(r.why)) || (frameVerb === 'other' && !(r && r.aff));
+  if (!unclear || !GMON) return { it, r: r || { why: 'not understood' } };
+  STATS.gmInterpret = (STATS.gmInterpret || 0) + 1;
+  const g = await GM.interpret(gmCtx(k), said);
+  if (!g) return { it, r: r || { why: 'not understood' } };
+  if (g.op === 'none') { const rest = findAff(k, 'rest') || (r && r.aff) || null; return { it: it || { text: said, verb: 'rest' }, r: rest ? { aff: rest } : { why: 'nothing is done' } }; }
+  if (!g.plausible) { STATS.gmImplausible = (STATS.gmImplausible || 0) + 1; return { it, r: { why: 'that would not be done in 1931 (game master)' } }; }
+  const item = findItem(g.item), f = { verb: g.op, goods: goodsIn(g.goods), item, persons: g.person && (WORLD.people[g.person] || g.person === 'doctor') ? [g.person] : [], place: g.place && WORLD.places[g.place] ? g.place : null, amount: g.pence || null, purpose: null,
+    text: g.item && !item ? `${heshe(k)} ${g.op}s ${/^(her|his|the|a|an) /i.test(g.item) ? g.item : 'the ' + g.item}.` : said, out: g.place === 'pub' };
+  let r2 = null; try { r2 = VERBS.deed(WORLD, k, f); } catch (e) { r2 = null; }
+  if (r2 && r2.plan && A[k].place !== A[k].home) { const gh = findAff(k, 'go_home'); if (gh) { A[k].plan = { text: said, verb: g.op }; r2 = { aff: gh }; } }
+  STATS.gmMapped = (STATS.gmMapped || 0) + (r2 && r2.aff ? 1 : 0);
+  return { it: it || { text: said, verb: g.op }, r: r2 && (r2.aff || r2.why) ? r2 : { why: 'not understood' } };
+}
+// every few hours, or when a person keeps failing: is the person stuck, or caught in a literary pattern? the world's ordinary answer
+async function gmReview(k) {
+  const a = A[k]; a.gmReviewAt = WORLD.t; a.gmMiss = 0;
+  const g = await GM.review(gmCtx(k)); if (!g || !g.stuck || g.answer === 'none') return;
+  STATS.gmReviews = STATS.gmReviews || {}; STATS.gmReviews[g.pattern + '>' + g.answer] = (STATS.gmReviews[g.pattern + '>' + g.answer] || 0) + 1;
+  say(`   🎲 game master: ${a.short} ${g.pattern.replace('_', ' ')} → ${g.answer.replace(/_/g, ' ')}`);
+  const home = () => { a.place = a.home; WORLD.people[k].place = a.home; };
+  if (g.answer === 'remind_of_purse') remember(k, `${a.short} counted up what ${heshe(k)} had: ${VERBS.reckoning(WORLD, k)}`, [], 3);
+  else if (g.answer === 'neighbour_calls') { const nb = k === 'ada' ? 'nolan' : k === 'arthur' ? 'edith' : 'dunn'; remember(k, `${nameOf(nb)} came and sat with ${himher(k)} a while, and talked of ordinary things.`, [nb], 2); jolt(k, 'comfort', 15); if (a.op) a.op[nb] = Math.min(2, (a.op[nb] || 0) + 0.5); }
+  else if (g.answer === 'constable_speaks') { if (a.place !== a.home) { remember(k, `P.C. Dawe, on his beat, spoke kindly to ${himher(k)} and told ${himher(k)} to go home out of the cold.`, ['pc'], 2); home(); } }
+  else if (g.answer === 'goes_home_to_rest') { home(); a.busyUntil = WORLD.t + 60; a.needs.energy = Math.max(0, a.needs.energy - 20); remember(k, `${a.short} went home and sat quiet a while.`, [], 1); }
+  else if (g.answer === 'ask_directly_about_rent' && k === 'ada') { W['rentAsked' + W.day] = false; remember('ada', `${a.short} counted up what she had: ${VERBS.reckoning(WORLD, 'ada')}`, [], 3); }
+  else if (g.answer === 'friend_offers_work' && k === 'ada') { remember('ada', 'Mrs. Nolan offered her a share of the washing she takes in: two hours at the copper tomorrow, for eightpence.', ['nolan', 'work'], 3); WORLD.schedule((W.day + 1) * 1440 + hm(14), () => { if (!F.ill_ada) { A.ada.money += 8; remember('ada', 'She did two hours of Mrs. Nolan\'s washing and was paid eightpence.', ['nolan'], 2); } }, 'washing share'); }
+}
 function resolve(k, it) {
   if (it.text && !it._inner) {
     const f = VERBS.frame(it.text);
@@ -1171,8 +1219,8 @@ async function deliberate(k, N = 3) {
   const ctx = openContext(k), ideas = new Map(), refused = [];
   for (let i = 0; i < N; i++) {
     const ans = await ask(`${ctx}\n\nWhat does ${a.short} do now, as ${heshe(k)} truly would? Answer in the form: ${He} ... (one sentence)`);
-    const said = sentences(ans || '', 1), it = INTENT.parse(said); if (!it) continue;
-    const r = resolve(k, it); if (r.why) { refused.push(`${said.replace(/^(he|she)\s+/i, '').replace(/\.$/, '')}, but ${r.why}`); continue; }
+    const said = sentences(ans || '', 1); if (!said) continue; const rf = await resolveFree(k, said), it = rf.it, r = rf.r; if (!it) continue;
+    if (r.why) { a.gmMiss = (a.gmMiss || 0) + 1; refused.push(`${said.replace(/^(he|she)\s+/i, '').replace(/\.$/, '')}, but ${r.why}`); continue; }
     const key = r.aff.a.id + '|' + r.aff.label; const e = ideas.get(key) || { aff: r.aff, n: 0, said }; e.n++; ideas.set(key, e);
   }
   STATS.deliberations = (STATS.deliberations || 0) + 1;
@@ -1213,9 +1261,10 @@ async function openChoice(k) {
   const ctx = `${perceive(k, '')}${usual.length ? `\nUSUALLY AT THIS HOUR: ${usual.join('; ')}.` : ''}\nAT HAND: ${near.length ? near.join(', ') + ' here; ' : ''}${openNear.length ? 'open near by: ' + openNear.join('; ') : 'nothing open near by'}.`;
   const ans = await ask(`${ctx}\n\nWhat does ${a.short} do now, as ${heshe(k)} truly would? Answer in the form: ${He} ... (one sentence)`);
   STATS.open = (STATS.open || 0) + 1;
-  const it = INTENT.parse(sentences(ans || '', 1));
+  const said1 = sentences(ans || '', 1); if (!said1) { STATS.openEmpty = (STATS.openEmpty || 0) + 1; return null; }
+  const rf = await resolveFree(k, said1), it = rf.it, r = rf.r;
   if (!it) { STATS.openEmpty = (STATS.openEmpty || 0) + 1; return null; }
-  const r = resolve(k, it);
+  if (r.why) a.gmMiss = (a.gmMiss || 0) + 1;
   if (r.why) { STATS.openRefused = (STATS.openRefused || 0) + 1; remember(k, `${a.short} meant to ${it.text.replace(/^(he|she)\s+/i, '').replace(/\.$/, '')}, but ${r.why}.`, [], 1); say(`   ${a.short} wants: "${sentences(ans, 1)}" — but ${r.why}.`); return null; }
   if (it.needsGM && !(await plausible(k, sentences(ans, 1)))) { say(`   ${a.short} would not do that in 1931 (game master): "${sentences(ans, 1)}"`); return null; }
   STATS.openUsed = (STATS.openUsed || 0) + 1; STATS.openVerbs = STATS.openVerbs || {}; STATS.openVerbs[it.verb] = (STATS.openVerbs[it.verb] || 0) + 1;
@@ -1252,6 +1301,7 @@ const KEYACT = /half-crown|^Give Edith|^Buy |Pay Mr\. Gedge|Pawn|Redeem|Fetch Dr
 // one decision: the engine offers what can be done here and now, ranked by need and habit; talkie chooses
 async function act(k) {
   const a = A[k]; WORLD.mover = k;
+  if (GMON && ((a.gmMiss || 0) >= 2 || WORLD.t - (a.gmReviewAt ?? WORLD.t - 999) >= 180)) { try { await gmReview(k); } catch (e) { STATS.gmErrors = (STATS.gmErrors || 0) + 1; } }
   for (const p of presentAt(k)) if (!a.metToday.has(p)) await greet(k, p);
   for (const o of a.obs.splice(0)) if (!/came in|left\./.test(o.text)) remember(k, `(Seen) ${o.text}`, [], 1);
   const all = WORLD.affordances(k);
@@ -1411,7 +1461,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     if (d + 1 < ND && dateOf(d + 1).getUTCMonth() !== dateOf(d).getUTCMonth()) { try { for (const k in A) await monthReview(k); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }
     if (DOW(d) === 'sun') consolidate();
     METRICS.days.push({ day: d, asks: STATS.asks - asks0, money: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, a.money])), needs: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, { ...a.needs }])), chem: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, { ...a.chem }])), inv: { ...A.ada.inv }, op: JSON.parse(JSON.stringify(Object.fromEntries(Object.entries(A).map(([k, a]) => [k, a.op])))), world: { ...WORLD.stats, performed: { ...WORLD.stats.performed } } });
-    fs.writeFileSync(path.join(OUT, 'metrics.json'), JSON.stringify({ METRICS, STATS, W }, null, 1));
+    STATS.gm = GM.STATS; fs.writeFileSync(path.join(OUT, 'metrics.json'), JSON.stringify({ METRICS, STATS, W }, null, 1));
     fs.writeFileSync(path.join(OUT, 'story.txt'), STORY.join('\n'));
     fs.writeFileSync(path.join(OUT, 'trace.json'), JSON.stringify(TRACE));
   }
@@ -1424,7 +1474,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
   say(`MEMORY: ${P.filter(p => p.ok).length}/${P.length} correct; by age: ${JSON.stringify([1, 3, 7, 14, 30, 60].map(a => [a, P.filter(p => p.age >= a).length ? +(P.filter(p => p.age >= a && p.ok).length / P.filter(p => p.age >= a).length).toFixed(2) : null]))}`);
   for (const [lab, fl] of [['life', p => p.kind !== 'news'], ['news', p => p.kind === 'news'], ['aided', p => p.aided], ['unaided', p => !p.aided], ['final', p => p.final]]) { const x = P.filter(fl); say(`MEMORY ${lab}: ${x.filter(p => p.ok).length}/${x.length}, unreadable ${x.filter(p => p.answer === null).length}`); }
   say(`DIARIES: ${D.reduce((s, x) => s + x.kept, 0)}/${D.reduce((s, x) => s + x.facts, 0)} key facts kept`);
-  fs.writeFileSync(path.join(OUT, 'metrics.json'), JSON.stringify({ METRICS, STATS, W }, null, 1));
+  STATS.gm = GM.STATS; fs.writeFileSync(path.join(OUT, 'metrics.json'), JSON.stringify({ METRICS, STATS, W }, null, 1));
   fs.writeFileSync(path.join(OUT, 'story.txt'), STORY.join('\n'));
   if (browser) await browser.close();
   console.log('DONE');

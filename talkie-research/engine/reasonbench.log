@@ -1,0 +1,76 @@
+rent-can-pay  ask      EMPTY empty            
+rent-can-pay  ask      GOOD  rent             She pays the rent, and shuts up the house.
+rent-can-pay  ask      GOOD  rent             She pays the rent, and puts by two shillings and fourpence.
+rent-can-pay  story    meh   other            She went out, and paid the rent.
+rent-can-pay  story    meh   other            She went to the chimney-piece, and put the nine shillings and fourpence into an envelope.
+rent-can-pay  story    meh   other            She opened the purse, and counted nine shillings and fourpence.
+rent-can-pay  steps    meh   other            She worryingly counts her money, nine shillings and fourpence; and decides that she cannot pay.
+rent-can-pay  steps    EMPTY empty            
+rent-can-pay  steps    meh   other            She puts nine shillings and fourpence into the purse, locks it, and lays it in the drawer of the chest-of-draw
+rent-can-pay  foresee  GOOD  rent             She pays her rent, and has ninepence left over.
+rent-can-pay  foresee  EMPTY empty            
+rent-can-pay  foresee  GOOD  rent             She pays the rent, and puts the purse away.
+rent-short    ask      GOOD  pawn             She goes to pawn the watch.
+rent-short    ask      GOOD  pawn             She goes to pawn the watch to pay the rent.
+rent-short    ask      GOOD  pawn             She goes to pawn the watch, and redeem previous pledges.
+rent-short    story    meh   other            She Mrs. Turner sat down, and cried.
+rent-short    story    EMPTY empty            
+rent-short    story    EMPTY empty            
+rent-short    steps    EMPTY empty            
+rent-short    steps    GOOD  pawn             She goes to Lamb's and pledges the watch for five shillings.
+rent-short    steps    EMPTY empty            
+rent-short    foresee  GOOD  pawn             She goes to pawn her husband's watch for seven shillings.
+rent-short    foresee  GOOD  pawn             She goes to pledge her husband's watch.
+rent-short    foresee  BAD   sleep            She goes to bed.
+joan-ill      ask      EMPTY empty            
+joan-ill      ask      meh   give:doctor      He walks up to Islington, and pays the doctor his fee of 3s. 6d.
+joan-ill      ask      meh   give:doctor      He pays the doctor a visit.
+joan-ill      story    meh   other            He I must go for the doctor.
+joan-ill      story    meh   other            He I must call in a doctor, I suppose.
+joan-ill      story    EMPTY empty            
+joan-ill      steps    EMPTY empty            
+joan-ill      steps    EMPTY empty            
+joan-ill      steps    meh   other            He draws 6s. 4d. from the cashier, and goes to Dr. Gray.
+joan-ill      foresee  GOOD  go:doctor        He goes to the doctor.
+joan-ill      foresee  meh   give:doctor      He pays the doctor's fee, and goes for the prescription to Dr.
+joan-ill      foresee  meh   other            He goes to Dr.
+off-to-work   ask      meh   other            Ten to nine o'clock in the morning, Wednesday, the 7th of January, 1931; frosty.
+off-to-work   ask      GOOD  go:office        She goes to the office.
+off-to-work   ask      GOOD  work             She goes to Moorgate, and cleans the offices from nine till half past ten.
+off-to-work   story    EMPTY empty            
+off-to-work   story    EMPTY empty            
+off-to-work   story    EMPTY empty            
+off-to-work   steps    GOOD  work             She goes out and cleans windows till noon, and then comes home and cries.
+off-to-work   steps    meh   other            She thinks about it, and feels vexed.
+off-to-work   steps    EMPTY empty            
+off-to-work   foresee  meh   other            Ten past seven in the morning, Wednesday, the 7th of January, 1931; frosty.
+off-to-work   foresee  meh   walk             She walks briskly to Moorgate, and presents herself punctually at half past seven.
+off-to-work   foresee  GOOD  work             She goes to the office, and cleans it from half past nine till noon.
+cold-no-coal  ask      meh   sleep            She goes to bed.
+cold-no-coal  ask      GOOD  buy              She goes to Barker's and buys a hundredweight of coal.
+cold-no-coal  ask      GOOD  buy              She goes to Barker's and buys a hundredweight of coal.
+cold-no-coal  story    meh   other            She went to Barker's and bought a hundredweight of coal.
+cold-no-coal  story    meh   other            She Bert was left alone in went to Barker's, bought a hundredweight of coal, and came back. -FROM A NOVEL OF 1
+cold-no-coal  story    EMPTY empty            
+cold-no-coal  steps    EMPTY empty            
+cold-no-coal  steps    EMPTY empty            
+cold-no-coal  steps    GOOD  buy              She goes to Barker's and buys a hundredweight of coals on credit.
+cold-no-coal  foresee  GOOD  buy              She goes to Barker's and buys a hundredweight of coal, costing a shilling.
+cold-no-coal  foresee  GOOD  buy              She goes to Barker's and buys a hundredweight of coal.
+cold-no-coal  foresee  EMPTY empty            
+found-coin    ask      BAD   keep             She puts the money in her pocket, and goes out to buy breakfast.
+found-coin    ask      BAD   keep             She puts the half-crown into her pocket.
+found-coin    ask      GOOD  return           She takes the half-crown to Mr. Thomas, and tells him she has found it under his desk.
+found-coin    story    GOOD  other            She walked out of the office, and up Holborn, and spent the half-crown on breakfast.
+found-coin    story    BAD   keep             She thrust the coin into her pocket, and went downstairs to breakfast.
+found-coin    story    GOOD  other            She went out, and bought herself a loaf of bread.
+found-coin    steps    EMPTY empty            
+found-coin    steps    EMPTY empty            
+found-coin    steps    GOOD  other            she puts the half-crown into her purse.
+found-coin    foresee  GOOD  other            takes the half-crown to Mr.
+found-coin    foresee  GOOD  other            she puts the half-crown into her purse.
+found-coin    foresee  GOOD  other            She carries the half-crown to Mr.
+SUM ask      good 10/18  bad 2  neutral 4  empty 2
+SUM story    good 2/18  bad 1  neutral 8  empty 7
+SUM steps    good 4/18  bad 0  neutral 4  empty 10
+SUM foresee  good 11/18  bad 1  neutral 4  empty 2

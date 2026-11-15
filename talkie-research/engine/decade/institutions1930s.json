@@ -1,0 +1,45 @@
+{
+ "_about": "Dated changes of the rules that touch daily life in London, 1931-1940, for the engine. 'sure': confirmed by the source given; 'check': the date or figure is from secondary sources or not fully confirmed. Prices in pence.",
+ "summer_time": {
+  "_source": "https://www.polyomino.org.uk/british-time ; https://www.timeanddate.com/time/change/uk/london?year=1939",
+  "1931": ["1931-04-19", "1931-10-04"], "1932": ["1932-04-17", "1932-10-02"], "1933": ["1933-04-09", "1933-10-08"], "1934": ["1934-04-22", "1934-10-07"],
+  "1935": ["1935-04-14", "1935-10-06"], "1936": ["1936-04-19", "1936-10-04"], "1937": ["1937-04-04", "1937-10-03"], "1938": ["1938-04-10", "1938-10-02"],
+  "1939": ["1939-04-16", "1939-11-19"], "1940": ["1940-02-25", null]
+ },
+ "changes": [
+  {"date": "1931-08-24", "what": "Labour Government resigns; National Government under Ramsay MacDonald", "kind": "politics", "status": "sure", "source": "https://en.wikipedia.org/wiki/1931_in_the_United_Kingdom"},
+  {"date": "1931-09-21", "what": "Britain leaves the gold standard", "kind": "economy", "status": "sure", "source": "https://en.wikipedia.org/wiki/1931_in_the_United_Kingdom"},
+  {"date": "1931-10-08", "what": "Unemployment benefit cut by a tenth: a single man 17s. to 15s. 3d.; a married man with wife from 30s. to 27s. 3d.", "kind": "benefit", "set": {"dole_man": 183, "dole_man_wife": 327}, "status": "check: rates sure (Hansard 23 Mar 1932), effective date not confirmed", "source": "https://api.parliament.uk/historic-hansard/commons/1932/mar/23/unemployment-1"},
+  {"date": "1931-10-27", "what": "General election: National Government returned with a great majority", "kind": "politics", "status": "sure", "source": "https://en.wikipedia.org/wiki/1931_in_the_United_Kingdom"},
+  {"date": "1931-11-12", "what": "The means test: after 26 weeks, 'transitional payments' only after a household means test by the Public Assistance Committee", "kind": "benefit", "set": {"means_test": true}, "status": "check: month sure, day not confirmed", "source": "https://api.parliament.uk/historic-hansard/commons/1932/apr/05/transitional-payments-prolongation"},
+  {"date": "1933-07-01", "what": "London Passenger Transport Board takes over the trams, buses and Underground", "kind": "transport", "status": "sure", "source": "https://en.wikipedia.org/wiki/1933_in_the_United_Kingdom"},
+  {"date": "1934-07-01", "what": "Unemployment benefit cuts fully restored (Unemployment Act 1934): a single man 17s. again", "kind": "benefit", "set": {"dole_man": 204, "dole_man_wife": 360}, "status": "sure", "source": "https://api.parliament.uk/historic-hansard/commons/1934/apr/17/unemployment-benefit-cut-full-restoration"},
+  {"date": "1935-05-06", "what": "Silver Jubilee of King George V: a public holiday, streets decorated", "kind": "holiday", "status": "sure", "source": "https://en.wikipedia.org/wiki/1935_in_the_United_Kingdom"},
+  {"date": "1935-06-07", "what": "Stanley Baldwin Prime Minister", "kind": "politics", "status": "sure", "source": "https://en.wikipedia.org/wiki/1935_in_the_United_Kingdom"},
+  {"date": "1935-11-14", "what": "General election", "kind": "politics", "status": "sure", "source": "https://en.wikipedia.org/wiki/1935_in_the_United_Kingdom"},
+  {"date": "1936-01-20", "what": "Death of King George V; Edward VIII King", "kind": "crown", "status": "sure", "source": "https://en.wikipedia.org/wiki/1936_in_the_United_Kingdom"},
+  {"date": "1936-10-04", "what": "Battle of Cable Street in the East End", "kind": "public order", "status": "sure", "source": "https://en.wikipedia.org/wiki/1936_in_the_United_Kingdom"},
+  {"date": "1936-11-30", "what": "The Crystal Palace burns down; the glow is seen across London", "kind": "event", "status": "sure", "source": "https://en.wikipedia.org/wiki/1936_in_the_United_Kingdom"},
+  {"date": "1936-12-11", "what": "Abdication of Edward VIII; George VI King", "kind": "crown", "status": "sure", "source": "https://en.wikipedia.org/wiki/1936_in_the_United_Kingdom"},
+  {"date": "1937-05-12", "what": "Coronation of George VI: a public holiday", "kind": "holiday", "status": "sure", "source": "https://en.wikipedia.org/wiki/1937_in_the_United_Kingdom"},
+  {"date": "1937-05-28", "what": "Neville Chamberlain Prime Minister", "kind": "politics", "status": "sure", "source": "https://en.wikipedia.org/wiki/1937_in_the_United_Kingdom"},
+  {"date": "1938-09", "what": "Munich crisis: gas masks issued to Londoners, trenches dug in the parks", "kind": "war", "status": "check: month sure", "source": "https://en.wikipedia.org/wiki/1938_in_the_United_Kingdom"},
+  {"date": "1938-09-30", "what": "Munich Agreement: 'peace for our time'", "kind": "war", "status": "sure", "source": "https://en.wikipedia.org/wiki/1938_in_the_United_Kingdom"},
+  {"date": "1939-09-01", "what": "Evacuation of schoolchildren from London begins; the blackout", "kind": "war", "set": {"blackout": true, "evacuation": true}, "status": "sure", "source": "https://en.wikipedia.org/wiki/1939_in_the_United_Kingdom"},
+  {"date": "1939-09-03", "what": "Britain declares war on Germany; men 18-41 liable to call-up (National Service (Armed Forces) Act)", "kind": "war", "set": {"war": true, "callup": true}, "status": "sure", "source": "https://en.wikipedia.org/wiki/1939_in_the_United_Kingdom"},
+  {"date": "1939-09-24", "what": "Petrol rationing", "kind": "rationing", "status": "sure", "source": "https://en.wikipedia.org/wiki/1939_in_the_United_Kingdom"},
+  {"date": "1939-09-29", "what": "National Register taken; identity cards", "kind": "war", "status": "sure", "source": "https://en.wikipedia.org/wiki/1939_in_the_United_Kingdom"},
+  {"date": "1940-01-08", "what": "Food rationing: bacon and ham 4 oz, butter 4 oz, sugar 12 oz a person a week", "kind": "rationing", "set": {"ration": {"bacon_oz": 4, "butter_oz": 4, "sugar_oz": 12}}, "status": "sure for the date; amounts as usually given", "source": "https://en.wikipedia.org/wiki/Rationing_in_the_United_Kingdom"},
+  {"date": "1940-03-11", "what": "Meat rationed by price", "kind": "rationing", "set": {"ration_meat_by_price": true}, "status": "check: day and the value per person differ between sources", "source": "https://en.wikipedia.org/wiki/Rationing_in_the_United_Kingdom"},
+  {"date": "1940-05-10", "what": "Winston Churchill Prime Minister", "kind": "politics", "status": "sure", "source": "https://en.wikipedia.org/wiki/1940_in_the_United_Kingdom"},
+  {"date": "1940-05-26", "what": "Dunkirk evacuation (to 4 June)", "kind": "war", "status": "sure", "source": "https://en.wikipedia.org/wiki/1940_in_the_United_Kingdom"},
+  {"date": "1940-07", "what": "Tea (2 oz), margarine and cooking fats rationed", "kind": "rationing", "status": "check: month sure, day not confirmed", "source": "https://en.wikipedia.org/wiki/Rationing_in_the_United_Kingdom"},
+  {"date": "1940-09-07", "what": "The Blitz begins: 'Black Saturday', the Surrey Commercial Docks in Rotherhithe and Bermondsey set on fire; raids on London nearly every night after", "kind": "war", "set": {"blitz": true}, "status": "sure", "source": "https://en.wikipedia.org/wiki/The_Blitz"}
+ ],
+ "steady": {
+  "_about": "Rules that did not change in the decade (as far as checked)",
+  "old_age_pension": "10s. a week at 70 (non-contributory, means-tested), and at 65 for the insured (contributory)",
+  "licensing_london": "weekdays 11.30-3 and 5.30-11; Sundays 12.30-2.30 and 7-10 (Licensing Act 1921; not checked against a source)",
+  "school_leaving_age": "14"
+ }
+}

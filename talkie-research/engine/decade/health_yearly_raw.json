@@ -1,0 +1,295 @@
+{
+"Bermondsey:1931": {
+"report": "https://wellcomelibrary.org/moh/report/b18218635",
+"death_rate": [
+"13.1"
+],
+"infant_mortality": [
+"57",
+"25"
+],
+"influenza_deaths": [],
+"birth_rate": [
+"17.4"
+],
+"population": [],
+"vital_pages": "https://wellcomelibrary.org/moh/report/b18218635/8-13"
+},
+"Bermondsey:1932": {
+"report": "https://wellcomelibrary.org/moh/report/b18218647",
+"death_rate": [
+"12.0"
+],
+"infant_mortality": [
+"25"
+],
+"influenza_deaths": [],
+"birth_rate": [
+"16.6"
+],
+"population": [],
+"vital_pages": "https://wellcomelibrary.org/moh/report/b18218647/8-13"
+},
+"Bermondsey:1933": {
+"report": "https://wellcomelibrary.org/moh/report/b18218659",
+"death_rate": [
+"12.5"
+],
+"infant_mortality": [
+"25"
+],
+"influenza_deaths": [],
+"birth_rate": [
+"14.0"
+],
+"population": [],
+"vital_pages": "https://wellcomelibrary.org/moh/report/b18218659/8-13"
+},
+"Bermondsey:1934": {
+"report": "https://wellcomelibrary.org/moh/report/b18218660",
+"death_rate": [],
+"infant_mortality": [],
+"influenza_deaths": [],
+"birth_rate": [
+"14.8"
+],
+"population": [],
+"vital_pages": "https://wellcomelibrary.org/moh/report/b18218660/8-13"
+},
+"Bermondsey:1935": {
+"report": "https://wellcomelibrary.org/moh/report/b18218672",
+"death_rate": [
+"11.7"
+],
+"infant_mortality": [
+"25"
+],
+"influenza_deaths": [],
+"birth_rate": [
+"14.5"
+],
+"population": [],
+"vital_pages": "https://wellcomelibrary.org/moh/report/b18218672/8-13"
+},
+"Bermondsey:1936": {
+"report": "https://wellcomelibrary.org/moh/report/b18218684",
+"death_rate": [
+"12.8"
+],
+"infant_mortality": [
+"25"
+],
+"influenza_deaths": [],
+"birth_rate": [
+"15.4"
+],
+"population": [],
+"vital_pages": "https://wellcomelibrary.org/moh/report/b18218684/8-13"
+},
+"Bermondsey:1937": {
+"report": "https://wellcomelibrary.org/moh/report/b18218702",
+"death_rate": [
+"12.3"
+],
+"infant_mortality": [
+"25"
+],
+"influenza_deaths": [],
+"birth_rate": [
+"14.4"
+],
+"population": [],
+"vital_pages": "https://wellcomelibrary.org/moh/report/b18218702/8-13"
+},
+"Bermondsey:1938": {
+"report": "https://wellcomelibrary.org/moh/report/b18218726",
+"death_rate": [
+"11.0",
+"0.68",
+"11.0"
+],
+"infant_mortality": [
+"45",
+"25"
+],
+"influenza_deaths": [],
+"birth_rate": [
+"14.8"
+],
+"population": [],
+"vital_pages": "https://wellcomelibrary.org/moh/report/b18218726/8-13"
+},
+"Bermondsey:1939": {
+"report": "https://wellcomelibrary.org/moh/report/b18218738",
+"death_rate": [
+"11.2"
+],
+"infant_mortality": [
+"223",
+"223"
+],
+"influenza_deaths": [],
+"birth_rate": [
+"13.4"
+],
+"population": [],
+"vital_pages": "https://wellcomelibrary.org/moh/report/b18218738/8-13"
+},
+"Islington:1931": {
+"report": "https://wellcomelibrary.org/moh/report/b18239122",
+"death_rate": [
+"12.6",
+"0.87",
+"12.0",
+"12.6"
+],
+"infant_mortality": [
+"64"
+],
+"influenza_deaths": []
+},
+"Islington:1932": {
+"report": "https://wellcomelibrary.org/moh/report/b18239134",
+"death_rate": [
+"12.36",
+"0.56",
+"0.95",
+"0.81"
+],
+"infant_mortality": [
+"68",
+"68"
+],
+"influenza_deaths": []
+},
+"Islington:1933": {
+"report": "https://wellcomelibrary.org/moh/report/b18239146",
+"death_rate": [
+"12.40",
+"0.49",
+"0.98"
+],
+"infant_mortality": [
+"63"
+],
+"influenza_deaths": []
+},
+"Islington:1934": {
+"report": "https://wellcomelibrary.org/moh/report/b19792487",
+"death_rate": [
+"11.85",
+"0.46",
+"0.89",
+"0.81"
+],
+"infant_mortality": [
+"62"
+],
+"influenza_deaths": []
+},
+"Islington:1935": {
+"report": "https://wellcomelibrary.org/moh/report/b18239158",
+"death_rate": [
+"0.31",
+"0.72",
+"0.65"
+],
+"infant_mortality": [
+"52"
+],
+"influenza_deaths": []
+},
+"Islington:1937": {
+"report": "https://wellcomelibrary.org/moh/report/b18239171",
+"death_rate": [
+"12.90",
+"0.40",
+"0.77",
+"0.69"
+],
+"infant_mortality": [
+"66",
+"66",
+"94",
+"60"
+],
+"influenza_deaths": []
+},
+"Islington:1938": {
+"report": "https://wellcomelibrary.org/moh/report/b18239183",
+"death_rate": [
+"11.90",
+"0.59",
+"0.81",
+"0.72"
+],
+"infant_mortality": [
+"65",
+"65",
+"57"
+],
+"influenza_deaths": []
+},
+"Islington:1939": {
+"report": "https://wellcomelibrary.org/moh/report/b18239195",
+"death_rate": [
+"0.93"
+],
+"infant_mortality": [],
+"influenza_deaths": []
+},
+"Islington:1940": {
+"report": "https://wellcomelibrary.org/moh/report/b18239201",
+"death_rate": [],
+"infant_mortality": [],
+"influenza_deaths": []
+},
+"London County Council:1931": {
+"report": "https://wellcomelibrary.org/moh/report/b18252783",
+"death_rate": [],
+"infant_mortality": [],
+"influenza_deaths": []
+},
+"London County Council:1932": {
+"report": "https://wellcomelibrary.org/moh/report/b18252795",
+"death_rate": [],
+"infant_mortality": [],
+"influenza_deaths": []
+},
+"London County Council:1933": {
+"report": "https://wellcomelibrary.org/moh/report/b18252801",
+"death_rate": [],
+"infant_mortality": [],
+"influenza_deaths": []
+},
+"London County Council:1934": {
+"report": "https://wellcomelibrary.org/moh/report/b18252813",
+"death_rate": [],
+"infant_mortality": [],
+"influenza_deaths": []
+},
+"London County Council:1935": {
+"report": "https://wellcomelibrary.org/moh/report/b18252825",
+"death_rate": [],
+"infant_mortality": [],
+"influenza_deaths": []
+},
+"London County Council:1936": {
+"report": "https://wellcomelibrary.org/moh/report/b18252837",
+"death_rate": [],
+"infant_mortality": [],
+"influenza_deaths": []
+},
+"London County Council:1937": {
+"report": "https://wellcomelibrary.org/moh/report/b18252849",
+"death_rate": [],
+"infant_mortality": [],
+"influenza_deaths": []
+},
+"London County Council:1940": {
+"report": "https://wellcomelibrary.org/moh/report/b18252862",
+"death_rate": [],
+"infant_mortality": [],
+"influenza_deaths": []
+}
+}

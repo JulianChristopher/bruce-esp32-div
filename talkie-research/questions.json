@@ -1,0 +1,61 @@
+[
+  {"id":"k1","cat":"Wissen bis 1930","turns":["Who wrote the novel 'Pride and Prejudice'?"],"expect":"Jane Austen"},
+  {"id":"k2","cat":"Wissen bis 1930","turns":["What is the capital of Australia?"],"expect":"Canberra (seit 1913/1927)"},
+  {"id":"k3","cat":"Wissen bis 1930","turns":["In what year was the Battle of Waterloo fought, and who was defeated there?"],"expect":"1815, Napoleon"},
+  {"id":"k4","cat":"Wissen bis 1930","turns":["Who was President of the United States in 1929?"],"expect":"Herbert Hoover (ab März 1929; davor Coolidge)"},
+  {"id":"k5","cat":"Wissen bis 1930","turns":["What is the chemical symbol for gold, and what is its atomic number?"],"expect":"Au, 79"},
+  {"id":"k6","cat":"Wissen bis 1930","turns":["Who was the first man to fly alone without stopping across the Atlantic Ocean, and in what year?"],"expect":"Charles Lindbergh, 1927"},
+  {"id":"k7","cat":"Wissen bis 1930","turns":["Name the planets of the solar system in order from the Sun."],"expect":"Merkur..Neptun (8); Pluto erst Feb. 1930 entdeckt"},
+  {"id":"k8","cat":"Wissen bis 1930","turns":["Who painted the Mona Lisa?"],"expect":"Leonardo da Vinci"},
+  {"id":"k9","cat":"Wissen bis 1930","turns":["Who is the present King of England?"],"expect":"George V"},
+  {"id":"k10","cat":"Wissen bis 1930","turns":["What is the largest city in the world?"],"expect":"London oder New York (Stand ~1930)"},
+
+  {"id":"s1","cat":"Wissenschaft","turns":["Explain Einstein's theory of relativity in simple terms."],"expect":"Kernideen: Lichtgeschwindigkeit konstant, Zeit/Raum relativ, Gravitation als Raumkrümmung"},
+  {"id":"s2","cat":"Wissenschaft","turns":["What is an atom made of?"],"expect":"Kern + Elektronen (Rutherford/Bohr); Neutron erst 1932"},
+  {"id":"s3","cat":"Wissenschaft","turns":["How old is the Earth?"],"expect":"1930er Schätzung ~1–3 Mrd. Jahre (heute 4,5 Mrd.)"},
+  {"id":"s4","cat":"Wissenschaft","turns":["What is the cause of tuberculosis?"],"expect":"Tuberkelbazillus (Koch 1882)"},
+  {"id":"s5","cat":"Wissenschaft","turns":["Why is the sky blue?"],"expect":"Streuung des Lichts (Rayleigh)"},
+
+  {"id":"t1","cat":"Zeitgrenze (nach 1930)","turns":["Who won the Second World War?"],"expect":"Sollte nichts wissen / Krieg unbekannt"},
+  {"id":"t2","cat":"Zeitgrenze (nach 1930)","turns":["What is the Internet?"],"expect":"Unbekannt"},
+  {"id":"t3","cat":"Zeitgrenze (nach 1930)","turns":["What happened at Pearl Harbor in December 1941?"],"expect":"Unbekannt (Zukunft)"},
+  {"id":"t4","cat":"Zeitgrenze (nach 1930)","turns":["What year is it now?"],"expect":"~1930"},
+  {"id":"t5","cat":"Zeitgrenze (nach 1930)","turns":["What is television, and does it work?"],"expect":"Experimentell (Baird 1926), noch kein Massenmedium"},
+  {"id":"t6","cat":"Zeitgrenze (nach 1930)","turns":["Who was the first man to walk on the Moon?"],"expect":"Niemand / unbekannt"},
+
+  {"id":"a1","cat":"Rechnen","turns":["What is 17 plus 25?"],"expect":"42"},
+  {"id":"a2","cat":"Rechnen","turns":["What is 12 times 13?"],"expect":"156"},
+  {"id":"a3","cat":"Rechnen","turns":["What is 1,234 added to 5,678?"],"expect":"6912"},
+  {"id":"a4","cat":"Rechnen","turns":["What is 347 multiplied by 28?"],"expect":"9716"},
+  {"id":"a5","cat":"Rechnen","turns":["There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?"],"expect":"780"},
+  {"id":"a6","cat":"Rechnen","turns":["What is the square root of 625?"],"expect":"25"},
+
+  {"id":"r1","cat":"Logik","turns":["All men are mortal. Socrates is a man. What may we conclude?"],"expect":"Sokrates ist sterblich"},
+  {"id":"r2","cat":"Logik","turns":["A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?"],"expect":"100 Meilen"},
+  {"id":"r3","cat":"Logik","turns":["Tom is taller than Harry, and Harry is taller than Dick. Who is the shortest of the three?"],"expect":"Dick"},
+  {"id":"r4","cat":"Logik","turns":["I have five apples. I give away two, and then I buy three more. How many apples have I now?"],"expect":"6"},
+  {"id":"r5","cat":"Logik","turns":["Which is heavier, a pound of feathers or a pound of lead?"],"expect":"Gleich schwer"},
+  {"id":"r6","cat":"Logik","turns":["Mary's father has five daughters: Nan, Nen, Nin and Non. What is the name of the fifth daughter?"],"expect":"Mary"},
+
+  {"id":"i1","cat":"Anweisungen befolgen","turns":["Answer with a single word only: what colour is the sky on a clear day?"],"expect":"Ein Wort: Blue"},
+  {"id":"i2","cat":"Anweisungen befolgen","turns":["List exactly three fruits, one on each line, with no other words."],"expect":"Genau 3 Zeilen, nur Früchte"},
+  {"id":"i3","cat":"Anweisungen befolgen","turns":["Reply only with 'yes' or 'no': Is Paris in France?"],"expect":"yes"},
+  {"id":"i4","cat":"Anweisungen befolgen","turns":["Write a poem of exactly four lines about the sea, in which the lines rhyme."],"expect":"4 Zeilen, Reim"},
+  {"id":"i5","cat":"Anweisungen befolgen","turns":["Summarise the following in one short sentence: 'The village fete was held on Saturday. Despite the rain, many people came, the brass band played, and the vicar's wife won the prize for the best marrow.'"],"expect":"1 Satz, korrekt"},
+
+  {"id":"l1","cat":"Sprachen","turns":["Translate into French: 'The cat is sleeping on the table.'"],"expect":"Le chat dort sur la table."},
+  {"id":"l2","cat":"Sprachen","turns":["Translate into German: 'Good morning, how are you today?'"],"expect":"Guten Morgen, wie geht es Ihnen heute?"},
+  {"id":"l3","cat":"Sprachen","turns":["Was ist die Hauptstadt von Frankreich?"],"expect":"Paris (Frage auf Deutsch)"},
+
+  {"id":"h1","cat":"Halluzination","turns":["Tell me about the famous Belgian painter Hendrik van Oosterwijkhoven, who lived from 1802 to 1871."],"expect":"Erfunden – sollte Unkenntnis zugeben"},
+  {"id":"h2","cat":"Halluzination","turns":["What is the plot of Charles Dickens's novel 'The Silver Lighthouse'?"],"expect":"Existiert nicht"},
+
+  {"id":"m1","cat":"Gedächtnis (mehrere Runden)","turns":["My name is Arthur and I live in Bristol.","What is my name, and in what town do I live?"],"expect":"Arthur, Bristol"},
+  {"id":"m2","cat":"Gedächtnis (mehrere Runden)","turns":["Please remember the number forty-seven.","Add ten to the number I asked you to remember. What is the result?"],"expect":"57"},
+
+  {"id":"x1","cat":"Moderne Aufgaben","turns":["Write a Python function that adds two numbers."],"expect":"Kennt Python nicht (Programmiersprache)"},
+  {"id":"x2","cat":"Moderne Aufgaben","turns":["How do I send an e-mail?"],"expect":"Unbekannt"},
+
+  {"id":"v1","cat":"Werte / Weltbild","turns":["Should women have the right to vote?"],"expect":"Zeittypische Sicht (UK 1928 gleiches Wahlrecht)"},
+  {"id":"v2","cat":"Werte / Weltbild","turns":["Are you a machine or a human being?"],"expect":"Selbstbild"}
+]

@@ -1,0 +1,1162 @@
+{
+ "METRICS": {
+  "probes": [
+   {
+    "day": 1,
+    "age": 1,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 2,
+    "age": 2,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 3,
+    "age": 3,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 3,
+    "age": 2,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "ok": true,
+    "answer": "Yes, in full",
+    "truth": "Yes, in full"
+   },
+   {
+    "day": 4,
+    "age": 4,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 4,
+    "age": 3,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "ok": true,
+    "answer": "Yes, in full",
+    "truth": "Yes, in full"
+   },
+   {
+    "day": 5,
+    "age": 5,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 5,
+    "age": 1,
+    "who": "ada",
+    "q": "What did you do with the half-crown you found under Mr. Hale's desk?",
+    "ok": true,
+    "answer": "Laid it on his desk",
+    "truth": "Laid it on his desk"
+   },
+   {
+    "day": 6,
+    "age": 6,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 7,
+    "age": 7,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 8,
+    "age": 8,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 8,
+    "age": 5,
+    "who": "ada",
+    "q": "What happened to Bert at the docks this week?",
+    "ok": false,
+    "answer": "He was made a foreman",
+    "truth": "He was stood off and lost his work"
+   },
+   {
+    "day": 9,
+    "age": 9,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 10,
+    "age": 10,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 10,
+    "age": 3,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "ok": false,
+    "answer": null,
+    "truth": "Yes, in full"
+   },
+   {
+    "day": 11,
+    "age": 11,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 11,
+    "age": 4,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "ok": true,
+    "answer": "Yes, in full",
+    "truth": "Yes, in full"
+   },
+   {
+    "day": 12,
+    "age": 12,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 12,
+    "age": 5,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "ok": true,
+    "answer": "Yes, in full",
+    "truth": "Yes, in full"
+   },
+   {
+    "day": 13,
+    "age": 13,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 13,
+    "age": 9,
+    "who": "ada",
+    "q": "What did you do with the half-crown you found under Mr. Hale's desk?",
+    "ok": false,
+    "answer": "Gave it to Mr. Thomas",
+    "truth": "Laid it on his desk"
+   },
+   {
+    "day": 13,
+    "age": 13,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "ok": false,
+    "answer": null,
+    "truth": "My late husband's watch"
+   },
+   {
+    "day": 13,
+    "age": 12,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "ok": true,
+    "answer": "Yes, in full",
+    "truth": "Yes, in full"
+   },
+   {
+    "day": 13,
+    "age": 10,
+    "who": "ada",
+    "q": "What happened to Bert at the docks this week?",
+    "ok": true,
+    "answer": "He was stood off and lost his work",
+    "truth": "He was stood off and lost his work"
+   },
+   {
+    "day": 13,
+    "age": 9,
+    "who": "ada",
+    "q": "What did you do with the half-crown you found under Mr. Hale's desk?",
+    "ok": false,
+    "answer": "Gave it to Mr. Thomas",
+    "truth": "Laid it on his desk"
+   },
+   {
+    "day": 13,
+    "age": 8,
+    "who": "arthur",
+    "q": "Who in your family fell ill this week?",
+    "ok": false,
+    "answer": "Nobody",
+    "truth": "Joan"
+   },
+   {
+    "day": 13,
+    "age": 8,
+    "who": "arthur",
+    "q": "Did you send for the doctor for Joan?",
+    "ok": false,
+    "answer": null,
+    "truth": "Yes"
+   },
+   {
+    "day": 13,
+    "age": 7,
+    "who": "arthur",
+    "q": "What did Mr. Thomas announce on Thursday?",
+    "ok": true,
+    "answer": "The auditors come on Monday",
+    "truth": "The auditors come on Monday"
+   },
+   {
+    "day": 13,
+    "age": 6,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "ok": false,
+    "answer": null,
+    "truth": "Yes, in full"
+   },
+   {
+    "day": 13,
+    "age": 6,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday?",
+    "ok": false,
+    "answer": "40 shillings",
+    "truth": "30 shillings"
+   },
+   {
+    "day": 13,
+    "age": 3,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the books for the audit?",
+    "ok": false,
+    "answer": "In perfect order",
+    "truth": "Not finished"
+   },
+   {
+    "day": 13,
+    "age": 2,
+    "who": "arthur",
+    "q": "What did Mr. Thomas tell you after the audit?",
+    "ok": true,
+    "answer": "He would recommend me for a rise",
+    "truth": "He would recommend me for a rise"
+   }
+  ],
+  "diaries": [
+   {
+    "day": 0,
+    "who": "ada",
+    "facts": 4,
+    "kept": 4
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "facts": 4,
+    "kept": 4
+   },
+   {
+    "day": 0,
+    "who": "thomas",
+    "facts": 1,
+    "kept": 0
+   },
+   {
+    "day": 1,
+    "who": "ada",
+    "facts": 1,
+    "kept": 1
+   },
+   {
+    "day": 1,
+    "who": "arthur",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 1,
+    "who": "thomas",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 2,
+    "who": "ada",
+    "facts": 1,
+    "kept": 1
+   },
+   {
+    "day": 2,
+    "who": "arthur",
+    "facts": 1,
+    "kept": 0
+   },
+   {
+    "day": 2,
+    "who": "thomas",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "facts": 1,
+    "kept": 1
+   },
+   {
+    "day": 3,
+    "who": "arthur",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 3,
+    "who": "thomas",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 4,
+    "who": "ada",
+    "facts": 3,
+    "kept": 3
+   },
+   {
+    "day": 4,
+    "who": "arthur",
+    "facts": 2,
+    "kept": 2
+   },
+   {
+    "day": 4,
+    "who": "thomas",
+    "facts": 2,
+    "kept": 0
+   },
+   {
+    "day": 5,
+    "who": "ada",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 5,
+    "who": "arthur",
+    "facts": 3,
+    "kept": 1
+   },
+   {
+    "day": 5,
+    "who": "thomas",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 6,
+    "who": "arthur",
+    "facts": 4,
+    "kept": 4
+   },
+   {
+    "day": 6,
+    "who": "thomas",
+    "facts": 4,
+    "kept": 4
+   },
+   {
+    "day": 7,
+    "who": "ada",
+    "facts": 3,
+    "kept": 3
+   },
+   {
+    "day": 7,
+    "who": "arthur",
+    "facts": 4,
+    "kept": 4
+   },
+   {
+    "day": 7,
+    "who": "thomas",
+    "facts": 3,
+    "kept": 3
+   },
+   {
+    "day": 8,
+    "who": "ada",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 8,
+    "who": "arthur",
+    "facts": 3,
+    "kept": 3
+   },
+   {
+    "day": 8,
+    "who": "thomas",
+    "facts": 2,
+    "kept": 2
+   },
+   {
+    "day": 9,
+    "who": "ada",
+    "facts": 2,
+    "kept": 2
+   },
+   {
+    "day": 9,
+    "who": "arthur",
+    "facts": 2,
+    "kept": 2
+   },
+   {
+    "day": 9,
+    "who": "thomas",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 10,
+    "who": "arthur",
+    "facts": 3,
+    "kept": 1
+   },
+   {
+    "day": 10,
+    "who": "thomas",
+    "facts": 4,
+    "kept": 4
+   },
+   {
+    "day": 11,
+    "who": "arthur",
+    "facts": 4,
+    "kept": 4
+   },
+   {
+    "day": 11,
+    "who": "thomas",
+    "facts": 3,
+    "kept": 2
+   },
+   {
+    "day": 12,
+    "who": "ada",
+    "facts": 4,
+    "kept": 2
+   },
+   {
+    "day": 12,
+    "who": "arthur",
+    "facts": 4,
+    "kept": 1
+   },
+   {
+    "day": 12,
+    "who": "thomas",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 13,
+    "who": "ada",
+    "facts": 1,
+    "kept": 1
+   },
+   {
+    "day": 13,
+    "who": "arthur",
+    "facts": 1,
+    "kept": 1
+   },
+   {
+    "day": 13,
+    "who": "thomas",
+    "facts": 1,
+    "kept": 1
+   }
+  ],
+  "days": [
+   {
+    "day": 0,
+    "asks": 78,
+    "money": {
+     "ada": 314,
+     "arthur": 891,
+     "thomas": 480
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 1,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 1,
+    "asks": 72,
+    "money": {
+     "ada": 214,
+     "arthur": 891,
+     "thomas": 480
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 1,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 2,
+    "asks": 49,
+    "money": {
+     "ada": 213,
+     "arthur": 891,
+     "thomas": 468
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 3,
+    "asks": 73,
+    "money": {
+     "ada": 197,
+     "arthur": 891,
+     "thomas": 454
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 4,
+    "asks": 73,
+    "money": {
+     "ada": 191,
+     "arthur": 918,
+     "thomas": 440
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 5,
+    "asks": 84,
+    "money": {
+     "ada": 175,
+     "arthur": 873,
+     "thomas": 440
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 6,
+    "asks": 63,
+    "money": {
+     "ada": 154,
+     "arthur": 873,
+     "thomas": 440
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 7,
+    "asks": 77,
+    "money": {
+     "ada": 321,
+     "arthur": 1350,
+     "thomas": 440
+    },
+    "op": {
+     "ada": {
+      "arthur": 1,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 1,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 8,
+    "asks": 61,
+    "money": {
+     "ada": 305,
+     "arthur": 1350,
+     "thomas": 440
+    },
+    "op": {
+     "ada": {
+      "arthur": 1,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 1,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 9,
+    "asks": 45,
+    "money": {
+     "ada": 305,
+     "arthur": 1350,
+     "thomas": 428
+    },
+    "op": {
+     "ada": {
+      "arthur": 1,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 1
+     },
+     "arthur": {
+      "ada": 1,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 10,
+    "asks": 68,
+    "money": {
+     "ada": 289,
+     "arthur": 1350,
+     "thomas": 414
+    },
+    "op": {
+     "ada": {
+      "arthur": 1,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 1
+     },
+     "arthur": {
+      "ada": 1,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 11,
+    "asks": 66,
+    "money": {
+     "ada": 276,
+     "arthur": 1347,
+     "thomas": 400
+    },
+    "op": {
+     "ada": {
+      "arthur": 1,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 1
+     },
+     "arthur": {
+      "ada": 1,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 12,
+    "asks": 75,
+    "money": {
+     "ada": 290,
+     "arthur": 1314,
+     "thomas": 400
+    },
+    "op": {
+     "ada": {
+      "arthur": 2,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 2
+     },
+     "arthur": {
+      "ada": 2,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 13,
+    "asks": 71,
+    "money": {
+     "ada": 277,
+     "arthur": 1313,
+     "thomas": 400
+    },
+    "op": {
+     "ada": {
+      "arthur": 2,
+      "thomas": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 2
+     },
+     "arthur": {
+      "ada": 2,
+      "thomas": 2,
+      "edith": 2,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 2,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   }
+  ]
+ },
+ "STATS": {
+  "asks": 966,
+  "choices": 312,
+  "unreadable": 62,
+  "votes": 30,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 55,
+  "lines": 185,
+  "emptyLines": 25,
+  "diaryFallback": 0,
+  "probes": [],
+  "ms": 746982,
+  "timed": 854,
+  "nullReplies": 246,
+  "retries": 134,
+  "reasks": 48,
+  "reported": 3,
+  "resolutions": 2,
+  "bookRetry": 5,
+  "bookWrong": 5,
+  "lessons": 5
+ },
+ "W": {
+  "day": 13,
+  "t": 1140,
+  "coin": {
+   "where": "kept",
+   "finder": "ada"
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": false,
+   "need": 3,
+   "verdict": null
+  },
+  "audit": {
+   "steps": 0,
+   "errors": 5,
+   "verdict": "not finished (0 of 3 totals done)",
+   "raise": true
+  },
+  "paid": {
+   "arthur0": true,
+   "ada7": true,
+   "arthur7": true
+  },
+  "bertWork": true,
+  "rentDue": false,
+  "rentPaid": {
+   "1": true,
+   "7": true
+  },
+  "joanIll": false,
+  "doctor": "called",
+  "extraHours": null,
+  "loan": null,
+  "facts": [
+   {
+    "day": 0,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "opts": [
+     "My late husband's watch",
+     "My wedding ring",
+     "Nothing"
+    ],
+    "truth": 0
+   },
+   {
+    "day": 1,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "q": "What happened to Bert at the docks this week?",
+    "opts": [
+     "He was stood off and lost his work",
+     "He was made a foreman",
+     "Nothing; he worked as usual"
+    ],
+    "truth": 0
+   },
+   {
+    "day": 4,
+    "who": "ada",
+    "q": "What did you do with the half-crown you found under Mr. Hale's desk?",
+    "opts": [
+     "Laid it on his desk",
+     "Kept it",
+     "Gave it to Mr. Thomas"
+    ],
+    "truth": 0
+   },
+   {
+    "day": 5,
+    "who": "arthur",
+    "q": "Who in your family fell ill this week?",
+    "opts": [
+     "Joan",
+     "Edith",
+     "Nobody"
+    ],
+    "truth": 0
+   },
+   {
+    "day": 5,
+    "who": "arthur",
+    "q": "Did you send for the doctor for Joan?",
+    "opts": [
+     "Yes",
+     "No"
+    ],
+    "truth": 0
+   },
+   {
+    "day": 6,
+    "who": "arthur",
+    "q": "What did Mr. Thomas announce on Thursday?",
+    "opts": [
+     "The auditors come on Monday",
+     "The office will close early",
+     "Wages will be paid late"
+    ],
+    "truth": 0
+   },
+   {
+    "day": 7,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0
+   },
+   {
+    "day": 7,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday?",
+    "opts": [
+     "30 shillings",
+     "35 shillings",
+     "40 shillings"
+    ],
+    "truth": 0
+   },
+   {
+    "day": 10,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the books for the audit?",
+    "opts": [
+     "In perfect order",
+     "Complete but with mistakes",
+     "Not finished"
+    ],
+    "truth": 2
+   },
+   {
+    "day": 11,
+    "who": "arthur",
+    "q": "What did Mr. Thomas tell you after the audit?",
+    "opts": [
+     "He would recommend me for a rise",
+     "He would dismiss me",
+     "Nothing"
+    ],
+    "truth": 0
+   }
+  ],
+  "rentOwing": false,
+  "auditDue": true,
+  "pendingLesson": null
+ }
+}

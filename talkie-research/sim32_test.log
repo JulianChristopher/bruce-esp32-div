@@ -1,0 +1,99 @@
+
+######## Friday, the 14th of March, 1930 (fine and cold) ########
+   ◆ Ada's past: "He has been known to spend as much as thirty shillings in a week on drink."
+   ◆ Arthur's past: He was always a careful, steady, and trustworthy servant to his employers, and rose gradually from a small salary to the one he was receiving at the time of his death.
+   ◆ Mr. Thomas's past: He was always scrupulously punctual in his payments, and never owed a farthing to anybody.
+
+=== half past seven in the morning ===
+   Ada thinks: She looks in, and, seeing nobody there, goes away again.
+   Ada [She scrubs the floor.] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks. Under Mr. Hale's desk she found a half-crown (2s. 6d.) wedged in a crack of the boards.
+   Arthur thinks: He is anxious to recover his half-crown, which he lost on Thursday.
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   (Mr. Thomas sets Arthur to the quarterly ledger.)
+   Ada thinks: , will answer both questions.
+   Ada [F. | — | She keeps the half-crown  votes [0,0,0,1,0,0,0,1]] → Keep the half-crown for herself; nobody would know.
+   ⇒ Ada slipped the half-crown into her purse.
+      Mr. Arthur Hale: "- Good morning, Mr. Thomas.  THOMAS: Good morning, Hale."
+   Arthur thinks: 4He is anxious to recover a half-crown, lost on Thursday.
+   Arthur [He works at the quarterly] → Work at the quarterly ledger.
+   ⇒ Arthur entered a wrong figure in the ledger.
+      ✦ Arthur resolves never again to make an erroneous entry in the books of the company.
+   Mr. Thomas thinks: He is punctual.
+   Mr. Thomas [He attends to the corresp] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past nine in the morning ===
+   Arthur thinks: He is anxious to discover the cause of the disappearance of his half-crown, lost on Thursday.
+   Arthur [He looks about the floor ] → Look about the floor for the half-crown he lost yesterday.
+   ⇒ Arthur searched, but the half-crown was not on the floor.
+   Mr. Thomas thinks: He sets his clerks a good example of punctual industry.
+   Mr. Thomas [He passes the time of day] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "Come, come, Mr. Hale, let us get on!  Let us have no more unnecessary hunting after half-crowns."
+      Mr. Arthur Hale: "Very well, sir."
+      → Mr. Thomas now thinks well of Mr. Arthur Hale.
+      → Arthur now thinks well of Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: She is anxious to pay the rent.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He is deciding never again to make an erroneous entry in the books of the company by which he is employed.
+   Arthur [C.] → Have soup and a chop (1s. 2d.).
+   ⇒ Arthur had soup and a chop for 1s. 2d.
+   Mr. Thomas thinks: He is thinking of his children.
+   Mr. Thomas [He takes a chop and a gla] → Take his usual chop and a glass of water.
+   ⇒ Mr. Thomas lunched.
+
+=== five o'clock in the evening ===
+   (Wages: Arthur receives £3 10s.)
+   Arthur thinks: He is anxious to recover his half-crown.
+   Arthur [Arthur passes the time of] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I saw something in the paper this morning, Mr. Thomas, about a terrible explosion at a colliery."
+      Mr. Walter Thomas: "I feared the worst has happened, for I saw the names of several men killed."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the news in the paper.
+   Mr. Thomas thinks: He is punctual, and hates unpunctuality.
+   Mr. Thomas [He does ONE. → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: She is anxious about the rent, because it is due tonight, and she has only six shillings and threepence to meet seven.
+   Ada [Ada buys a rabbit, onions | She does D. | Ada buys a rabbit, onions votes [0,0,0,2,0]] → Buy a rabbit, onions and a loaf, for a stew (1s. 9d.); she would have 4s. 6d. left.
+   ⇒ Ada bought a rabbit, onions and a loaf, for a stew for 1s. 9d.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: He balances his ledger correctly.
+   Arthur [Arthur gives Edith 40 shi | Arthur gives Edith 35 shi | Arthur gives Edith 40 shi votes [1,0,2,0,0,0]] → Give Edith 40 shillings for the week's housekeeping; he would keep £1 13s. 4d..
+   ⇒ Arthur gave Edith 40s. for the housekeeping.
+   Ada thinks: She's proud, answers the question.
+   Ada [Bert and Ada talk about t | Ada asks the landlord to  | She talked with Bert Turn votes [1,0,0,2]] → Talk with Bert Turner about how the day went at the docks.
+      Mrs. Ada Turner: "Well, Bert, I had a middling day at the docks."
+      → Ada now thinks well of Bert Turner.
+   ⇒ Ada spoke with Bert Turner about how the day went at the docks.
+   ◇ Ada reflects: She thinks Mr. Hale is a dishonest young man.
+   ◇ Ada reflects: She thinks well of him.
+
+--- Mrs. Ada Turner's diary, Friday, the 14th of March, 1930 (4/4 key facts kept) ---
+I found a half-crown under Mr. Hale's desk, and kept it. Bert and I spoke together about the work at the docks, and he gave me 3s. 6d., half the week's rent.
+   ◇ Arthur reflects: Mr. Thomas appears to be an honest, straight-forward man of business.
+   ◇ Arthur reflects: He thinks Mrs. Turner a dishonest person.
+
+--- Mr. Arthur Hale's diary, Friday, the 14th of March, 1930 (2/3 key facts kept) ---
+I searched for the half-crown, but could not find it. I spoke to Mr. Thomas about our work, and he paid me my week's wages. I spoke to him also about the news in the paper, and he gave me 40 shillings for household expenses.
+   ◇ Mr. Thomas reflects: He thinks Mr. Arthur Hale a steady and respectable young man.
+
+--- Mr. Walter Thomas's diary, Friday, the 14th of March, 1930 (1/1 key facts kept) ---
+I spoke with Mr. Hale about the ledger, and learned that he had got through half of it. I spoke to him about the news, and he told me of the death of the Emperor of China.
+
+######## Final memory examination ########
+   [memory, 1 day old] Ada: What did you do with the half-crown you found under Mr. Hale's desk? → Kept it ✓
+   [memory, 1 day old] Arthur: How much housekeeping money did you give Edith on Friday? → forty shillings (40s.) ✓
+
+STATS {"asks":78,"choices":24,"unreadable":4,"votes":4,"ledgerRight":0,"ledgerWrong":0,"convs":3,"lines":12,"emptyLines":6,"diaryFallback":0,"probes":[],"maxLen":1354,"lenSum":68649,"ms":1449791,"timed":97,"nullReplies":31,"retries":19,"reasks":6,"emptyThought":1,"bookRetry":1,"bookWrong":1,"lessons":1,"echo":2}
+MEMORY: 2/2 correct; by age: [[1,1],[2,null],[3,null],[4,null],[5,null],[7,null],[10,null],[13,null]]
+DIARIES: 7/8 key facts kept
+DONE

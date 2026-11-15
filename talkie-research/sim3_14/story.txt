@@ -1,0 +1,1230 @@
+
+######## Friday, the 14th of March, 1930 (fine and cold) ########
+   ◆ Ada's past: He (her son) has never given her a cross word, and she has never given him one.
+   ◆ Arthur's past: He looked forward to being able to retire from business at fifty, and to spend the rest of his life in comfort on an income of £250 a year.
+   ◆ Mr. Thomas's past: He was always punctual in his payments, and never owed a shilling.
+
+=== half past seven in the morning ===
+   Ada thinks: Ada (she) is anxious lest the rent should be in arrear.
+   Ada [Mrs. Ada Turner scrubs th] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks. Under Mr. Hale's desk she found a half-crown (2s. 6d.) wedged in a crack of the boards.
+   Arthur thinks: Arthur wishes to recover his half-crown, because he wants it.
+   Arthur [Mrs. Edith Hale and Joan ] → Talk with Joan Hale about what she did today.
+      Mr. Arthur Hale: "You went to the station to meet your Aunt Jane."
+      Joan Hale: "Yes, I went to the station to meet Aunt Jane."
+      → Arthur now thinks well of Joan Hale.
+   ⇒ Arthur spoke with Joan Hale about what she did today.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning."
+      Mr. Arthur Hale: "Good morning."
+      Mrs. Ada Turner: "Good morning,"
+      Mr. Walter Thomas: "Good morning."
+   Ada thinks: Ada (she) is anxious to pay the rent, because it is due tonight.
+   Ada [— | She asks Mr. Hale to lend | She goes to Finsbury Circ votes [0,1,0,0,1,0,0,0]] → Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+   ⇒ Ada went on to Finsbury Circus.
+      Mr. Arthur Hale: "Good morning, Thomas."
+      Mr. Walter Thomas: "Good morning, Hale."
+   Arthur thinks: Arthur desires to be independent.
+   Arthur [He looks about the floor ] → Look about the floor for the half-crown he lost yesterday.
+   ⇒ Arthur searched, but the half-crown was not on the floor.
+   Mr. Thomas thinks: Mr. Thomas is glad to have found the half-crown.
+   Mr. Thomas [Mr. Thomas attends to the] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past nine in the morning ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: He remembers, with satisfaction, that he has never owed a shilling.
+   Mr. Thomas [Mr. Thomas attends to the] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: She is anxious to pay her rent in order to avoid being turned into the street.
+   Ada [She talks with Bert Turne] → Talk with Bert Turner about how the day went at the docks.
+   Arthur thinks: Arthur is anxious about his lost half-crown, because it worries him.
+   Arthur [He has only a cup of tea ] → Have only a cup of tea and a bun (3d.), to save money.
+   ⇒ Arthur had tea and a bun for 3d.
+      Mrs. Ada Turner: "I went to the docks, Bert, and saw you working."
+   Mr. Thomas thinks: Mr. Thomas remembers that he was always punctual in his payments, and never owed a shilling.
+   Mr. Thomas [He passes the time of day] → Pass the time of day with Mr. Arthur Hale.
+      Bert Turner: "I went to the docks, mother, and saw me working."
+      Mr. Walter Thomas: "Well, I see they are talking of reducing the rate of interest on Consols to two and a half per cent."
+      Mr. Arthur Hale: "I am glad to hear it, for Consols will then be a better investment for people with small incomes."
+      → Mr. Thomas now thinks well of Mr. Arthur Hale.
+      → Arthur now thinks well of Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.
+   ⇒ Ada spoke with Bert Turner about how the day went at the docks.
+
+=== five o'clock in the evening ===
+   (Wages: Arthur receives £3 10s.)
+   Arthur thinks: He is anxious to recover his lost half-crown.
+   Arthur [He gets on with the day's] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: Mr. Thomas is glad to hear of a reduction in the rate of interest on Consols, because it will benefit small capitalists.
+   Mr. Thomas [Mr. Thomas attends to the] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+   Ada thinks: She desires to pay the rent, and so remain undisturbed in her room.
+   Ada [She buys bread, dripping  | She buys sausages, bread  | She does not buy anything votes [0,1,1,0,0]] → Buy a pound of sausages, bread and margarine (1s. 1d.); she would have 2s. 8d. left.
+   ⇒ Ada bought a pound of sausages, bread and margarine for 1s. 1d.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: Arthur wishes to recover his half-crown.
+   Arthur [Mr. Arthur Hale gives Edi | Mr. Arthur Hale talks wit | He talks with Mrs. Hale a votes [1,0,0,0,2,0]] → Talk with Mrs. Edith Hale about the week's housekeeping money.
+   ⇒ Arthur spoke with Mrs. Edith Hale about the week's housekeeping money.
+   Ada thinks: She wants Bert to become a good and prosperous man.
+   Ada [She cooks the supper and  | — | She pawns the watch. votes [0,1,1,0]] → Pawn her late husband's watch for ten shillings, to pay the rent.
+   ⇒ Ada pawned her late husband's watch for 10s.
+   ◇ Ada reflects: She thinks he's a mean-spirited chap.
+   ◇ Ada reflects: She thinks Bert Turner is a steady, hard-working young fellow.
+
+--- Mrs. Ada Turner's diary, Friday, the 14th of March, 1930 (4/4 key facts kept) ---
+I found a half-crown under Mr. Hale's desk, and was pleased. Bert and I spoke about the docks, and he told me he was working there. I pawned the watch, and cried a little. Bert gave me 3s. 6d., and I went to market.
+   ◇ Arthur reflects: He thinks she is a truthful little girl.
+   ◇ Arthur reflects: He considers Mr. Thomas a sensible man.
+
+--- Mr. Arthur Hale's diary, Friday, the 14th of March, 1930 (4/4 key facts kept) ---
+I spoke with Joan about what she did today, and found that she went to the station to meet Aunt Jane. I searched for the half-crown, which she dropped, but could not find it. I talked with Walter Thomas about Consols, and was glad to hear of a reduction in the rate of interest, because Consols will then be a better investment for small savings. Walter paid me my week's wages, and Edith and I talked of the housekeeping money.
+   ◇ Mr. Thomas reflects: He thinks Mr. Arthur Hale a steady, hard-working young man.
+
+--- Mr. Walter Thomas's diary, Friday, the 14th of March, 1930 (0/1 key facts kept) ---
+I was glad to hear of the proposed reduction of the rate of interest on Consols, because Consols will then become a better investment for persons of small income.
+
+######## Saturday, the 15th of March, 1930 (grey) ########
+   [memory, 1 day old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+
+=== half past seven in the morning ===
+   Arthur thinks: He is anxious to keep his place.
+   Arthur [Mr. Arthur Hale converses] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have been at work all day.  I have finished the day's entries."
+      Mrs. Edith Hale: "You have been at work all day.  You have finished the day's entries."
+      → Arthur now thinks well of Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   Ada thinks: She wants to keep the house over her head, and to feed Bert.
+   Ada [She keeps the half-crown  | She empties the waste-pap | She lays the half-crown o votes [0,1,1,1]] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Arthur Hale: "Good morning."
+   Ada thinks: It matters most to her because she is anxious to pay the rent.
+   Ada [— | She passes the time of da | She passes the time of da votes [0,0,0,0,0,0,2]] → Pass the time of day with Mr. Walter Thomas.
+      Mrs. Ada Turner: "I read in the paper, sir, that the Queen has gone to Biarritz."
+      Mr. Walter Thomas: "I read in the paper that the Queen has gone to Biarritz."
+      → Ada now thinks well of Mr. Walter Thomas.
+      → Mr. Thomas now thinks well of Mrs. Ada Turner.
+   ⇒ Ada spoke with Mr. Walter Thomas about the news in the paper.
+      Mr. Arthur Hale: "Mr. Arthur Hale greets Mr. Thomas with:"
+      Mr. Walter Thomas: "I am glad to see you well, sir."
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: Mr. Thomas is anxious to get through the morning's work.
+   Mr. Thomas [He passes the time of day] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "I read in the paper that the Queen has gone to Biarritz."
+      Mr. Arthur Hale: "I read in the paper that the Queen has gone to Biarritz."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: She wishes to pay tonight's rent.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He is anxious to have his week's wages in his purse.
+   Arthur [He gets on with the day's] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: Mr. Thomas is anxious to be at home, because his wife is unwell.
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== three o'clock in the afternoon ===
+   Arthur thinks: He thinks himself fortunate in possessing a truthful little girl.
+   Arthur [He works in the garden at] → Work in the garden at his seedlings.
+   ⇒ Arthur worked in the garden.
+   Ada thinks: Ada wants to get rid of her son Bert, because he is a trouble and expense to her, and because she thinks he will do better for himself.
+   Ada [She does not buy any thin | She buys scrag-end of mut | She buys scrag-end of mut votes [2,0,0,0,1]] → Buy scrag-end of mutton, potatoes and a cabbage (1s. 4d.); she would have £1 4s. 10d. left.
+   ⇒ Ada bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: Arthur thinks himself of some importance.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have been at work all day.  I have finished the day's entries."
+      Mrs. Edith Hale: "Thank you, Arthur.  I am glad you have finished the day's entries."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   Ada thinks: She is anxious to get the rent money, because the rent is due.
+   Ada [She asks the landlord to  | Mrs. Turner pays the land | — votes [1,1,0,0]] → Pay the landlord the week's rent of seven shillings; she would have 17s. 10d. left.
+   ⇒ Ada paid the rent of 7s.
+   ◇ Ada reflects: She thinks Mr. Walter Thomas a respectable young man.
+
+--- Mrs. Ada Turner's diary, Saturday, the 15th of March, 1930 (1/1 key facts kept) ---
+I paid my rent to the landlord, and spoke with Mr. Walter Thomas about the Queen going to Biarritz. It was pleasant to hear that Her Majesty was enjoying herself, and I hoped she would return safely.
+   ◇ Arthur reflects: He thinks Mrs. Edith Hale glad that he has finished the day's entries.
+   ◇ Arthur reflects: He thinks Mr. Walter Thomas a sensible man.
+
+--- Mr. Arthur Hale's diary, Saturday, the 15th of March, 1930 (0/0 key facts kept) ---
+I have been at work all day, and have finished the day's entries. Thank you, Edith, I am glad to have finished the day's entries.
+   ◇ Mr. Thomas reflects: Mr. Thomas thinks Mrs. Turner a respectable person.
+   ◇ Mr. Thomas reflects: He thinks Mr. Arthur Hale a steady, hard-working young man.
+
+--- Mr. Walter Thomas's diary, Saturday, the 15th of March, 1930 (0/0 key facts kept) ---
+I read in the paper that the Queen has gone to Biarritz, and I am glad. For I think it will do her Majesty good to breathe a little milder air than blows about Windsor in the winter months. Let us hope the reports of her health are true.
+
+######## Sunday, the 16th of March, 1930 (fine) ########
+   [memory, 2 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+
+=== half past ten in the morning ===
+      Mr. Arthur Hale: "Good morning, Mr. Thomas."
+      Mr. Walter Thomas: "Good morning."
+   Ada thinks: She is anxious to know how the day goes at the docks.
+   Ada [A, B, and C.] → Put 1d. in the collection.
+   ⇒ Ada put 1d. in the collection.
+   Arthur thinks: Arthur is contented.
+   Arthur [A, B, C, D.] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I think the weather is fine, and all's well at home."
+      Mr. Walter Thomas: "I think the weather is fine, and all's well at home."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the weather and how things are at home.
+   Mr. Thomas thinks: Mr. Thomas is anxious about himself.
+   Mr. Thomas [He puts a shilling in the] → Put a shilling in the collection.
+   ⇒ Mr. Thomas put a shilling in the collection.
+
+=== one o'clock in the afternoon ===
+   Arthur thinks: He is glad to have finished the day's entries, because they are an end of work for the week.
+   Arthur [He talks with Joan Hale a] → Talk with Joan Hale about what she did today.
+   Ada thinks: She is anxious to know what Bert thinks of her.
+   Ada [She talks with Bert Turne] → Talk with Bert Turner about how the day went at the docks.
+      Mr. Arthur Hale: "You went to the station to meet your Aunt Jane."
+      Mrs. Ada Turner: "I went to the docks, Bert, and saw you working."
+      Joan Hale: "Yes, I went to the station to meet Aunt Jane."
+      Bert Turner: "I went to the docks, and saw me working."
+      → Arthur now likes and trusts Joan Hale.
+   ⇒ Arthur spoke with Joan Hale about what she did today.
+   ⇒ Ada spoke with Bert Turner about how the day went at the docks.
+
+=== four o'clock in the afternoon ===
+   Ada thinks: She is anxious to know if Bert has had good luck at the docks.
+   Ada [She mends Bert's working ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He is anxious to be sure that all is well at home.
+   Arthur [He walks with Joan and po] → Walk with Joan and point out the birds and the spring crocuses.
+   ⇒ Arthur walked with Joan in the park.
+   Mr. Thomas thinks: Mr. Thomas is occupied with the thought of his daughter Joan, whom he loves.
+   Mr. Thomas [Mr. Thomas passes the tim] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "I think the weather is fine, and all's well at home."
+      Mr. Arthur Hale: "I think the weather is fine, and all's well at home."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the weather and how things are at home.
+
+=== seven o'clock in the evening ===
+   Ada thinks: She is anxious about Bert, because he is ill.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He is glad that all's well at home, because he thinks his wife is glad.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have been at work all day.  I have finished the day's entries."
+      Mrs. Edith Hale: "Thank you, Arthur.  The day has gone well."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   ◇ Ada reflects: Mrs. Turner thinks Bert Turner is a steady, hard-working young fellow.
+
+--- Mrs. Ada Turner's diary, Sunday, the 16th of March, 1930 (1/1 key facts kept) ---
+I went to the docks and saw Bert working. It pleased me to see him well and busy. He looked cheerful, and seemed strong and healthy.
+   ◇ Arthur reflects: He thinks Mr. Walter Thomas a sensible man.
+   ◇ Arthur reflects: He thinks Joan Hale is a truthful little girl.
+
+--- Mr. Arthur Hale's diary, Sunday, the 16th of March, 1930 (0/1 key facts kept) ---
+I spoke with Mr. Walter Thomas about the weather, and how things are at home. I think the weather is fine, and all's well at home. I have been at work all day, and have finished the day's entries. Thank you, Arthur, the day has gone well.
+   ◇ Mr. Thomas reflects: He thinks Mr. Arthur Hale a steady, hard-working young man.
+
+--- Mr. Walter Thomas's diary, Sunday, the 16th of March, 1930 (0/0 key facts kept) ---
+I think the weather is fine, and all's well at home.
+
+######## Monday, the 17th of March, 1930 (grey and damp) ########
+   ★ Bert has lost his work at the docks.
+   [memory, 3 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+   [memory, 2 days old] Ada: Did you pay the rent on Friday? → Yes, in full ✓
+
+=== half past seven in the morning ===
+   Arthur thinks: He is anxious to be at home, and to know that all is well there.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   Ada thinks: She is anxious about paying the rent.
+   Ada [She keeps the half-crown  | — | She empties the waste-pap votes [0,1,0,1]] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "She wishes you good morning, sir."
+      Mr. Arthur Hale: "Good morning."
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Walter Thomas: "Good morning."
+   Ada thinks: She is anxious to find half a crown, because she is out of work, and Bert is out of work, and the rent must be paid.
+   Ada [She lays the half-crown o | She goes on to Finsbury C | — votes [0,1,1,0,0,0,0,0]] → Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+   ⇒ Ada went on to Finsbury Circus.
+      Mr. Arthur Hale: "He greets Mr. Walter Thomas with"
+      Mr. Walter Thomas: "Good morning."
+   Arthur thinks: He is anxious to be punctual at his post.
+   Arthur [He passes the time of day] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I told Mr. Thomas that I was going on with the copying of the registers."
+      Mr. Walter Thomas: "I told Mr. Thomas that I was going on with the copying of the registers."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the work in hand.
+   Mr. Thomas thinks: Mr. Thomas is thinking about himself.
+   Mr. Thomas [Mr. Thomas attends to the] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past nine in the morning ===
+   Arthur thinks: He is anxious to be punctual at his office.
+   Arthur [Artbur enters the cash re → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: He is anxious to get on with the copying of the registers.
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: She wants to pay Bert's half of the rent.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: He is anxious to finish his lunch, because he wants to go home.
+   Mr. Thomas [He takes his usual chop a] → Take his usual chop and a glass of water.
+   ⇒ Mr. Thomas lunched.
+
+=== five o'clock in the evening ===
+   Arthur thinks: Arthur is anxious about the health of himself and his family.
+   Arthur [A.] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: Mr. Thomas is concerned about his money; because his resources are limited, and he wishes to make the most of them.
+   Mr. Thomas [Mr. Thomas attends to the] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+   Ada thinks: She is anxious, because she has been stood off at the docks, and has no money to pay Bert's half of the rent.
+   Ada [She buys scrag-end of mut | She buys a pound of sausa | She buys the scrag-end of votes [2,1,0,0,0]] → Buy scrag-end of mutton, potatoes and a cabbage (1s. 4d.); she would have 16s. 5d. left.
+   ⇒ Ada bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d.
+
+=== seven o'clock in the evening ===
+   Ada thinks: Ada is anxious about Bert, because she loves him.
+   Ada [Mrs. Ada Turner cooks the] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: Arthur wishes to be assured that the day has gone well.
+   Arthur [Mr. Arthur Hale talks wit] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have been at work all day.  I have finished the day's entries."
+      Mrs. Edith Hale: "Thank you, Arthur.  I am glad you have finished the day's entries."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   ◇ Ada reflects: Mrs. Turner thinks Bert Turner is a blackguard.
+
+--- Mrs. Ada Turner's diary, Monday, the 17th of March, 1930 (1/1 key facts kept) ---
+I was sorry to hear from Bert that he had been stood off at the docks, and was out of work. Bert pays half the rent, and so the news troubled me.
+   ◇ Arthur reflects: Mr. Arthur Hale thinks that Mrs. Edith Hale is glad that he has finished the day's entries.
+   ◇ Arthur reflects: Mr. Hale thinks Mr. Thomas a competent and steady man of business.
+
+--- Mr. Arthur Hale's diary, Monday, the 17th of March, 1930 (0/0 key facts kept) ---
+I have spoken with Mrs. Hale about the day, and have told her that I have finished the day's entries. I am glad.
+   ◇ Mr. Thomas reflects: Mr. Thomas thinks well of Mr. Hale.
+
+--- Mr. Walter Thomas's diary, Monday, the 17th of March, 1930 (0/0 key facts kept) ---
+I spoke with Mr. Arthur Hale about the copying of the registers, and told him that I was going on with the work.
+
+######## Tuesday, the 18th of March, 1930 (pouring with rain) ########
+   [memory, 4 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+   [memory, 3 days old] Ada: Did you pay the rent on Friday? → Yes, in full ✓
+
+=== half past seven in the morning ===
+   Arthur thinks: Arthur is glad that he has finished the day's entries, because he is conscious of having done a conscientious day's work.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have been at work all day.  I have finished the day's entries."
+      Mrs. Edith Hale: "Thank you, Arthur.  I am glad you have finished the day's entries."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   Ada thinks: Ada is anxious because she has no money to pay Bert's half of the rent.
+   Ada [— | She empties the waste-pap | She empties the waste-pap votes [0,2,0,0]] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Arthur Hale: "Good morning."
+      Mrs. Ada Turner: "Good morning, Mr. Thomas."
+      Mr. Walter Thomas: "Good morning."
+   Ada thinks: It matters to her that her son Bert may not lose his place, and be forced to tramp the streets in search of work.
+   Ada [She lays the half-crown o | — | She passes the time of da votes [0,0,1,0,0,0,0,1]] → Lay the half-crown on Mr. Hale's desk, where he will find it.
+   ⇒ Ada laid the half-crown on Mr. Hale's desk.
+      Mr. Arthur Hale: "He greets Mr. Thomas with"
+      Mr. Walter Thomas: "Good morning."
+   Arthur thinks: Arthur is anxious to finish copying the registers, because he wishes to obtain extra remuneration for the task.
+   Arthur [He picks up the half-crow] → Pick up the half-crown lying on his desk.
+   ⇒ Arthur picked up his half-crown from the desk.
+   Mr. Thomas thinks: Mr. Thomas is anxious to know whether Mr. Hale has picked up the half-crown.
+   Mr. Thomas [Mr. Thomas attends to the] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past nine in the morning ===
+   Arthur thinks: It matters most to Mr. Arthur Hale that he should be steady and competent in his work.
+   Arthur [Mr. Arthur Hale gets on w] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: Ada thinks that Bert is a blackguard, because he is out of work, and owes her money.
+   Ada [Mrs. Turner talks with Be] → Talk with Bert Turner about how Bert is getting on with looking for work.
+   Arthur thinks: Arthur is concerned most about finishing the copying of the registers.
+   Arthur [Mr. Arthur Hale has only ] → Have only a cup of tea and a bun (3d.), to save money.
+   ⇒ Arthur had tea and a bun for 3d.
+      Mrs. Ada Turner: "Bert, I'm sorry to see you out of a job."
+      Bert Turner: "I ain't doin' bad, mother."
+   Mr. Thomas thinks: He is thinking about Mr. Hale, because he likes and trusts him.
+   Mr. Thomas [He takes his usual chop a] → Take his usual chop and a glass of water.
+   ⇒ Mr. Thomas lunched.
+   ⇒ Ada spoke with Bert Turner about how Bert is getting on with looking for work.
+
+=== five o'clock in the evening ===
+   Arthur thinks: He wants to know whether his purse is safe.
+   Arthur [He gets on with the day's] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: He is troubled by the sight of an impecunious junior clerk.
+   Mr. Thomas [Mr. Thomas passes the tim] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "I think very well of you, Mr. Hale."
+   Ada thinks: It matters to Ada that she should be able to pay Bert's half of the rent.
+   Ada [She buys a rabbit, onions | She buys nothing. | She buys bread, dripping  votes [0,0,1,1,1]] → Buy bread, dripping and a few potatoes (6d.); she would have 15s. 11d. left.
+   ⇒ Ada bought bread, dripping and a few potatoes for 6d.
+      Mr. Arthur Hale: "I thank you, sir."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.
+
+=== seven o'clock in the evening ===
+   Ada thinks: She is anxious about getting Bert's half of the rent, because she is anxious about Bert.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: Arthur is glad that he has finished the day's entries, because he likes to have done a piece of work well.
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   ◇ Ada reflects: She thinks he is a mean-spirited chap.
+   ◇ Ada reflects: Mrs. Turner thinks Bert Turner is a blackguard.
+
+--- Mrs. Ada Turner's diary, Tuesday, the 18th of March, 1930 (3/3 key facts kept) ---
+I laid Mr. Hale's half-crown on his desk, and Bert and I spoke about his being out of work. I was sorry for Bert, but not surprised, because trade is bad, and he has been looking for a job a long time.
+   ◇ Arthur reflects: Mr. Arthur Hale thinks that Mrs. Edith Hale is glad that he has finished the day's entries.
+   ◇ Arthur reflects: He thinks she is a silly, foolish woman.
+
+--- Mr. Arthur Hale's diary, Tuesday, the 18th of March, 1930 (2/2 key facts kept) ---
+I have been at work all day, and have finished the day's entries. Somebody has found my lost half-crown, and put it on my desk. I think very well of Mr. Walter Thomas.
+   ◇ Mr. Thomas reflects: He thinks Mrs. Turner a respectable person.
+   ◇ Mr. Thomas reflects: He thinks very well of Mr. Arthur Hale.
+
+--- Mr. Walter Thomas's diary, Tuesday, the 18th of March, 1930 (0/2 key facts kept) ---
+I thought well of Mr. Arthur Hale, and spoke to him kindly.
+
+######## Wednesday, the 19th of March, 1930 (cold and windy) ########
+   ★ Joan has fallen ill.
+   [memory, 5 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+   [memory, 1 day old] Ada: What did you do with the half-crown you found under Mr. Hale's desk? → Laid it on his desk ✓
+
+=== half past seven in the morning ===
+   Ada thinks: She is anxious about the rent, because she fears lest Bert should be thrown out of employment, and so be unable to pay his share.
+   Ada [She scrubs the floor unde] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks.
+   Arthur thinks: Arthur (he) wishes to be sure that Joan is out of danger.
+   Arthur [He reads the morning pape | He waits to see whether J | Joan tells Arthur what sh votes [0,1,1,0,1]] → Wait and see whether Joan mends by herself, to save the doctor's fee.
+   ⇒ Arthur decided to wait and see about the doctor.
+
+=== half past eight in the morning ===
+   Ada thinks: She is anxious to find employment for Bert, lest he should fall into evil courses.
+   Ada [She empties the waste-pap] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+      Mr. Arthur Hale: "I think very well of you, sir.  Mr. Thomas."
+      Mr. Walter Thomas: "Mr. Thomas thinks very well of me."
+   Arthur thinks: He wishes to know whether Joan is ill or well.
+   Arthur [Mr. Arthur Hale passes th] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I think very well of you, Mr. Thomas."
+      Mr. Walter Thomas: "I think very well of you."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the work in hand.
+   Mr. Thomas thinks: Mr. Thomas (he) is chiefly concerned about his own respectability.
+   Mr. Thomas [He passes the time of day] → Pass the time of day with Mrs. Ada Turner.
+   ⇒ Mr. Thomas spoke with Mrs. Ada Turner about the work in hand.
+
+=== half past nine in the morning ===
+   Arthur thinks: He wishes Joan to get well speedily, and wants to keep down expenses.
+   Arthur [He asks Mr. Thomas whethe] → Ask Mr. Thomas whether he may leave early, as Joan is ill.
+      Mr. Arthur Hale: "Mr. Thomas, may you leave early?"
+      Mr. Walter Thomas: "I may leave early."
+      Mr. Arthur Hale: "yes."
+      Mr. Walter Thomas: "yes."
+      ⚖ Arthur may go home early.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about whether he may leave early, as his little girl is ill.
+   Mr. Thomas thinks: Mr. Thomas is anxious to get home to his tea, because he is hungry.
+   Mr. Thomas [Sir,--I have received you → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: Ada (she) is anxious about finding Bert's half of the rent.
+   Ada [Mrs. Turner cooks supper ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He wishes to be assured of Joan's recovery, and to be easy in his mind about money.
+   Arthur [He has only a cup of tea ] → Have only a cup of tea and a bun (3d.), to save money.
+   ⇒ Arthur had tea and a bun for 3d.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   Mr. Thomas thinks: It matters most to Mr. Thomas that his clerks should work well.
+   Mr. Thomas [Sir,--I beg to decline th → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: Ada is anxious to keep things straight in her little home.
+   Ada [She buys bread, dripping  | She buys sausages, bread  | She buys scrag-end of mut votes [1,1,1,0,0]] → Buy scrag-end of mutton, potatoes and a cabbage (1s. 4d.); she would have 14s. 7d. left.
+   ⇒ Ada bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d.
+   Arthur thinks: It matters most to him that he is ill.
+   Arthur [He works in the garden at | He talks with Mrs. Edith  | He sends for the doctor f votes [0,0,1,2,0]] → Talk with Mrs. Edith Hale about Joan's illness and whether to send for the doctor.
+      Mr. Arthur Hale: "I fear my little girl is ill."
+      Mrs. Edith Hale: "Yes, Arthur, I fear Joan is ill."
+      Mr. Arthur Hale: "I fear my little girl is ill."
+      Mrs. Edith Hale: "I fear my little girl is ill."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about Joan's illness and whether to send for the doctor.
+
+=== seven o'clock in the evening ===
+   Ada thinks: It matters most to her, because she is anxious to keep out of debt.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: The state of Joan Hale chiefly concerns Mr. Arthur Hale.
+   Arthur [Mr. Arthur Hale works in  | He waits to see whether J | He sends for the doctor. votes [1,1,1,0]] → Send for the doctor for Joan (3s. 6d.); he would have £3 12s. 9d. left.
+   ⇒ Arthur sent for the doctor (3s. 6d.); Joan has a bad cold and will mend.
+   ◇ Ada reflects: She thinks Mr. Thomas a respectable young man, attending to the correspondence in a proper manner.
+
+--- Mrs. Ada Turner's diary, Wednesday, the 19th of March, 1930 (0/0 key facts kept) ---
+I spoke to Mr. Walter Thomas, the manager, at half past seven this morning, and was set to work to clean the Moorgate Street offices of the Moorgate Insurance Company. At nine o'clock I had finished, and went on to the Finsbury Circus offices of the same concern. At a quarter to ten I had done there, and went down to the washhouse in the basement, and washed up the dirty towels. Then I came back to the sitting-room, and did a little plain sewing till noon. At noon I had dinner, and, after dinner, I cleared away, and spent the afternoon sewing till five o'clock. At five I went out and walked home to Camberwell, and walked back again at six. Washing up and supper followed, and at half past six I began to read the evening paper aloud to Bert. At eight o'clock I shut up, and went to bed.
+   ◇ Arthur reflects: He thinks Joan Hale is a truthful little girl, who has a bad cold, but will mend.
+   ◇ Arthur reflects: He thinks that Mrs. Edith Hale fears that Joan is ill.
+
+--- Mr. Arthur Hale's diary, Wednesday, the 19th of March, 1930 (1/3 key facts kept) ---
+I feared my little girl was ill, and sent for the doctor, who said it was a bad cold, not bronchitis, and she would mend.
+   ◇ Mr. Thomas reflects: He thinks very well of Mr. Arthur Hale.
+   ◇ Mr. Thomas reflects: He thinks Mrs. Turner a respectable person, steady and quiet.
+
+--- Mr. Walter Thomas's diary, Wednesday, the 19th of March, 1930 (0/0 key facts kept) ---
+I spoke with Mr. Arthur Hale about the work in hand, and thought well of him. I spoke with Mrs. Turner about the work in hand, and thought well of her. I let Mr. Hale go home early to his sick child, and said yes to his question whether he might leave early.
+
+######## Thursday, the 20th of March, 1930 (mild) ########
+   ★ The audit is announced for Monday.
+   [memory, 6 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+
+=== half past seven in the morning ===
+   Ada thinks: She longs to be put in the way of earning money, so as to pay the rent and have something over for Bert.
+   Ada [She empties the waste-pap] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+   Arthur thinks: He is anxious about his little daughter's health.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have had a busy morning, Edith.  I have been to the City, and settled about the auditors coming on Monday."
+      Mrs. Edith Hale: "Thank you, Arthur.  I am glad the auditors are coming on Monday."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Ada greets him with,"
+      Mr. Arthur Hale: "Thank you, Ada."
+      Mrs. Ada Turner: "Good morning."
+      Mr. Walter Thomas: "Good morning."
+   Ada thinks: She wants to know if Bert is to be out of work long.
+   Ada [She puts away her pail an] → Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+   ⇒ Ada went on to Finsbury Circus.
+      Mr. Arthur Hale: "Good morning, Mr. Thomas."
+      Mr. Walter Thomas: "Good morning."
+   Arthur thinks: He is anxious about his little girl, who is ill.
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: Mr. Thomas is anxious about the auditors, because they will test his chief clerk's accuracy.
+   Mr. Thomas [Mr. Thomas attends to the] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past nine in the morning ===
+   Arthur thinks: He is anxious about his little girl, who is ill.
+   Arthur [He passes the time of day] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I have had a busy morning, Thomas.  I have been to the City, and settled about the auditors coming on Monday."
+      Mr. Walter Thomas: "I think you have had a busy morning, Arthur.  Monday will do very well for the auditors."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the work in hand.
+   Mr. Thomas thinks: The chief clerk of the Moorgate Fire and Life Assurance Company thinks very well of his junior.
+   Mr. Thomas [Mr. Walter Thomas attends] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: It matters to Ada most that her son Bert is out of work, and disgracefully owes her money.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: He wishes to be quit of the auditors, who come on Monday.
+   Mr. Thomas [He passes the time of day] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "I have had a busy morning, Mr. Hale.  I have been to the City, and settled about the auditors coming on Monday."
+      Mr. Arthur Hale: "I think you have had a busy morning, Thomas."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.
+
+=== five o'clock in the evening ===
+   Arthur thinks: Arthur is anxious to get home to his child, who is ill.
+   Arthur [He works at preparing the] → Work at preparing the books for the auditors.
+   ⇒ Arthur entered a wrong figure in the audit books.
+   Ada thinks: It matters most to her that she has saved half a crown, and hopes to keep Bert from being turned into the streets.
+   Ada [She buys sausages, bread  | She buys a rabbit, onions | She buys the rabbit, onio votes [0,1,0,2,0]] → Buy a rabbit, onions and a loaf, for a stew (1s. 9d.); she would have 12s. 10d. left.
+   ⇒ Ada bought a rabbit, onions and a loaf, for a stew for 1s. 9d.
+      ✦ Arthur resolves never to make an error in figures again.
+   Mr. Thomas thinks: Mr. Thomas's mind is principally occupied with the thought of the auditors coming on Monday.
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: Mr. Arthur Hale is anxious about his little daughter's health, because she is ill.
+   Arthur [Mr. Arthur Hale works in ] → Work in the garden at his seedlings.
+   ⇒ Arthur worked in the garden.
+   Ada thinks: Mrs. Turner is anxious because she has not enough money to pay half her son's rent.
+   Ada [Mrs. Turner cooks the sup] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   ◇ Arthur reflects: He thinks Mr. Thomas a careless clerk.
+   ◇ Arthur reflects: He thinks that Mrs. Edith Hale is glad that the auditors are coming, and thankful that the day has passed quietly.
+
+--- Mr. Arthur Hale's diary, Thursday, the 20th of March, 1930 (4/4 key facts kept) ---
+I had a busy morning, Thursday, March 20. I went to the City, and settled about the auditors coming on Monday.
+   ◇ Mr. Thomas reflects: Mr. Thomas thinks Mr. Hale an inaccurate young man.
+
+--- Mr. Walter Thomas's diary, Thursday, the 20th of March, 1930 (4/4 key facts kept) ---
+I had a busy morning to-day. I went to the City, and settled about the auditors coming on Monday.
+
+######## Friday, the 21st of March, 1930 (fine) ########
+   [memory, 7 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+
+=== half past seven in the morning ===
+   Ada thinks: She is troubled because she has no money to pay Bert's half of the rent, which falls due tomorrow.
+   Ada [She empties the waste-pap] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+   Arthur thinks: He is anxious about the auditors coming, because his books must be ready for them.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Walter Thomas: "Good morning, Mrs. Turner."
+   Ada thinks: She wants to pay Bert's half of the rent.
+   Ada [She scrubs the floor unde] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks.
+      Mr. Arthur Hale: "He greets Mr. Thomas with,"
+      Mr. Walter Thomas: "Good morning, Mr. Hale."
+   Arthur thinks: He is anxious about the audit, because his position depends upon it.
+   Arthur [He thanks Mrs. Turner for] → Thank Mrs. Turner for her honesty about the half-crown.
+      Mr. Arthur Hale: "Thanks, Mrs. Turner, for telling me of the half-crown."
+      → Arthur now thinks well of Mrs. Ada Turner.
+      → Ada now thinks well of Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mrs. Ada Turner about his thanks for her honesty about the half-crown.
+   Mr. Thomas thinks: Mr. Thomas's chief care is to preserve the credit of his office.
+   Mr. Thomas [Mr. Thomas pays Mrs. Turn] → Pay Mrs. Turner her week's wages, twelve shillings.
+   ⇒ Mr. Thomas paid Ada her 12s.
+
+=== half past nine in the morning ===
+   Arthur thinks: Arthur thinks that the chief matter which concerns him at present is to keep a correct account of the Company's money.
+   Arthur [He passes the time of day] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I have had a busy morning, Thomas.  I have been to the City, and settled about the auditors coming on Monday."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the work in hand.
+   Mr. Thomas thinks: Mr. Thomas thinks it matters most to him that the business of the company should be punctually conducted.
+   Mr. Thomas [Mr. Walter Thomas attends] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: It matters most to her that Bert should find employment.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He is anxious about the auditors coming on Monday, because his books must be ready for them.
+   Arthur [He has only a cup of tea ] → Have only a cup of tea and a bun (3d.), to save money.
+   ⇒ Arthur had tea and a bun for 3d.
+   Mr. Thomas thinks: Mr. Thomas is anxious about the auditors coming, because he fears lest they should discover an inaccuracy in the books.
+   Mr. Thomas [Mr. Walter Thomas passes ] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "I have had a busy morning, Thomas.  I have been to the City, and settled about the auditors coming on Monday."
+      Mr. Arthur Hale: "I have had a busy morning, Thomas.  I have been to the City, and settled about the auditors coming on Monday."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.
+
+=== five o'clock in the evening ===
+   (Wages: Arthur receives £3 10s.)
+   Arthur thinks: He thinks it matters most to him to keep a place, and earn £3 10s.
+   Arthur [He works at preparing the] → Work at preparing the books for the auditors.
+   ⇒ Arthur entered a wrong figure in the audit books.
+      ✦ Arthur resolves never to make an error again.
+   Ada thinks: Ada is anxious about Bert's rent.
+   Ada [She buys sausages and bre | She buys a pound of sausa | She buys sausages, bread  votes [0,3,0,0,0]] → Buy a pound of sausages, bread and margarine (1s. 1d.); she would have £1 3s. 9d. left.
+   ⇒ Ada bought a pound of sausages, bread and margarine for 1s. 1d.
+   Mr. Thomas thinks: Mr. Thomas is anxious about the work in hand, because it must be accurately done.
+   Mr. Thomas [Sir,--I beg to inform you → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== seven o'clock in the evening ===
+   Ada thinks: She wants to pay rent.
+   Ada [She asks the landlord to  | — | She pays the landlord the votes [1,1,0,0]] → Pay the landlord the week's rent of seven shillings; she would have 16s. 9d. left.
+   ⇒ Ada paid the rent of 7s.
+   Arthur thinks: Mr. Arthur Hale is anxious about his books, because they must be ready for the auditors on Monday.
+   Arthur [Mr. Arthur Hale gives Edi | — | He talks with Mrs. Edith  votes [1,0,0,0,1,0]] → Give Edith 30 shillings for the week's housekeeping; he would keep £5 12s. 6d..
+   ⇒ Arthur gave Edith 30s. for the housekeeping.
+   ◇ Ada reflects: She thinks he is a mean-spirited chap.
+   ◇ Ada reflects: Mrs. Turner thinks Mr. Thomas a respectable young man, attending to the correspondence in a proper manner.
+
+--- Mrs. Ada Turner's diary, Friday, the 21st of March, 1930 (3/3 key facts kept) ---
+I was thanked by Mr. Hale for honesty about a half-crown. Mr. Thomas paid me my wages, and I paid the landlord the week's rent.
+   ◇ Arthur reflects: He thinks that Mrs. Edith Hale is glad the week has passed quietly, and thankful for thirty shillings.
+   ◇ Arthur reflects: He thinks Mrs. Turner a silly, foolish woman.
+
+--- Mr. Arthur Hale's diary, Friday, the 21st of March, 1930 (4/4 key facts kept) ---
+I spoke with Thomas about the work in hand, and had a busy morning, settling about the auditors coming on Monday. Thomas paid me my week's wages, and I entered a wrong figure in the audit books. I resolved never to make an error again, and gave Edith thirty shillings for the week's housekeeping.
+   ◇ Mr. Thomas reflects: Mr. Thomas thinks Mr. Hale a slow, but honest, worker.
+
+--- Mr. Walter Thomas's diary, Friday, the 21st of March, 1930 (3/3 key facts kept) ---
+I had a busy morning, Friday. I went to the City, and settled about the auditors coming on Monday.
+
+######## Saturday, the 22nd of March, 1930 (showery) ########
+   [memory, 8 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+   [memory, 5 days old] Ada: What happened to Bert at the docks this week? → He was made a foreman ✗ (truth: He was stood off and lost his work)
+
+=== half past seven in the morning ===
+   Arthur thinks: He is anxious about the auditors coming on Monday, because his books must be ready for them.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have had a busy morning, Edith.  I have been to the City, and settled about the auditors coming on Monday."
+      Mrs. Edith Hale: "Thank you, Arthur.  I am glad the auditors are coming on Monday."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Arthur Hale: "Good morning, Mrs. Turner."
+      Mrs. Ada Turner: "Good morning"
+      Mr. Walter Thomas: "Good morning."
+   Ada thinks: She wants to pay half the rent, because Bert is out of work,
+   Ada [She scrubs the floor unde] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks.
+      Mr. Arthur Hale: "He greets Mr. Thomas with,"
+      Mr. Walter Thomas: "I am glad to see you."
+   Arthur thinks: He wishes to complete the audit books correctly.
+   Arthur [He passes the time of day] → Pass the time of day with Mrs. Ada Turner.
+   ⇒ Arthur spoke with Mrs. Ada Turner about the weather and how things are at home.
+   Mr. Thomas thinks: He is anxious about the auditors coming on Monday, because he fears they may discover an error in the books.
+   Mr. Thomas [He passes the time of day] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "I have had a busy morning, Thomas.  I have been to the City, and settled about the auditors coming on Monday."
+      Mr. Arthur Hale: "Thank you, Thomas, I am glad to hear it."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.
+
+=== half past twelve in the afternoon ===
+   Arthur thinks: He is anxious about the auditors coming on Monday, because an error in figures has been discovered.
+   Arthur [He works at preparing the] → Work at preparing the books for the auditors.
+   Ada thinks: She is worried because her son Bert is out of work.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   ⇒ Arthur entered a wrong figure in the audit books.
+      ✦ Arthur resolves never to make another mistake.
+   Mr. Thomas thinks: Mr. Thomas thinks it most important to keep his clerks straight, and to be sure that they are so kept.
+   Mr. Thomas [Sir,--In reply to yours o → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== three o'clock in the afternoon ===
+   Arthur thinks: Mr. Arthur Hale is anxious that the audit books shall be correct.
+   Arthur [He talks with Joan.] → Talk with Joan Hale about what she did today.
+      Mr. Arthur Hale: "Joan, did you run into the garden today?"
+      Joan Hale: "Yes, father, I ran into the garden."
+      → Arthur now likes and trusts Joan Hale.
+   ⇒ Arthur spoke with Joan Hale about what she did today.
+   Ada thinks: She is anxious about Bert, because he is out of work, and she has no money to pay his share of the rent.
+   Ada [She buys the scrag-end of | She buys sausages, bread  | She buys a rabbit, onions votes [1,1,0,1,0]] → Buy scrag-end of mutton, potatoes and a cabbage (1s. 4d.); she would have £1 5s. 5d. left.
+   ⇒ Ada bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: He is anxious about the auditors coming on Monday, because his books must be ready for them.
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: She is anxious about her son, because he is out of work, and she has no money to pay his half of the week's rent.
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   ◇ Ada reflects: She thinks him a mean-spirited chap.
+
+--- Mrs. Ada Turner's diary, Saturday, the 22nd of March, 1930 (0/0 key facts kept) ---
+I spoke to Mr. Arthur Hale about the weather, and said things were pretty quiet at home. Bert was out, and I had cleaned the Moorgate offices from half past seven till nine. Then I came here, and cleaned the Finsbury Circus offices from nine till half past ten. It was muddy walking, and I had to hold up my skirts. I shall be glad when spring comes, for I am tired of walking in the wet.
+   ◇ Arthur reflects: He thinks that Mrs. Edith Hale is glad the auditors are coming, and thankful that the day has passed quietly.
+   ◇ Arthur reflects: He thinks Mrs. Turner a silly, foolish woman.
+
+--- Mr. Arthur Hale's diary, Saturday, the 22nd of March, 1930 (3/3 key facts kept) ---
+I spoke with Mrs. Turner about the weather and how things are at home. I spoke with Thomas about the work in hand, and settled about the auditors coming on Monday. I entered a wrong figure in the audit books, and resolved never to make another mistake. I spoke to Joan about what she did today.
+   ◇ Mr. Thomas reflects: Mr. Thomas thinks Mr. Hale a slow but honest worker.
+
+--- Mr. Walter Thomas's diary, Saturday, the 22nd of March, 1930 (2/2 key facts kept) ---
+I spoke to Arthur this morning about the auditors, and was glad to hear that he had settled to have them come on Monday.
+
+######## Sunday, the 23rd of March, 1930 (fine and mild) ########
+   [memory, 9 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+
+=== half past ten in the morning ===
+      Mr. Arthur Hale: "Mr. Arthur Hale greets Mr. Walter Thomas with"
+      Mr. Walter Thomas: "Good morning."
+   Ada thinks: She is anxious about getting Bert work.
+   Ada [Bert does nothing.] → Pray quietly for Bert to find work.
+   ⇒ Ada prayed for Bert.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: Mr. Thomas is anxious about the audit, because it may injure Mr. Arthur Hale's prospects.
+   Mr. Thomas [He puts a shilling in the] → Put a shilling in the collection.
+   ⇒ Mr. Thomas put a shilling in the collection.
+
+=== one o'clock in the afternoon ===
+   Arthur thinks: He is glad that the auditors are coming, and thankful that the day has passed quietly.
+   Arthur [He talks with Joan about ] → Talk with Joan Hale about what she did today.
+   Ada thinks: Because Ada (she) thinks Bert Turner is a blackguard.
+   Ada [She talks with Bert.] → Talk with Bert Turner about how Bert is getting on with looking for work.
+      Mr. Arthur Hale: "Joan, did you run into the garden today?"
+      Mrs. Ada Turner: "I can't get work, Ada."
+      Joan Hale: "Yes, father, I ran into the garden."
+      Bert Turner: "I ain't doin' no good."
+      → Arthur now likes and trusts Joan Hale.
+   ⇒ Arthur spoke with Joan Hale about what she did today.
+      → Ada now thinks well of Bert Turner.
+   ⇒ Ada spoke with Bert Turner about how Bert is getting on with looking for work.
+
+=== four o'clock in the afternoon ===
+   Ada thinks: Ada is anxious about Bert, because she is anxious about herself.
+   Ada [She mends Bert's jacket.] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: Mr. Arthur Hale thinks it matters most to him, at this moment, that the auditors should come on Monday, and find his books correct.
+   Arthur [Mr. Arthur Hale passes th] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I think the weather is fine and mild."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the weather and how things are at home.
+   Mr. Thomas thinks: Mr. Thomas is interested in Mr. Arthur Hale, because he believes him to be honest.
+   Mr. Thomas [Mr. Walter Thomas walks b] → Walk briskly round the Fields.
+   ⇒ Mr. Thomas walked round the Fields.
+
+=== seven o'clock in the evening ===
+   Ada thinks: She is anxious about Bert, because he is out of work.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He is anxious about the coming of the auditors, because his books must be ready for them on Monday morning.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have had a busy morning, Edith.  I have been to the City, and settled about the auditors coming on Monday."
+      Mrs. Edith Hale: "You have had a busy morning, Arthur.  You have been to the City, and settled about the auditors coming on Monday."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   ◇ Ada reflects: Mrs. Turner thinks Bert Turner is a blackguard.
+
+--- Mrs. Ada Turner's diary, Sunday, the 23rd of March, 1930 (2/2 key facts kept) ---
+I prayed at chapel for Bert to find work, but he can't get any. So I'm downhearted.
+   ◇ Arthur reflects: He thinks Mr. Thomas a quiet, inoffensive man.
+   ◇ Arthur reflects: He thinks Joan Hale ran into the garden.
+
+--- Mr. Arthur Hale's diary, Sunday, the 23rd of March, 1930 (2/2 key facts kept) ---
+I had a busy morning in the City today. I settled about the auditors coming on Monday, and spoke to Joan in the garden. The weather was fine and mild, and I thought things were going well at home.
+   ◇ Mr. Thomas reflects: He thinks Mr. Hale a slow but honest worker.
+
+--- Mr. Walter Thomas's diary, Sunday, the 23rd of March, 1930 (0/0 key facts kept) ---
+I thought the weather fine and mild, and things at home cheerful.
+
+######## Monday, the 24th of March, 1930 (grey) ########
+   [memory, 10 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+   [memory, 3 days old] Ada: Did you pay the rent on Friday? → ? ✗ (truth: Yes, in full)
+
+=== half past seven in the morning ===
+   Ada thinks: She is anxious about Bert, because he is out of work, and has not a penny to spare for rent.
+   Ada [She scrubs the floor unde] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks.
+   Arthur thinks: He is anxious about the auditors coming, because he is conscious of having made an error in his books.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have had a busy morning, Edith.  I have been to the City, and settled about the auditors coming on Monday."
+      Mrs. Edith Hale: "Thank you, Arthur.  I am glad the auditors are coming on Monday."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+
+=== half past eight in the morning ===
+   Ada thinks: It matters to her most that Bert should get work, because she is anxious to keep him out of mischief.
+   Ada [She puts away her pail an] → Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+   ⇒ Ada went on to Finsbury Circus.
+      Mr. Arthur Hale: "He greets Mr. Thomas quietly."
+      Mr. Walter Thomas: "quietly,"
+   Arthur thinks: He is anxious about the auditors coming on Monday, because his books must be ready for them.
+   Arthur [He works at preparing the] → Work at preparing the books for the auditors.
+   ⇒ Arthur entered a wrong figure in the audit books.
+      ✦ Arthur resolves never to make an erroneous entry again.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past nine in the morning ===
+   Arthur thinks: He is anxious about the audit, because his livelihood depends upon it.
+   Arthur [He works at preparing the] → Work at preparing the books for the auditors.
+   ⇒ Arthur entered a wrong figure in the audit books.
+   Mr. Thomas thinks: He is anxious to have a good report to make to his superiors.
+   Mr. Thomas [He passes the time of day] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "I have had a busy morning, Thomas.  I have been to the city, and settled about the auditors coming on Monday."
+      Mr. Arthur Hale: "I have had a busy morning, Thomas.  I have been to the City, and settled about the auditors coming on Monday."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: Ada is anxious about Bert, because he is out of work.
+   Ada [Mrs. Ada Turner cooks the] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: He thinks Mr. Hale a slow but honest worker.
+   Mr. Thomas [He takes his usual chop a] → Take his usual chop and a glass of water.
+   ⇒ Mr. Thomas lunched.
+
+=== five o'clock in the evening ===
+   (The auditors examine the books.) Mr. Thomas examined the books for the audit: not finished (0 of 3 totals done).
+   Arthur thinks: He is anxious to avoid the reproof of his superiors.
+   Arthur [He passes the time of day] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I think the news is dull."
+      Mr. Walter Thomas: "I think the news is dull."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   Ada thinks: She desires to find work for Bert, lest he should fall into evil courses.
+   Ada [She buys bread, dripping  | She buys scrag-end of mut | She buys a rabbit, onions votes [1,0,1,1,0]] → Buy scrag-end of mutton, potatoes and a cabbage (1s. 4d.); she would have £1 4s. 1d. left.
+   ⇒ Ada bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the news in the paper.
+      ✦ Arthur resolves that in future he will keep his books posted up to date.
+   Mr. Thomas thinks: Mr. Thomas is anxious to finish his audit books and go home.
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: Mr. Arthur Hale is anxious to prove himself a correct accountant.
+   Arthur [Mr. Arthur Hale talks wit] → Talk with Joan Hale about what she did today.
+   Ada thinks: Ada (she) thinks Bert is a blackguard, because he won't work.
+   Ada [Mrs. Ada Turner cooks the] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+      Mr. Arthur Hale: "Joan, did you run into the garden?"
+      Joan Hale: "Yes, father, I ran into the garden."
+      → Arthur now likes and trusts Joan Hale.
+   ⇒ Arthur spoke with Joan Hale about what she did today.
+   ◇ Arthur reflects: He thinks that Mrs. Edith Hale is glad the week has passed quietly, and thankful for thirty shillings.
+   ◇ Arthur reflects: He thinks Mr. Walter Thomas a dull companion.
+
+--- Mr. Arthur Hale's diary, Monday, the 24th of March, 1930 (1/3 key facts kept) ---
+I spoke with Walter Thomas about the work in hand, and found the books not finished. I think the news dull, and resolve to keep them posted up in future. Joan ran into the garden.
+   ◇ Mr. Thomas reflects: He thinks Mr. Arthur Hale a young man of steady habits.
+
+--- Mr. Walter Thomas's diary, Monday, the 24th of March, 1930 (4/4 key facts kept) ---
+I had a busy morning, on Monday, the 24th of March. I went to the city, and settled about the auditors coming on Monday. I examined the books kept by Mr. Arthur Hale, and found them not finished. I thought the news dull.
+
+######## Tuesday, the 25th of March, 1930 (raining) ########
+   [memory, 11 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+   [memory, 4 days old] Ada: Did you pay the rent on Friday? → Yes, in full ✓
+
+=== half past seven in the morning ===
+   Ada thinks: Ada is anxious to get Bert work, because she wants him to be earning money.
+   Ada [She empties the waste-pap] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+   Arthur thinks: Mr. Arthur Hale is anxious to correct his errors.
+   Arthur [Mr. Arthur Hale talks wit] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have had a busy morning, Edith.  I have been to the City, and settled about the auditors coming on Monday."
+      Mrs. Edith Hale: "Thank you, Arthur.  I am glad the auditors are coming on Monday."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Arthur Hale: "Good morning."
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+      Mr. Arthur Hale: "Hale greets Thomas with"
+      Mr. Walter Thomas: "Good morning, Hale."
+   Arthur thinks: He is anxious to finish his books for the auditors, in order that they may be posted up to date.
+   Arthur [He passes the time of day] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I have had a busy morning, Thomas.  I have been to the City, and settled about the auditors coming on Monday."
+      Mr. Walter Thomas: "I have had a busy morning, Arthur.  I have been to the City, and settled about the auditors coming on Monday."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the work in hand.
+   Mr. Thomas thinks: Mr. Thomas is anxious to get the audit books finished, that he may close the accounts for the year, and forward them to headquarters.
+   Mr. Thomas [He recommends Mr. Arthur  | — | He says nothing of a rise votes [1,1,0,0,0]] → Recommend Mr. Hale to the directors for a rise of five shillings a week.
+   ⇒ Mr. Thomas recommended Arthur for a rise of 5s. a week.
+
+=== half past nine in the morning ===
+   Arthur thinks: Arthur thinks about himself.
+   Arthur [He posts up his ledger. → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: Mr. Thomas thinks it matters most to him that Mr. Arthur Hale should do his work well.
+   Mr. Thomas [Mr. Walter Thomas passes ] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "I have had a busy morning, Thomas.  I have been to the City, and settled about the auditors coming on Monday."
+      Mr. Arthur Hale: "I have had a busy morning, Thomas.  I have been to the City, and settled about the auditors coming on Monday."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.
+
+=== half past twelve in the afternoon ===
+   Arthur thinks: He is anxious about getting a rise in salary.
+   Arthur [He has only a cup of tea ] → Have only a cup of tea and a bun (3d.), to save money.
+   ⇒ Arthur had tea and a bun for 3d.
+   Ada thinks: The fact that Bert Turner is out of work troubles Ada most, because she has no money to spare.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Mr. Thomas thinks: Mr. Walter Thomas is principally concerned about the audit of the company's books, because it is necessary to his peace of mind.
+   Mr. Thomas [He takes his chop.] → Take his usual chop and a glass of water.
+   ⇒ Mr. Thomas lunched.
+
+=== five o'clock in the evening ===
+   Arthur thinks: He is anxious to make five shillings a week.
+   Arthur [He posts up his books.] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: Mr. Thomas thinks that Arthur Hale is a steady young man, whom it will be advisable to promote from a clerkship to an assistant secretaryship, in the interests both of the Company and of himself.
+   Mr. Thomas [He attends to the corresp] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+   Ada thinks: Ada is anxious about Bert.
+   Ada [She does nothing today. | She buys bread, dripping  | She buys sausages, bread  votes [0,1,1,0,1]] → Buy a pound of sausages, bread and margarine (1s. 1d.); she would have £1 3s. 0d. left.
+   ⇒ Ada bought a pound of sausages, bread and margarine for 1s. 1d.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: He is pleased that the week has passed quietly, and thankful for thirty shillings.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   ◇ Arthur reflects: He thinks that Mrs. Edith Hale is glad the week has passed quietly, and thankful for thirty shillings.
+   ◇ Arthur reflects: He thinks Mr. Thomas a punctual, steady man of business.
+
+--- Mr. Arthur Hale's diary, Tuesday, the 25th of March, 1930 (4/4 key facts kept) ---
+I have had a busy morning. I have been to the City, and settled about the auditors coming on Monday. Thomas has recommended me for a rise of five shillings a week.
+   ◇ Mr. Thomas reflects: He thinks well of Mr. Arthur Hale.
+
+--- Mr. Walter Thomas's diary, Tuesday, the 25th of March, 1930 (2/3 key facts kept) ---
+I had a busy morning to-day. I went to the City, and settled about the auditors coming on Monday.
+
+######## Wednesday, the 26th of March, 1930 (fine) ########
+   ★ Bert has found work again.
+   [memory, 12 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+   [memory, 5 days old] Ada: Did you pay the rent on Friday? → Yes, in full ✓
+
+=== half past seven in the morning ===
+   Arthur thinks: Mr. Arthur Hale is anxious to have his books posted up to date, because he wishes to know precisely how he stands.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+   Ada thinks: Ada is anxious to get through the morning's work quickly, so as to be home early to cook Bert's dinner.
+   Ada [She dusts the desks.] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+      Mr. Arthur Hale: "I have had a busy morning, Edith.  I have been to the City, and settled about the auditors coming on Monday."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning."
+      Mr. Arthur Hale: "Good morning."
+      Mrs. Ada Turner: "Good morning, Mr. Thomas."
+      Mr. Walter Thomas: "Good morning."
+   Ada thinks: She is anxious to have breakfast.
+   Ada [She told Mr. Arthur Hale ] → Tell Mr. Hale that she found a half-crown under his desk.
+      Mrs. Ada Turner: "You told me about picking up a half-crown under my desk, on Friday.  Thanks."
+      Mr. Arthur Hale: "I told you about picking up a half-crown under your desk, on Friday; thanks."
+      ⚖ Ada keeps the half-crown as a reward.
+      → Ada now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mrs. Ada Turner.
+   ⇒ Ada spoke with Mr. Arthur Hale about the half-crown she found under his desk.
+      Mr. Arthur Hale: "Good morning."
+      Mr. Walter Thomas: "Good morning."
+   Arthur thinks: He is anxious to keep his books posted up to date.
+   Arthur [He passes the time of day] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I am glad to see that the king has recovered from his recent indisposition."
+      Mr. Walter Thomas: "I am glad to hear it."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the news in the paper.
+   Mr. Thomas thinks: Mr. Thomas is mindful of his duty, and anxious to get to his work.
+   Mr. Thomas [Mr. Thomas attends to the] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past nine in the morning ===
+   Arthur thinks: He wishes to get an increase of salary.
+   Arthur [He posts his books.] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: Mr. Thomas is anxious to see the auditors' report well of his clerks.
+   Mr. Thomas [He attends to the corresp] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: It matters to her most that her son Bert is a blackguard.
+   Ada [She cooks the supper and ] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: Arthur wishes to be thought well of by Mr. Thomas.
+   Arthur [He has only a cup of tea ] → Have only a cup of tea and a bun (3d.), to save money.
+   ⇒ Arthur had tea and a bun for 3d.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   Arthur thinks: He is anxious to be promoted.
+   Arthur [He posts up his books.] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: He thinks well of Mr. Arthur Hale, because he is a steady, honest clerk, who gives good value for his salary.
+   Mr. Thomas [Mr. Walter Thomas attends] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+   Ada thinks: She is anxious to keep out of debt.
+   Ada [She buys a pound of sausa | She buys the rabbit, onio | She buys scrag-end of mut votes [1,1,0,1,0]] → Buy scrag-end of mutton, potatoes and a cabbage (1s. 4d.); she would have £1 4s. 2d. left.
+   ⇒ Ada bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d.
+
+=== seven o'clock in the evening ===
+   Ada thinks: Ada is anxious about money.
+   Ada [Mrs. Turner talks about t] → Talk with Bert Turner about how the day went at the docks.
+   Arthur thinks: Mr. Arthur Hale is anxious to keep his books posted up to date, because he wishes to be sure of his position.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mrs. Ada Turner: "I got work at the gasworks carting coke, and earned fourteen shillings."
+      Mr. Arthur Hale: "I have had a busy morning, Edith.  I have been to the City, and settled about the auditors coming on Monday."
+      Bert Turner: "All right, mother.  You got fourteen bob at the gasworks carting coke."
+      Mrs. Edith Hale: "Very well, Arthur."
+      → Ada now likes and trusts Bert Turner.
+   ⇒ Ada spoke with Bert Turner about how the day went at the docks.
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   ◇ Ada reflects: She thinks Bert Turner is doing very well.
+   ◇ Ada reflects: She thinks him a mean-spirited chap.
+
+--- Mrs. Ada Turner's diary, Wednesday, the 26th of March, 1930 (2/4 key facts kept) ---
+I earned fourteen shillings at the gasworks, carting coke, and spoke to Bert about it.
+   ◇ Arthur reflects: Mr. Arthur Hale thinks that Mrs. Edith Hale is glad the week has passed quietly, and thankful for thirty shillings.
+   ◇ Arthur reflects: He thinks Mrs. Turner a silly, foolish woman.
+
+--- Mr. Arthur Hale's diary, Wednesday, the 26th of March, 1930 (1/4 key facts kept) ---
+I had a busy morning, yesterday, and went to the City, and settled about the auditors coming on Monday. I was glad to hear that the king had recovered from his recent indisposition.
+   ◇ Mr. Thomas reflects: He thinks Mr. Hale a steady young man, who minds his business.
+
+--- Mr. Walter Thomas's diary, Wednesday, the 26th of March, 1930 (0/0 key facts kept) ---
+I was glad to hear that the king had recovered from his recent indisposition, because I am loyal to the throne.
+
+######## Thursday, the 27th of March, 1930 (mild and grey) ########
+   [memory, 13 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+   [memory, 9 days old] Ada: What did you do with the half-crown you found under Mr. Hale's desk? → Gave it to Mr. Thomas ✗ (truth: Laid it on his desk)
+
+=== half past seven in the morning ===
+   Arthur thinks: Mr. Arthur Hale is glad, and thankful, because the week has passed quietly.
+   Arthur [Mr. Arthur Hale reads the] → Read the morning paper over breakfast.
+   ⇒ Arthur read the paper: GERMANY: the Government of Herr Müller has resigned over the question of unemployment insurance.
+   Ada thinks: She is anxious to know how Bert fares at the docks.
+   Ada [She scrubs the floor unde] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Arthur Hale: "I reply,"
+      Mrs. Ada Turner: "Good morning."
+      Mr. Walter Thomas: "Good morning."
+   Ada thinks: She is anxious to get breakfast.
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+      Mr. Arthur Hale: "He greets Mr. Thomas cheerfully."
+      Mr. Walter Thomas: "cheerfully:"
+   Arthur thinks: The chief matter to Mr. Hale is that he should keep a correct account of his salary.
+   Arthur [He passes the time of day] → Pass the time of day with Mrs. Ada Turner.
+      Mr. Arthur Hale: "You think Mrs. Turner a silly, foolish woman."
+      Mrs. Ada Turner: "I think Mrs. Turner a silly, foolish woman."
+      → Arthur now likes and trusts Mrs. Ada Turner.
+   ⇒ Arthur spoke with Mrs. Ada Turner about the news in the paper.
+   Mr. Thomas thinks: He is anxious about the audit, because it concerns his own position.
+   Mr. Thomas [He passes the time of day] → Pass the time of day with Mrs. Ada Turner.
+      Mr. Walter Thomas: "I have had a busy morning, Mrs. Turner.  I have been to the City, and settled about the auditors coming on Monday."
+      Mrs. Ada Turner: "I thank you, sir,"
+      → Mr. Thomas now likes and trusts Mrs. Ada Turner.
+      → Ada now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mrs. Ada Turner about the work in hand.
+
+=== half past nine in the morning ===
+   Arthur thinks: He wishes to become a punctual, steady man of business.
+   Arthur [He gets on with the day's] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: Mr. Thomas is anxious to get the audit finished, in order to have a quiet Sunday.
+   Mr. Thomas [Mr. Thomas attends to the] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Mr. Thomas thinks: Mr. Thomas is concerned chiefly about his own health.
+   Mr. Thomas [Mr. Walter Thomas passes ] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "I read in the paper that the French are fighting in Syria."
+      Mr. Arthur Hale: "I read in the paper that the French are fighting in Syria."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.
+
+=== five o'clock in the evening ===
+   Arthur thinks: He is anxious to get a rise in salary.
+   Arthur [He gets on with the day's] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: Mr. Thomas is chiefly and most concerned about his health.
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: She is anxious to know whether Bert has found regular work.
+   Ada [She buys the sausages, br | She buys sausages, bread  | — votes [0,2,0,0,0]] → Buy a pound of sausages, bread and margarine (1s. 1d.); she would have £1 3s. 1d. left.
+   ⇒ Ada bought a pound of sausages, bread and margarine for 1s. 1d.
+
+=== seven o'clock in the evening ===
+   Ada thinks: Mrs. Turner is pleased that Bert has found work again.
+   Ada [Mrs. Turner cooks the sup] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: Mr. Arthur Hale thinks most, at this moment, of himself.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have had a busy morning, Edith.  I have been to the City, and settled about the auditors coming on Monday."
+      Mrs. Edith Hale: "Thank you, Arthur, I am glad the auditors are coming on Monday."
+      → Arthur now likes and trusts Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+   ◇ Ada reflects: She thinks him a mean-spirited chap.
+   ◇ Ada reflects: Mrs. Turner thinks Mr. Thomas a respectable young man, attending to his duties in a proper manner.
+
+--- Mrs. Ada Turner's diary, Thursday, the 27th of March, 1930 (1/1 key facts kept) ---
+I spoke with Mr. Arthur Hale about the news in the morning paper, and thought Mrs. Turner a silly, foolish woman to believe all that rubbish. I spoke with Mr. Walter Thomas about the work in hand, and thanked him for settling about the auditors coming on Monday.
+   ◇ Arthur reflects: He thinks Mrs. Turner a silly, foolish woman.
+   ◇ Arthur reflects: He thinks Mr. Thomas a steady, well-conducted young man.
+
+--- Mr. Arthur Hale's diary, Thursday, the 27th of March, 1930 (1/1 key facts kept) ---
+I had a busy morning in the City. I went to the office, and settled about the auditors coming on Monday. Then I called on Mrs. Turner, and spoke to her about the news in the paper. After that I called on Mr. Thomas, and read to him the account of the fighting in Syria. Finally, I came home, and told Edith all about the day.
+   ◇ Mr. Thomas reflects: He thinks Mrs. Turner a respectable person, steady and quiet.
+   ◇ Mr. Thomas reflects: He thinks Mr. Arthur Hale a steady young man, who minds his business.
+
+--- Mr. Walter Thomas's diary, Thursday, the 27th of March, 1930 (1/1 key facts kept) ---
+I spoke with Mrs. Turner about the work in hand, and settled about the auditors coming on Monday. I spoke with Mr. Hale about the French fighting in Syria, and read in the paper of it.
+
+######## Final memory examination ########
+   [memory, 13 days old] Ada: Did you pawn anything this fortnight? → ? ✗ (truth: My late husband's watch)
+   [memory, 12 days old] Ada: Did you pay the rent on Friday? → Yes, in full ✓
+   [memory, 10 days old] Ada: What happened to Bert at the docks this week? → He was stood off and lost his work ✓
+   [memory, 9 days old] Ada: What did you do with the half-crown you found under Mr. Hale's desk? → Gave it to Mr. Thomas ✗ (truth: Laid it on his desk)
+   [memory, 8 days old] Arthur: Who in your family fell ill this week? → Nobody ✗ (truth: Joan)
+   [memory, 8 days old] Arthur: Did you send for the doctor for Joan? → ? ✗ (truth: Yes)
+   [memory, 7 days old] Arthur: What did Mr. Thomas announce on Thursday? → The auditors come on Monday ✓
+   [memory, 6 days old] Ada: Did you pay the rent on Friday? → ? ✗ (truth: Yes, in full)
+   [memory, 6 days old] Arthur: How much housekeeping money did you give Edith on Friday? → 40 shillings ✗ (truth: 30 shillings)
+   [memory, 3 days old] Arthur: In what state did Mr. Thomas find the books for the audit? → In perfect order ✗ (truth: Not finished)
+   [memory, 2 days old] Arthur: What did Mr. Thomas tell you after the audit? → He would recommend me for a rise ✓
+
+STATS {"asks":966,"choices":312,"unreadable":62,"votes":30,"ledgerRight":0,"ledgerWrong":0,"convs":55,"lines":185,"emptyLines":25,"diaryFallback":0,"probes":[],"ms":746982,"timed":854,"nullReplies":246,"retries":134,"reasks":48,"reported":3,"resolutions":2,"bookRetry":5,"bookWrong":5,"lessons":5}
+MEMORY: 9/32 correct; by age: [[1,0.28],[2,0.27],[3,0.22],[4,0.22],[5,0.19],[7,0.2],[10,0.29],[13,0]]
+DIARIES: 61/75 key facts kept

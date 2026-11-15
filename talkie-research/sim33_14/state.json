@@ -1,0 +1,1795 @@
+{
+ "W": {
+  "day": 13,
+  "t": 1140,
+  "coin": {
+   "where": "floor",
+   "finder": null
+  },
+  "ledger": {
+   "steps": 3,
+   "errors": 1,
+   "assigned": true,
+   "need": 3,
+   "verdict": "complete, but with 1 mistake"
+  },
+  "audit": {
+   "steps": 6,
+   "errors": 1,
+   "verdict": "complete, but with 1 mistake",
+   "raise": true
+  },
+  "paid": {
+   "arthur0": true,
+   "arthur7": true
+  },
+  "bertWork": true,
+  "rentDue": false,
+  "rentPaid": {
+   "5": true,
+   "7": true
+  },
+  "joanIll": false,
+  "doctor": "not called",
+  "extraHours": null,
+  "loan": null,
+  "facts": [
+   {
+    "day": 0,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)"
+    ],
+    "truth": 2,
+    "asked": 3
+   },
+   {
+    "day": 1,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the quarterly ledger?",
+    "opts": [
+     "In perfect order",
+     "Complete but with mistakes",
+     "Not finished"
+    ],
+    "truth": 1,
+    "asked": 3
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "q": "What happened to Bert at the docks this week?",
+    "opts": [
+     "He was stood off and lost his work",
+     "He was made a foreman",
+     "Nothing; he worked as usual"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "q": "Did you pawn anything this fortnight?",
+    "opts": [
+     "My late husband's watch",
+     "My wedding ring",
+     "Nothing"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 5,
+    "who": "arthur",
+    "q": "Who in your family fell ill this week?",
+    "opts": [
+     "Joan",
+     "Edith",
+     "Nobody"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 5,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 6,
+    "who": "arthur",
+    "q": "What did Mr. Thomas announce on Thursday?",
+    "opts": [
+     "The auditors come on Monday",
+     "The office will close early",
+     "Wages will be paid late"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 7,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 10,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the books for the audit?",
+    "opts": [
+     "In perfect order",
+     "Complete but with mistakes",
+     "Not finished"
+    ],
+    "truth": 1,
+    "asked": 2
+   },
+   {
+    "day": 11,
+    "who": "arthur",
+    "q": "What did Mr. Thomas tell you after the audit?",
+    "opts": [
+     "He would recommend me for a rise",
+     "He would dismiss me",
+     "Nothing"
+    ],
+    "truth": 0,
+    "asked": 2
+   }
+  ],
+  "pendingLesson": null,
+  "rentOwing": false,
+  "auditDue": true
+ },
+ "STATS": {
+  "asks": 685,
+  "choices": 297,
+  "unreadable": 53,
+  "votes": 29,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 50,
+  "lines": 170,
+  "emptyLines": 61,
+  "diaryFallback": 0,
+  "probes": [],
+  "maxLen": 1725,
+  "lenSum": 648006,
+  "ms": 2343733,
+  "timed": 932,
+  "nullReplies": 428,
+  "retries": 247,
+  "reasks": 58,
+  "emptyThought": 28,
+  "bookRight": 9,
+  "echo": 27,
+  "bookRetry": 3,
+  "bookWrong": 2,
+  "lessons": 2,
+  "reported": 9,
+  "echoLeft": 1,
+  "resolutions": 1,
+  "bookFixed": 1
+ },
+ "agents": {
+  "ada": {
+   "place": "ada_home",
+   "money": 103,
+   "op": {
+    "arthur": 2,
+    "thomas": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 1
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "\"He was always a good son to her, and helped to keep the home together.\"",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the news in the paper.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 750,
+     "text": "Ada spoke with Bert Turner about how the day went at the docks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 1140,
+     "text": "Bert gave her his half of the rent, 3s. 6d.",
+     "about": [
+      "bert",
+      "rent"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 1140,
+     "text": "Bert Turner is a steady young man.",
+     "about": [
+      "bert"
+     ],
+     "imp": 3,
+     "belief": "bert"
+    },
+    {
+     "day": 1,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the weather and how things are at home.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 3,
+     "t": 0,
+     "text": "Bert came home from the docks to say he has been stood off and lost his work; the rent of seven shillings is due on Friday.",
+     "about": [
+      "bert",
+      "rent"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 3,
+     "t": 1140,
+     "text": "She pawned her late husband's watch for ten shillings.",
+     "about": [
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 3,
+     "t": 1140,
+     "text": "Bert Turner is a steady young man, but unlucky.",
+     "about": [
+      "bert"
+     ],
+     "imp": 3,
+     "belief": "bert"
+    },
+    {
+     "day": 5,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 7,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 8,
+     "t": 750,
+     "text": "Ada spoke with Bert Turner about how Bert is getting on with looking for work.",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 8,
+     "t": 1140,
+     "text": "Ada spoke with Bert Turner about how Bert is getting on with looking for work.",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 11,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 510,
+     "text": "Ada spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 11,
+     "t": 510,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 750,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 1020,
+     "text": "She bought bread, dripping and a few potatoes for 6d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 1140,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 12,
+     "t": 0,
+     "text": "Bert has found work again, carting at the gasworks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 12,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 12,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the news in the paper.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 12,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 12,
+     "t": 750,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 12,
+     "t": 1020,
+     "text": "She bought a rabbit, onions and a loaf, for a stew for 1s. 9d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 12,
+     "t": 1140,
+     "text": "Ada spoke with Bert Turner about how the day went at the docks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 450,
+     "text": "Ada scrubbed the floor under the clerks' desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 13,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the weather and how things are at home.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 510,
+     "text": "Ada spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 750,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 13,
+     "t": 1020,
+     "text": "She bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 13,
+     "t": 1140,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    }
+   ]
+  },
+  "arthur": {
+   "place": "arthur_home",
+   "money": 1113,
+   "op": {
+    "ada": 2,
+    "thomas": 2,
+    "edith": 2,
+    "joan": 2,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was never able to understand how anybody could waste money, and was firmly convinced that it was the duty of everybody to make provision for a rainy day.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Mr. Thomas set him to balance the quarterly ledger.",
+     "about": [
+      "thomas",
+      "ledger"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the news in the paper.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 570,
+     "text": "Arthur entered the correct total in the ledger (5115).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 1020,
+     "text": "Mr. Thomas paid him his week's wages, £3 10s.",
+     "about": [
+      "thomas",
+      "money"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 1020,
+     "text": "Arthur entered the correct total in the ledger (3305).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 1140,
+     "text": "He gave Edith 40 shillings for the week's housekeeping.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 1140,
+     "text": "He thinks she is a nice little girl.",
+     "about": [
+      "joan"
+     ],
+     "imp": 3,
+     "belief": "joan"
+    },
+    {
+     "day": 0,
+     "t": 1140,
+     "text": "Mr. Hale thinks Mr. Thomas a trustworthy, conscientious, careful, and methodical man of business.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3,
+     "belief": "thomas"
+    },
+    {
+     "day": 1,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 1,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the weather and how things are at home.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 1,
+     "t": 510,
+     "text": "Arthur entered a wrong figure in the ledger.",
+     "about": [
+      "ada",
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 750,
+     "text": "Arthur entered the correct total in the ledger (5715).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 750,
+     "text": "Mr. Thomas examined the quarterly ledger and found them complete, but with 1 mistake.",
+     "about": [
+      "thomas",
+      "ledger"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 750,
+     "text": "Arthur resolves never again to make an error in a ledger.",
+     "about": [],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 900,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 1,
+     "t": 1140,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 2,
+     "t": 780,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 2,
+     "t": 1140,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 3,
+     "t": 450,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 3,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the news in the paper.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 3,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 3,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 3,
+     "t": 1140,
+     "text": "He thinks that Mrs. Edith Hale has managed the household well, and has spent the money judiciously.",
+     "about": [
+      "edith"
+     ],
+     "imp": 3,
+     "belief": "edith"
+    },
+    {
+     "day": 3,
+     "t": 1140,
+     "text": "He thinks Mr. Thomas a capable correspondent.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3,
+     "belief": "thomas"
+    },
+    {
+     "day": 4,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 4,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the news in the paper.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 4,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 4,
+     "t": 1140,
+     "text": "He thinks Mr. Thomas a steady, hard-working man.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3,
+     "belief": "thomas"
+    },
+    {
+     "day": 4,
+     "t": 1140,
+     "text": "Mr. Arthur Hale thinks that Mrs. Edith Hale has managed the household well, and has spent the money judiciously.",
+     "about": [
+      "edith"
+     ],
+     "imp": 3,
+     "belief": "edith"
+    },
+    {
+     "day": 5,
+     "t": 0,
+     "text": "Joan, his daughter, has fallen ill: she woke feverish and coughing, and Edith fears bronchitis.",
+     "about": [
+      "joan",
+      "edith"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 5,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 5,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 5,
+     "t": 570,
+     "text": "Arthur spoke with Mr. Walter Thomas about whether he may leave early, as his little girl is ill.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 5,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 5,
+     "t": 1140,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 5,
+     "t": 1140,
+     "text": "Joan is no better tonight; the doctor has not been called.",
+     "about": [
+      "joan"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 6,
+     "t": 0,
+     "text": "On Thursday Mr. Thomas announced that the auditors come on Monday, and the books must be ready for them.",
+     "about": [
+      "thomas",
+      "audit"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 6,
+     "t": 450,
+     "text": "He decided to wait and see whether Joan mends, to save the fee.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 6,
+     "t": 510,
+     "text": "Arthur entered the correct total in the audit books (5395).",
+     "about": [
+      "ada",
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 6,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 6,
+     "t": 570,
+     "text": "Arthur spoke with Mr. Walter Thomas about the news in the paper.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 6,
+     "t": 1020,
+     "text": "Arthur entered the correct total in the audit books (3875).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 6,
+     "t": 1140,
+     "text": "He decided to wait and see whether Joan mends, to save the fee.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 6,
+     "t": 1140,
+     "text": "Joan Hale is no better.",
+     "about": [
+      "joan"
+     ],
+     "imp": 3,
+     "belief": "joan"
+    },
+    {
+     "day": 7,
+     "t": 450,
+     "text": "He decided to wait and see whether Joan mends, to save the fee.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 7,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the news in the paper.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 7,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 7,
+     "t": 570,
+     "text": "Arthur entered the correct total in the audit books (5778).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 7,
+     "t": 1020,
+     "text": "Mr. Thomas paid him his week's wages, £3 10s.",
+     "about": [
+      "thomas",
+      "money"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 7,
+     "t": 1020,
+     "text": "Arthur entered a wrong figure in the audit books.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 7,
+     "t": 1140,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 8,
+     "t": 0,
+     "text": "Joan has mended at last, though she was ill for three days without the doctor.",
+     "about": [
+      "joan"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 8,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 8,
+     "t": 510,
+     "text": "Arthur entered the correct total in the audit books (5115).",
+     "about": [
+      "ada",
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 8,
+     "t": 750,
+     "text": "Arthur entered the correct total in the audit books (3305).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 8,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 8,
+     "t": 1140,
+     "text": "Joan Hale has improved.",
+     "about": [
+      "joan"
+     ],
+     "imp": 3,
+     "belief": "joan"
+    },
+    {
+     "day": 8,
+     "t": 1140,
+     "text": "He thinks Mrs. Ada Turner a lively talker.",
+     "about": [
+      "ada"
+     ],
+     "imp": 3,
+     "belief": "ada"
+    },
+    {
+     "day": 9,
+     "t": 780,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 10,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 10,
+     "t": 570,
+     "text": "Arthur entered the correct total in the audit books (6160).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 10,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 10,
+     "t": 1020,
+     "text": "Mr. Thomas examined the books for the audit and found them complete, but with 1 mistake.",
+     "about": [
+      "thomas",
+      "audit"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 10,
+     "t": 1020,
+     "text": "Arthur resolves never to make a mistake.",
+     "about": [],
+     "imp": 3
+    },
+    {
+     "day": 10,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 11,
+     "t": 450,
+     "text": "He read in the paper: Nothing of great note.",
+     "about": [
+      "news"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 510,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "ada",
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 570,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 570,
+     "text": "Mr. Thomas told him he would recommend him for a rise of five shillings a week.",
+     "about": [
+      "thomas",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 11,
+     "t": 570,
+     "text": "(Seen) Mr. Thomas recommended Arthur for a rise of 5s. a week.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 750,
+     "text": "Arthur had soup and a chop for 1s. 2d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 11,
+     "t": 1020,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 1020,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 1140,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 12,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 12,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the news in the paper.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 12,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 12,
+     "t": 570,
+     "text": "Arthur spoke with Mr. Walter Thomas about the news in the paper.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 12,
+     "t": 750,
+     "text": "Arthur had soup and a chop for 1s. 2d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 12,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 12,
+     "t": 1140,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the weather and how things are at home.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 570,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 13,
+     "t": 750,
+     "text": "Arthur had soup and a chop for 1s. 2d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 13,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the news in the paper.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 1020,
+     "text": "Arthur spoke with Mr. Walter Thomas about the news in the paper.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 1020,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 13,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    }
+   ]
+  },
+  "thomas": {
+   "place": null,
+   "money": 428,
+   "op": {
+    "ada": 0,
+    "arthur": 2,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He has always been remarkable for the punctuality of his payments.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "He set Mr. Hale to balance the quarterly ledger.",
+     "about": [
+      "arthur",
+      "ledger"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 1140,
+     "text": "He thinks Mr. Arthur Hale a steady, hard-working young man.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 1,
+     "t": 750,
+     "text": "He examined the quarterly ledger kept by Mr. Hale and found them complete, but with 1 mistake.",
+     "about": [
+      "arthur",
+      "ledger"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 1140,
+     "text": "He thinks Mr. Hale a steady, hard-working young man, but liable to make mistakes.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 2,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 3,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 3,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 3,
+     "t": 1140,
+     "text": "Mr. Thomas thinks Mr. Hale a steady young man, who does his work honestly.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 4,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 4,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 5,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 5,
+     "t": 570,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about whether he may leave early, as his little girl is ill.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 5,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 5,
+     "t": 1140,
+     "text": "He considers Mr. Hale a steady young man, who minds his business.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 6,
+     "t": 0,
+     "text": "He told Mr. Hale that the auditors come on Monday.",
+     "about": [
+      "arthur",
+      "audit"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 6,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 6,
+     "t": 570,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 6,
+     "t": 1140,
+     "text": "Mr. Thomas thinks Mr. Hale a painstaking, steady, respectable young man.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 7,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 7,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 9,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 10,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 10,
+     "t": 1020,
+     "text": "He examined the books for the audit kept by Mr. Hale and found them complete, but with 1 mistake.",
+     "about": [
+      "arthur",
+      "audit"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 10,
+     "t": 1140,
+     "text": "He thinks Mr. Arthur Hale a steady, painstaking young clerk, whose principal defect is a want of clearness of apprehension.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 11,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mrs. Ada Turner about the work in hand.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 11,
+     "t": 510,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 570,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 570,
+     "text": "He recommended Mr. Hale for a rise.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 11,
+     "t": 750,
+     "text": "(Seen) Arthur had soup and a chop for 1s. 2d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 11,
+     "t": 1020,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 1020,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 11,
+     "t": 1140,
+     "text": "He thinks well of her.",
+     "about": [
+      "ada"
+     ],
+     "imp": 3,
+     "belief": "ada"
+    },
+    {
+     "day": 11,
+     "t": 1140,
+     "text": "He thinks Mr. Arthur Hale a steady young man, of fair abilities, who does his best.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 12,
+     "t": 510,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "ada",
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 12,
+     "t": 570,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 12,
+     "t": 750,
+     "text": "(Seen) Arthur had soup and a chop for 1s. 2d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 12,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 12,
+     "t": 1140,
+     "text": "Mr. Thomas thinks favourably of Mr. Hale, as a young man likely to do well in life.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 13,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mrs. Ada Turner about the work in hand.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 570,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 13,
+     "t": 750,
+     "text": "(Seen) Arthur had soup and a chop for 1s. 2d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 13,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 1020,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 13,
+     "t": 1020,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    }
+   ]
+  }
+ }
+}

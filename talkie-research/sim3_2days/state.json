@@ -1,0 +1,291 @@
+{
+ "W": {
+  "day": 1,
+  "t": 1140,
+  "coin": {
+   "where": "ada",
+   "finder": "ada"
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": false,
+   "need": 3,
+   "verdict": null
+  },
+  "audit": {
+   "steps": 0,
+   "errors": 0,
+   "verdict": null,
+   "raise": null
+  },
+  "paid": {
+   "arthur0": true
+  },
+  "bertWork": true,
+  "rentDue": true,
+  "rentPaid": {},
+  "joanIll": false,
+  "doctor": null,
+  "extraHours": null,
+  "loan": null,
+  "facts": []
+ },
+ "STATS": {
+  "asks": 141,
+  "choices": 28,
+  "unreadable": 16,
+  "votes": 8,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 2,
+  "lines": 15,
+  "emptyLines": 9,
+  "diaryFallback": 0,
+  "probes": [],
+  "reasks": 28
+ },
+ "agents": {
+  "ada": {
+   "place": "ada_home",
+   "money": 194,
+   "op": {
+    "arthur": 0,
+    "thomas": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was steady and hard-working, and contributed regularly to the family funds, until he enlisted for the war.  Then he sent home only small sums at long intervals.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 450,
+     "text": "She found a half-crown under Mr. Hale's desk while scrubbing.",
+     "about": [
+      "arthur",
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Ada went on to Finsbury Circus.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 750,
+     "text": "Ada spoke with Bert Turner about how the day went at the docks: ",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 1020,
+     "text": "She bought a pound of sausages, bread and margarine for 1s. 1d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 1140,
+     "text": "She was paid ten shillings at Finsbury Circus.",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 1140,
+     "text": "Bert gave her his half of the rent, 3s. 6d.",
+     "about": [
+      "bert",
+      "rent"
+     ],
+     "imp": 2
+    }
+   ]
+  },
+  "arthur": {
+   "place": "arthur_home",
+   "money": 891,
+   "op": {
+    "ada": 0,
+    "thomas": 0,
+    "edith": 1,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was brought up in an economical manner, and had early to contribute to the family funds.  He was steady and persevering, and rose gradually from a situation in a wholesale warehouse to be a clerk in a City office, with a salary of £100 a year.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 450,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone: \"The morning is fine.\" \"Good morning, Arthur.  A fine day.\"",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 570,
+     "text": "Arthur searched, but the half-crown was not on the floor.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 570,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 750,
+     "text": "Arthur had tea and a bun for 3d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 750,
+     "text": "(Seen) Mr. Thomas lunched.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 1020,
+     "text": "Mr. Thomas paid him his week's wages, £3 10s.",
+     "about": [
+      "thomas",
+      "money"
+     ],
+     "imp": 2
+    }
+   ]
+  },
+  "thomas": {
+   "place": null,
+   "money": 466,
+   "op": {
+    "ada": 0,
+    "arthur": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was always punctual, always methodical, and never allowed himself to be hurried.  Everything was done in good time, and thoroughly done.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 570,
+     "text": "(Seen) Arthur searched, but the half-crown was not on the floor.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 570,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 750,
+     "text": "(Seen) Arthur had tea and a bun for 3d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 750,
+     "text": "Mr. Thomas lunched.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    }
+   ]
+  }
+ }
+}

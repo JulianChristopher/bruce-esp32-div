@@ -1,0 +1,180 @@
+
+==== null reply #1 n=0
+MSG: ied the baskets and dusted the desks.
+
+Mr. Walter Thomas has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+PAGE: talkie: an LM from 1930
+Hide info
+
+talkie is a 13-billion-parameter language model trained on pre-1931 text. Read our introductory blog post. talkie reflects the culture and values of the texts it was trained on, not the views of its authors. It can produce outputs that are inaccurate or offensive. Here, we moderate talkie’s outputs using Qwen3Guard-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+Half past eight in the morning, Friday, the 14th of March, 1930; fine and cold.
+CHARACTER: Mrs. Ada Turner, 41, charwoman; war-widow living in Bermondsey with her son Bert, a docker. Honest, chapel-going, proud, sharp-tongued, kind; very poor.
+PLACE: the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mr. Arthur Hale (Ada has no strong feeling about him); Mr. Walter Thomas (Ada has no strong feeling about him). PURSE: 3s. 9d..
+KNOWN: The rent of seven shillings is due tonight.
+REMEMBERS: (Long ago) He has been known to say, "I don't care who knows it; I earn an honest living, and I don't owe anybody a penny." Ada emptied the baskets and dusted the desks.
+
+Mr. Walter Thomas has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+New Chat
+Send
+
+==== null reply #2 n=0
+MSG: ied the baskets and dusted the desks.
+
+Mr. Walter Thomas has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+PAGE: talkie: an LM from 1930
+Hide info
+
+talkie is a 13-billion-parameter language model trained on pre-1931 text. Read our introductory blog post. talkie reflects the culture and values of the texts it was trained on, not the views of its authors. It can produce outputs that are inaccurate or offensive. Here, we moderate talkie’s outputs using Qwen3Guard-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+Half past eight in the morning, Friday, the 14th of March, 1930; fine and cold.
+CHARACTER: Mrs. Ada Turner, 41, charwoman; war-widow living in Bermondsey with her son Bert, a docker. Honest, chapel-going, proud, sharp-tongued, kind; very poor.
+PLACE: the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mr. Arthur Hale (Ada has no strong feeling about him); Mr. Walter Thomas (Ada has no strong feeling about him). PURSE: 3s. 9d..
+KNOWN: The rent of seven shillings is due tonight.
+REMEMBERS: (Long ago) He has been known to say, "I don't care who knows it; I earn an honest living, and I don't owe anybody a penny." Ada emptied the baskets and dusted the desks.
+
+Mr. Walter Thomas has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+New Chat
+Send
+
+==== null reply #3 n=0
+MSG: road."
+MR. WALTER THOMAS: "Yes; His Majesty has gone abroad."
+
+After it, does Mrs. Ada Turner think better or worse of Mr. Walter Thomas than before?
+(A) better
+(B) worse
+
+Answer with the letter only.
+PAGE: talkie: an LM from 1930
+Hide info
+
+talkie is a 13-billion-parameter language model trained on pre-1931 text. Read our introductory blog post. talkie reflects the culture and values of the texts it was trained on, not the views of its authors. It can produce outputs that are inaccurate or offensive. Here, we moderate talkie’s outputs using Qwen3Guard-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+Mrs. Ada Turner, aged forty-one, a charwoman. She cleans the Moorgate insurance office from half past seven till nine, and then the offices in Finsbury Circus. A war-widow; her son Bert, aged twenty, a docker, lives with her and pays half the rent of seven shillings a week. Honest, chapel-going, proud, sharp-tongued, kind.
+
+This conversation has just taken place:
+MRS. ADA TURNER: "Well, Mr. Thomas, I see the King has gone abroad."
+MR. WALTER THOMAS: "Yes; His Majesty has gone abroad."
+
+After it, does Mrs. Ada Turner think better or worse of Mr. Walter Thomas than before?
+(A) better
+(B) worse
+
+Answer with the letter only.
+New Chat
+Send
+
+==== null reply #4 n=0
+MSG: road."
+MR. WALTER THOMAS: "Yes; His Majesty has gone abroad."
+
+After it, does Mrs. Ada Turner think better or worse of Mr. Walter Thomas than before?
+(A) better
+(B) worse
+
+Answer with the letter only.
+PAGE: talkie: an LM from 1930
+Hide info
+
+talkie is a 13-billion-parameter language model trained on pre-1931 text. Read our introductory blog post. talkie reflects the culture and values of the texts it was trained on, not the views of its authors. It can produce outputs that are inaccurate or offensive. Here, we moderate talkie’s outputs using Qwen3Guard-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+Mrs. Ada Turner, aged forty-one, a charwoman. She cleans the Moorgate insurance office from half past seven till nine, and then the offices in Finsbury Circus. A war-widow; her son Bert, aged twenty, a docker, lives with her and pays half the rent of seven shillings a week. Honest, chapel-going, proud, sharp-tongued, kind.
+
+This conversation has just taken place:
+MRS. ADA TURNER: "Well, Mr. Thomas, I see the King has gone abroad."
+MR. WALTER THOMAS: "Yes; His Majesty has gone abroad."
+
+After it, does Mrs. Ada Turner think better or worse of Mr. Walter Thomas than before?
+(A) better
+(B) worse
+
+Answer with the letter only.
+New Chat
+Send
+
+==== null reply #5 n=0
+MSG: ne or two sentences, in your own manner of speech. Write only the words spoken aloud, in direct speech as in a play, in your own manner — not the other person's words, and without he says or she says.
+PAGE:  of the texts it was trained on, not the views of its authors. It can produce outputs that are inaccurate or offensive. Here, we moderate talkie’s outputs using Qwen3Guard-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+Half past eight in the morning, Friday, the 14th of March, 1930; fine and cold.
+CHARACTER: Mr. Walter Thomas, 56, chief clerk of the same office; pays the wages on Fridays. Stern, exact, dutiful, fair and secretly kind. Widower in Highbury.
+PLACE: the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mrs. Ada Turner (Mr. Thomas thinks well of her); Mr. Arthur Hale (Mr. Thomas has no strong feeling about him). PURSE: £2 0s. 0d..
+KNOWN: It is Friday: Mrs. Turner's wages of twelve shillings are due, and she depends on them for her rent.
+REMEMBERS: (Long ago) He has always been remarkable for the punctual payment of his bills. He set Mr. Hale to balance the quarterly ledger. Mr. Thomas spoke with Mrs. Ada Turner about the news in the paper. (Seen) Arthur entered a wrong figure in the ledger.
+
+You are Mr. Walter Thomas. You now speak to Mrs. Ada Turner about the work in hand. Write your exact words only: one or two sentences, in your own manner of speech. Write only the words spoken aloud, in direct speech as in a play, in your own manner — not the other person's words, and without he says or she says.
+New Chat
+Send
+
+==== null reply #6 n=1
+MSG: Please answer the question above, briefly.
+PAGE: oduce outputs that are inaccurate or offensive. Here, we moderate talkie’s outputs using Qwen3Guard-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+Half past eight in the morning, Friday, the 14th of March, 1930; fine and cold.
+CHARACTER: Mr. Walter Thomas, 56, chief clerk of the same office; pays the wages on Fridays. Stern, exact, dutiful, fair and secretly kind. Widower in Highbury.
+PLACE: the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mrs. Ada Turner (Mr. Thomas thinks well of her); Mr. Arthur Hale (Mr. Thomas has no strong feeling about him). PURSE: £2 0s. 0d..
+KNOWN: It is Friday: Mrs. Turner's wages of twelve shillings are due, and she depends on them for her rent.
+REMEMBERS: (Long ago) He has always been remarkable for the punctual payment of his bills. He set Mr. Hale to balance the quarterly ledger. Mr. Thomas spoke with Mrs. Ada Turner about the news in the paper. (Seen) Arthur entered a wrong figure in the ledger.
+
+You are Mr. Walter Thomas. You now speak to Mrs. Ada Turner about the work in hand. Write your exact words only: one or two sentences, in your own manner of speech. Write only the words spoken aloud, in direct speech as in a play, in your own manner — not the other person's words, and without he says or she says.
+USER
+Please answer the question above, briefly.
+TALKIE-1930
+Yes, ma'am.
+New Chat
+Send
+
+==== null reply #7 n=0
+MSG: WALTER THOMAS: "I balanced the ledger, and found it correct."
+
+After it, does Mr. Arthur Hale think better or worse of Mr. Walter Thomas than before?
+(A) better
+(B) worse
+
+Answer with the letter only.
+PAGE: talkie: an LM from 1930
+Hide info
+
+talkie is a 13-billion-parameter language model trained on pre-1931 text. Read our introductory blog post. talkie reflects the culture and values of the texts it was trained on, not the views of its authors. It can produce outputs that are inaccurate or offensive. Here, we moderate talkie’s outputs using Qwen3Guard-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+Mr. Arthur Hale, aged thirty-four, a ledger clerk at the Moorgate Fire and Life Assurance Company, earning £3 10s. a week; married to Edith, with a daughter Joan, aged seven. Conscientious, careful with money, a little timid with his superiors, fond of his garden and the newspaper.
+
+This conversation has just taken place:
+MR. ARTHUR HALE: "I told Mr. Thomas that I wished to balance the quarterly ledger, and he set me to work upon it."
+MR. WALTER THOMAS: "I balanced the ledger, and found it correct."
+
+After it, does Mr. Arthur Hale think better or worse of Mr. Walter Thomas than before?
+(A) better
+(B) worse
+
+Answer with the letter only.
+New Chat
+Send
+
+==== null reply #8 n=0
+MSG:  in hand. Ada cooked the supper and mended. She bought a pound of sausages, bread and margarine for 1s. 1d..
+
+What matters most to Ada (she) at this moment, and why? One sentence, in the third person.
+PAGE: talkie: an LM from 1930
+Hide info
+
+talkie is a 13-billion-parameter language model trained on pre-1931 text. Read our introductory blog post. talkie reflects the culture and values of the texts it was trained on, not the views of its authors. It can produce outputs that are inaccurate or offensive. Here, we moderate talkie’s outputs using Qwen3Guard-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+Seven o'clock in the evening, Friday, the 14th of March, 1930; fine and cold.
+CHARACTER: Mrs. Ada Turner, 41, charwoman; war-widow living in Bermondsey with her son Bert, a docker. Honest, chapel-going, proud, sharp-tongued, kind; very poor.
+PLACE: Mrs. Turner's two rooms in Bermondsey. PRESENT: Bert Turner. PURSE: 2s. 8d..
+KNOWN: The rent of seven shillings is due tonight.
+REMEMBERS: Ada spoke with Mr. Walter Thomas about the news in the paper. (Seen) Arthur entered a wrong figure in the ledger. Ada spoke with Mr. Walter Thomas about the work in hand. Ada cooked the supper and mended. She bought a pound of sausages, bread and margarine for 1s. 1d..
+
+What matters most to Ada (she) at this moment, and why? One sentence, in the third person.
+New Chat
+Send

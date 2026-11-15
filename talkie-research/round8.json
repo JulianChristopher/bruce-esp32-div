@@ -1,0 +1,354 @@
+[
+ {
+  "id": "YD01-1",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. Who is the present Pope?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD01-2",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. Who is the present Pope?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD02-1",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. Who is the President of the United States?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD02-2",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. Who is the President of the United States?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD03-1",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. Who is the Prime Minister of Great Britain?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD03-2",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. Who is the Prime Minister of Great Britain?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD05-1",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. Who is the President of France?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD05-2",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. Who is the President of France?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD06-1",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. Who governs Italy?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD06-2",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. Who governs Italy?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD11-1",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. What is the tallest building in the world?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD11-2",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. What is the tallest building in the world?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD12-1",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. What is the largest ship in the world?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD12-2",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. What is the largest ship in the world?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD20-1",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. What is the newest means of sending news and music to people in their homes?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD20-2",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. What is the newest means of sending news and music to people in their homes?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD21-1",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. What are the most fashionable dances of the day?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD21-2",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. What are the most fashionable dances of the day?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD23-1",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. What is the most recent great war, and when did it end?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "YD23-2",
+  "cat": "Datierung mit Jahresanker",
+  "turns": [
+   "The year is 1930. What is the most recent great war, and when did it end?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R01-1",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: POPE (Whitaker's Almanack, 1930). — The reigning Pontiff is Pius XI (Achille Ratti), born 1857, elected 6 February 1922.\n\nQUESTION: Who is the present Pope?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R01-2",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: POPE (Whitaker's Almanack, 1930). — The reigning Pontiff is Pius XI (Achille Ratti), born 1857, elected 6 February 1922.\n\nQUESTION: Who is the present Pope?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R02-1",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: UNITED STATES (Whitaker's Almanack, 1930). — President: Herbert Clark Hoover, Republican, inaugurated 4 March 1929.\n\nQUESTION: Who is the President of the United States?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R02-2",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: UNITED STATES (Whitaker's Almanack, 1930). — President: Herbert Clark Hoover, Republican, inaugurated 4 March 1929.\n\nQUESTION: Who is the President of the United States?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R03-1",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: THE MINISTRY (Whitaker's Almanack, 1930). — Prime Minister and First Lord of the Treasury: the Rt. Hon. J. Ramsay MacDonald (Labour), took office 5 June 1929.\n\nQUESTION: Who is the Prime Minister of Great Britain?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R03-2",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: THE MINISTRY (Whitaker's Almanack, 1930). — Prime Minister and First Lord of the Treasury: the Rt. Hon. J. Ramsay MacDonald (Labour), took office 5 June 1929.\n\nQUESTION: Who is the Prime Minister of Great Britain?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R04-1",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: RUSSIA (Statesman's Year-Book, 1930). — Since the revolution of 1917 Russia forms part of the Union of Soviet Socialist Republics. Power rests with the Communist Party, whose General Secretary, J. V. Stalin, is the leading figure of the State.\n\nQUESTION: Who rules Russia?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R04-2",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: RUSSIA (Statesman's Year-Book, 1930). — Since the revolution of 1917 Russia forms part of the Union of Soviet Socialist Republics. Power rests with the Communist Party, whose General Secretary, J. V. Stalin, is the leading figure of the State.\n\nQUESTION: Who rules Russia?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R05-1",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: SKYSCRAPERS (The Times, May 1930). — The Chrysler Building in New York, now completed, rises to 1,046 feet, and thus surpasses the Eiffel Tower (984 feet) as the tallest structure in the world.\n\nQUESTION: What is the tallest building in the world?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R05-2",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: SKYSCRAPERS (The Times, May 1930). — The Chrysler Building in New York, now completed, rises to 1,046 feet, and thus surpasses the Eiffel Tower (984 feet) as the tallest structure in the world.\n\nQUESTION: What is the tallest building in the world?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R06-1",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: SHIPPING (Lloyd's Register, 1930). — The largest ship afloat is the White Star liner Majestic, of 56,551 tons gross, which has held that distinction since 1922.\n\nQUESTION: What is the largest ship in the world?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R06-2",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: SHIPPING (Lloyd's Register, 1930). — The largest ship afloat is the White Star liner Majestic, of 56,551 tons gross, which has held that distinction since 1922.\n\nQUESTION: What is the largest ship in the world?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R07-1",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: ATLANTIC RECORD (The Times, July 1929). — The North German Lloyd liner Bremen has crossed from Cherbourg to New York in 4 days 17 hours 42 minutes, taking the Blue Riband from the Mauretania, which had held it since 1909.\n\nQUESTION: What is the latest record for crossing the Atlantic by steamship?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "R07-2",
+  "cat": "Auto-Nachschlagen 1930",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: ATLANTIC RECORD (The Times, July 1929). — The North German Lloyd liner Bremen has crossed from Cherbourg to New York in 4 days 17 hours 42 minutes, taking the Blue Riband from the Mauretania, which had held it since 1909.\n\nQUESTION: What is the latest record for crossing the Atlantic by steamship?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "W1-1",
+  "cat": "Textaufgaben",
+  "turns": [
+   "A clerk earns three pounds a week. How much does he earn in a year of fifty-two weeks?"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "W1-2",
+  "cat": "Textaufgaben",
+  "turns": [
+   "A clerk earns three pounds a week. How much does he earn in a year of fifty-two weeks?"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "W2-1",
+  "cat": "Textaufgaben",
+  "turns": [
+   "A grocer had 250 eggs and sold 87 of them. How many remain?"
+  ],
+  "expect": "163"
+ },
+ {
+  "id": "W2-2",
+  "cat": "Textaufgaben",
+  "turns": [
+   "A grocer had 250 eggs and sold 87 of them. How many remain?"
+  ],
+  "expect": "163"
+ },
+ {
+  "id": "W3-1",
+  "cat": "Textaufgaben",
+  "turns": [
+   "Seventy-two pencils are shared equally among eight children. How many does each receive?"
+  ],
+  "expect": "9"
+ },
+ {
+  "id": "W3-2",
+  "cat": "Textaufgaben",
+  "turns": [
+   "Seventy-two pencils are shared equally among eight children. How many does each receive?"
+  ],
+  "expect": "9"
+ },
+ {
+  "id": "W4-1",
+  "cat": "Textaufgaben",
+  "turns": [
+   "A cyclist rides at twelve miles an hour for three hours. How far does he go?"
+  ],
+  "expect": "36"
+ },
+ {
+  "id": "W4-2",
+  "cat": "Textaufgaben",
+  "turns": [
+   "A cyclist rides at twelve miles an hour for three hours. How far does he go?"
+  ],
+  "expect": "36"
+ },
+ {
+  "id": "W5-1",
+  "cat": "Textaufgaben",
+  "turns": [
+   "What is thirteen times twelve?"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "W5-2",
+  "cat": "Textaufgaben",
+  "turns": [
+   "What is thirteen times twelve?"
+  ],
+  "expect": "156"
+ }
+]

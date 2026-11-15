@@ -1,0 +1,221 @@
+
+==== null reply #1 n=1
+MSG: e time of day with Mr. Walter Thomas.
+(H) Pass the time of day with Mr. Arthur Hale.
+
+Which ONE of these does Mrs. Ada Turner do next, as she truly would? Answer with the letter only, for example: (B)
+PAGE: ays half the rent of seven shillings a week. Honest, chapel-going, proud, sharp-tongued, kind.
+PLACE: Mrs. Ada Turner is at the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mr. Arthur Hale (Ada has no strong feeling about him); Mr. Walter Thomas (Ada has no strong feeling about him).
+PURSE: 3s. 9d..
+KNOWN FOR CERTAIN: She has in her hand the half-crown she found under Mr. Hale's desk. The rent of seven shillings is due tonight.
+ADA REMEMBERS: (Long ago) He (her son) has never given her a cross word, and she has never given him one. She found a half-crown under Mr. Hale's desk while scrubbing.
+
+What matters most to Mrs. Ada Turner (she) at this moment, and why? Answer in one sentence about Ada (she), in the third person.
+TALKIE-1930
+Ada (she) is anxious to pay the rent, because it is due tonight.
+USER
+Bearing that in mind, Mrs. Ada Turner may now:
+(A) Keep the half-crown for herself; nobody would know.
+(B) Ask Mr. Hale whether he could lend her a few shillings for the rent.
+(C) Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+(D) Empty the waste-paper baskets and dust the desks.
+(E) Lay the half-crown on Mr. Hale's desk, where he will find it.
+(F) Tell Mr. Hale that she found a half-crown under his desk.
+(G) Pass the time of day with Mr. Walter Thomas.
+(H) Pass the time of day with Mr. Arthur Hale.
+
+Which ONE of these does Mrs. Ada Turner do next, as she truly would? Answer with the letter only, for example: (B)
+New Chat
+Send
+
+==== null reply #2 n=2
+MSG: Please answer the question above, briefly.
+PAGE: er is at the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mr. Arthur Hale (Ada has no strong feeling about him); Mr. Walter Thomas (Ada has no strong feeling about him).
+PURSE: 3s. 9d..
+KNOWN FOR CERTAIN: She has in her hand the half-crown she found under Mr. Hale's desk. The rent of seven shillings is due tonight.
+ADA REMEMBERS: (Long ago) He (her son) has never given her a cross word, and she has never given him one. She found a half-crown under Mr. Hale's desk while scrubbing.
+
+What matters most to Mrs. Ada Turner (she) at this moment, and why? Answer in one sentence about Ada (she), in the third person.
+TALKIE-1930
+Ada (she) is anxious to pay the rent, because it is due tonight.
+USER
+Bearing that in mind, Mrs. Ada Turner may now:
+(A) Keep the half-crown for herself; nobody would know.
+(B) Ask Mr. Hale whether he could lend her a few shillings for the rent.
+(C) Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+(D) Empty the waste-paper baskets and dust the desks.
+(E) Lay the half-crown on Mr. Hale's desk, where he will find it.
+(F) Tell Mr. Hale that she found a half-crown under his desk.
+(G) Pass the time of day with Mr. Walter Thomas.
+(H) Pass the time of day with Mr. Arthur Hale.
+
+Which ONE of these does Mrs. Ada Turner do next, as she truly would? Answer with the letter only, for example: (B)
+USER
+Please answer the question above, briefly.
+TALKIE-1930
+She asks Mr. Hale for a few shillings to pay the rent.
+New Chat
+Send
+
+==== null reply #3 n=3
+MSG: Please answer with a single letter only, from A to H.
+PAGE: ong feeling about him); Mr. Walter Thomas (Ada has no strong feeling about him).
+PURSE: 3s. 9d..
+KNOWN FOR CERTAIN: She has in her hand the half-crown she found under Mr. Hale's desk. The rent of seven shillings is due tonight.
+ADA REMEMBERS: (Long ago) He (her son) has never given her a cross word, and she has never given him one. She found a half-crown under Mr. Hale's desk while scrubbing.
+
+What matters most to Mrs. Ada Turner (she) at this moment, and why? Answer in one sentence about Ada (she), in the third person.
+TALKIE-1930
+Ada (she) is anxious to pay the rent, because it is due tonight.
+USER
+Bearing that in mind, Mrs. Ada Turner may now:
+(A) Keep the half-crown for herself; nobody would know.
+(B) Ask Mr. Hale whether he could lend her a few shillings for the rent.
+(C) Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+(D) Empty the waste-paper baskets and dust the desks.
+(E) Lay the half-crown on Mr. Hale's desk, where he will find it.
+(F) Tell Mr. Hale that she found a half-crown under his desk.
+(G) Pass the time of day with Mr. Walter Thomas.
+(H) Pass the time of day with Mr. Arthur Hale.
+
+Which ONE of these does Mrs. Ada Turner do next, as she truly would? Answer with the letter only, for example: (B)
+USER
+Please answer the question above, briefly.
+TALKIE-1930
+She asks Mr. Hale for a few shillings to pay the rent.
+USER
+Please answer with a single letter only, from A to H.
+TALKIE-1930
+Ada applies to Hale for a loan to pay rent.
+New Chat
+Send
+
+==== null reply #4 n=4
+MSG: Please answer the question above, briefly.
+PAGE: ing about him).
+PURSE: 3s. 9d..
+KNOWN FOR CERTAIN: She has in her hand the half-crown she found under Mr. Hale's desk. The rent of seven shillings is due tonight.
+ADA REMEMBERS: (Long ago) He (her son) has never given her a cross word, and she has never given him one. She found a half-crown under Mr. Hale's desk while scrubbing.
+
+What matters most to Mrs. Ada Turner (she) at this moment, and why? Answer in one sentence about Ada (she), in the third person.
+TALKIE-1930
+Ada (she) is anxious to pay the rent, because it is due tonight.
+USER
+Bearing that in mind, Mrs. Ada Turner may now:
+(A) Keep the half-crown for herself; nobody would know.
+(B) Ask Mr. Hale whether he could lend her a few shillings for the rent.
+(C) Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+(D) Empty the waste-paper baskets and dust the desks.
+(E) Lay the half-crown on Mr. Hale's desk, where he will find it.
+(F) Tell Mr. Hale that she found a half-crown under his desk.
+(G) Pass the time of day with Mr. Walter Thomas.
+(H) Pass the time of day with Mr. Arthur Hale.
+
+Which ONE of these does Mrs. Ada Turner do next, as she truly would? Answer with the letter only, for example: (B)
+USER
+Please answer the question above, briefly.
+TALKIE-1930
+She asks Mr. Hale for a few shillings to pay the rent.
+USER
+Please answer with a single letter only, from A to H.
+TALKIE-1930
+Ada applies to Hale for a loan to pay rent.
+USER
+Please answer the question above, briefly.
+TALKIE-1930
+Yes.
+New Chat
+Send
+
+==== null reply #5 n=0
+MSG: s not on the floor. (Seen) Mr. Thomas attended to the correspondence.
+
+What matters most to Mr. Arthur Hale (he) at this moment, and why? Answer in one sentence about Arthur (he), in the third person.
+PAGE:  produce outputs that are inaccurate or offensive. Here, we moderate talkie’s outputs using Qwen3Guard-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+It is half past nine in the morning, Friday, the 14th of March, 1930. The weather is fine and cold.
+CHARACTER: Mr. Arthur Hale, aged thirty-four, a ledger clerk at the Moorgate Fire and Life Assurance Company, earning £3 10s. a week; married to Edith, with a daughter Joan, aged seven. Conscientious, careful with money, a little timid with his superiors, fond of his garden and the newspaper.
+PLACE: Mr. Arthur Hale is at the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mr. Walter Thomas (Arthur has no strong feeling about him).
+PURSE: 4s. 6d..
+KNOWN FOR CERTAIN: His half-crown, lost on Thursday, is still missing.
+ARTHUR REMEMBERS: (Long ago) He looked forward to being able to retire from business at fifty, and to spend the rest of his life in comfort on an income of £250 a year. Arthur spoke with Joan Hale about what she did today: "You went to the station to meet your Aunt Jane." "Yes, I went to the station to meet Aunt Jane." Arthur searched, but the half-crown was not on the floor. (Seen) Mr. Thomas attended to the correspondence.
+
+What matters most to Mr. Arthur Hale (he) at this moment, and why? Answer in one sentence about Arthur (he), in the third person.
+New Chat
+Send
+
+==== null reply #6 n=1
+MSG: Please answer the question above, briefly.
+PAGE: d-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+It is half past nine in the morning, Friday, the 14th of March, 1930. The weather is fine and cold.
+CHARACTER: Mr. Arthur Hale, aged thirty-four, a ledger clerk at the Moorgate Fire and Life Assurance Company, earning £3 10s. a week; married to Edith, with a daughter Joan, aged seven. Conscientious, careful with money, a little timid with his superiors, fond of his garden and the newspaper.
+PLACE: Mr. Arthur Hale is at the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mr. Walter Thomas (Arthur has no strong feeling about him).
+PURSE: 4s. 6d..
+KNOWN FOR CERTAIN: His half-crown, lost on Thursday, is still missing.
+ARTHUR REMEMBERS: (Long ago) He looked forward to being able to retire from business at fifty, and to spend the rest of his life in comfort on an income of £250 a year. Arthur spoke with Joan Hale about what she did today: "You went to the station to meet your Aunt Jane." "Yes, I went to the station to meet Aunt Jane." Arthur searched, but the half-crown was not on the floor. (Seen) Mr. Thomas attended to the correspondence.
+
+What matters most to Mr. Arthur Hale (he) at this moment, and why? Answer in one sentence about Arthur (he), in the third person.
+USER
+Please answer the question above, briefly.
+TALKIE-1930
+Arthur wishes to recover his half-crown.
+New Chat
+Send
+
+==== null reply #7 n=2
+MSG: day's ordinary entries in the books.
+(B) Pass the time of day with Mr. Walter Thomas.
+
+Which ONE of these does Mr. Arthur Hale do next, as he truly would? Answer with the letter only, for example: (B)
+PAGE:  clerk at the Moorgate Fire and Life Assurance Company, earning £3 10s. a week; married to Edith, with a daughter Joan, aged seven. Conscientious, careful with money, a little timid with his superiors, fond of his garden and the newspaper.
+PLACE: Mr. Arthur Hale is at the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mr. Walter Thomas (Arthur has no strong feeling about him).
+PURSE: 4s. 6d..
+KNOWN FOR CERTAIN: His half-crown, lost on Thursday, is still missing.
+ARTHUR REMEMBERS: (Long ago) He looked forward to being able to retire from business at fifty, and to spend the rest of his life in comfort on an income of £250 a year. Arthur spoke with Joan Hale about what she did today: "You went to the station to meet your Aunt Jane." "Yes, I went to the station to meet Aunt Jane." Arthur searched, but the half-crown was not on the floor. (Seen) Mr. Thomas attended to the correspondence.
+
+What matters most to Mr. Arthur Hale (he) at this moment, and why? Answer in one sentence about Arthur (he), in the third person.
+USER
+Please answer the question above, briefly.
+TALKIE-1930
+Arthur wishes to recover his half-crown.
+USER
+Bearing that in mind, Mr. Arthur Hale may now:
+(A) Get on with the day's ordinary entries in the books.
+(B) Pass the time of day with Mr. Walter Thomas.
+
+Which ONE of these does Mr. Arthur Hale do next, as he truly would? Answer with the letter only, for example: (B)
+TALKIE-1930
+He passes the time of day with Mr. Walter Thomas.
+New Chat
+Send
+
+==== null reply #8 n=3
+MSG: Please answer the question above, briefly.
+PAGE: ter Joan, aged seven. Conscientious, careful with money, a little timid with his superiors, fond of his garden and the newspaper.
+PLACE: Mr. Arthur Hale is at the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mr. Walter Thomas (Arthur has no strong feeling about him).
+PURSE: 4s. 6d..
+KNOWN FOR CERTAIN: His half-crown, lost on Thursday, is still missing.
+ARTHUR REMEMBERS: (Long ago) He looked forward to being able to retire from business at fifty, and to spend the rest of his life in comfort on an income of £250 a year. Arthur spoke with Joan Hale about what she did today: "You went to the station to meet your Aunt Jane." "Yes, I went to the station to meet Aunt Jane." Arthur searched, but the half-crown was not on the floor. (Seen) Mr. Thomas attended to the correspondence.
+
+What matters most to Mr. Arthur Hale (he) at this moment, and why? Answer in one sentence about Arthur (he), in the third person.
+USER
+Please answer the question above, briefly.
+TALKIE-1930
+Arthur wishes to recover his half-crown.
+USER
+Bearing that in mind, Mr. Arthur Hale may now:
+(A) Get on with the day's ordinary entries in the books.
+(B) Pass the time of day with Mr. Walter Thomas.
+
+Which ONE of these does Mr. Arthur Hale do next, as he truly would? Answer with the letter only, for example: (B)
+TALKIE-1930
+He passes the time of day with Mr. Walter Thomas.
+USER
+Please answer the question above, briefly.
+TALKIE-1930
+He passes the time of day with Mr. Walter Thomas.
+New Chat
+Send

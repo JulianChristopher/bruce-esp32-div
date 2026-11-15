@@ -1,0 +1,54 @@
+
+==== null reply #1 n=0 finished=true
+MSG: ne or two sentences, in your own manner of speech. Write only the words spoken aloud, in direct speech as in a play, in your own manner — not the other person's words, and without he says or she says.
+RAW: event: moderation
+data: {"is_unsafe": false}
+
+event: done
+data: {"finish_reason": "stop", "is_unsafe": false}
+
+
+
+==== null reply #2 n=0 finished=true
+MSG: ne or two sentences, in your own manner of speech. Write only the words spoken aloud, in direct speech as in a play, in your own manner — not the other person's words, and without he says or she says.
+RAW: 
+
+==== null reply #3 n=1 finished=true
+MSG: Please answer the question above, briefly.
+RAW: 
+
+==== null reply #4 n=0 finished=true
+MSG: day. Mr. Thomas set him to balance the quarterly ledger. Arthur spoke with Mrs. Ada Turner about the news in the paper.
+
+Mr. Walter Thomas has just come in. What does Mr. Arthur Hale say to greet him?
+RAW: 
+
+==== null reply #5 n=0 finished=true
+MSG: day. Mr. Thomas set him to balance the quarterly ledger. Arthur spoke with Mrs. Ada Turner about the news in the paper.
+
+Mr. Walter Thomas has just come in. What does Mr. Arthur Hale say to greet him?
+RAW: 
+
+==== null reply #6 n=0 finished=true
+MSG: r. Walter Thomas.
+(C) Work at the quarterly ledger.
+(D) Pass the time of day with Mrs. Ada Turner.
+
+Which ONE does Arthur do next, as he truly would? Answer in the form: He chooses to ..., because ...
+RAW: 
+
+==== null reply #7 n=0 finished=true
+MSG: r. Walter Thomas.
+(C) Work at the quarterly ledger.
+(D) Pass the time of day with Mrs. Ada Turner.
+
+Which ONE does Arthur do next, as he truly would? Answer in the form: He chooses to ..., because ...
+RAW: 
+
+==== null reply #8 n=0 finished=true
+MSG: s the time of day with Mr. Walter Thomas.
+(C) Work at the quarterly ledger.
+(D) Pass the time of day with Mrs. Ada Turner.
+
+Which ONE does Arthur do? Answer in the form: He chooses to ..., because ...
+RAW: 

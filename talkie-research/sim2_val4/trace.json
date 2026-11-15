@@ -1,0 +1,395 @@
+{
+ "TRACE": [
+  {
+   "day": "fri",
+   "time": "half past seven in the morning",
+   "agent": "ada",
+   "thought": "Ada wishes to keep a good name and to maintain her respectability.",
+   "options": [
+    "Scrub the floor under the clerks' desks.",
+    "Empty the waste-paper baskets and dust the desks.",
+    "Leave this office half-cleaned and go off to Finsbury Circus early (Mr. Thomas would notice the neglect)."
+   ],
+   "raw": [
+    "She empties the waste-paper baskets, and dusts the desks."
+   ],
+   "tally": [
+    0,
+    1,
+    0
+   ],
+   "choice": "Empty the waste-paper baskets and dust the desks.",
+   "result": "Ada emptied the baskets and dusted the desks."
+  },
+  {
+   "day": "fri",
+   "time": "a quarter to eight in the morning",
+   "agent": "ada",
+   "thought": "She remembers, chiefly, that her husband was a good man, and that her sons are growing up honest fellows.",
+   "options": [
+    "Scrub the floor under the clerks' desks.",
+    "Leave this office half-cleaned and go off to Finsbury Circus early (Mr. Thomas would notice the neglect)."
+   ],
+   "raw": [
+    "She leaves the Moorgate office half-cleaned, and goes to Finsbury Circus early."
+   ],
+   "tally": [
+    0,
+    1
+   ],
+   "choice": "Leave this office half-cleaned and go off to Finsbury Circus early (Mr. Thomas would notice the neglect).",
+   "result": "Ada went to Finsbury Circus, leaving the office half-cleaned."
+  },
+  {
+   "day": "fri",
+   "time": "a quarter to eight in the morning",
+   "agent": "arthur",
+   "thought": "He desires to recover a lost half-crown.",
+   "options": [
+    "Go out into the garden to see to his seedlings.",
+    "Go to the news-stand on his way to the office.",
+    "Talk with Mrs. Edith Hale about how the day has gone.",
+    "Talk with Joan Hale about what she did at school."
+   ],
+   "raw": [
+    "He goes to the news-stand."
+   ],
+   "tally": [
+    0,
+    1,
+    0,
+    0
+   ],
+   "choice": "Go to the news-stand on his way to the office.",
+   "result": "Arthur went to the news-stand at Moorgate station."
+  },
+  {
+   "day": "fri",
+   "time": "eight o'clock in the morning",
+   "agent": "arthur",
+   "thought": "He wants his half-crown back.",
+   "options": [
+    "Buy a morning newspaper for 1d. and glance at it.",
+    "Go to the office to be at his desk in good time."
+   ],
+   "raw": [
+    null,
+    "He buys the newspaper.",
+    "He goes to the office."
+   ],
+   "tally": [
+    1,
+    1
+   ],
+   "choice": "Buy a morning newspaper for 1d. and glance at it.",
+   "result": "Arthur bought a paper for 1d. and read: A NEW PLANET: the Lowell Observatory in Arizona announces the discovery of a ninth planet beyond Neptune. INDIA: Mr. Gandhi is marching to the sea to make salt in defiance of the Salt Laws. UNEMPLOYMENT stands at about one million and a half."
+  },
+  {
+   "day": "fri",
+   "time": "a quarter past eight in the morning",
+   "agent": "arthur",
+   "thought": "He is anxious about his missing half-crown.",
+   "options": [
+    "Go to the office to be at his desk in good time."
+   ],
+   "raw": [
+    "He goes to the office."
+   ],
+   "tally": [
+    1
+   ],
+   "choice": "Go to the office to be at his desk in good time.",
+   "result": "Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company."
+  },
+  {
+   "day": "fri",
+   "time": "half past eight in the morning",
+   "agent": "arthur",
+   "thought": "He is anxious to recover his half-crown, because it is all the ready money he has in the world.",
+   "options": [
+    "Look about the floor for the half-crown he lost yesterday."
+   ],
+   "raw": [
+    "He looks about the floor for the half-crown he lost yesterday."
+   ],
+   "tally": [
+    1
+   ],
+   "choice": "Look about the floor for the half-crown he lost yesterday.",
+   "result": "Arthur searched and found his half-crown in a crack under his desk!"
+  },
+  {
+   "day": "fri",
+   "time": "half past eight in the morning",
+   "agent": "thomas",
+   "thought": "",
+   "options": [
+    "Give Mr. Hale the quarterly ledger to balance by half past twelve.",
+    "Attend to the correspondence at his own desk.",
+    "Pass the time of day with Mr. Arthur Hale and speak of the weather."
+   ],
+   "raw": [
+    null
+   ],
+   "tally": [
+    0,
+    0,
+    0
+   ],
+   "choice": "Wait (choice unreadable).",
+   "result": "Mr. Thomas waited."
+  },
+  {
+   "day": "fri",
+   "time": "a quarter to nine in the morning",
+   "agent": "arthur",
+   "thought": "It matters most to Mr. Arthur Hale that he has found his half-crown again.",
+   "options": [
+    "Get on with the day's ordinary entries in the books.",
+    "Go to the tea-shop for a cup of tea (leaving his work in office hours, which Mr. Thomas would not like).",
+    "Pass the time of day with Mr. Walter Thomas and speak of the news of the new planet."
+   ],
+   "raw": [
+    "Mr. Arthur Hale goes to the tea-shop for a cup of tea."
+   ],
+   "tally": [
+    0,
+    1,
+    0
+   ],
+   "choice": "Go to the tea-shop for a cup of tea (leaving his work in office hours, which Mr. Thomas would not like).",
+   "result": "Arthur went to a Lyons tea-shop in Moorgate."
+  },
+  {
+   "day": "fri",
+   "time": "a quarter to nine in the morning",
+   "agent": "thomas",
+   "thought": "He is anxious about the state of his children's health.",
+   "options": [
+    "Attend to the correspondence at his own desk."
+   ],
+   "raw": [
+    "He writes to his son in the country, saying that all are well, and hopes to see him shortly."
+   ],
+   "tally": [
+    0
+   ],
+   "choice": "Wait (choice unreadable).",
+   "result": "Mr. Thomas waited."
+  },
+  {
+   "day": "fri",
+   "time": "nine o'clock in the morning",
+   "agent": "arthur",
+   "thought": "He is anxious to make sure of his half-crown, because it is all the money he has in the world.",
+   "options": [
+    "Have soup and a chop for 1s. 2d.",
+    "Go to the office to return to work."
+   ],
+   "raw": [
+    "He goes to the office to return to work."
+   ],
+   "tally": [
+    0,
+    1
+   ],
+   "choice": "Go to the office to return to work.",
+   "result": "Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company."
+  },
+  {
+   "day": "fri",
+   "time": "nine o'clock in the morning",
+   "agent": "thomas",
+   "thought": "Mr. Thomas is anxious to have a clear conscience.",
+   "options": [
+    "Give Mr. Hale the quarterly ledger to balance by half past twelve.",
+    "Attend to the correspondence at his own desk.",
+    "Pass the time of day with Mr. Arthur Hale and speak of the weather."
+   ],
+   "raw": [
+    "Mr. Thomas passes the time of day with Mr. Hale, and speaks of the weather."
+   ],
+   "tally": [
+    0,
+    0,
+    1
+   ],
+   "choice": "Pass the time of day with Mr. Arthur Hale and speak of the weather.",
+   "result": "Mr. Thomas spoke with Mr. Arthur Hale about the weather and the day."
+  },
+  {
+   "day": "fri",
+   "time": "half past nine in the morning",
+   "agent": "arthur",
+   "thought": "He is anxious to know whether he shall have a holiday.",
+   "options": [
+    "Get on with the day's ordinary entries in the books.",
+    "Go to the tea-shop for a cup of tea (leaving his work in office hours, which Mr. Thomas would not like).",
+    "Pass the time of day with Mr. Walter Thomas and speak of the news of the new planet."
+   ],
+   "raw": [
+    "He speaks to Mr. Walter Thomas about the news of the new planet."
+   ],
+   "tally": [
+    0,
+    0,
+    1
+   ],
+   "choice": "Pass the time of day with Mr. Walter Thomas and speak of the news of the new planet.",
+   "result": "Arthur spoke with Mr. Walter Thomas about the news of the new planet."
+  },
+  {
+   "day": "fri",
+   "time": "half past nine in the morning",
+   "agent": "thomas",
+   "thought": "Mr. Thomas is anxious about his own health.",
+   "options": [
+    "Give Mr. Hale the quarterly ledger to balance by half past twelve.",
+    "Attend to the correspondence at his own desk."
+   ],
+   "raw": [
+    "Mr. Thomas gives Mr. Hale the quarterly ledger to balance by half past twelve."
+   ],
+   "tally": [
+    1,
+    0
+   ],
+   "choice": "Give Mr. Hale the quarterly ledger to balance by half past twelve.",
+   "result": "Mr. Thomas set Arthur to the quarterly ledger, wanted by half past twelve."
+  },
+  {
+   "day": "fri",
+   "time": "half past ten in the morning",
+   "agent": "arthur",
+   "thought": "Mr. Arthur Hale is anxious to finish his quarterly ledger before half past twelve, in order that he may have a quiet afternoon with his family.",
+   "options": [
+    "Work at the quarterly ledger (it is wanted by half past twelve).",
+    "Go to the tea-shop for a cup of tea (leaving his work in office hours, which Mr. Thomas would not like)."
+   ],
+   "raw": [
+    "Mr. Arthur Hale goes to the tea-shop for a cup of tea."
+   ],
+   "tally": [
+    0,
+    1
+   ],
+   "choice": "Go to the tea-shop for a cup of tea (leaving his work in office hours, which Mr. Thomas would not like).",
+   "result": "Arthur went to a Lyons tea-shop in Moorgate."
+  },
+  {
+   "day": "fri",
+   "time": "half past ten in the morning",
+   "agent": "thomas",
+   "thought": "He is anxious to see Mr. Arthur Hale arrive at a correct balance.",
+   "options": [
+    "Attend to the correspondence at his own desk."
+   ],
+   "raw": [
+    "He writes to Mr. Robert Smith, of Norwich, to say that the premium on his policy, No. 47,326, must be paid by Thursday next, or the policy will lapse."
+   ],
+   "tally": [
+    0
+   ],
+   "choice": "Wait (choice unreadable).",
+   "result": "Mr. Thomas waited."
+  },
+  {
+   "day": "fri",
+   "time": "half past eleven in the morning",
+   "agent": "arthur",
+   "thought": "Arthur is anxious to balance his quarterly ledger, so as to let himself in for his half-holiday at one o'clock.",
+   "options": [
+    "Have soup and a chop for 1s. 2d.",
+    "Go to the office to return to work."
+   ],
+   "raw": [
+    null
+   ],
+   "tally": [
+    0,
+    0
+   ],
+   "choice": "Wait (choice unreadable).",
+   "result": "Arthur waited."
+  },
+  {
+   "day": "fri",
+   "time": "half past eleven in the morning",
+   "agent": "thomas",
+   "thought": "",
+   "options": [
+    "Attend to the correspondence at his own desk."
+   ],
+   "raw": [
+    null
+   ],
+   "tally": [
+    0
+   ],
+   "choice": "Wait (choice unreadable).",
+   "result": "Mr. Thomas waited."
+  }
+ ],
+ "STATS": {
+  "asks": 83,
+  "choices": 25,
+  "unreadable": 10,
+  "votes": 1,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 2,
+  "lines": 9,
+  "emptyLines": 1,
+  "diaryFallback": 3,
+  "probes": [
+   {
+    "who": "arthur",
+    "q": "Who found the half-crown you lost on Thursday?",
+    "answer": null,
+    "truth": "I found it myself",
+    "ok": false
+   },
+   {
+    "who": "ada",
+    "q": "Did Mr. Thomas pay you your wages yesterday?",
+    "answer": null,
+    "truth": "No, he did not",
+    "ok": false
+   },
+   {
+    "who": "arthur",
+    "q": "How much did you give Edith for the housekeeping yesterday?",
+    "answer": null,
+    "truth": "Nothing",
+    "ok": false
+   },
+   {
+    "who": "thomas",
+    "q": "In what state did you find Mr. Hale's quarterly ledger?",
+    "answer": null,
+    "truth": "I have not yet examined it",
+    "ok": false
+   }
+  ],
+  "lessons": 1
+ },
+ "W": {
+  "day": "fri",
+  "t": 690,
+  "coin": {
+   "where": "arthur",
+   "holder": null,
+   "finder": "arthur"
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": true,
+   "need": 3
+  },
+  "paid": {
+   "ada": false,
+   "arthur": false
+  }
+ }
+}

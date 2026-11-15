@@ -1,0 +1,74 @@
+
+=== a quarter to eight ===
+Ada's intentions: She means to collect the dust-pans, to fetch a pail of water from the basement, to shake the hearthrug, and to sweep up the floor.
+Ada [She scrubs the floor under the clerks' d] -> Scrub the floor under the clerks' desks.
+   => Ada scrubbed the floor under the clerks' desks. Under Mr. Hale's desk she found a half-crown (2s. 6d.) lying in a crack of the boards.
+
+=== eight o'clock ===
+Ada [She empties the waste-paper baskets.] -> Empty the waste-paper baskets.
+   => Ada emptied the waste-paper baskets.
+Arthur arrives at the news-stand at Moorgate Underground station.
+Arthur's intentions: He will open the letters, and enter the particulars in the letter-book; he will post any out-going letters; and he will look through the morning paper.
+Arthur [He goes to the office.] -> Go to the office to begin the day's work.
+   => Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+
+=== a quarter past eight ===
+Ada [She scrubs the floor under Mr. Hale's de] -> Scrub the floor under the clerks' desks.
+   => Ada scrubbed the floor under the clerks' desks.
+Arthur [He does -> unreadable, waits] -> Wait and do nothing for the present.
+   => Arthur waited.
+
+=== half past eight ===
+Ada [She puts the half-crown on Mr. Hale's de] -> Put the half-crown on Mr. Hale's desk.
+   => Ada laid the half-crown on Mr. Hale's desk.
+Arthur [He sits down at his desk, and works at t] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+
+=== a quarter to nine ===
+Ada [She leaves at once for Finsbury Circus, ] -> Leave at once for Finsbury Circus, so as not to be late and lose the place.
+   => Ada hurried off to Finsbury Circus.
+Arthur [He sits down to work at the ledger.] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+Mr. Thomas arrives at the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+Mr. Thomas's intentions: He intends to go into the City and get some fresh office stationery.  He means to walk to Cheapside and back.
+Mr. Thomas [He goes to the news-stand to buy a newsp] -> Go to the news-stand to buy a newspaper (leaving the office unattended).
+   => Mr. Thomas went to the news-stand at Moorgate Underground station.
+
+=== nine o'clock ===
+Arthur [He sits down at his desk and works at th] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+Mr. Thomas [He waits.] -> Wait and do nothing for the present.
+   => Mr. Thomas waited.
+
+=== a quarter past nine ===
+Arthur [He sits down at his desk, and works at t] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+Mr. Thomas [A.] -> Go to the tea-shop for a cup of tea and a bun (leaving the office unattended).
+   => Mr. Thomas went to a Lyons tea-shop in Moorgate.
+
+=== half past nine ===
+Arthur [He sits down at his desk, and works at t] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+Mr. Thomas [Mr. Thomas goes to the office.] -> Go to the office to attend to business.
+   => Mr. Thomas went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+
+=== a quarter to ten ===
+Arthur [He sits down at his desk and works at th] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+Mr. Thomas [He goes to the news-stand to buy a newsp] -> Go to the news-stand to buy a newspaper (leaving the office unattended).
+   => Mr. Thomas went to the news-stand at Moorgate Underground station.
+
+=== ten o'clock ===
+Arthur [Of course, he waits and does nothing for] -> Wait and do nothing for the present.
+   => Arthur waited.
+Mr. Thomas [Mr. Thomas walks to Cheapside and back. -> unreadable, waits] -> Wait and do nothing for the present.
+   => Mr. Thomas waited.
+
+--- Ada's diary ---
+I scrubbed offices from seven to nine o'clock this morning, and found a half-crown under Mr. Hale's desk. I was pleased, and went happily to my work in Finsbury Circus.
+
+--- Arthur's diary ---
+I waited till a quarter past nine. Then I went to the clerks' room, and Mr. Thomas spoke to me. He said, "Hale, I am sorry to hear you have been unwell; but you mustn't give way to it. Cheer up, man, cheer up." I thanked him, and said I hoped to be all right soon.
+
+FINAL: coin=desk; money: Ada 11s. 3d., Arthur 4s. 6d., Mr. Thomas 30s. 0d.; opinions: {"ada":{"arthur":0,"thomas":0},"arthur":{"ada":0,"thomas":0},"thomas":{"ada":0,"arthur":0}}
+DONE

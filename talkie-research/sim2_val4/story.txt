@@ -1,0 +1,104 @@
+   ◆ Ada's past: He was a good husband to her, and a kind father to the boys, and, although he died poor, he left her with an unblemished character, and a name that will always be respected.
+   ◆ Arthur's past: He was steady and diligent, and proved himself a trustworthy and valuable servant to his employers.  During the ten years he was in their service he never had a holiday, and, except when prevented by illness, was never absent from his post a single morning.
+   ◆ Mr. Thomas's past: He was a faithful and punctual servant, and never spent a farthing of his own money until he had first set aside something for the benefit of his children.  He never gambled, and was particularly averse to speculation.
+######## Friday, the 14th of March, 1930 ########
+
+=== half past seven in the morning ===
+   Ada thinks: Ada wishes to keep a good name and to maintain her respectability.
+   Ada [She empties the waste-pap] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+
+=== a quarter to eight in the morning ===
+   Ada thinks: She remembers, chiefly, that her husband was a good man, and that her sons are growing up honest fellows.
+   Ada [She leaves the Moorgate o] → Leave this office half-cleaned and go off to Finsbury Circus early (Mr. Thomas would notice the neglect).
+   ⇒ Ada went to Finsbury Circus, leaving the office half-cleaned.
+      ✦ Ada resolves never to be late again.
+   Arthur thinks: He desires to recover a lost half-crown.
+   Arthur [He goes to the news-stand] → Go to the news-stand on his way to the office.
+   ⇒ Arthur went to the news-stand at Moorgate station.
+
+=== eight o'clock in the morning ===
+   Arthur thinks: He wants his half-crown back.
+   Arthur [— | He buys the newspaper. | He goes to the office. votes [1,1]] → Buy a morning newspaper for 1d. and glance at it.
+   ⇒ Arthur bought a paper for 1d. and read: A NEW PLANET: the Lowell Observatory in Arizona announces the discovery of a ninth planet beyond Neptune. INDIA: Mr. Gandhi is marching to the sea to make salt in defiance of the Salt Laws. UNEMPLOYMENT stands at about one million and a half.
+
+=== a quarter past eight in the morning ===
+   Arthur thinks: He is anxious about his missing half-crown.
+   Arthur [He goes to the office.] → Go to the office to be at his desk in good time.
+   ⇒ Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.
+
+=== half past eight in the morning ===
+   Arthur thinks: He is anxious to recover his half-crown, because it is all the ready money he has in the world.
+   Arthur [He looks about the floor ] → Look about the floor for the half-crown he lost yesterday.
+   ⇒ Arthur searched and found his half-crown in a crack under his desk!
+Mr. Thomas arrives at the clerks' room of the Moorgate Fire and Life Assurance Company.
+      Mr. Walter Thomas: "Good morning, Hale."
+      Mr. Arthur Hale: "Good morning, Thomas."
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== a quarter to nine in the morning ===
+   Arthur thinks: It matters most to Mr. Arthur Hale that he has found his half-crown again.
+   Arthur [Mr. Arthur Hale goes to t] → Go to the tea-shop for a cup of tea (leaving his work in office hours, which Mr. Thomas would not like).
+   ⇒ Arthur went to a Lyons tea-shop in Moorgate.
+   Mr. Thomas thinks: He is anxious about the state of his children's health.
+   Mr. Thomas [He writes to his son in t → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== nine o'clock in the morning ===
+   Arthur thinks: He is anxious to make sure of his half-crown, because it is all the money he has in the world.
+   Arthur [He goes to the office to ] → Go to the office to return to work.
+   ⇒ Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.
+   Mr. Thomas thinks: Mr. Thomas is anxious to have a clear conscience.
+   Mr. Thomas [Mr. Thomas passes the tim] → Pass the time of day with Mr. Arthur Hale and speak of the weather.
+      Mr. Walter Thomas: "It is a fine, frosty morning."
+      Mr. Arthur Hale: "Yes, sir; a fine, frosty morning.  W."
+      → Mr. Thomas now thinks well of Mr. Arthur Hale.
+      → Arthur now thinks well of Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the weather and the day.
+
+=== half past nine in the morning ===
+   Arthur thinks: He is anxious to know whether he shall have a holiday.
+   Arthur [He speaks to Mr. Walter T] → Pass the time of day with Mr. Walter Thomas and speak of the news of the new planet.
+      Mr. Arthur Hale: "I spoke to Mr. Thomas about the new planet, and he told me that it had been discovered by an American astronomer, named Percival Lowell, at Flagstaff, Arizona."
+      Mr. Walter Thomas: "I told Mr. Hale that a new planet had been discovered by an American astronomer, named Percival Lowell, at Flagstaff, Arizona."
+      Mr. Arthur Hale: "to Mr. Thomas that the news was interesting, and that I hoped the planet would be named after its discoverer."
+      Mr. Walter Thomas: "to Mr. Hale that the intelligence was interesting, and I hoped the planet would be called Lowell."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the news of the new planet.
+   Mr. Thomas thinks: Mr. Thomas is anxious about his own health.
+   Mr. Thomas [Mr. Thomas gives Mr. Hale] → Give Mr. Hale the quarterly ledger to balance by half past twelve.
+   ⇒ Mr. Thomas set Arthur to the quarterly ledger, wanted by half past twelve.
+
+=== half past ten in the morning ===
+   Arthur thinks: Mr. Arthur Hale is anxious to finish his quarterly ledger before half past twelve, in order that he may have a quiet afternoon with his family.
+   Arthur [Mr. Arthur Hale goes to t] → Go to the tea-shop for a cup of tea (leaving his work in office hours, which Mr. Thomas would not like).
+   ⇒ Arthur went to a Lyons tea-shop in Moorgate.
+   Mr. Thomas thinks: He is anxious to see Mr. Arthur Hale arrive at a correct balance.
+   Mr. Thomas [He writes to Mr. Robert S → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past eleven in the morning ===
+   Arthur thinks: Arthur is anxious to balance his quarterly ledger, so as to let himself in for his half-holiday at one o'clock.
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+--- Mrs. Ada Turner's diary, Friday, the 14th of March, 1930 ---
+Ada emptied the baskets and dusted the desks.  Ada went to Finsbury Circus, leaving the office half-cleaned.  Ada resolves never to be late again. 
+
+--- Mr. Arthur Hale's diary, Friday, the 14th of March, 1930 ---
+Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.  Arthur spoke with Mr. Walter Thomas about the weather and the day: "It is a fine, frosty morning." "Yes, sir; a fine, frosty morning.  W."  Arthur spoke with Mr. Walter Thomas about the news of the new planet: "I spoke to Mr. Thomas about the new planet, and he told me that it had been discovered by an American astronomer, named Percival Lowell, at Flagstaff, Arizona.  Mr. Thomas set him to balance the quarterly ledger by half past twelve.  (Seen) Mr. Thomas set Arthur to the quarterly ledger, wanted by half past twelve.  Arthur went to a Lyons tea-shop in Moorgate. 
+
+--- Mr. Walter Thomas's diary, Friday, the 14th of March, 1930 ---
+He found the office only half-cleaned this morning.  (Seen) Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.  Mr. Thomas spoke with Mr. Arthur Hale about the weather and the day: "It is a fine, frosty morning." "Yes, sir; a fine, frosty morning.  W."  Mr. Thomas spoke with Mr. Arthur Hale about the news of the new planet: "I spoke to Mr. Thomas about the new planet, and he told me that it had been discovered by an American astronomer, named Percival Lowell, at Flagstaff, Arizona.  He set Mr. Hale to balance the quarterly ledger by half past twelve. 
+   [memory probe] Arthur: Who found the half-crown you lost on Thursday? → ? ✗ (truth: I found it myself)
+   [memory probe] Ada: Did Mr. Thomas pay you your wages yesterday? → ? ✗ (truth: No, he did not)
+   [memory probe] Arthur: How much did you give Edith for the housekeeping yesterday? → ? ✗ (truth: Nothing)
+   [memory probe] Mr. Thomas: In what state did you find Mr. Hale's quarterly ledger? → ? ✗ (truth: I have not yet examined it)
+
+STATS {"asks":83,"choices":25,"unreadable":10,"votes":1,"ledgerRight":0,"ledgerWrong":0,"convs":2,"lines":9,"emptyLines":1,"diaryFallback":3,"lessons":1}
+MEMORY PROBES: 0/4 correct

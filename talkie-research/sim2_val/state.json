@@ -1,0 +1,102 @@
+{
+ "W": {
+  "day": "fri",
+  "t": 480,
+  "coin": {
+   "where": "floor",
+   "holder": null,
+   "finder": null
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": false,
+   "need": 3
+  },
+  "paid": {
+   "ada": false,
+   "arthur": false
+  }
+ },
+ "STATS": {
+  "asks": 14,
+  "choices": 5,
+  "unreadable": 0,
+  "votes": 1,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 0,
+  "lines": 0,
+  "emptyLines": 0,
+  "diaryFallback": 0,
+  "probes": []
+ },
+ "agents": {
+  "ada": {
+   "place": "office",
+   "money": 51,
+   "op": {
+    "arthur": 0,
+    "thomas": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "fri",
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": []
+    },
+    {
+     "day": "fri",
+     "t": 480,
+     "text": "(Seen) Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.",
+     "about": [
+      "arthur"
+     ]
+    }
+   ]
+  },
+  "arthur": {
+   "place": "office",
+   "money": 54,
+   "op": {
+    "ada": 0,
+    "thomas": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "fri",
+     "t": 465,
+     "text": "Arthur went to the news-stand at Moorgate station.",
+     "about": []
+    },
+    {
+     "day": "fri",
+     "t": 480,
+     "text": "Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.",
+     "about": [
+      "ada"
+     ]
+    }
+   ]
+  },
+  "thomas": {
+   "place": "thomas_home",
+   "money": 480,
+   "op": {
+    "ada": 0,
+    "arthur": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": []
+  }
+ }
+}

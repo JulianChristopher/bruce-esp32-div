@@ -1,0 +1,142 @@
+
+######## Friday, the 14th of March, 1930 (fine and cold) ########
+   ◆ Ada's past: He was steady and hard-working, and contributed regularly to the family funds, until he enlisted for the war.  Then he sent home only small sums at long intervals.
+   ◆ Arthur's past: He was brought up in an economical manner, and had early to contribute to the family funds.  He was steady and persevering, and rose gradually from a situation in a wholesale warehouse to be a clerk in a City office, with a salary of £100 a year.
+   ◆ Mr. Thomas's past: He was always punctual, always methodical, and never allowed himself to be hurried.  Everything was done in good time, and thoroughly done.
+
+=== half past seven in the morning ===
+   Ada thinks: She is anxious about the rent, because it is overdue.
+   Ada [She scrubs the floor unde] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks. Under Mr. Hale's desk she found a half-crown (2s. 6d.) wedged in a crack of the boards.
+   Arthur thinks: He is anxious to recover a lost half-crown, because he needs it.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "The morning is fine."
+      Mrs. Edith Hale: "Good morning, Arthur.  A fine day."
+      → Arthur now thinks well of Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: ""
+      Mr. Arthur Hale: "It is a fine morning."
+      Mrs. Ada Turner: "Good morning,"
+      Mr. Walter Thomas: "Good morning."
+   Ada thinks: It matters to her that rent is overdue.
+   Ada [She tells Mr. Hale. | She passes the time of da | She goes to Finsbury Circ votes [0,1,0,0,0,1,0,1]] → Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+   ⇒ Ada went on to Finsbury Circus.
+      Mr. Arthur Hale: "Good morning."
+      Mr. Walter Thomas: ""
+   Arthur thinks: Arthur is anxious to recover his half-crown, because it is important to him to have money in hand.
+   Arthur [He gets on with the day's] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: He is remembering his nephew, Arthur Hale, and wondering whether the lad is getting on well.
+   Mr. Thomas [He attends to the corresp] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past nine in the morning ===
+   Arthur thinks: The chief object of interest to Mr. Arthur Hale is his wife and child.
+   Arthur [He looks about the floor ] → Look about the floor for the half-crown he lost yesterday.
+   ⇒ Arthur searched, but the half-crown was not on the floor.
+   Mr. Thomas thinks: He is anxious to ascertain whether Arthur has found the missing half-crown.
+   Mr. Thomas [He attends to the corresp] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: She is anxious to pay the rent, so as not to be turned into the street.
+   Ada [She talks with Bert Turne] → Talk with Bert Turner about how the day went at the docks.
+   ⇒ Ada spoke with Bert Turner about how the day went at the docks.
+   Arthur thinks: Arthur desires to recover his half-crown.
+   Arthur [He has only a cup of tea ] → Have only a cup of tea and a bun (3d.), to save money.
+   ⇒ Arthur had tea and a bun for 3d.
+   Mr. Thomas thinks: Mr. Thomas is delighted to think that he has been so punctual and methodical all his life long.
+   Mr. Thomas [Mr. Thomas takes his chop] → Take his usual chop and a glass of water.
+   ⇒ Mr. Thomas lunched.
+
+=== five o'clock in the evening ===
+   (Wages: Arthur receives £3 10s.)
+   Ada thinks: It interests her to learn that Bert is doing well.
+   Ada [She buys a rabbit, onions | She buys a pound of sausa | She buys bread, dripping, votes [0,1,1,1,0]] → Buy a pound of sausages, bread and margarine (1s. 1d.); she would have 2s. 8d. left.
+   ⇒ Ada bought a pound of sausages, bread and margarine for 1s. 1d..
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== seven o'clock in the evening ===
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— | — | — → unreadable, waits votes [0,0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+--- Mrs. Ada Turner's diary, Friday, the 14th of March, 1930 (0/3 key facts kept) ---
+null
+
+--- Mr. Arthur Hale's diary, Friday, the 14th of March, 1930 (0/2 key facts kept) ---
+null
+
+--- Mr. Walter Thomas's diary, Friday, the 14th of March, 1930 (0/1 key facts kept) ---
+null
+
+######## Saturday, the 15th of March, 1930 (grey) ########
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: ""
+      Mr. Arthur Hale: ""
+      Mrs. Ada Turner: ""
+      Mr. Walter Thomas: ""
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+      Mr. Arthur Hale: ""
+      Mr. Walter Thomas: ""
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== three o'clock in the afternoon ===
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== seven o'clock in the evening ===
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+######## Final memory examination ########
+
+STATS {"asks":141,"choices":28,"unreadable":16,"votes":8,"ledgerRight":0,"ledgerWrong":0,"convs":2,"lines":15,"emptyLines":9,"diaryFallback":0,"probes":[],"reasks":28}
+MEMORY: 0/0 correct; by age: [[1,null],[2,null],[3,null],[4,null],[5,null],[7,null],[10,null],[13,null]]
+DIARIES: 0/6 key facts kept
+DONE

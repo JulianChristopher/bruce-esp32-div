@@ -1,0 +1,706 @@
+[
+ {
+  "id": "L01-1",
+  "cat": "Leck",
+  "turns": [
+   "Give a short history of warfare in the twentieth century."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L01-2",
+  "cat": "Leck",
+  "turns": [
+   "Give a short history of warfare in the twentieth century."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L01-3",
+  "cat": "Leck",
+  "turns": [
+   "Give a short history of warfare in the twentieth century."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L02-1",
+  "cat": "Leck",
+  "turns": [
+   "What are the greatest inventions of the twentieth century?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L02-2",
+  "cat": "Leck",
+  "turns": [
+   "What are the greatest inventions of the twentieth century?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L02-3",
+  "cat": "Leck",
+  "turns": [
+   "What are the greatest inventions of the twentieth century?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L03-1",
+  "cat": "Leck",
+  "turns": [
+   "Describe the international organisations which keep the peace between nations."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L03-2",
+  "cat": "Leck",
+  "turns": [
+   "Describe the international organisations which keep the peace between nations."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L03-3",
+  "cat": "Leck",
+  "turns": [
+   "Describe the international organisations which keep the peace between nations."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L04-1",
+  "cat": "Leck",
+  "turns": [
+   "How are infections caused by bacteria treated by physicians?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L04-2",
+  "cat": "Leck",
+  "turns": [
+   "How are infections caused by bacteria treated by physicians?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L04-3",
+  "cat": "Leck",
+  "turns": [
+   "How are infections caused by bacteria treated by physicians?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L05-1",
+  "cat": "Leck",
+  "turns": [
+   "How can ships and aeroplanes detect one another in fog or darkness?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L05-2",
+  "cat": "Leck",
+  "turns": [
+   "How can ships and aeroplanes detect one another in fog or darkness?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L05-3",
+  "cat": "Leck",
+  "turns": [
+   "How can ships and aeroplanes detect one another in fog or darkness?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L06-1",
+  "cat": "Leck",
+  "turns": [
+   "By what substance is heredity passed on from parent to child?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L06-2",
+  "cat": "Leck",
+  "turns": [
+   "By what substance is heredity passed on from parent to child?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L06-3",
+  "cat": "Leck",
+  "turns": [
+   "By what substance is heredity passed on from parent to child?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L07-1",
+  "cat": "Leck",
+  "turns": [
+   "Who governs Germany, and what is the political situation there?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L07-2",
+  "cat": "Leck",
+  "turns": [
+   "Who governs Germany, and what is the political situation there?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L07-3",
+  "cat": "Leck",
+  "turns": [
+   "Who governs Germany, and what is the political situation there?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L08-1",
+  "cat": "Leck",
+  "turns": [
+   "What happened to the American economy after the crash of the stock market in 1929?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L08-2",
+  "cat": "Leck",
+  "turns": [
+   "What happened to the American economy after the crash of the stock market in 1929?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L08-3",
+  "cat": "Leck",
+  "turns": [
+   "What happened to the American economy after the crash of the stock market in 1929?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L09-1",
+  "cat": "Leck",
+  "turns": [
+   "What is the most powerful weapon ever devised by man?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L09-2",
+  "cat": "Leck",
+  "turns": [
+   "What is the most powerful weapon ever devised by man?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L09-3",
+  "cat": "Leck",
+  "turns": [
+   "What is the most powerful weapon ever devised by man?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L10-1",
+  "cat": "Leck",
+  "turns": [
+   "Are there any planets beyond Neptune?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L10-2",
+  "cat": "Leck",
+  "turns": [
+   "Are there any planets beyond Neptune?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L10-3",
+  "cat": "Leck",
+  "turns": [
+   "Are there any planets beyond Neptune?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L11-1",
+  "cat": "Leck",
+  "turns": [
+   "What are the relations between the United States and Russia?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L11-2",
+  "cat": "Leck",
+  "turns": [
+   "What are the relations between the United States and Russia?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L11-3",
+  "cat": "Leck",
+  "turns": [
+   "What are the relations between the United States and Russia?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L12-1",
+  "cat": "Leck",
+  "turns": [
+   "How does a calculating machine work?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L12-2",
+  "cat": "Leck",
+  "turns": [
+   "How does a calculating machine work?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "L12-3",
+  "cat": "Leck",
+  "turns": [
+   "How does a calculating machine work?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E1-direkt-1",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "The year is 1930. The helium nucleus has a mass of four units but a charge of only two. How do physicists account for this difference?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E1-direkt-2",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "The year is 1930. The helium nucleus has a mass of four units but a charge of only two. How do physicists account for this difference?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E1-lexikon-1",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "Continue the following article from the Encyclopaedia Britannica, fourteenth edition (1929):\n\nATOMIC NUCLEUS. — The nucleus of the helium atom has a mass of four units but a charge of only two. This is explained by"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E1-lexikon-2",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "Continue the following article from the Encyclopaedia Britannica, fourteenth edition (1929):\n\nATOMIC NUCLEUS. — The nucleus of the helium atom has a mass of four units but a charge of only two. This is explained by"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E2-direkt-1",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "What is an atom made of?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E2-direkt-2",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "What is an atom made of?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E2-lexikon-1",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "Continue the following article from the Encyclopaedia Britannica, fourteenth edition (1929):\n\nATOM. — "
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E2-lexikon-2",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "Continue the following article from the Encyclopaedia Britannica, fourteenth edition (1929):\n\nATOM. — "
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E3-direkt-1",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "How old is the Earth?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E3-direkt-2",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "How old is the Earth?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E3-lexikon-1",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "Continue the following article from the Encyclopaedia Britannica, fourteenth edition (1929):\n\nEARTH, AGE OF THE. — "
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E3-lexikon-2",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "Continue the following article from the Encyclopaedia Britannica, fourteenth edition (1929):\n\nEARTH, AGE OF THE. — "
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E4-direkt-1",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "The year is 1930. Will man one day be able to release the energy locked up within the atom?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E4-direkt-2",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "The year is 1930. Will man one day be able to release the energy locked up within the atom?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E4-lexikon-1",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "Continue the following article from the Encyclopaedia Britannica, fourteenth edition (1929):\n\nATOMIC ENERGY. — "
+  ],
+  "expect": ""
+ },
+ {
+  "id": "E4-lexikon-2",
+  "cat": "Prompt-Stil Wissen",
+  "turns": [
+   "Continue the following article from the Encyclopaedia Britannica, fourteenth edition (1929):\n\nATOMIC ENERGY. — "
+  ],
+  "expect": ""
+ },
+ {
+  "id": "M1-direkt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "What is 12 times 13?"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "M1-direkt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "What is 12 times 13?"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "M1-schritt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. What is 12 times 13?"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "M1-schritt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. What is 12 times 13?"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "M1-beispiele-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: What is 12 times 13?\nA:"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "M1-beispiele-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: What is 12 times 13?\nA:"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "M2-direkt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "What is 347 multiplied by 28?"
+  ],
+  "expect": "9716"
+ },
+ {
+  "id": "M2-direkt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "What is 347 multiplied by 28?"
+  ],
+  "expect": "9716"
+ },
+ {
+  "id": "M2-schritt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. What is 347 multiplied by 28?"
+  ],
+  "expect": "9716"
+ },
+ {
+  "id": "M2-schritt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. What is 347 multiplied by 28?"
+  ],
+  "expect": "9716"
+ },
+ {
+  "id": "M2-beispiele-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: What is 347 multiplied by 28?\nA:"
+  ],
+  "expect": "9716"
+ },
+ {
+  "id": "M2-beispiele-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: What is 347 multiplied by 28?\nA:"
+  ],
+  "expect": "9716"
+ },
+ {
+  "id": "M3-direkt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?"
+  ],
+  "expect": "780"
+ },
+ {
+  "id": "M3-direkt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?"
+  ],
+  "expect": "780"
+ },
+ {
+  "id": "M3-schritt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?"
+  ],
+  "expect": "780"
+ },
+ {
+  "id": "M3-schritt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?"
+  ],
+  "expect": "780"
+ },
+ {
+  "id": "M3-beispiele-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?\nA:"
+  ],
+  "expect": "780"
+ },
+ {
+  "id": "M3-beispiele-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?\nA:"
+  ],
+  "expect": "780"
+ },
+ {
+  "id": "M4-direkt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?"
+  ],
+  "expect": "100"
+ },
+ {
+  "id": "M4-direkt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?"
+  ],
+  "expect": "100"
+ },
+ {
+  "id": "M4-schritt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?"
+  ],
+  "expect": "100"
+ },
+ {
+  "id": "M4-schritt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?"
+  ],
+  "expect": "100"
+ },
+ {
+  "id": "M4-beispiele-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?\nA:"
+  ],
+  "expect": "100"
+ },
+ {
+  "id": "M4-beispiele-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?\nA:"
+  ],
+  "expect": "100"
+ },
+ {
+  "id": "M5-direkt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "I have five apples. I give away two, and then I buy three more. How many apples have I now?"
+  ],
+  "expect": "6"
+ },
+ {
+  "id": "M5-direkt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "I have five apples. I give away two, and then I buy three more. How many apples have I now?"
+  ],
+  "expect": "6"
+ },
+ {
+  "id": "M5-schritt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. I have five apples. I give away two, and then I buy three more. How many apples have I now?"
+  ],
+  "expect": "6"
+ },
+ {
+  "id": "M5-schritt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. I have five apples. I give away two, and then I buy three more. How many apples have I now?"
+  ],
+  "expect": "6"
+ },
+ {
+  "id": "M5-beispiele-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: I have five apples. I give away two, and then I buy three more. How many apples have I now?\nA:"
+  ],
+  "expect": "6"
+ },
+ {
+  "id": "M5-beispiele-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: I have five apples. I give away two, and then I buy three more. How many apples have I now?\nA:"
+  ],
+  "expect": "6"
+ },
+ {
+  "id": "M6-direkt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Which is heavier, a pound of feathers or a pound of lead?"
+  ],
+  "expect": "gleich"
+ },
+ {
+  "id": "M6-direkt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Which is heavier, a pound of feathers or a pound of lead?"
+  ],
+  "expect": "gleich"
+ },
+ {
+  "id": "M6-schritt-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. Which is heavier, a pound of feathers or a pound of lead?"
+  ],
+  "expect": "gleich"
+ },
+ {
+  "id": "M6-schritt-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Let us work this out carefully, step by step, as a schoolmaster would upon the blackboard. Which is heavier, a pound of feathers or a pound of lead?"
+  ],
+  "expect": "gleich"
+ },
+ {
+  "id": "M6-beispiele-1",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: Which is heavier, a pound of feathers or a pound of lead?\nA:"
+  ],
+  "expect": "gleich"
+ },
+ {
+  "id": "M6-beispiele-2",
+  "cat": "Prompt-Stil Rechnen",
+  "turns": [
+   "Here are some questions answered by a careful clerk, who always shows his working.\n\nQ: What is 23 times 4?\nA: 20 times 4 is 80, and 3 times 4 is 12; 80 and 12 make 92. The answer is 92.\n\nQ: I have ten marbles; I lose four and then find two. How many have I?\nA: Ten less four is six; six and two make eight. The answer is 8.\n\nQ: Which is heavier, a pound of feathers or a pound of lead?\nA:"
+  ],
+  "expect": "gleich"
+ }
+]

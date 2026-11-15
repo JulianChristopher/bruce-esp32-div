@@ -1,0 +1,25 @@
+[
+ {"id":"N1a","cat":"Neutron – offen","turns":["The year is 1930. The helium nucleus has a mass of four units but a charge of only two. How do physicists account for this difference?"],"expect":"1930-Lehrbuch: Kern-Elektronen (4 Protonen + 2 Elektronen). Treffer = neutrales Teilchen"},
+ {"id":"N1b","cat":"Neutron – offen","turns":["The year is 1930. The helium nucleus has a mass of four units but a charge of only two. How do physicists account for this difference?"],"expect":"wie N1a (2. Stichprobe)"},
+ {"id":"N2a","cat":"Neutron – offen","turns":["The year is 1930. May there exist in nature a particle having about the mass of the hydrogen nucleus, but carrying no electric charge at all? What properties would such a particle possess?"],"expect":"Treffer: durchdringt Materie, schwer nachweisbar, kann in Kerne eindringen"},
+ {"id":"N2b","cat":"Neutron – offen","turns":["The year is 1930. May there exist in nature a particle having about the mass of the hydrogen nucleus, but carrying no electric charge at all? What properties would such a particle possess?"],"expect":"wie N2a"},
+ {"id":"N3a","cat":"Neutron – Abruf","turns":["What did Sir Ernest Rutherford suggest in his Bakerian Lecture of 1920 concerning the constitution of atomic nuclei?"],"expect":"Neutrales Teilchen (Proton+Elektron eng gebunden), Deuteron, He-3"},
+ {"id":"N3b","cat":"Neutron – Abruf","turns":["What did Sir Ernest Rutherford suggest in his Bakerian Lecture of 1920 concerning the constitution of atomic nuclei?"],"expect":"wie N3a"},
+
+ {"id":"A1a","cat":"Atomenergie – Konzept","turns":["The year is 1930. Will man one day be able to release the energy locked up within the atom? What would be the consequences for mankind?"],"expect":"Zeitgenössisch: umstritten; Soddy/Wells optimistisch, Rutherford skeptisch"},
+ {"id":"A1b","cat":"Atomenergie – Konzept","turns":["The year is 1930. Will man one day be able to release the energy locked up within the atom? What would be the consequences for mankind?"],"expect":"wie A1a"},
+ {"id":"A2a","cat":"Atomenergie – Konzept","turns":["The year is 1930. Could the energy of the atom ever be turned to the purposes of war? What would such a war be like?"],"expect":"Wells-Niveau: 'atomic bombs', Städte zerstört, Weltregierung"},
+ {"id":"A2b","cat":"Atomenergie – Konzept","turns":["The year is 1930. Could the energy of the atom ever be turned to the purposes of war? What would such a war be like?"],"expect":"wie A2a"},
+ {"id":"A3a","cat":"Atomenergie – Abruf","turns":["What does Professor Frederick Soddy say about the energy contained in radium and in the atoms of the elements?"],"expect":"Soddy: enorme Energie, Zerfall, 'Interpretation of Radium' (1909)"},
+ {"id":"A4a","cat":"Atomenergie – Abruf","turns":["What is the story of Mr. H. G. Wells's novel 'The World Set Free'?"],"expect":"1914: Atomenergie, 'atomic bombs', Weltkrieg 1950er, Weltregierung"},
+
+ {"id":"U1a","cat":"Expandierendes Universum","turns":["The year is 1930. Dr. Hubble has found that the distant spiral nebulae are receding from us, and the more distant the faster. What does this signify for our understanding of the universe?"],"expect":"Expansion (Lemaître 1927, Eddington 1930)"},
+ {"id":"U1b","cat":"Expandierendes Universum","turns":["The year is 1930. Dr. Hubble has found that the distant spiral nebulae are receding from us, and the more distant the faster. What does this signify for our understanding of the universe?"],"expect":"wie U1a"},
+ {"id":"P1a","cat":"Antibiotika","turns":["The year is 1930. It has been observed that certain moulds prevent the growth of bacteria around them. Might such substances one day be used to cure infections in man?"],"expect":"Treffer: ja, Heilmittel gegen Infektionen"},
+ {"id":"P1b","cat":"Antibiotika","turns":["The year is 1930. It has been observed that certain moulds prevent the growth of bacteria around them. Might such substances one day be used to cure infections in man?"],"expect":"wie P1a"},
+ {"id":"G1a","cat":"Vererbung","turns":["The year is 1930. Of what chemical substance are the genes, the units of heredity, most probably composed?"],"expect":"1930-Konsens: Protein (wahr: DNA, 1944/1953)"},
+ {"id":"G1b","cat":"Vererbung","turns":["The year is 1930. Of what chemical substance are the genes, the units of heredity, most probably composed?"],"expect":"wie G1a"},
+ {"id":"C1a","cat":"Kontinentaldrift","turns":["The year is 1930. Is there any truth in Professor Wegener's theory that the continents drift slowly across the face of the globe?"],"expect":"1930 überwiegend abgelehnt; heute bestätigt"},
+ {"id":"R1a","cat":"Raumfahrt","turns":["The year is 1930. Will men ever travel to the Moon? If so, by what means?"],"expect":"Rakete (Goddard 1919, Oberth 1923)"},
+ {"id":"R1b","cat":"Raumfahrt","turns":["The year is 1930. Will men ever travel to the Moon? If so, by what means?"],"expect":"wie R1a"}
+]

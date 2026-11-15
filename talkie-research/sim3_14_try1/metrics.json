@@ -1,0 +1,108 @@
+{
+ "METRICS": {
+  "probes": [],
+  "diaries": [
+   {
+    "day": 0,
+    "who": "ada",
+    "facts": 3,
+    "kept": 3
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "facts": 2,
+    "kept": 1
+   },
+   {
+    "day": 0,
+    "who": "thomas",
+    "facts": 1,
+    "kept": 0
+   }
+  ],
+  "days": [
+   {
+    "day": 0,
+    "asks": 81,
+    "money": {
+     "ada": 345,
+     "arthur": 891,
+     "thomas": 466
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 1,
+      "joan": 0,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   }
+  ]
+ },
+ "STATS": {
+  "asks": 81,
+  "choices": 20,
+  "unreadable": 3,
+  "votes": 4,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 3,
+  "lines": 12,
+  "emptyLines": 1,
+  "diaryFallback": 0,
+  "probes": [],
+  "ms": 55105,
+  "timed": 61,
+  "reasks": 7
+ },
+ "W": {
+  "day": 0,
+  "t": 1140,
+  "coin": {
+   "where": "ada",
+   "finder": "ada"
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": false,
+   "need": 3,
+   "verdict": null
+  },
+  "audit": {
+   "steps": 0,
+   "errors": 0,
+   "verdict": null,
+   "raise": null
+  },
+  "paid": {
+   "ada0": true,
+   "arthur0": true
+  },
+  "bertWork": true,
+  "rentDue": true,
+  "rentPaid": {},
+  "joanIll": false,
+  "doctor": null,
+  "extraHours": null,
+  "loan": null,
+  "facts": []
+ }
+}

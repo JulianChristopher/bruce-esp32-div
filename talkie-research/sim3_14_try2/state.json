@@ -1,0 +1,174 @@
+{
+ "W": {
+  "day": 0,
+  "t": 510,
+  "coin": {
+   "where": "floor",
+   "finder": null
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": false,
+   "need": 3,
+   "verdict": null
+  },
+  "audit": {
+   "steps": 0,
+   "errors": 0,
+   "verdict": null,
+   "raise": null
+  },
+  "paid": {},
+  "bertWork": true,
+  "rentDue": true,
+  "rentPaid": {},
+  "joanIll": false,
+  "doctor": null,
+  "extraHours": null,
+  "loan": null,
+  "facts": []
+ },
+ "STATS": {
+  "asks": 27,
+  "choices": 8,
+  "unreadable": 1,
+  "votes": 0,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 2,
+  "lines": 10,
+  "emptyLines": 2,
+  "diaryFallback": 0,
+  "probes": [],
+  "ms": 22801,
+  "timed": 24,
+  "nullReplies": 3,
+  "reported": 1,
+  "reasks": 1
+ },
+ "agents": {
+  "ada": {
+   "place": "office",
+   "money": 45,
+   "op": {
+    "arthur": 1,
+    "thomas": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He has been known to come home at night, and, flinging himself down in a chair, burst into tears, because Bert was not likely to be able to follow in his footsteps, and become a sailor.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the news in the paper: \"I see, sir, by the newspaper, that the Government has appointed a Select Committee to consider the question of Old Age Pensions.\" \"I am glad to hear it, becaus",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    }
+   ]
+  },
+  "arthur": {
+   "place": "office",
+   "money": 54,
+   "op": {
+    "ada": 1,
+    "thomas": 0,
+    "edith": 1,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He always endeavoured to keep his personal expenditure within his income, and he succeeded in doing so until he married.  Then his wife persuaded him to take a house in a somewhat better position than that in which they had previously lived, and he consented.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 450,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone: \"I have been to the City, Edith.  I got up at seven, and came home to breakfast at eight.\" \"You have been to the City, Arthur, and got back to breakfast at eigh",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the news in the paper: \"I see, sir, by the newspaper, that the Government has appointed a Select Committee to consider the question of Old Age Pensions.\" \"I am glad to hear it, becaus",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    }
+   ]
+  },
+  "thomas": {
+   "place": "office",
+   "money": 480,
+   "op": {
+    "ada": 0,
+    "arthur": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was never known to be late.  He was always punctual to the minute.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "ada",
+      "arthur"
+     ],
+     "imp": 1
+    }
+   ]
+  }
+ }
+}

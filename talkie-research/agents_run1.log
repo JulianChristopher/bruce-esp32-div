@@ -1,0 +1,68 @@
+
+=== a quarter to eight ===
+Ada's intentions: She means to go to Finsbury Circus, to call for work, to return to Moorgate Street, and to wash down the stairs.
+Ada [She scrubs the floor under the clerks' d] -> Scrub the floor under the clerks' desks.
+   => Ada scrubbed the floor under the clerks' desks. Under Mr. Hale's desk she found a half-crown (2s. 6d.) lying in a crack of the boards.
+
+=== eight o'clock ===
+Ada [She scrubs the floor under the clerks' d] -> Put away her pail and brushes, and leave for her next place in Finsbury Circus.
+   => Ada put away her things and left for Finsbury Circus.
+Arthur arrives at the news-stand at Moorgate Underground station.
+Arthur's intentions: He means to walk to Finsbury Park, and have a look at the Spring flowers.  He means to call on an uncle in the City Road, and ask him how he is.
+Arthur [He chooses (E).] -> Wait quietly and do nothing for the present.
+   => Arthur waited.
+
+=== a quarter past eight ===
+Arthur [He chooses (C).] -> Go to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+   => Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+
+=== half past eight ===
+Arthur [He sits down at his desk and works at th] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+
+=== a quarter to nine ===
+Arthur [He sits down to work at the ledger.] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+Mr. Thomas arrives at the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+Mr. Thomas's intentions: He means to set Mr.  Hale to balance the quarterly ledger.
+Mr. Thomas [He tells Mr. Hale that the quarterly led] -> Tell Mr. Hale that the quarterly ledger must be balanced by eleven o'clock.
+   => Mr. Thomas told Arthur that the quarterly ledger must be balanced by eleven o'clock.
+
+=== nine o'clock ===
+Arthur [He sits down at his desk, and works at t] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+Mr. Thomas [He inspects the cleaning of the office, ] -> Inspect the cleaning of the office.
+   => Mr. Thomas inspected the office and found the cleaning not finished.
+
+=== a quarter past nine ===
+Arthur [He chooses F.] -> Go to a Lyons tea-shop in Moorgate.
+   => Arthur went to a Lyons tea-shop in Moorgate.
+Mr. Thomas [Mr. Thomas goes to the news-stand at Moo] -> Go to the news-stand at Moorgate Underground station.
+   => Mr. Thomas went to the news-stand at Moorgate Underground station.
+
+=== half past nine ===
+Arthur [He chooses D.] -> Go to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+   => Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+Mr. Thomas [Mr. Thomas goes to the clerks' room of t] -> Go to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+   => Mr. Thomas went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+
+=== a quarter to ten ===
+Arthur [He sits down at his desk and works at th] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+Mr. Thomas [He goes to the news-stand at Moorgate Un] -> Go to the news-stand at Moorgate Underground station.
+   => Mr. Thomas went to the news-stand at Moorgate Underground station.
+
+=== ten o'clock ===
+Arthur [He sits down at his desk and works at th] -> Sit down at his desk and work at the ledger.
+   => Arthur worked at the ledger.
+Mr. Thomas [A.] -> Go to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+   => Mr. Thomas went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+
+--- Ada's diary ---
+I scrubbed hard from seven to nine o'clock this morning. Under Mr. Hale's desk I found a half-crown, and am glad.
+
+--- Arthur's diary ---
+This morning Mr. Thomas told me that the quarterly ledger must be balanced by eleven o'clock, and I worked at it. He afterwards found fault with the cleaning, and I went to a tea-shop. Subsequently, he came up to the clerks' room, and I worked there.
+
+FINAL: coin=ada; money: Ada 11s. 3d., Arthur 4s. 6d., Mr. Thomas 30s. 0d.; opinions: {"ada":{"arthur":0,"thomas":0},"arthur":{"ada":0,"thomas":0},"thomas":{"ada":0,"arthur":0}}
+DONE

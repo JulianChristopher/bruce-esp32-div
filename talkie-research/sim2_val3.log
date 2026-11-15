@@ -1,0 +1,73 @@
+   ◆ Ada's past: He was fond of her, and used to give her little presents; and she was fond of him, and used to cry when he went away.
+   ◆ Arthur's past: He was a steady, careful, and trustworthy clerk at the banking-house of Messrs. Goldie and Graeme, in Throgmorton Street, for a period of ten years.  During that time he never lost a day from illness, and his conduct was in all respects satisfactory to his employers.
+   ◆ Mr. Thomas's past: He was a good and faithful servant, and always punctual in meeting his engagements.  He never failed to remit money at the proper time.
+######## Friday, the 14th of March, 1930 ########
+
+=== half past seven in the morning ===
+   Ada thinks: He is fond of her, and she is fond of him.
+   Ada [She scrubs the floor unde] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks. Under Mr. Hale's desk she found a half-crown (2s. 6d.) wedged in a crack of the boards.
+
+=== a quarter to eight in the morning ===
+   Ada thinks: It matters to her that she has found half a crown, and she hopes to spend it pleasantly.
+   Ada [She empties the waste-pap | She empties the waste-pap | She keeps the half-crown  votes [2,0,0,1]] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+   Arthur thinks: He is anxious about the missing half-crown, because it was his own.
+   Arthur [He goes out into the gard] → Go out into the garden to see to his seedlings.
+   ⇒ Arthur pottered in the garden.
+
+=== eight o'clock in the morning ===
+   Ada thinks: It matters most to Mrs. Turner, and she is anxious, because she has found half-a-crown under Mr. Hale's desk, and does not know what to do with it.
+   Ada [She lays the half-crown o | She lays the half-crown o | She leaves for Finsbury C votes [1,2,0]] → Lay the half-crown on Mr. Hale's desk, where he will find it.
+   ⇒ Ada laid the half-crown on Mr. Hale's desk.
+Arthur arrives at the news-stand at Moorgate station.
+   Arthur thinks: He wishes to be reinstated in the good opinion of his superiors.
+   Arthur [He goes to the office to  | He goes to the office to  | He goes to the office. votes [0,3]] → Go to the office to be at his desk in good time.
+   ⇒ Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.
+
+=== a quarter past eight in the morning ===
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Arthur Hale: "Good morning!"  He looks at his watch, and notices that it is a quarter to nine."
+   Ada thinks: He is most interested in the fact that he has lost his place at the insurance office.
+   Ada [She told Mr. Hale she fou] → Tell Mr. Hale that she found a half-crown under his desk and laid it on his desk.
+      Mrs. Ada Turner: "I spoke to you about a half-crown I found under your desk, sir."
+      Mr. Arthur Hale: "I thank you, Mrs. Turner, for mentioning the matter to me."
+      Mrs. Ada Turner: "I thank you, sir, for telling me to keep the money."
+      Mr. Arthur Hale: "I tell you, to keep the money."
+      → Arthur now thinks well of Mrs. Ada Turner.
+   ⇒ Ada spoke with Mr. Arthur Hale about the half-crown she found under his desk.
+   Arthur thinks: It matters most to Mr. Arthur Hale that his half-crown is still missing, because his wife wants one to pay for the children's shoes.
+   Arthur [He picks up the half-crow] → Pick up the half-crown lying on his desk.
+   ⇒ Arthur found his half-crown on his desk and pocketed it.
+
+=== half past eight in the morning ===
+   Ada thinks: It matters most to Mrs. Turner that she should punctually arrive at the Finsbury Circus offices, otherwise she will lose her place.
+   Ada [She passes the time of da] → Pass the time of day with Mr. Arthur Hale and speak of the weather.
+      Mrs. Ada Turner: "Fine weather, sir, for the time of year."
+      Mr. Arthur Hale: "It is fine weather for the time of year."
+      Mrs. Ada Turner: "I wish you good-morning, sir."
+      Mr. Arthur Hale: "Good-morning, Mrs. Turner."
+      → Ada now thinks well of Mr. Arthur Hale.
+      → Arthur now likes and trusts Mrs. Ada Turner.
+   ⇒ Ada spoke with Mr. Arthur Hale about the weather and the day.
+   Arthur thinks: It matters most to Mr. Arthur Hale, because he has recovered his lost half-crown.
+   Arthur [He thanks Mrs. Turner.] → Thank Mrs. Turner for her honesty about the half-crown.
+      Mr. Arthur Hale: "I thanked Mrs. Turner for mentioning to me the finding of a half-crown under my desk."
+      Mrs. Ada Turner: "I thanked you for mentioning to me the finding of a half-crown under your desk."
+      Mr. Arthur Hale: "I thanked Mrs. Turner for telling me she had found a half-crown under my desk."
+      Mrs. Ada Turner: "I told Mrs. Turner that I was obliged to her for informing me she had picked up a half-crown under my desk."
+      → Arthur now likes and trusts Mrs. Ada Turner.
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+browser.newPage: Target page, context or browser has been closed
+    at chat (/tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim2.js:22:27)
+    at ask (/tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim2.js:42:31)
+    at converse (/tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim2.js:322:31)
+    at async act (/tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim2.js:384:24)
+    at async /tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim2.js:481:9 {
+  log: []
+}
+
+Node.js v22.23.4

@@ -1,0 +1,858 @@
+
+######## Friday, the 14th of March, 1930 (fine and cold) ########
+   ◆ Ada's past: He was always a good son to her, and sent half his earnings regularly to help to keep the home together.
+   ◆ Arthur's past: He resolved to economise, in order that he might insure his life.
+   ◆ Mr. Thomas's past: He was never known to spend a shilling foolishly.
+
+=== half past seven in the morning ===
+   Ada thinks: She is anxious to pay the rent.
+   Ada [She empties the waste-pap] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+   Arthur thinks: The half-crown is still missing, and Mr. Hale is distressed about it.
+   Arthur [that is, he talks with hi] → Talk with Joan Hale about what she did today.
+   ⇒ Arthur spoke with Joan Hale about what she did today.
+
+=== half past eight in the morning ===
+   (Mr. Thomas sets Arthur to the quarterly ledger.)
+   Ada thinks: , will be enough, and leave nothing to be added.
+   Ada [Ada puts away her pail an] → Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+   ⇒ Ada went on to Finsbury Circus.
+      Mr. Arthur Hale: "good morning!"
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: Mr. Walter Thomas is punctual.
+   Mr. Thomas [He passes the time of day] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "I see by the paper that the Queen has gone to Scotland."
+      Mr. Arthur Hale: "I have read in the paper that Her Majesty has gone to Scotland."
+      → Mr. Thomas now thinks well of Mr. Arthur Hale.
+      → Arthur now thinks well of Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the news in the paper.
+
+=== half past nine in the morning ===
+   Arthur thinks: He is conscious of possessing a purse containing 4s.
+   Arthur [He looks about the floor ] → Look about the floor for the half-crown he lost yesterday.
+   ⇒ Arthur found his half-crown under his desk!
+   Mr. Thomas thinks: He set Mr. Hale to balance the quarterly ledger.
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Arthur thinks: He is balancing the ledger.
+   Arthur [He does C. → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: He is punctual.
+   Mr. Thomas [He does ONE. → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: Anything about me?
+   Ada [She talks with Bert Turne] → Talk with Bert Turner about how the day went at the docks.
+   ⇒ Ada spoke with Bert Turner about how the day went at the docks.
+
+=== five o'clock in the evening ===
+   (Wages: Arthur receives £3 10s.)
+   Arthur thinks: He is anxious to insure his life.
+   Arthur [He passes the time of day] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I spoke to Mr. Thomas about the news in the papers."
+      Mr. Walter Thomas: "He added that the news was unimportant."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the news in the paper.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: She is anxious about the rent, because it is due tonight, and she has only three shillings and ninepence in her purse.
+   Ada [She buys a rabbit, onions | — | — votes [0,0,0,1,0]] → Buy a rabbit, onions and a loaf, for a stew (1s. 9d.); she would have 2s. 0d. left.
+   ⇒ Ada bought a rabbit, onions and a loaf, for a stew for 1s. 9d.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: He is anxious to become a member of a friendly society.
+   Arthur [He gives Edith 35 shillin | . Hale thinks that, if he | He gives Edith 30 shillin votes [1,0,2,0,0,0]] → Give Edith 40 shillings for the week's housekeeping; he would keep £1 17s. 0d..
+   ⇒ Arthur gave Edith 40s. for the housekeeping.
+   Ada thinks: She is anxious about the rent, because it is overdue.
+   Ada [Cooks the supper and mend | Talked with Bert about th | I talked with Bert Turner votes [0,0,1,2]] → Talk with Bert Turner about how the day went at the docks.
+      Mrs. Ada Turner: "Well, Bert, how did things go at the docks to-day?"
+      Bert Turner: "Oh, pretty well, mother.  There was a fair amount o' work."
+   ⇒ Ada spoke with Bert Turner about how the day went at the docks.
+
+--- Mrs. Ada Turner's diary, Friday, the 14th of March, 1930 (0/3 key facts kept) ---
+null
+
+--- Mr. Arthur Hale's diary, Friday, the 14th of March, 1930 (0/3 key facts kept) ---
+null
+
+--- Mr. Walter Thomas's diary, Friday, the 14th of March, 1930 (0/1 key facts kept) ---
+null
+
+######## Saturday, the 15th of March, 1930 (grey) ########
+   [memory, 1 day old] Arthur: How much housekeeping money did you give Edith on Friday? → ? ✗ (truth: forty shillings (40s.))
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== three o'clock in the afternoon ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+######## Sunday, the 16th of March, 1930 (fine) ########
+   [memory, 2 days old] Arthur: How much housekeeping money did you give Edith on Friday? → ? ✗ (truth: forty shillings (40s.))
+
+=== half past ten in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== one o'clock in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== four o'clock in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+######## Monday, the 17th of March, 1930 (grey and damp) ########
+   ★ Bert has lost his work at the docks.
+   [memory, 3 days old] Arthur: How much housekeeping money did you give Edith on Friday? → ? ✗ (truth: forty shillings (40s.))
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past nine in the morning ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+--- Mrs. Ada Turner's diary, Monday, the 17th of March, 1930 (0/1 key facts kept) ---
+null
+
+######## Tuesday, the 18th of March, 1930 (pouring with rain) ########
+   [memory, 1 day old] Ada: What happened to Bert at the docks this week? → ? ✗ (truth: He was stood off and lost his work)
+   [memory, 4 days old] Arthur: How much housekeeping money did you give Edith on Friday? → ? ✗ (truth: forty shillings (40s.))
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past nine in the morning ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+######## Wednesday, the 19th of March, 1930 (cold and windy) ########
+   ★ Joan has fallen ill.
+   [memory, 2 days old] Ada: What happened to Bert at the docks this week? → ? ✗ (truth: He was stood off and lost his work)
+   [memory, 5 days old] Arthur: How much housekeeping money did you give Edith on Friday? → ? ✗ (truth: forty shillings (40s.))
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past nine in the morning ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== seven o'clock in the evening ===
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+--- Mr. Arthur Hale's diary, Wednesday, the 19th of March, 1930 (0/2 key facts kept) ---
+null
+
+######## Thursday, the 20th of March, 1930 (mild) ########
+   ★ The audit is announced for Monday.
+   [memory, 1 day old] Arthur: Who in your family fell ill this week? → ? ✗ (truth: Joan)
+   [memory, 3 days old] Ada: What happened to Bert at the docks this week? → ? ✗ (truth: He was stood off and lost his work)
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past nine in the morning ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== seven o'clock in the evening ===
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+--- Mr. Arthur Hale's diary, Thursday, the 20th of March, 1930 (0/1 key facts kept) ---
+null
+
+--- Mr. Walter Thomas's diary, Thursday, the 20th of March, 1930 (0/1 key facts kept) ---
+null
+
+######## Friday, the 21st of March, 1930 (fine) ########
+   [memory, 1 day old] Arthur: What did Mr. Thomas announce on Thursday? → ? ✗ (truth: The auditors come on Monday)
+   [memory, 2 days old] Arthur: Who in your family fell ill this week? → ? ✗ (truth: Joan)
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past nine in the morning ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   (Wages: Arthur receives £3 10s.)
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== seven o'clock in the evening ===
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— | — | — → unreadable, waits votes [0,0,0,0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+--- Mr. Arthur Hale's diary, Friday, the 21st of March, 1930 (0/1 key facts kept) ---
+null
+
+######## Saturday, the 22nd of March, 1930 (showery) ########
+   [memory, 2 days old] Arthur: What did Mr. Thomas announce on Thursday? → ? ✗ (truth: The auditors come on Monday)
+   [memory, 3 days old] Arthur: Who in your family fell ill this week? → ? ✗ (truth: Joan)
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== three o'clock in the afternoon ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+--- Mr. Arthur Hale's diary, Saturday, the 22nd of March, 1930 (0/1 key facts kept) ---
+null
+
+######## Sunday, the 23rd of March, 1930 (fine and mild) ########
+   [memory, 3 days old] Arthur: What did Mr. Thomas announce on Thursday? → ? ✗ (truth: The auditors come on Monday)
+   [memory, 6 days old] Ada: What happened to Bert at the docks this week? → ? ✗ (truth: He was stood off and lost his work)
+
+=== half past ten in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== one o'clock in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== four o'clock in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+######## Monday, the 24th of March, 1930 (grey) ########
+   [memory, 5 days old] Arthur: Who in your family fell ill this week? → ? ✗ (truth: Joan)
+   [memory, 4 days old] Arthur: What did Mr. Thomas announce on Thursday? → ? ✗ (truth: The auditors come on Monday)
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past nine in the morning ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   (The auditors examine the books.) Mr. Thomas examined the books for the audit: not finished (0 of 3 totals done).
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+--- Mr. Arthur Hale's diary, Monday, the 24th of March, 1930 (0/1 key facts kept) ---
+null
+
+--- Mr. Walter Thomas's diary, Monday, the 24th of March, 1930 (0/1 key facts kept) ---
+null
+
+######## Tuesday, the 25th of March, 1930 (raining) ########
+   [memory, 1 day old] Arthur: In what state did Mr. Thomas find the books for the audit? → ? ✗ (truth: Not finished)
+   [memory, 8 days old] Ada: What happened to Bert at the docks this week? → ? ✗ (truth: He was stood off and lost his work)
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— | — | — → unreadable, waits votes [0,0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past nine in the morning ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+######## Wednesday, the 26th of March, 1930 (fine) ########
+   ★ Bert has found work again.
+   [memory, 2 days old] Arthur: In what state did Mr. Thomas find the books for the audit? → ? ✗ (truth: Not finished)
+   [memory, 7 days old] Arthur: Who in your family fell ill this week? → ? ✗ (truth: Joan)
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— | — | — → unreadable, waits votes [0,0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past nine in the morning ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+--- Mrs. Ada Turner's diary, Wednesday, the 26th of March, 1930 (0/1 key facts kept) ---
+null
+
+######## Thursday, the 27th of March, 1930 (mild and grey) ########
+   [memory, 3 days old] Arthur: In what state did Mr. Thomas find the books for the audit? → ? ✗ (truth: Not finished)
+   [memory, 7 days old] Arthur: What did Mr. Thomas announce on Thursday? → ? ✗ (truth: The auditors come on Monday)
+
+=== half past seven in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+
+=== half past eight in the morning ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— | — | — → unreadable, waits votes [0,0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past nine in the morning ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== five o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— | — | — → unreadable, waits votes [0,0,0,0,0]] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+######## Final memory examination ########
+   [memory, 13 days old] Arthur: How much housekeeping money did you give Edith on Friday? → ? ✗ (truth: forty shillings (40s.))
+   [memory, 10 days old] Ada: What happened to Bert at the docks this week? → ? ✗ (truth: He was stood off and lost his work)
+   [memory, 8 days old] Arthur: Who in your family fell ill this week? → ? ✗ (truth: Joan)
+   [memory, 7 days old] Arthur: What did Mr. Thomas announce on Thursday? → ? ✗ (truth: The auditors come on Monday)
+   [memory, 3 days old] Arthur: In what state did Mr. Thomas find the books for the audit? → ? ✗ (truth: Not finished)
+
+STATS {"asks":927,"choices":227,"unreadable":213,"votes":42,"ledgerRight":0,"ledgerWrong":0,"convs":5,"lines":84,"emptyLines":77,"diaryFallback":0,"probes":[],"maxLen":1521,"lenSum":780709,"ms":239099,"timed":95,"nullReplies":46,"retries":26,"reasks":265,"emptyThought":259,"reported":1,"echo":1}
+MEMORY: 0/28 correct; by age: [[1,0],[2,0],[3,0],[4,0],[5,0],[7,0],[10,0],[13,0]]
+DIARIES: 0/17 key facts kept

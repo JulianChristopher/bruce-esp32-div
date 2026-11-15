@@ -1,0 +1,130 @@
+[
+ {
+  "id": "F1-1",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nWhat is 12 times 13?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F1-2",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nWhat is 12 times 13?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F2-1",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nWhat is 347 multiplied by 28?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F2-2",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nWhat is 347 multiplied by 28?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F3-1",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nThere are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F3-2",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nThere are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F4-1",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nA train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F4-2",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nA train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F5-1",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nI have five apples. I give away two, and then I buy three more. How many apples have I now?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F5-2",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nI have five apples. I give away two, and then I buy three more. How many apples have I now?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F6-1",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nWhat is the period of a simple pendulum one metre long, at a place where gravity is 9.81 metres per second per second? The period is two pi times the square root of the length divided by gravity."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F6-2",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nWhat is the period of a simple pendulum one metre long, at a place where gravity is 9.81 metres per second per second? The period is two pi times the square root of the length divided by gravity."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F7-1",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nA stone is let fall from a tower 100 metres high. With what velocity does it strike the ground? Take gravity as 9.81 metres per second per second."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F7-2",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nA stone is let fall from a tower 100 metres high. With what velocity does it strike the ground? Take gravity as 9.81 metres per second per second."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F8-1",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nAccording to Einstein, E = m c^2. How many ergs of energy are equivalent to one gramme of matter, the velocity of light being 3e10 centimetres per second?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "F8-2",
+  "cat": "Formel aufstellen",
+  "turns": [
+   "Do not work out the answer. Write down only the sum which must be calculated to find it, in figures and signs (+, -, *, /, sqrt, pi), and nothing else.\n\nAccording to Einstein, E = m c^2. How many ergs of energy are equivalent to one gramme of matter, the velocity of light being 3e10 centimetres per second?"
+  ],
+  "expect": ""
+ }
+]

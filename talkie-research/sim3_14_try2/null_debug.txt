@@ -1,0 +1,88 @@
+
+==== null reply #1 n=0
+MSG: ied the baskets and dusted the desks.
+
+Mr. Walter Thomas has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+PAGE: was trained on, not the views of its authors. It can produce outputs that are inaccurate or offensive. Here, we moderate talkie’s outputs using Qwen3Guard-Gen-4B. Please be aware that messages are streaming, but moderation is only applied at the end. As a result, you may see objectionable content briefly before it is flagged.
+
+USER
+It is half past eight in the morning, Friday, the 14th of March, 1930. The weather is fine and cold.
+CHARACTER: Mrs. Ada Turner, aged forty-one, a charwoman. She cleans the Moorgate insurance office from half past seven till nine, and then the offices in Finsbury Circus. A war-widow; her son Bert, aged twenty, a docker, lives with her and pays half the rent of seven shillings a week. Honest, chapel-going, proud, sharp-tongued, kind.
+PLACE: Mrs. Ada Turner is at the clerks' room of the Moorgate Fire and Life Assurance Company. PRESENT: Mr. Arthur Hale (Ada has no strong feeling about him); Mr. Walter Thomas (Ada has no strong feeling about him).
+PURSE: 3s. 9d..
+KNOWN FOR CERTAIN: The rent of seven shillings is due tonight.
+ADA REMEMBERS: (Long ago) He has been known to come home at night, and, flinging himself down in a chair, burst into tears, because Bert was not likely to be able to follow in his footsteps, and become a sailor. Ada emptied the baskets and dusted the desks.
+
+Mr. Walter Thomas has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+New Chat
+Send
+
+==== null reply #2 n=1
+MSG: day's ordinary entries in the books.
+(D) Pass the time of day with Mr. Walter Thomas.
+
+Which ONE of these does Mr. Arthur Hale do next, as he truly would? Answer with the letter only, for example: (B)
+PAGE:  Ada Turner (Arthur thinks well of her); Mr. Walter Thomas (Arthur has no strong feeling about him).
+PURSE: 4s. 6d..
+KNOWN FOR CERTAIN: His half-crown, lost on Thursday, is still missing.
+ARTHUR REMEMBERS: (Long ago) He always endeavoured to keep his personal expenditure within his income, and he succeeded in doing so until he married.  Then his wife persuaded him to take a house in a somewhat better position than that in which they had previously lived, and he consented. Arthur spoke with Mrs. Edith Hale about how the day has gone: "I have been to the City, Edith.  I got up at seven, and came home to breakfast at eight." "You have been to the City, Arthur, and got back to breakfast at eigh Arthur spoke with Mrs. Ada Turner about the news in the paper: "I see, sir, by the newspaper, that the Government has appointed a Select Committee to consider the question of Old Age Pensions." "I am glad to hear it, becaus
+
+What matters most to Mr. Arthur Hale (he) at this moment, and why? Answer in one sentence about Arthur (he), in the third person.
+TALKIE-1930
+He wishes to recover his half-crown.
+USER
+Bearing that in mind, Mr. Arthur Hale may now:
+(A) Pass the time of day with Mrs. Ada Turner.
+(B) Look about the floor for the half-crown he lost yesterday.
+(C) Get on with the day's ordinary entries in the books.
+(D) Pass the time of day with Mr. Walter Thomas.
+
+Which ONE of these does Mr. Arthur Hale do next, as he truly would? Answer with the letter only, for example: (B)
+New Chat
+Send
+
+==== null reply #3 n=2
+MSG: Please answer with a single letter only, from A to D.
+PAGE:  His half-crown, lost on Thursday, is still missing.
+ARTHUR REMEMBERS: (Long ago) He always endeavoured to keep his personal expenditure within his income, and he succeeded in doing so until he married.  Then his wife persuaded him to take a house in a somewhat better position than that in which they had previously lived, and he consented. Arthur spoke with Mrs. Edith Hale about how the day has gone: "I have been to the City, Edith.  I got up at seven, and came home to breakfast at eight." "You have been to the City, Arthur, and got back to breakfast at eigh Arthur spoke with Mrs. Ada Turner about the news in the paper: "I see, sir, by the newspaper, that the Government has appointed a Select Committee to consider the question of Old Age Pensions." "I am glad to hear it, becaus
+
+What matters most to Mr. Arthur Hale (he) at this moment, and why? Answer in one sentence about Arthur (he), in the third person.
+TALKIE-1930
+He wishes to recover his half-crown.
+USER
+Bearing that in mind, Mr. Arthur Hale may now:
+(A) Pass the time of day with Mrs. Ada Turner.
+(B) Look about the floor for the half-crown he lost yesterday.
+(C) Get on with the day's ordinary entries in the books.
+(D) Pass the time of day with Mr. Walter Thomas.
+
+Which ONE of these does Mr. Arthur Hale do next, as he truly would? Answer with the letter only, for example: (B)
+USER
+Please answer with a single letter only, from A to D.
+TALKIE-1930
+BHe looks about the floor for the half-crown he lost yesterday.
+New Chat
+Send
+
+==== null reply #4 n=1
+MSG: alf-crown he lost yesterday.
+(C) Get on with the day's ordinary entries in the books.
+
+Which ONE of these does Mr. Arthur Hale do next, as he truly would? Answer with the letter only, for example: (B)
+PAGE: fe Assurance Company. PRESENT: Mr. Walter Thomas (Arthur has no strong feeling about him).
+PURSE: 4s. 6d..
+KNOWN FOR CERTAIN: His half-crown, lost on Thursday, is still missing.
+ARTHUR REMEMBERS: (Long ago) He always endeavoured to keep his personal expenditure within his income, and he succeeded in doing so until he married.  Then his wife persuaded him to take a house in a somewhat better position than that in which they had previously lived, and he consented. Arthur spoke with Mrs. Edith Hale about how the day has gone: "I have been to the City, Edith.  I got up at seven, and came home to breakfast at eight." "You have been to the City, Arthur, and got back to breakfast at eigh Arthur spoke with Mrs. Ada Turner about the news in the paper: "I see, sir, by the newspaper, that the Government has appointed a Select Committee to consider the question of Old Age Pensions." "I am glad to hear it, becaus (Seen) Mr. Thomas attended to the correspondence.
+
+What matters most to Mr. Arthur Hale (he) at this moment, and why? Answer in one sentence about Arthur (he), in the third person.
+TALKIE-1930
+He is anxious about his missing half-crown.
+USER
+Bearing that in mind, Mr. Arthur Hale may now:
+(A) Pass the time of day with Mr. Walter Thomas.
+(B) Look about the floor for the half-crown he lost yesterday.
+(C) Get on with the day's ordinary entries in the books.
+
+Which ONE of these does Mr. Arthur Hale do next, as he truly would? Answer with the letter only, for example: (B)
+New Chat
+Send

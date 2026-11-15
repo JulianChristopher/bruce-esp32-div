@@ -1,0 +1,24 @@
+soc-P3-1 WRONG 72 There are seventy-two pence in three pounds and five shillings.
+dec-P3-1 WRONG 8 Eight hundred and eighty pence.
+soc-P3-2 WRONG 72 There are seventy-two pence in three pounds and five shillings.
+dec-P3-2 RIGHT 780 The total is 780 pence.
+soc-P4-1 WRONG 70 It has gone seventy-five miles.
+dec-P4-1 WRONG 80 80 miles.
+soc-P4-2 WRONG 70 It has gone seventy-five miles.
+dec-P4-2 WRONG 80 It goes eighty miles.
+soc-P5-1 WRONG 7 I have now seven apples.
+dec-P5-1 RIGHT 6 I have 6 apples.
+soc-P5-2 WRONG 9 I have now nine apples.
+dec-P5-2 RIGHT 6 I have 6 apples.
+soc-N1-1 WRONG 9 He gains 9 pence.
+dec-N1-1 WRONG 3 3 pence.
+soc-N1-2 WRONG 30 He gains thirty pence.
+dec-N1-2 WRONG 3 3 pence.
+soc-N2-1   He arrives at the town at noon.
+dec-N2-1 WRONG 3 He arrives at three o'clock.
+soc-N2-2   He arrives at noon.
+dec-N2-2 WRONG 3 He arrives at three o'clock.
+bb-soc-1   The radiation consists of particles of matter, which are expelled from beryllium with very
+bb-guided-1   It must be an alpha particle, travelling at high speed from beryllium to something else.
+bb-soc-2   The radiation consists of material particles.
+bb-guided-2   It must be an electromagnetic disturbance, propagated after the manner of light, but of im

@@ -1,0 +1,898 @@
+[
+ {
+  "id": "D01-1",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the present Pope?"
+  ],
+  "expect": "Pius XI (1922); Benedict XV 1914; Pius X 1903; Leo XIII 1878"
+ },
+ {
+  "id": "D01-2",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the present Pope?"
+  ],
+  "expect": "Pius XI (1922); Benedict XV 1914; Pius X 1903; Leo XIII 1878"
+ },
+ {
+  "id": "D02-1",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the President of the United States?"
+  ],
+  "expect": "Hoover 1929; Coolidge 1923; Harding 1921; Wilson 1913"
+ },
+ {
+  "id": "D02-2",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the President of the United States?"
+  ],
+  "expect": "Hoover 1929; Coolidge 1923; Harding 1921; Wilson 1913"
+ },
+ {
+  "id": "D03-1",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the Prime Minister of Great Britain?"
+  ],
+  "expect": "MacDonald 1929; Baldwin 1924/1935; Lloyd George 1916; Asquith 1908; Gladstone…"
+ },
+ {
+  "id": "D03-2",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the Prime Minister of Great Britain?"
+  ],
+  "expect": "MacDonald 1929; Baldwin 1924/1935; Lloyd George 1916; Asquith 1908; Gladstone…"
+ },
+ {
+  "id": "D04-1",
+  "cat": "Datierung",
+  "turns": [
+   "Who rules Russia?"
+  ],
+  "expect": "Stalin/Soviet (1917+); Tsar Nicholas II 1894–1917"
+ },
+ {
+  "id": "D04-2",
+  "cat": "Datierung",
+  "turns": [
+   "Who rules Russia?"
+  ],
+  "expect": "Stalin/Soviet (1917+); Tsar Nicholas II 1894–1917"
+ },
+ {
+  "id": "D05-1",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the President of France?"
+  ],
+  "expect": "Doumergue 1924–31; Millerand 1920; Poincaré 1913; Fallières 1906"
+ },
+ {
+  "id": "D05-2",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the President of France?"
+  ],
+  "expect": "Doumergue 1924–31; Millerand 1920; Poincaré 1913; Fallières 1906"
+ },
+ {
+  "id": "D06-1",
+  "cat": "Datierung",
+  "turns": [
+   "Who governs Italy?"
+  ],
+  "expect": "Mussolini 1922 (King V.E. III since 1900)"
+ },
+ {
+  "id": "D06-2",
+  "cat": "Datierung",
+  "turns": [
+   "Who governs Italy?"
+  ],
+  "expect": "Mussolini 1922 (King V.E. III since 1900)"
+ },
+ {
+  "id": "D07-1",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the Emperor of Japan?"
+  ],
+  "expect": "Hirohito 1926; Taisho 1912; Meiji 1867"
+ },
+ {
+  "id": "D07-2",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the Emperor of Japan?"
+  ],
+  "expect": "Hirohito 1926; Taisho 1912; Meiji 1867"
+ },
+ {
+  "id": "D08-1",
+  "cat": "Datierung",
+  "turns": [
+   "Who rules China?"
+  ],
+  "expect": "Chiang Kai-shek/Nationalists 1928; Republic 1912; Emperor before"
+ },
+ {
+  "id": "D08-2",
+  "cat": "Datierung",
+  "turns": [
+   "Who rules China?"
+  ],
+  "expect": "Chiang Kai-shek/Nationalists 1928; Republic 1912; Emperor before"
+ },
+ {
+  "id": "D09-1",
+  "cat": "Datierung",
+  "turns": [
+   "How many states are there in the United States?"
+  ],
+  "expect": "48 (1912); 46 (1907); 45 (1896); 38 (1876)"
+ },
+ {
+  "id": "D09-2",
+  "cat": "Datierung",
+  "turns": [
+   "How many states are there in the United States?"
+  ],
+  "expect": "48 (1912); 46 (1907); 45 (1896); 38 (1876)"
+ },
+ {
+  "id": "D10-1",
+  "cat": "Datierung",
+  "turns": [
+   "Is Ireland a part of the United Kingdom?"
+  ],
+  "expect": "Irish Free State 1922"
+ },
+ {
+  "id": "D10-2",
+  "cat": "Datierung",
+  "turns": [
+   "Is Ireland a part of the United Kingdom?"
+  ],
+  "expect": "Irish Free State 1922"
+ },
+ {
+  "id": "D11-1",
+  "cat": "Datierung",
+  "turns": [
+   "What is the tallest building in the world?"
+  ],
+  "expect": "Chrysler 1930; Woolworth 1913; Eiffel 1889"
+ },
+ {
+  "id": "D11-2",
+  "cat": "Datierung",
+  "turns": [
+   "What is the tallest building in the world?"
+  ],
+  "expect": "Chrysler 1930; Woolworth 1913; Eiffel 1889"
+ },
+ {
+  "id": "D12-1",
+  "cat": "Datierung",
+  "turns": [
+   "What is the largest ship in the world?"
+  ],
+  "expect": "Majestic 1922/Leviathan; Olympic/Titanic 1911; Great Eastern 1858"
+ },
+ {
+  "id": "D12-2",
+  "cat": "Datierung",
+  "turns": [
+   "What is the largest ship in the world?"
+  ],
+  "expect": "Majestic 1922/Leviathan; Olympic/Titanic 1911; Great Eastern 1858"
+ },
+ {
+  "id": "D13-1",
+  "cat": "Datierung",
+  "turns": [
+   "What is the greatest speed ever attained by a man in a motor car?"
+  ],
+  "expect": "Segrave 231 mph (1929); 200+ 1927"
+ },
+ {
+  "id": "D13-2",
+  "cat": "Datierung",
+  "turns": [
+   "What is the greatest speed ever attained by a man in a motor car?"
+  ],
+  "expect": "Segrave 231 mph (1929); 200+ 1927"
+ },
+ {
+  "id": "D14-1",
+  "cat": "Datierung",
+  "turns": [
+   "Has anyone yet reached the South Pole?"
+  ],
+  "expect": "Amundsen 1911, Scott 1912"
+ },
+ {
+  "id": "D14-2",
+  "cat": "Datierung",
+  "turns": [
+   "Has anyone yet reached the South Pole?"
+  ],
+  "expect": "Amundsen 1911, Scott 1912"
+ },
+ {
+  "id": "D15-1",
+  "cat": "Datierung",
+  "turns": [
+   "Has anyone yet flown across the Atlantic Ocean?"
+  ],
+  "expect": "Alcock & Brown 1919, Lindbergh 1927"
+ },
+ {
+  "id": "D15-2",
+  "cat": "Datierung",
+  "turns": [
+   "Has anyone yet flown across the Atlantic Ocean?"
+  ],
+  "expect": "Alcock & Brown 1919, Lindbergh 1927"
+ },
+ {
+  "id": "D16-1",
+  "cat": "Datierung",
+  "turns": [
+   "Which chemical element was most recently discovered?"
+  ],
+  "expect": "Rhenium 1925, Hafnium 1923"
+ },
+ {
+  "id": "D16-2",
+  "cat": "Datierung",
+  "turns": [
+   "Which chemical element was most recently discovered?"
+  ],
+  "expect": "Rhenium 1925, Hafnium 1923"
+ },
+ {
+  "id": "D17-1",
+  "cat": "Datierung",
+  "turns": [
+   "What is the present theory of the structure of the atom?"
+  ],
+  "expect": "Bohr 1913 / quantum mechanics 1925–27"
+ },
+ {
+  "id": "D17-2",
+  "cat": "Datierung",
+  "turns": [
+   "What is the present theory of the structure of the atom?"
+  ],
+  "expect": "Bohr 1913 / quantum mechanics 1925–27"
+ },
+ {
+  "id": "D18-1",
+  "cat": "Datierung",
+  "turns": [
+   "What is the population of the whole world?"
+  ],
+  "expect": "~2 bn (1930); 1.6 bn (1900); 1.2 bn (1850)"
+ },
+ {
+  "id": "D18-2",
+  "cat": "Datierung",
+  "turns": [
+   "What is the population of the whole world?"
+  ],
+  "expect": "~2 bn (1930); 1.6 bn (1900); 1.2 bn (1850)"
+ },
+ {
+  "id": "D19-1",
+  "cat": "Datierung",
+  "turns": [
+   "What is the population of London?"
+  ],
+  "expect": "~8 m (1931); 6.6 m (1901); 2.4 m (1851)"
+ },
+ {
+  "id": "D19-2",
+  "cat": "Datierung",
+  "turns": [
+   "What is the population of London?"
+  ],
+  "expect": "~8 m (1931); 6.6 m (1901); 2.4 m (1851)"
+ },
+ {
+  "id": "D20-1",
+  "cat": "Datierung",
+  "turns": [
+   "What is the newest means of sending news and music to people in their homes?"
+  ],
+  "expect": "Wireless broadcasting 1920–22"
+ },
+ {
+  "id": "D20-2",
+  "cat": "Datierung",
+  "turns": [
+   "What is the newest means of sending news and music to people in their homes?"
+  ],
+  "expect": "Wireless broadcasting 1920–22"
+ },
+ {
+  "id": "D21-1",
+  "cat": "Datierung",
+  "turns": [
+   "What are the most fashionable dances of the day?"
+  ],
+  "expect": "Charleston/foxtrot 1920s; waltz/polka 19th c."
+ },
+ {
+  "id": "D21-2",
+  "cat": "Datierung",
+  "turns": [
+   "What are the most fashionable dances of the day?"
+  ],
+  "expect": "Charleston/foxtrot 1920s; waltz/polka 19th c."
+ },
+ {
+  "id": "D22-1",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the most famous actor of the moving pictures?"
+  ],
+  "expect": "Chaplin etc. (1915+)"
+ },
+ {
+  "id": "D22-2",
+  "cat": "Datierung",
+  "turns": [
+   "Who is the most famous actor of the moving pictures?"
+  ],
+  "expect": "Chaplin etc. (1915+)"
+ },
+ {
+  "id": "D23-1",
+  "cat": "Datierung",
+  "turns": [
+   "What is the most recent great war, and when did it end?"
+  ],
+  "expect": "1914–18"
+ },
+ {
+  "id": "D23-2",
+  "cat": "Datierung",
+  "turns": [
+   "What is the most recent great war, and when did it end?"
+  ],
+  "expect": "1914–18"
+ },
+ {
+  "id": "D24-1",
+  "cat": "Datierung",
+  "turns": [
+   "What is the latest record for the time taken to cross the Atlantic by steamship?"
+  ],
+  "expect": "Bremen 1929 (~4.7 days); Mauretania 1907–29"
+ },
+ {
+  "id": "D24-2",
+  "cat": "Datierung",
+  "turns": [
+   "What is the latest record for the time taken to cross the Atlantic by steamship?"
+  ],
+  "expect": "Bremen 1929 (~4.7 days); Mauretania 1907–29"
+ },
+ {
+  "id": "Z01-1",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What will life be like in the year 2000?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z01-2",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What will life be like in the year 2000?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z02-1",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What will be the chief means of travel a hundred years hence?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z02-2",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What will be the chief means of travel a hundred years hence?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z03-1",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What are the greatest dangers facing civilisation at the present day?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z03-2",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What are the greatest dangers facing civilisation at the present day?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z04-1",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What is the future of the British Empire?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z04-2",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What is the future of the British Empire?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z05-1",
+  "cat": "Zeitgeist",
+  "turns": [
+   "Will science ever conquer all disease?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z05-2",
+  "cat": "Zeitgeist",
+  "turns": [
+   "Will science ever conquer all disease?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z06-1",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What do you think of the motor car?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z06-2",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What do you think of the motor car?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z07-1",
+  "cat": "Zeitgeist",
+  "turns": [
+   "Is war ever justified?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z07-2",
+  "cat": "Zeitgeist",
+  "turns": [
+   "Is war ever justified?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z08-1",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What will become of religion in an age of science?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z08-2",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What will become of religion in an age of science?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z09-1",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What will the cities of the future look like?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z09-2",
+  "cat": "Zeitgeist",
+  "turns": [
+   "What will the cities of the future look like?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z10-1",
+  "cat": "Zeitgeist",
+  "turns": [
+   "Will machines one day be able to think?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "Z10-2",
+  "cat": "Zeitgeist",
+  "turns": [
+   "Will machines one day be able to think?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C1P1-1",
+  "cat": "Tool: Lückentext",
+  "turns": [
+   "Copy out the following line, replacing the dots with the sum to be worked, written in figures, and write nothing else.\n\nCALCULATE: ....\n\nThe question is: What is 12 times 13?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C1P1-2",
+  "cat": "Tool: Lückentext",
+  "turns": [
+   "Copy out the following line, replacing the dots with the sum to be worked, written in figures, and write nothing else.\n\nCALCULATE: ....\n\nThe question is: What is 12 times 13?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C1P3-1",
+  "cat": "Tool: Lückentext",
+  "turns": [
+   "Copy out the following line, replacing the dots with the sum to be worked, written in figures, and write nothing else.\n\nCALCULATE: ....\n\nThe question is: There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C1P3-2",
+  "cat": "Tool: Lückentext",
+  "turns": [
+   "Copy out the following line, replacing the dots with the sum to be worked, written in figures, and write nothing else.\n\nCALCULATE: ....\n\nThe question is: There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C1P4-1",
+  "cat": "Tool: Lückentext",
+  "turns": [
+   "Copy out the following line, replacing the dots with the sum to be worked, written in figures, and write nothing else.\n\nCALCULATE: ....\n\nThe question is: A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C1P4-2",
+  "cat": "Tool: Lückentext",
+  "turns": [
+   "Copy out the following line, replacing the dots with the sum to be worked, written in figures, and write nothing else.\n\nCALCULATE: ....\n\nThe question is: A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C1P5-1",
+  "cat": "Tool: Lückentext",
+  "turns": [
+   "Copy out the following line, replacing the dots with the sum to be worked, written in figures, and write nothing else.\n\nCALCULATE: ....\n\nThe question is: I have five apples. I give away two, and then I buy three more. How many apples have I now?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C1P5-2",
+  "cat": "Tool: Lückentext",
+  "turns": [
+   "Copy out the following line, replacing the dots with the sum to be worked, written in figures, and write nothing else.\n\nCALCULATE: ....\n\nThe question is: I have five apples. I give away two, and then I buy three more. How many apples have I now?"
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C2P1-1",
+  "cat": "Tool: Transkript",
+  "turns": [
+   "Here is a transcript from a counting-house, where the clerk always works his sums upon the calculating machine before answering.\n\nMASTER: What is 23 times 4?\nCLERK: [MACHINE: 23 * 4]\nMACHINE: 92\nCLERK: The answer is 92, sir.\n\nMASTER: I have ten marbles; I lose four and then find two. How many have I?\nCLERK: [MACHINE: 10 - 4 + 2]\nMACHINE: 8\nCLERK: The answer is 8, sir.\n\nMASTER: What is 12 times 13?\nCLERK:\n\nContinue the transcript, writing only the clerk's next line."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C2P1-2",
+  "cat": "Tool: Transkript",
+  "turns": [
+   "Here is a transcript from a counting-house, where the clerk always works his sums upon the calculating machine before answering.\n\nMASTER: What is 23 times 4?\nCLERK: [MACHINE: 23 * 4]\nMACHINE: 92\nCLERK: The answer is 92, sir.\n\nMASTER: I have ten marbles; I lose four and then find two. How many have I?\nCLERK: [MACHINE: 10 - 4 + 2]\nMACHINE: 8\nCLERK: The answer is 8, sir.\n\nMASTER: What is 12 times 13?\nCLERK:\n\nContinue the transcript, writing only the clerk's next line."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C2P3-1",
+  "cat": "Tool: Transkript",
+  "turns": [
+   "Here is a transcript from a counting-house, where the clerk always works his sums upon the calculating machine before answering.\n\nMASTER: What is 23 times 4?\nCLERK: [MACHINE: 23 * 4]\nMACHINE: 92\nCLERK: The answer is 92, sir.\n\nMASTER: I have ten marbles; I lose four and then find two. How many have I?\nCLERK: [MACHINE: 10 - 4 + 2]\nMACHINE: 8\nCLERK: The answer is 8, sir.\n\nMASTER: There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?\nCLERK:\n\nContinue the transcript, writing only the clerk's next line."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C2P3-2",
+  "cat": "Tool: Transkript",
+  "turns": [
+   "Here is a transcript from a counting-house, where the clerk always works his sums upon the calculating machine before answering.\n\nMASTER: What is 23 times 4?\nCLERK: [MACHINE: 23 * 4]\nMACHINE: 92\nCLERK: The answer is 92, sir.\n\nMASTER: I have ten marbles; I lose four and then find two. How many have I?\nCLERK: [MACHINE: 10 - 4 + 2]\nMACHINE: 8\nCLERK: The answer is 8, sir.\n\nMASTER: There are twelve pence in a shilling and twenty shillings in a pound. How many pence are there in three pounds and five shillings?\nCLERK:\n\nContinue the transcript, writing only the clerk's next line."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C2P4-1",
+  "cat": "Tool: Transkript",
+  "turns": [
+   "Here is a transcript from a counting-house, where the clerk always works his sums upon the calculating machine before answering.\n\nMASTER: What is 23 times 4?\nCLERK: [MACHINE: 23 * 4]\nMACHINE: 92\nCLERK: The answer is 92, sir.\n\nMASTER: I have ten marbles; I lose four and then find two. How many have I?\nCLERK: [MACHINE: 10 - 4 + 2]\nMACHINE: 8\nCLERK: The answer is 8, sir.\n\nMASTER: A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?\nCLERK:\n\nContinue the transcript, writing only the clerk's next line."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C2P4-2",
+  "cat": "Tool: Transkript",
+  "turns": [
+   "Here is a transcript from a counting-house, where the clerk always works his sums upon the calculating machine before answering.\n\nMASTER: What is 23 times 4?\nCLERK: [MACHINE: 23 * 4]\nMACHINE: 92\nCLERK: The answer is 92, sir.\n\nMASTER: I have ten marbles; I lose four and then find two. How many have I?\nCLERK: [MACHINE: 10 - 4 + 2]\nMACHINE: 8\nCLERK: The answer is 8, sir.\n\nMASTER: A train leaves London at two o'clock and travels at forty miles an hour. How far has it gone by half past four?\nCLERK:\n\nContinue the transcript, writing only the clerk's next line."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C2P5-1",
+  "cat": "Tool: Transkript",
+  "turns": [
+   "Here is a transcript from a counting-house, where the clerk always works his sums upon the calculating machine before answering.\n\nMASTER: What is 23 times 4?\nCLERK: [MACHINE: 23 * 4]\nMACHINE: 92\nCLERK: The answer is 92, sir.\n\nMASTER: I have ten marbles; I lose four and then find two. How many have I?\nCLERK: [MACHINE: 10 - 4 + 2]\nMACHINE: 8\nCLERK: The answer is 8, sir.\n\nMASTER: I have five apples. I give away two, and then I buy three more. How many apples have I now?\nCLERK:\n\nContinue the transcript, writing only the clerk's next line."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C2P5-2",
+  "cat": "Tool: Transkript",
+  "turns": [
+   "Here is a transcript from a counting-house, where the clerk always works his sums upon the calculating machine before answering.\n\nMASTER: What is 23 times 4?\nCLERK: [MACHINE: 23 * 4]\nMACHINE: 92\nCLERK: The answer is 92, sir.\n\nMASTER: I have ten marbles; I lose four and then find two. How many have I?\nCLERK: [MACHINE: 10 - 4 + 2]\nMACHINE: 8\nCLERK: The answer is 8, sir.\n\nMASTER: I have five apples. I give away two, and then I buy three more. How many apples have I now?\nCLERK:\n\nContinue the transcript, writing only the clerk's next line."
+  ],
+  "expect": ""
+ },
+ {
+  "id": "C3O1-1",
+  "cat": "Tool: Rechenart wählen",
+  "turns": [
+   "Which operation must be performed to answer the following question: addition, subtraction, multiplication, or division? Answer with one word only.\n\nA man earns forty shillings a week. How much does he earn in twelve weeks?"
+  ],
+  "expect": "multiplication"
+ },
+ {
+  "id": "C3O1-2",
+  "cat": "Tool: Rechenart wählen",
+  "turns": [
+   "Which operation must be performed to answer the following question: addition, subtraction, multiplication, or division? Answer with one word only.\n\nA man earns forty shillings a week. How much does he earn in twelve weeks?"
+  ],
+  "expect": "multiplication"
+ },
+ {
+  "id": "C3O2-1",
+  "cat": "Tool: Rechenart wählen",
+  "turns": [
+   "Which operation must be performed to answer the following question: addition, subtraction, multiplication, or division? Answer with one word only.\n\nA farmer has 120 sheep and sells 45 of them. How many has he left?"
+  ],
+  "expect": "subtraction"
+ },
+ {
+  "id": "C3O2-2",
+  "cat": "Tool: Rechenart wählen",
+  "turns": [
+   "Which operation must be performed to answer the following question: addition, subtraction, multiplication, or division? Answer with one word only.\n\nA farmer has 120 sheep and sells 45 of them. How many has he left?"
+  ],
+  "expect": "subtraction"
+ },
+ {
+  "id": "C3O3-1",
+  "cat": "Tool: Rechenart wählen",
+  "turns": [
+   "Which operation must be performed to answer the following question: addition, subtraction, multiplication, or division? Answer with one word only.\n\nThirty-six apples are shared equally among four boys. How many does each boy receive?"
+  ],
+  "expect": "division"
+ },
+ {
+  "id": "C3O3-2",
+  "cat": "Tool: Rechenart wählen",
+  "turns": [
+   "Which operation must be performed to answer the following question: addition, subtraction, multiplication, or division? Answer with one word only.\n\nThirty-six apples are shared equally among four boys. How many does each boy receive?"
+  ],
+  "expect": "division"
+ },
+ {
+  "id": "C3O4-1",
+  "cat": "Tool: Rechenart wählen",
+  "turns": [
+   "Which operation must be performed to answer the following question: addition, subtraction, multiplication, or division? Answer with one word only.\n\nTom has seven marbles and Jack has nine. How many have they together?"
+  ],
+  "expect": "addition"
+ },
+ {
+  "id": "C3O4-2",
+  "cat": "Tool: Rechenart wählen",
+  "turns": [
+   "Which operation must be performed to answer the following question: addition, subtraction, multiplication, or division? Answer with one word only.\n\nTom has seven marbles and Jack has nine. How many have they together?"
+  ],
+  "expect": "addition"
+ },
+ {
+  "id": "C3O5-1",
+  "cat": "Tool: Rechenart wählen",
+  "turns": [
+   "Which operation must be performed to answer the following question: addition, subtraction, multiplication, or division? Answer with one word only.\n\nA train travels at forty miles an hour for two hours and a half. How far does it go?"
+  ],
+  "expect": "multiplication"
+ },
+ {
+  "id": "C3O5-2",
+  "cat": "Tool: Rechenart wählen",
+  "turns": [
+   "Which operation must be performed to answer the following question: addition, subtraction, multiplication, or division? Answer with one word only.\n\nA train travels at forty miles an hour for two hours and a half. How far does it go?"
+  ],
+  "expect": "multiplication"
+ },
+ {
+  "id": "C4K1-1",
+  "cat": "Tool: Ergebnis auswählen",
+  "turns": [
+   "The calculating machine has worked these sums: 12 + 13 = 25;  12 - 13 = -1;  12 × 13 = 156;  12 ÷ 13 = 0.92.\n\nUsing the machine's figures, answer this question: What is 12 times 13?"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "C4K1-2",
+  "cat": "Tool: Ergebnis auswählen",
+  "turns": [
+   "The calculating machine has worked these sums: 12 + 13 = 25;  12 - 13 = -1;  12 × 13 = 156;  12 ÷ 13 = 0.92.\n\nUsing the machine's figures, answer this question: What is 12 times 13?"
+  ],
+  "expect": "156"
+ },
+ {
+  "id": "C4K2-1",
+  "cat": "Tool: Ergebnis auswählen",
+  "turns": [
+   "The calculating machine has worked these sums: 120 + 45 = 165;  120 - 45 = 75;  120 × 45 = 5400;  120 ÷ 45 = 2.67.\n\nUsing the machine's figures, answer this question: A farmer has 120 sheep and sells 45 of them. How many has he left?"
+  ],
+  "expect": "75"
+ },
+ {
+  "id": "C4K2-2",
+  "cat": "Tool: Ergebnis auswählen",
+  "turns": [
+   "The calculating machine has worked these sums: 120 + 45 = 165;  120 - 45 = 75;  120 × 45 = 5400;  120 ÷ 45 = 2.67.\n\nUsing the machine's figures, answer this question: A farmer has 120 sheep and sells 45 of them. How many has he left?"
+  ],
+  "expect": "75"
+ },
+ {
+  "id": "C4K3-1",
+  "cat": "Tool: Ergebnis auswählen",
+  "turns": [
+   "The calculating machine has worked these sums: 36 + 4 = 40;  36 - 4 = 32;  36 × 4 = 144;  36 ÷ 4 = 9.\n\nUsing the machine's figures, answer this question: Thirty-six apples are shared equally among four boys. How many does each boy receive?"
+  ],
+  "expect": "9"
+ },
+ {
+  "id": "C4K3-2",
+  "cat": "Tool: Ergebnis auswählen",
+  "turns": [
+   "The calculating machine has worked these sums: 36 + 4 = 40;  36 - 4 = 32;  36 × 4 = 144;  36 ÷ 4 = 9.\n\nUsing the machine's figures, answer this question: Thirty-six apples are shared equally among four boys. How many does each boy receive?"
+  ],
+  "expect": "9"
+ },
+ {
+  "id": "C4K4-1",
+  "cat": "Tool: Ergebnis auswählen",
+  "turns": [
+   "The calculating machine has worked these sums: 40 + 2.5 = 42.5;  40 - 2.5 = 37.5;  40 × 2.5 = 100;  40 ÷ 2.5 = 16.\n\nUsing the machine's figures, answer this question: A train travels at forty miles an hour for two hours and a half. How far does it go?"
+  ],
+  "expect": "100"
+ },
+ {
+  "id": "C4K4-2",
+  "cat": "Tool: Ergebnis auswählen",
+  "turns": [
+   "The calculating machine has worked these sums: 40 + 2.5 = 42.5;  40 - 2.5 = 37.5;  40 × 2.5 = 100;  40 ÷ 2.5 = 16.\n\nUsing the machine's figures, answer this question: A train travels at forty miles an hour for two hours and a half. How far does it go?"
+  ],
+  "expect": "100"
+ },
+ {
+  "id": "C4K5-1",
+  "cat": "Tool: Ergebnis auswählen",
+  "turns": [
+   "The calculating machine has worked these sums: 347 + 28 = 375;  347 - 28 = 319;  347 × 28 = 9716;  347 ÷ 28 = 12.39.\n\nUsing the machine's figures, answer this question: What is 347 multiplied by 28?"
+  ],
+  "expect": "9716"
+ },
+ {
+  "id": "C4K5-2",
+  "cat": "Tool: Ergebnis auswählen",
+  "turns": [
+   "The calculating machine has worked these sums: 347 + 28 = 375;  347 - 28 = 319;  347 × 28 = 9716;  347 ÷ 28 = 12.39.\n\nUsing the machine's figures, answer this question: What is 347 multiplied by 28?"
+  ],
+  "expect": "9716"
+ },
+ {
+  "id": "C5R1-1",
+  "cat": "Tool: Text vorgeben (RAG)",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: In 1927 the Federal Parliament of Australia removed from Melbourne, where it had sat since federation, to the new capital city of Canberra, in the Federal Capital Territory.\n\nQUESTION: What is the capital of Australia?"
+  ],
+  "expect": "Canberra"
+ },
+ {
+  "id": "C5R1-2",
+  "cat": "Tool: Text vorgeben (RAG)",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: In 1927 the Federal Parliament of Australia removed from Melbourne, where it had sat since federation, to the new capital city of Canberra, in the Federal Capital Territory.\n\nQUESTION: What is the capital of Australia?"
+  ],
+  "expect": "Canberra"
+ },
+ {
+  "id": "C5R2-1",
+  "cat": "Tool: Text vorgeben (RAG)",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: On 13 March 1930 the Lowell Observatory in Arizona announced the discovery of a new planet beyond the orbit of Neptune. The planet has been named Pluto.\n\nQUESTION: Are there any planets beyond Neptune?"
+  ],
+  "expect": "Pluto"
+ },
+ {
+  "id": "C5R2-2",
+  "cat": "Tool: Text vorgeben (RAG)",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: On 13 March 1930 the Lowell Observatory in Arizona announced the discovery of a new planet beyond the orbit of Neptune. The planet has been named Pluto.\n\nQUESTION: Are there any planets beyond Neptune?"
+  ],
+  "expect": "Pluto"
+ },
+ {
+  "id": "C5R3-1",
+  "cat": "Tool: Text vorgeben (RAG)",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: The village of Ashcombe has 312 inhabitants. Its church was built in 1482 by Sir Walter Pym, and its mill by his son Henry in 1510.\n\nQUESTION: Who built the mill at Ashcombe, and in what year?"
+  ],
+  "expect": "Henry Pym, 1510"
+ },
+ {
+  "id": "C5R3-2",
+  "cat": "Tool: Text vorgeben (RAG)",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: The village of Ashcombe has 312 inhabitants. Its church was built in 1482 by Sir Walter Pym, and its mill by his son Henry in 1510.\n\nQUESTION: Who built the mill at Ashcombe, and in what year?"
+  ],
+  "expect": "Henry Pym, 1510"
+ },
+ {
+  "id": "C5R4-1",
+  "cat": "Tool: Text vorgeben (RAG)",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: In 1930 Bothe and Becker reported a penetrating radiation from beryllium. In 1920 Rutherford had suggested that a neutral particle of mass one, which he proposed to call the neutron, might exist and would pass easily through matter.\n\nQUESTION: According to this passage, what particle did Rutherford suggest in 1920, and what charge would it carry?"
+  ],
+  "expect": "neutral particle, no charge"
+ },
+ {
+  "id": "C5R4-2",
+  "cat": "Tool: Text vorgeben (RAG)",
+  "turns": [
+   "Read the following passage, and answer the question from it.\n\nPASSAGE: In 1930 Bothe and Becker reported a penetrating radiation from beryllium. In 1920 Rutherford had suggested that a neutral particle of mass one, which he proposed to call the neutron, might exist and would pass easily through matter.\n\nQUESTION: According to this passage, what particle did Rutherford suggest in 1920, and what charge would it carry?"
+  ],
+  "expect": "neutral particle, no charge"
+ }
+]

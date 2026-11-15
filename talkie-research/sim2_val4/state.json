@@ -1,0 +1,256 @@
+{
+ "W": {
+  "day": "fri",
+  "t": 690,
+  "coin": {
+   "where": "arthur",
+   "holder": null,
+   "finder": "arthur"
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": true,
+   "need": 3
+  },
+  "paid": {
+   "ada": false,
+   "arthur": false
+  }
+ },
+ "STATS": {
+  "asks": 59,
+  "choices": 21,
+  "unreadable": 6,
+  "votes": 1,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 2,
+  "lines": 9,
+  "emptyLines": 1,
+  "diaryFallback": 0,
+  "probes": [],
+  "lessons": 1
+ },
+ "agents": {
+  "ada": {
+   "place": "finsbury",
+   "money": 51,
+   "op": {
+    "arthur": 0,
+    "thomas": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was a good husband to her, and a kind father to the boys, and, although he died poor, he left her with an unblemished character, and a name that will always be respected.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 465,
+     "text": "Ada went to Finsbury Circus, leaving the office half-cleaned.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 465,
+     "text": "Ada resolves never to be late again.",
+     "about": [],
+     "imp": 3
+    }
+   ]
+  },
+  "arthur": {
+   "place": "teashop",
+   "money": 83,
+   "op": {
+    "ada": 0,
+    "thomas": 1,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was steady and diligent, and proved himself a trustworthy and valuable servant to his employers.  During the ten years he was in their service he never had a holiday, and, except when prevented by illness, was never absent from his post a single morning.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 465,
+     "text": "Arthur went to the news-stand at Moorgate station.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 480,
+     "text": "He read in the paper: A NEW PLANET: the Lowell Observatory in Arizona announces the discovery of a ninth planet beyond Neptune. INDIA: Mr. Gandhi is marching to the sea to make salt in defiance of the Salt Laws. UNEMPLOYMENT stands at about one million and a half.",
+     "about": [
+      "news"
+     ],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 495,
+     "text": "Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 510,
+     "text": "He found his lost half-crown himself, in a crack under his desk.",
+     "about": [
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 525,
+     "text": "Arthur went to a Lyons tea-shop in Moorgate.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 540,
+     "text": "Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 540,
+     "text": "Arthur spoke with Mr. Walter Thomas about the weather and the day: \"It is a fine, frosty morning.\" \"Yes, sir; a fine, frosty morning.  W.\"",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 570,
+     "text": "Arthur spoke with Mr. Walter Thomas about the news of the new planet: \"I spoke to Mr. Thomas about the new planet, and he told me that it had been discovered by an American astronomer, named Percival Lowell, at Flagstaff, Arizona.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 570,
+     "text": "Mr. Thomas set him to balance the quarterly ledger by half past twelve.",
+     "about": [
+      "thomas",
+      "ledger"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 570,
+     "text": "(Seen) Mr. Thomas set Arthur to the quarterly ledger, wanted by half past twelve.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 630,
+     "text": "Arthur went to a Lyons tea-shop in Moorgate.",
+     "about": [],
+     "imp": 1
+    }
+   ]
+  },
+  "thomas": {
+   "place": "office",
+   "money": 480,
+   "op": {
+    "ada": 0,
+    "arthur": 2,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was a faithful and punctual servant, and never spent a farthing of his own money until he had first set aside something for the benefit of his children.  He never gambled, and was particularly averse to speculation.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 465,
+     "text": "He found the office only half-cleaned this morning.",
+     "about": [
+      "ada"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 540,
+     "text": "(Seen) Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 540,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the weather and the day: \"It is a fine, frosty morning.\" \"Yes, sir; a fine, frosty morning.  W.\"",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 570,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the news of the new planet: \"I spoke to Mr. Thomas about the new planet, and he told me that it had been discovered by an American astronomer, named Percival Lowell, at Flagstaff, Arizona.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 570,
+     "text": "He set Mr. Hale to balance the quarterly ledger by half past twelve.",
+     "about": [
+      "arthur",
+      "ledger"
+     ],
+     "imp": 3
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "METRICS": {
+  "probes": [],
+  "diaries": [
+   {
+    "day": 0,
+    "who": "ada",
+    "facts": 3,
+    "kept": 0
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "facts": 2,
+    "kept": 0
+   },
+   {
+    "day": 0,
+    "who": "thomas",
+    "facts": 1,
+    "kept": 0
+   }
+  ],
+  "days": [
+   {
+    "day": 0,
+    "asks": 75,
+    "money": {
+     "ada": 194,
+     "arthur": 891,
+     "thomas": 466
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 0,
+      "edith": 1,
+      "joan": 0,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 1,
+    "asks": 66,
+    "money": {
+     "ada": 194,
+     "arthur": 891,
+     "thomas": 466
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 0,
+      "edith": 1,
+      "joan": 0,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   }
+  ]
+ },
+ "STATS": {
+  "asks": 141,
+  "choices": 28,
+  "unreadable": 16,
+  "votes": 8,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 2,
+  "lines": 15,
+  "emptyLines": 9,
+  "diaryFallback": 0,
+  "probes": [],
+  "reasks": 28
+ },
+ "W": {
+  "day": 2,
+  "t": 1140,
+  "coin": {
+   "where": "ada",
+   "finder": "ada"
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": false,
+   "need": 3,
+   "verdict": null
+  },
+  "audit": {
+   "steps": 0,
+   "errors": 0,
+   "verdict": null,
+   "raise": null
+  },
+  "paid": {
+   "arthur0": true
+  },
+  "bertWork": true,
+  "rentDue": true,
+  "rentPaid": {},
+  "joanIll": false,
+  "doctor": null,
+  "extraHours": null,
+  "loan": null,
+  "facts": []
+ }
+}

@@ -1,0 +1,60 @@
+{
+ "log": [
+  {
+   "scene": "seven o'clock in the morning",
+   "prompt": "The date is Friday, the 14th of March, 1930. The time is seven o'clock in the morning.\n\nCHARACTER: Arthur Hale, aged thirty-four, is a ledger clerk in the office of the Moorgate Fire and Life Assurance Company, in the City of London. He lives in a rented house in Islington with his wife Edith and their daughter Joan, aged seven. He is paid three pounds ten shillings a week, every Friday. He is careful with money, fond of his garden, and reads the newspaper on the Underground.\n\nIN THE NEWSPAPER: THE TIMES, Friday, 14 March 1930. — A NEW PLANET. The Lowell Observatory at Flagstaff, Arizona, announces the discovery of a ninth planet, beyond the orbit of Neptune, found upon photographs taken by Mr. Clyde Tombaugh. THE TIMES, Friday, 14 March 1930. — INDIA. Mr. Gandhi, with a band of followers, is marching from Ahmedabad to the sea at Dandi, there to make salt in defiance of the Salt Laws.\n\nPrices in London in 1930: a daily newspaper 1d.; a fare on the Underground from the Angel to Moorgate about 2d.; a lunch of soup, meat and two vegetables at a Lyons tea-shop about 1s.; a cup of tea 2d.; ten cigarettes 6d.; a pint of beer 7d.; a seat at the picture-palace 6d. to 1s.\n\nMONEY IN ARTHUR'S POCKET: £0 4s. 6d.\n\nSCENE: Arthur has his breakfast at home and glances at the morning paper.\n\nWrite Arthur's diary entry for this part of the day, in the first person, in about one hundred and fifty words. Mention any money he spends or gives away, with the amount.",
+   "entry": "I had breakfast at home this morning, and read the news. Spent twopence on a newspaper, and gave Joan a penny to buy sweetstuff.",
+   "spentAns": "He spent or gave away nothing.",
+   "spentPence": 0,
+   "balance": 54
+  },
+  {
+   "scene": "half past eight in the morning",
+   "prompt": "The date is Friday, the 14th of March, 1930. The time is half past eight in the morning.\n\nCHARACTER: Arthur Hale, aged thirty-four, is a ledger clerk in the office of the Moorgate Fire and Life Assurance Company, in the City of London. He lives in a rented house in Islington with his wife Edith and their daughter Joan, aged seven. He is paid three pounds ten shillings a week, every Friday. He is careful with money, fond of his garden, and reads the newspaper on the Underground.\n\nEARLIER TODAY: At seven o'clock in the morning: I had breakfast at home this morning, and read the news.\n\nPrices in London in 1930: a daily newspaper 1d.; a fare on the Underground from the Angel to Moorgate about 2d.; a lunch of soup, meat and two vegetables at a Lyons tea-shop about 1s.; a cup of tea 2d.; ten cigarettes 6d.; a pint of beer 7d.; a seat at the picture-palace 6d. to 1s.\n\nMONEY IN ARTHUR'S POCKET: £0 4s. 6d.\n\nSCENE: Arthur travels to the office by the Underground.\n\nWrite Arthur's diary entry for this part of the day, in the first person, in about one hundred and fifty words. Mention any money he spends or gives away, with the amount.",
+   "entry": "I travelled to the office by the Underground railway, and reached Moorgate station at 8.14. Spent 3d. on a newspaper, and 1d. on a match to light my pipe. Gave a penny to a beggar at the corner of London Wall. Reached the office at 8.20, and went to work in the Life Department. At nine o'clock Mr. Thomas, the chief clerk, gave me some papers to copy, and set me to sort a pile of correspondence. At ten I was sent to the cash office to receive ten pounds, and pay five into the bank. At quarter past ten I was sent up to the managers with the week's cash account. At noon I went to the clerks' dining-room, and had lunch. At one o'clock I returned to work, and remained until five, when I left for home. The day's work was varied, but not exciting, and at the close I had earned thirty shillings.",
+   "spentAns": "He spent or gave away nothing.",
+   "spentPence": 0,
+   "balance": 54
+  },
+  {
+   "scene": "half past twelve",
+   "prompt": "The date is Friday, the 14th of March, 1930. The time is half past twelve.\n\nCHARACTER: Arthur Hale, aged thirty-four, is a ledger clerk in the office of the Moorgate Fire and Life Assurance Company, in the City of London. He lives in a rented house in Islington with his wife Edith and their daughter Joan, aged seven. He is paid three pounds ten shillings a week, every Friday. He is careful with money, fond of his garden, and reads the newspaper on the Underground.\n\nEARLIER TODAY: At seven o'clock in the morning: I had breakfast at home this morning, and read the news. At half past eight in the morning: I travelled to the office by the Underground railway, and reached Moorgate station at 8.\n\nIN THE NEWSPAPER: THE TIMES, Friday, 14 March 1930. — UNEMPLOYMENT. The number of persons registered as unemployed in Great Britain stands at about one million and a half.\n\nPrices in London in 1930: a daily newspaper 1d.; a fare on the Underground from the Angel to Moorgate about 2d.; a lunch of soup, meat and two vegetables at a Lyons tea-shop about 1s.; a cup of tea 2d.; ten cigarettes 6d.; a pint of beer 7d.; a seat at the picture-palace 6d. to 1s.\n\nMONEY IN ARTHUR'S POCKET: £0 4s. 6d.\n\nSCENE: Arthur takes his luncheon in the City.\n\nWrite Arthur's diary entry for this part of the day, in the first person, in about one hundred and fifty words. Mention any money he spends or gives away, with the amount.",
+   "entry": "I had luncheon in the City to-day at a Lyons tea-shop in Cheapside. I spent one shilling and sixpence. At half past twelve I went to the office, and reached Moorgate station punctually at one o'clock. The total of my cash in hand then was four shillings and sixpence.",
+   "spentAns": "The writer spent or gave away nothing in all.",
+   "spentPence": 0,
+   "balance": 54
+  },
+  {
+   "scene": "five o'clock in the afternoon",
+   "prompt": "The date is Friday, the 14th of March, 1930. The time is five o'clock in the afternoon.\n\nCHARACTER: Arthur Hale, aged thirty-four, is a ledger clerk in the office of the Moorgate Fire and Life Assurance Company, in the City of London. He lives in a rented house in Islington with his wife Edith and their daughter Joan, aged seven. He is paid three pounds ten shillings a week, every Friday. He is careful with money, fond of his garden, and reads the newspaper on the Underground.\n\nEARLIER TODAY: At seven o'clock in the morning: I had breakfast at home this morning, and read the news. At half past eight in the morning: I travelled to the office by the Underground railway, and reached Moorgate station at 8. At half past twelve: I had luncheon in the City to-day at a Lyons tea-shop in Cheapside.\n\nPrices in London in 1930: a daily newspaper 1d.; a fare on the Underground from the Angel to Moorgate about 2d.; a lunch of soup, meat and two vegetables at a Lyons tea-shop about 1s.; a cup of tea 2d.; ten cigarettes 6d.; a pint of beer 7d.; a seat at the picture-palace 6d. to 1s.\n\nMONEY IN ARTHUR'S POCKET: £3 14s. 6d.\n\nSCENE: It is pay-day. The cashier hands Arthur his weekly wage-packet of three pounds ten shillings, and he leaves the office for home.\n\nWrite Arthur's diary entry for this part of the day, in the first person, in about one hundred and fifty words. Mention any money he spends or gives away, with the amount.",
+   "entry": "I left the office at 1.15, and walked to Moorgate station, where I took a train to Islington. Spent 3d. on a newspaper, and 6d. on a picture-palace. Gave a penny to a beggar in the City, and another penny to a newsboy at the station. Reached home at 1.45. Put 3s. 6d. into the till, and the remainder into my pocket.",
+   "spentAns": "He spent or gave nothing in all.",
+   "spentPence": 0,
+   "balance": 894
+  },
+  {
+   "scene": "seven o'clock in the evening",
+   "prompt": "The date is Friday, the 14th of March, 1930. The time is seven o'clock in the evening.\n\nCHARACTER: Arthur Hale, aged thirty-four, is a ledger clerk in the office of the Moorgate Fire and Life Assurance Company, in the City of London. He lives in a rented house in Islington with his wife Edith and their daughter Joan, aged seven. He is paid three pounds ten shillings a week, every Friday. He is careful with money, fond of his garden, and reads the newspaper on the Underground.\n\nEARLIER TODAY: At seven o'clock in the morning: I had breakfast at home this morning, and read the news. At half past eight in the morning: I travelled to the office by the Underground railway, and reached Moorgate station at 8. At half past twelve: I had luncheon in the City to-day at a Lyons tea-shop in Cheapside. At five o'clock in the afternoon: I left the office at 1.\n\nIN THE NEWSPAPER: THE TIMES, Friday, 14 March 1930. — A NEW PLANET. The Lowell Observatory at Flagstaff, Arizona, announces the discovery of a ninth planet, beyond the orbit of Neptune, found upon photographs taken by Mr. Clyde Tombaugh.\n\nPrices in London in 1930: a daily newspaper 1d.; a fare on the Underground from the Angel to Moorgate about 2d.; a lunch of soup, meat and two vegetables at a Lyons tea-shop about 1s.; a cup of tea 2d.; ten cigarettes 6d.; a pint of beer 7d.; a seat at the picture-palace 6d. to 1s.\n\nMONEY IN ARTHUR'S POCKET: £3 14s. 6d.\n\nSCENE: Arthur is at home with Edith and Joan. He gives Edith the housekeeping money for the coming week, and they talk over the day's news.\n\nWrite Arthur's diary entry for this part of the day, in the first person, in about one hundred and fifty words. Mention any money he spends or gives away, with the amount.",
+   "entry": "I gave Edith the week's housekeeping money to-day, and spent 2s. 6d. on cigarettes. At five o'clock I left the office, and walked home. I had supper, and read the evening paper.",
+   "spentAns": "The writer spent or gave away nothing in all.",
+   "spentPence": 0,
+   "balance": 894
+  },
+  {
+   "scene": "half past ten at night",
+   "prompt": "The date is Friday, the 14th of March, 1930. The time is half past ten at night.\n\nCHARACTER: Arthur Hale, aged thirty-four, is a ledger clerk in the office of the Moorgate Fire and Life Assurance Company, in the City of London. He lives in a rented house in Islington with his wife Edith and their daughter Joan, aged seven. He is paid three pounds ten shillings a week, every Friday. He is careful with money, fond of his garden, and reads the newspaper on the Underground.\n\nEARLIER TODAY: At seven o'clock in the morning: I had breakfast at home this morning, and read the news. At half past eight in the morning: I travelled to the office by the Underground railway, and reached Moorgate station at 8. At half past twelve: I had luncheon in the City to-day at a Lyons tea-shop in Cheapside. At five o'clock in the afternoon: I left the office at 1. At seven o'clock in the evening: I gave Edith the week's housekeeping money to-day, and spent 2s.\n\nPrices in London in 1930: a daily newspaper 1d.; a fare on the Underground from the Angel to Moorgate about 2d.; a lunch of soup, meat and two vegetables at a Lyons tea-shop about 1s.; a cup of tea 2d.; ten cigarettes 6d.; a pint of beer 7d.; a seat at the picture-palace 6d. to 1s.\n\nMONEY IN ARTHUR'S POCKET: £3 14s. 6d.\n\nSCENE: Before going to bed, Arthur sits down to write his diary and reflect upon the week.\n\nWrite Arthur's diary entry for this part of the day, in the first person, in about one hundred and fifty words. Mention any money he spends or gives away, with the amount.",
+   "entry": "I was at the office to-day from nine in the morning until seven at night. At noon I had luncheon, and in the afternoon I gave Edith 20s. for the household expenses of the week. This evening I spent 2s. on cigarettes, and had 3d. change out of a half-crown.",
+   "spentAns": "He spent or gave away nothing in all.",
+   "spentPence": 0,
+   "balance": 894
+  }
+ ],
+ "ledger": [
+  {
+   "time": "five o'clock in the afternoon",
+   "item": "Wage-packet received",
+   "amount": 840,
+   "balance": 894
+  }
+ ]
+}

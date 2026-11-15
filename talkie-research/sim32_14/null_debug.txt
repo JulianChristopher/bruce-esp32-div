@@ -1,0 +1,74 @@
+
+==== null reply #1 n=0 finished=true
+MSG: ptied the baskets and dusted the desks.
+
+Mr. Arthur Hale has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+RAW: event: moderation
+data: {"is_unsafe": false}
+
+event: done
+data: {"finish_reason": "stop", "is_unsafe": false}
+
+
+
+==== null reply #2 n=0 finished=true
+MSG: ptied the baskets and dusted the desks.
+
+Mr. Arthur Hale has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+RAW: event: moderation
+data: {"is_unsafe": false}
+
+event: done
+data: {"finish_reason": "stop", "is_unsafe": false}
+
+
+
+==== null reply #3 n=0 finished=true
+MSG: ied the baskets and dusted the desks.
+
+Mr. Walter Thomas has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+RAW: event: moderation
+data: {"is_unsafe": false}
+
+event: done
+data: {"finish_reason": "stop", "is_unsafe": false}
+
+
+
+==== null reply #4 n=0 finished=true
+MSG: ied the baskets and dusted the desks.
+
+Mr. Walter Thomas has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+RAW: event: moderation
+data: {"is_unsafe": false}
+
+event: done
+data: {"finish_reason": "stop", "is_unsafe": false}
+
+
+
+==== null reply #5 n=0 finished=true
+MSG: Hale to balance the quarterly ledger.
+
+Mr. Arthur Hale greets him: "good morning!"
+What does Mr. Walter Thomas answer? Write only the very words spoken, as in a play, in one short sentence of his own.
+RAW: 
+
+==== null reply #6 n=0 finished=true
+MSG: Hale to balance the quarterly ledger.
+
+Mr. Arthur Hale greets him: "good morning!"
+What does Mr. Walter Thomas answer? Write only the very words spoken, as in a play, in one short sentence of his own.
+RAW: 
+
+==== null reply #7 n=0 finished=true
+MSG: poke with Joan Hale about what she did today. Mr. Thomas set him to balance the quarterly ledger.
+
+What matters most to Mr. Arthur Hale at this moment, and why? One sentence about him, beginning "He".
+RAW: 
+
+==== null reply #8 n=0 finished=true
+MSG: poke with Joan Hale about what she did today. Mr. Thomas set him to balance the quarterly ledger.
+
+What matters most to Mr. Arthur Hale at this moment, and why? One sentence about him, beginning "He".
+RAW: 

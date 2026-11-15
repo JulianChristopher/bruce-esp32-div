@@ -1,0 +1,212 @@
+{
+ "W": {
+  "day": "fri",
+  "t": 510,
+  "coin": {
+   "where": "arthur",
+   "holder": null,
+   "finder": "ada"
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": false,
+   "need": 3
+  },
+  "paid": {
+   "ada": false,
+   "arthur": false
+  }
+ },
+ "STATS": {
+  "asks": 49,
+  "choices": 12,
+  "unreadable": 1,
+  "votes": 3,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 2,
+  "lines": 10,
+  "emptyLines": 0,
+  "diaryFallback": 0,
+  "probes": []
+ },
+ "agents": {
+  "ada": {
+   "place": "office",
+   "money": 51,
+   "op": {
+    "arthur": 1,
+    "thomas": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was fond of her, and used to give her little presents; and she was fond of him, and used to cry when he went away.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 450,
+     "text": "She found a half-crown under Mr. Hale's desk while scrubbing.",
+     "about": [
+      "arthur",
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 465,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 480,
+     "text": "She laid the half-crown she found on Mr. Hale's desk.",
+     "about": [
+      "arthur",
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 480,
+     "text": "(Seen) Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 495,
+     "text": "Ada spoke with Mr. Arthur Hale about the half-crown she found under his desk: \"I spoke to you about a half-crown I found under your desk, sir.\" \"I thank you, Mrs. Turner, for mentioning the matter to me.\" \"I thank you, sir, for telling me",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 495,
+     "text": "(Seen) Arthur found his half-crown on his desk and pocketed it.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the weather and the day: \"Fine weather, sir, for the time of year.\" \"It is fine weather for the time of year.\" \"I wish you good-morning, sir.\" \"Good-morning, Mrs. Turner.\"",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    }
+   ]
+  },
+  "arthur": {
+   "place": "office",
+   "money": 84,
+   "op": {
+    "ada": 2,
+    "thomas": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was a steady, careful, and trustworthy clerk at the banking-house of Messrs. Goldie and Graeme, in Throgmorton Street, for a period of ten years.  During that time he never lost a day from illness, and his conduct was in all respects satisfactory to his employers.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 465,
+     "text": "He worked in his garden.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 480,
+     "text": "Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.",
+     "about": [
+      "ada"
+     ],
+     "imp": 1
+    },
+    {
+     "day": "fri",
+     "t": 495,
+     "text": "Mrs. Turner told him she had found his half-crown under his desk and laid it on his desk.",
+     "about": [
+      "ada",
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 495,
+     "text": "Arthur spoke with Mrs. Ada Turner about the half-crown she found under his desk: \"I spoke to you about a half-crown I found under your desk, sir.\" \"I thank you, Mrs. Turner, for mentioning the matter to me.\" \"I thank you, sir, for telling me",
+     "about": [
+      "ada"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 495,
+     "text": "He found his lost half-crown laid on his desk; somebody must have found it and put it there.",
+     "about": [
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": "fri",
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the weather and the day: \"Fine weather, sir, for the time of year.\" \"It is fine weather for the time of year.\" \"I wish you good-morning, sir.\" \"Good-morning, Mrs. Turner.\"",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    }
+   ]
+  },
+  "thomas": {
+   "place": "thomas_home",
+   "money": 480,
+   "op": {
+    "ada": 0,
+    "arthur": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was a good and faithful servant, and always punctual in meeting his engagements.  He never failed to remit money at the proper time.",
+     "about": [],
+     "imp": 2
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,76 @@
+
+==== null reply #1 n=0 status=null
+MSG: s a week. Honest, chapel-going, proud, sharp-tongued, kind.
+
+Recall one memory from Mrs. Ada Turner's past which still shapes how she behaves at work and with money. One sentence, in the third person.
+RAW: 
+
+==== null reply #2 n=0 status=null
+MSG: e about how the day has gone.
+(B) Read the morning paper over breakfast.
+(C) Talk with Joan Hale about what she did today.
+
+Which ONE does Arthur do next? Answer with the letter only, for example: (B)
+RAW: 
+
+==== null reply #3 n=0 status=null
+MSG: e about how the day has gone.
+(B) Read the morning paper over breakfast.
+(C) Talk with Joan Hale about what she did today.
+
+Which ONE does Arthur do next? Answer with the letter only, for example: (B)
+RAW: 
+
+==== null reply #4 n=0 status=null
+MSG: t.
+(C) Talk with Joan Hale about what she did today.
+
+ARTHUR'S THOUGHT: He is anxious to recover his half-crown, which he lost on Thursday.
+
+Which ONE does Arthur do? Answer with a single letter only.
+RAW: 
+
+==== null reply #5 n=0 status=null
+MSG: t.
+(C) Talk with Joan Hale about what she did today.
+
+ARTHUR'S THOUGHT: He is anxious to recover his half-crown, which he lost on Thursday.
+
+Which ONE does Arthur do? Answer with a single letter only.
+RAW: 
+
+==== null reply #6 n=0 status=200
+MSG:  under Mr. Hale's desk while scrubbing.
+
+Mr. Arthur Hale has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+RAW: event: moderation
+data: {"is_unsafe": false}
+
+event: done
+data: {"finish_reason": "stop", "is_unsafe": false}
+
+
+
+==== null reply #7 n=0 status=200
+MSG:  under Mr. Hale's desk while scrubbing.
+
+Mr. Arthur Hale has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+RAW: event: moderation
+data: {"is_unsafe": false}
+
+event: done
+data: {"finish_reason": "stop", "is_unsafe": false}
+
+
+
+==== null reply #8 n=0 status=200
+MSG: nder Mr. Hale's desk while scrubbing.
+
+Mr. Walter Thomas has just come in. What does Mrs. Ada Turner say to greet him? Write only the very words spoken, as in a play, in one short sentence of her own.
+RAW: event: moderation
+data: {"is_unsafe": false}
+
+event: done
+data: {"finish_reason": "stop", "is_unsafe": false}
+
+

@@ -1,0 +1,331 @@
+{
+ "trace": [
+  {
+   "tick": "a quarter to eight",
+   "agent": "ada",
+   "options": [
+    "Scrub the floor under the clerks' desks.",
+    "Empty the waste-paper baskets.",
+    "Put away her pail and brushes, and leave for her next place in Finsbury Circus.",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "She scrubs the floor under the clerks' desks.",
+   "choice": "Scrub the floor under the clerks' desks.",
+   "fallback": false,
+   "result": "Ada scrubbed the floor under the clerks' desks. Under Mr. Hale's desk she found a half-crown (2s. 6d.) lying in a crack of the boards."
+  },
+  {
+   "tick": "eight o'clock",
+   "agent": "ada",
+   "options": [
+    "Scrub the floor under the clerks' desks.",
+    "Empty the waste-paper baskets.",
+    "Put away her pail and brushes, and leave for her next place in Finsbury Circus.",
+    "Keep the half-crown in her purse.",
+    "Put the half-crown on Mr. Hale's desk.",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "She empties the waste-paper baskets.",
+   "choice": "Empty the waste-paper baskets.",
+   "fallback": false,
+   "result": "Ada emptied the waste-paper baskets."
+  },
+  {
+   "tick": "eight o'clock",
+   "agent": "arthur",
+   "options": [
+    "Buy a morning newspaper for 1d.",
+    "Fill and light his pipe (a match costs nothing, he has a box).",
+    "Go to the office to begin the day's work.",
+    "Go to the tea-shop for a cup of tea and a bun.",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He goes to the office.",
+   "choice": "Go to the office to begin the day's work.",
+   "fallback": false,
+   "result": "Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor."
+  },
+  {
+   "tick": "a quarter past eight",
+   "agent": "ada",
+   "options": [
+    "Scrub the floor under the clerks' desks.",
+    "Put away her pail and brushes, and leave for her next place in Finsbury Circus.",
+    "Keep the half-crown in her purse.",
+    "Put the half-crown on Mr. Hale's desk.",
+    "Give the half-crown to Mr. Arthur Hale.",
+    "Speak to Mr. Arthur Hale.",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "She scrubs the floor under Mr. Hale's desk.",
+   "choice": "Scrub the floor under the clerks' desks.",
+   "fallback": false,
+   "result": "Ada scrubbed the floor under the clerks' desks."
+  },
+  {
+   "tick": "a quarter past eight",
+   "agent": "arthur",
+   "options": [
+    "Sit down at his desk and work at the ledger.",
+    "Look about the floor for the half-crown he lost yesterday.",
+    "Fill and light his pipe (a match costs nothing, he has a box).",
+    "Speak to Mrs. Ada Turner.",
+    "Go to the tea-shop for a cup of tea and a bun.",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He does",
+   "choice": "Wait and do nothing for the present.",
+   "fallback": true,
+   "result": "Arthur waited."
+  },
+  {
+   "tick": "half past eight",
+   "agent": "ada",
+   "options": [
+    "Put away her pail and brushes, and leave for her next place in Finsbury Circus.",
+    "Keep the half-crown in her purse.",
+    "Put the half-crown on Mr. Hale's desk.",
+    "Give the half-crown to Mr. Arthur Hale.",
+    "Speak to Mr. Arthur Hale.",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "She puts the half-crown on Mr. Hale's desk.",
+   "choice": "Put the half-crown on Mr. Hale's desk.",
+   "fallback": false,
+   "result": "Ada laid the half-crown on Mr. Hale's desk."
+  },
+  {
+   "tick": "half past eight",
+   "agent": "arthur",
+   "options": [
+    "Sit down at his desk and work at the ledger.",
+    "Look about the floor for the half-crown he lost yesterday.",
+    "Fill and light his pipe (a match costs nothing, he has a box).",
+    "Pick up the half-crown lying on his desk.",
+    "Speak to Mrs. Ada Turner.",
+    "Go to the tea-shop for a cup of tea and a bun (and so be late for work, with the ledger undone).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He sits down at his desk, and works at the ledger.",
+   "choice": "Sit down at his desk and work at the ledger.",
+   "fallback": false,
+   "result": "Arthur worked at the ledger."
+  },
+  {
+   "tick": "a quarter to nine",
+   "agent": "ada",
+   "options": [
+    "Leave at once for Finsbury Circus, so as not to be late and lose the place.",
+    "Speak to Mr. Arthur Hale.",
+    "Wait and do nothing for the present (and be late at Finsbury Circus, and perhaps lose the place)."
+   ],
+   "answer": "She leaves at once for Finsbury Circus, so as not to be late and lose the place.",
+   "choice": "Leave at once for Finsbury Circus, so as not to be late and lose the place.",
+   "fallback": false,
+   "result": "Ada hurried off to Finsbury Circus."
+  },
+  {
+   "tick": "a quarter to nine",
+   "agent": "arthur",
+   "options": [
+    "Sit down at his desk and work at the ledger.",
+    "Look about the floor for the half-crown he lost yesterday.",
+    "Fill and light his pipe (a match costs nothing, he has a box).",
+    "Pick up the half-crown lying on his desk.",
+    "Go to the tea-shop for a cup of tea and a bun (and so be late for work, with the ledger undone).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He sits down to work at the ledger.",
+   "choice": "Sit down at his desk and work at the ledger.",
+   "fallback": false,
+   "result": "Arthur worked at the ledger."
+  },
+  {
+   "tick": "a quarter to nine",
+   "agent": "thomas",
+   "options": [
+    "Tell Mr. Hale that the quarterly ledger must be balanced by eleven o'clock.",
+    "Inspect the cleaning of the office.",
+    "Go to his own desk and attend to the correspondence.",
+    "Speak to Mr. Arthur Hale.",
+    "Go to the news-stand to buy a newspaper (leaving the office unattended).",
+    "Go to the tea-shop for a cup of tea and a bun (leaving the office unattended).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He goes to the news-stand to buy a newspaper.",
+   "choice": "Go to the news-stand to buy a newspaper (leaving the office unattended).",
+   "fallback": false,
+   "result": "Mr. Thomas went to the news-stand at Moorgate Underground station."
+  },
+  {
+   "tick": "nine o'clock",
+   "agent": "arthur",
+   "options": [
+    "Sit down at his desk and work at the ledger.",
+    "Look about the floor for the half-crown he lost yesterday.",
+    "Fill and light his pipe (a match costs nothing, he has a box).",
+    "Pick up the half-crown lying on his desk.",
+    "Go to the tea-shop for a cup of tea and a bun (and so be late for work, with the ledger undone).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He sits down at his desk and works at the ledger.",
+   "choice": "Sit down at his desk and work at the ledger.",
+   "fallback": false,
+   "result": "Arthur worked at the ledger."
+  },
+  {
+   "tick": "nine o'clock",
+   "agent": "thomas",
+   "options": [
+    "Go to the tea-shop for a cup of tea and a bun (leaving the office unattended).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He waits.",
+   "choice": "Wait and do nothing for the present.",
+   "fallback": false,
+   "result": "Mr. Thomas waited."
+  },
+  {
+   "tick": "a quarter past nine",
+   "agent": "arthur",
+   "options": [
+    "Sit down at his desk and work at the ledger.",
+    "Look about the floor for the half-crown he lost yesterday.",
+    "Fill and light his pipe (a match costs nothing, he has a box).",
+    "Pick up the half-crown lying on his desk.",
+    "Go to the tea-shop for a cup of tea and a bun (and so be late for work, with the ledger undone).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He sits down at his desk, and works at the ledger.\n[Illustration:",
+   "choice": "Sit down at his desk and work at the ledger.",
+   "fallback": false,
+   "result": "Arthur worked at the ledger."
+  },
+  {
+   "tick": "a quarter past nine",
+   "agent": "thomas",
+   "options": [
+    "Go to the tea-shop for a cup of tea and a bun (leaving the office unattended).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "A.",
+   "choice": "Go to the tea-shop for a cup of tea and a bun (leaving the office unattended).",
+   "fallback": false,
+   "result": "Mr. Thomas went to a Lyons tea-shop in Moorgate."
+  },
+  {
+   "tick": "half past nine",
+   "agent": "arthur",
+   "options": [
+    "Sit down at his desk and work at the ledger.",
+    "Look about the floor for the half-crown he lost yesterday.",
+    "Fill and light his pipe (a match costs nothing, he has a box).",
+    "Pick up the half-crown lying on his desk.",
+    "Go to the tea-shop for a cup of tea and a bun (and so be late for work, with the ledger undone).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He sits down at his desk, and works at the ledger.",
+   "choice": "Sit down at his desk and work at the ledger.",
+   "fallback": false,
+   "result": "Arthur worked at the ledger."
+  },
+  {
+   "tick": "half past nine",
+   "agent": "thomas",
+   "options": [
+    "Buy a cup of tea and a bun for 3d.",
+    "Go to the office to attend to business.",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "Mr. Thomas goes to the office.",
+   "choice": "Go to the office to attend to business.",
+   "fallback": false,
+   "result": "Mr. Thomas went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor."
+  },
+  {
+   "tick": "a quarter to ten",
+   "agent": "arthur",
+   "options": [
+    "Sit down at his desk and work at the ledger.",
+    "Look about the floor for the half-crown he lost yesterday.",
+    "Fill and light his pipe (a match costs nothing, he has a box).",
+    "Pick up the half-crown lying on his desk.",
+    "Speak to Mr. Thomas.",
+    "Go to the tea-shop for a cup of tea and a bun (and so be late for work, with the ledger undone).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He sits down at his desk and works at the ledger.",
+   "choice": "Sit down at his desk and work at the ledger.",
+   "fallback": false,
+   "result": "Arthur worked at the ledger."
+  },
+  {
+   "tick": "a quarter to ten",
+   "agent": "thomas",
+   "options": [
+    "Tell Mr. Hale that the quarterly ledger must be balanced by eleven o'clock.",
+    "Inspect the cleaning of the office.",
+    "Go to his own desk and attend to the correspondence.",
+    "Speak to Mr. Arthur Hale.",
+    "Go to the news-stand to buy a newspaper (leaving the office unattended).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "He goes to the news-stand to buy a newspaper.",
+   "choice": "Go to the news-stand to buy a newspaper (leaving the office unattended).",
+   "fallback": false,
+   "result": "Mr. Thomas went to the news-stand at Moorgate Underground station."
+  },
+  {
+   "tick": "ten o'clock",
+   "agent": "arthur",
+   "options": [
+    "Sit down at his desk and work at the ledger.",
+    "Look about the floor for the half-crown he lost yesterday.",
+    "Fill and light his pipe (a match costs nothing, he has a box).",
+    "Pick up the half-crown lying on his desk.",
+    "Go to the tea-shop for a cup of tea and a bun (and so be late for work, with the ledger undone).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "Of course, he waits and does nothing for the present.",
+   "choice": "Wait and do nothing for the present.",
+   "fallback": false,
+   "result": "Arthur waited."
+  },
+  {
+   "tick": "ten o'clock",
+   "agent": "thomas",
+   "options": [
+    "Go to the tea-shop for a cup of tea and a bun (leaving the office unattended).",
+    "Wait and do nothing for the present."
+   ],
+   "answer": "Mr. Thomas walks to Cheapside and back.",
+   "choice": "Wait and do nothing for the present.",
+   "fallback": true,
+   "result": "Mr. Thomas waited."
+  }
+ ],
+ "opinions": {
+  "ada": {
+   "arthur": 0,
+   "thomas": 0
+  },
+  "arthur": {
+   "ada": 0,
+   "thomas": 0
+  },
+  "thomas": {
+   "ada": 0,
+   "arthur": 0
+  }
+ },
+ "coin": {
+  "where": "under Mr. Hale's desk",
+  "found": true,
+  "holder": "desk"
+ },
+ "money": {
+  "ada": 135,
+  "arthur": 54,
+  "thomas": 360
+ }
+}

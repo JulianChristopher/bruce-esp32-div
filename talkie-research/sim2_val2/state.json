@@ -1,0 +1,110 @@
+{
+ "W": {
+  "day": "fri",
+  "t": 465,
+  "coin": {
+   "where": "floor",
+   "holder": null,
+   "finder": null
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": false,
+   "need": 3
+  },
+  "paid": {
+   "ada": false,
+   "arthur": false
+  }
+ },
+ "STATS": {
+  "asks": 7,
+  "choices": 2,
+  "unreadable": 0,
+  "votes": 0,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 0,
+  "lines": 0,
+  "emptyLines": 0,
+  "diaryFallback": 0,
+  "probes": []
+ },
+ "agents": {
+  "ada": {
+   "place": "finsbury",
+   "money": 51,
+   "op": {
+    "arthur": 0,
+    "thomas": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was a thoroughly good husband to her, and worked hard to keep a home together for her and the lads.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 450,
+     "text": "Ada went to Finsbury Circus.",
+     "about": [],
+     "imp": 1
+    }
+   ]
+  },
+  "arthur": {
+   "place": "arthur_home",
+   "money": 54,
+   "op": {
+    "ada": 0,
+    "thomas": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He was scrupulously honest, and never spent a penny which he could not afford.  He was economical, not parsimonious, and lived within his income.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": "fri",
+     "t": 465,
+     "text": "He worked in his garden.",
+     "about": [],
+     "imp": 1
+    }
+   ]
+  },
+  "thomas": {
+   "place": "thomas_home",
+   "money": 480,
+   "op": {
+    "ada": 0,
+    "arthur": 0,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He never allowed himself to be late in the morning.  He was always at his post before nine o'clock.",
+     "about": [],
+     "imp": 2
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,57 @@
+
+######## Friday, the 14th of March, 1930 (fine and cold) ########
+   ◆ Ada's past: He has been known to come home at night, and, flinging himself down in a chair, burst into tears, because Bert was not likely to be able to follow in his footsteps, and become a sailor.
+   ◆ Arthur's past: He always endeavoured to keep his personal expenditure within his income, and he succeeded in doing so until he married.  Then his wife persuaded him to take a house in a somewhat better position than that in which they had previously lived, and he consented.
+   ◆ Mr. Thomas's past: He was never known to be late.  He was always punctual to the minute.
+
+=== half past seven in the morning ===
+   Ada thinks: The desire to keep the boy from the sea.
+   Ada [She empties the waste-pap] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+   Arthur thinks: Arthur wishes to be certain of possessing enough money to meet his weekly outgoings.
+   Arthur [He talks with Mrs. Edith ] → Talk with Mrs. Edith Hale about how the day has gone.
+      Mr. Arthur Hale: "I have been to the City, Edith.  I got up at seven, and came home to breakfast at eight."
+      Mrs. Edith Hale: "You have been to the City, Arthur, and got back to breakfast at eight."
+      → Arthur now thinks well of Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about how the day has gone.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Arthur Hale: "Good morning."
+   Ada thinks: Ada is anxious about paying the rent, because she fears to be turned into the street.
+   Ada [She passes the time of da] → Pass the time of day with Mr. Arthur Hale.
+      Mrs. Ada Turner: "I see, sir, by the newspaper, that the Government has appointed a Select Committee to consider the question of Old Age Pensions."
+      Mr. Arthur Hale: "I am glad to hear it, because the subject is one in which I feel a good deal of interest."
+      → Ada now thinks well of Mr. Arthur Hale.
+      → Arthur now thinks well of Mrs. Ada Turner.
+   ⇒ Ada spoke with Mr. Arthur Hale about the news in the paper.
+      Mr. Arthur Hale: "Good morning, Thomas."
+      Mr. Walter Thomas: "Good morning, Hale."
+   Arthur thinks: He wishes to recover his half-crown.
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: He remembers punctuality.
+   Mr. Thomas [He attends to the corresp] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past nine in the morning ===
+   Arthur thinks: He is anxious about his missing half-crown.
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: 
+   Mr. Thomas [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Mr. Thomas waited.
+node:fs:2430
+    return binding.writeFileUtf8(
+                   ^
+
+Error: ENOENT: no such file or directory, open '/tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim3_14/state.json'
+    at Object.writeFileSync (node:fs:2430:20)
+    at /tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim3.js:563:10 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim3_14/state.json'
+}
+
+Node.js v22.23.4

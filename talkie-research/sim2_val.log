@@ -1,0 +1,38 @@
+######## Friday, the 14th of March, 1930 ########
+
+=== half past seven in the morning ===
+   Ada thinks: To choose the third matter.
+   Ada [She chooses to empty the ] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+
+=== a quarter to eight in the morning ===
+   Ada thinks: It calls for waiting and doing nothing.
+   Ada [She waits and does nothin] → Wait and do nothing for the present.
+   ⇒ Ada waited.
+   Arthur thinks: Going to the news-stand calls for most, because he wants to know if the paper is come.
+   Arthur [He goes to the news-stand] → Go to the news-stand on his way to the office.
+   ⇒ Arthur went to the news-stand at Moorgate station.
+
+=== eight o'clock in the morning ===
+   Ada thinks: Waiting is most important to her, because she needs money.
+   Ada [She waits.] → Wait and do nothing for the present.
+   ⇒ Ada waited.
+   Arthur thinks: Waiting seems to be most important to him just now.
+   Arthur [He waits. | He goes to the office and | He goes to the office, to votes [0,2,1]] → Go to the office to be at his desk in good time.
+   ⇒ Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company.
+
+=== a quarter past eight in the morning ===
+      Mrs. Ada Turner: "Morning, sir."
+      Mr. Arthur Hale: ""
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+browser.newPage: Target page, context or browser has been closed
+    at chat (/tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim2.js:22:27)
+    at act (/tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim2.js:292:29)
+    at async /tmp/claude-0/-home-user-bruce-esp32-div/ff451b7a-1deb-5293-b039-d7d44e25e0d4/scratchpad/talkie/sim2.js:399:9 {
+  log: []
+}
+
+Node.js v22.23.4

@@ -1,0 +1,87 @@
+
+=== a quarter to eight ===
+Ada's intentions: She means to go to Finsbury Circus, and begin work there at nine o'clock.  She means to call at a shop in the way, and buy some house-flannel for a sick grandson.
+Ada [She scrubs the floor under the clerks' d] -> Scrub the floor under the clerks' desks.
+   => Ada scrubbed the floor under the clerks' desks. Under Mr. Hale's desk she found a half-crown (2s. 6d.) lying in a crack of the boards.
+
+=== eight o'clock ===
+Ada [She empties the waste-paper baskets.] -> Empty the waste-paper baskets.
+   => Ada emptied the waste-paper baskets.
+Arthur arrives at the news-stand at Moorgate Underground station.
+Arthur's intentions: He means to walk to Finsbury Park, and have a look at the spring flowers.  He means to call on an old school-fellow, now living in Canonbury, and ask him to dinner.
+Arthur [He walks to Finsbury Park. -> unreadable, waits] -> Wait quietly and do nothing for the present.
+   => Arthur waited.
+
+=== a quarter past eight ===
+Ada [She scrubs the floor under the clerks' d] -> Scrub the floor under the clerks' desks.
+   => Ada scrubbed the floor under the clerks' desks.
+Arthur [He buys a morning newspaper.] -> Buy a morning newspaper for 1d.
+   => Arthur bought a newspaper for 1d.
+
+=== half past eight ===
+Ada [She puts the half-crown on Mr. Hale's de] -> Put the half-crown on Mr. Hale's desk.
+   => Ada laid the half-crown on Mr. Hale's desk.
+Arthur [He reads the newspaper.] -> Read the newspaper.
+   => Arthur read the newspaper: A NEW PLANET: the Lowell Observatory in Arizona announces the discovery of a ninth planet beyond Neptune. INDIA: Mr. Gandhi is marching to the sea to make salt in defiance of the Salt Laws.
+
+=== a quarter to nine ===
+Ada [She waits quietly and does nothing for t] -> Wait quietly and do nothing for the present.
+   => Ada waited.
+Arthur [He goes to a Lyons tea-shop in Moorgate.] -> Go to a Lyons tea-shop in Moorgate.
+   => Arthur went to a Lyons tea-shop in Moorgate.
+Mr. Thomas arrives at the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+Mr. Thomas's intentions: He means to balance the quarterly ledger by eleven o'clock; to take home a report of the result to the directors; and to go to his City office, in Throgmorton Street, to see his brother Charles, who has come up from Plymouth to consult him about an investment.
+Mr. Thomas [He goes to the news-stand at Moorgate Un] -> Go to the news-stand at Moorgate Underground station.
+   => Mr. Thomas went to the news-stand at Moorgate Underground station.
+
+=== nine o'clock ===
+Ada [Ada waits. What follows? -> unreadable, waits] -> Wait quietly and do nothing for the present.
+   => Ada waited.
+Arthur [He goes to the clerks' room.] -> Go to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+   => Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+Mr. Thomas [He goes to the clerks' room of the Moorg] -> Go to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+   => Mr. Thomas went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+
+=== a quarter past nine ===
+Ada [Mrs. Ada Turner speaks to Mr. Arthur Hal] -> Speak to Mr. Arthur Hale.
+   Ada chooses to talk about: the news in the paper
+   Ada: "I says to 'im"
+   Arthur: "He says, "Thank you."
+   Ada: "Mrs.  Ada Turner says, "Thank you, sir, I don't wish you good morning."
+   Arthur: "He says, "Good morning."
+   => Ada spoke with Arthur about the news in the paper: "I says to 'im" "He says, "Thank you." "Mrs.  Ada Turner says, "Thank you, sir, I don't wish you good morning." "He says, "Good morning."
+Arthur [He goes to the news-stand at Moorgate Un] -> Go to the news-stand at Moorgate Underground station.
+   => Arthur went to the news-stand at Moorgate Underground station.
+Mr. Thomas [He goes to the news-stand at Moorgate Un] -> Go to the news-stand at Moorgate Underground station.
+   => Mr. Thomas went to the news-stand at Moorgate Underground station.
+
+=== half past nine ===
+Ada [She waits quietly, and does nothing for ] -> Wait quietly and do nothing for the present.
+   => Ada waited.
+Arthur [He goes to the clerks' room of the Moorg] -> Go to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+   => Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+Mr. Thomas [Mr. Thomas goes to the clerks' room of t] -> Go to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+   => Mr. Thomas went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+
+=== a quarter to ten ===
+Ada [She leaves for Finsbury Circus.] -> Put away her pail and brushes, and leave for her next place in Finsbury Circus.
+   => Ada put away her things and left for Finsbury Circus.
+Arthur [He goes to the news-stand at Moorgate Un] -> Go to the news-stand at Moorgate Underground station.
+   => Arthur went to the news-stand at Moorgate Underground station.
+Mr. Thomas [Mr. Thomas goes to the news-stand at Moo] -> Go to the news-stand at Moorgate Underground station.
+   => Mr. Thomas went to the news-stand at Moorgate Underground station.
+
+=== ten o'clock ===
+Arthur [He goes to the clerks' room of the Moorg] -> Go to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+   => Arthur went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor.
+Mr. Thomas [Mr. Thomas goes to a Lyons tea-shop in M] -> Go to a Lyons tea-shop in Moorgate.
+   => Mr. Thomas went to a Lyons tea-shop in Moorgate.
+
+--- Ada's diary ---
+I waited at Mr. Hale's office this morning, from nine to a quarter past nine, and spoke to Arthur, and then went on to Finsbury Circus.
+
+--- Arthur's diary ---
+I went to the clerks' room of the Moorgate Fire and Life Assurance Company, on the third floor, this morning, and spoke to Thomas. I also bought a paper. Thomas and I have been fellow-clerks for five years, and, although we never quarrel, we see little of each other, except during business hours. I went to the news-stand at Moorgate Underground station, and bought another paper, and then returned to the clerks' room.
+
+FINAL: coin=desk; money: Ada 11s. 3d., Arthur 4s. 5d., Mr. Thomas 30s. 0d.; opinions: {"ada":{"arthur":0,"thomas":0},"arthur":{"ada":0,"thomas":0},"thomas":{"ada":0,"arthur":0}}
+DONE

@@ -1,0 +1,158 @@
+{
+ "METRICS": {
+  "probes": [
+   {
+    "day": 1,
+    "age": 1,
+    "who": "ada",
+    "q": "What did you do with the half-crown you found under Mr. Hale's desk?",
+    "ok": true,
+    "answer": "Kept it",
+    "truth": "Kept it"
+   },
+   {
+    "day": 1,
+    "age": 1,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday?",
+    "ok": true,
+    "answer": "forty shillings (40s.)",
+    "truth": "forty shillings (40s.)"
+   }
+  ],
+  "diaries": [
+   {
+    "day": 0,
+    "who": "ada",
+    "facts": 4,
+    "kept": 4
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "facts": 3,
+    "kept": 2
+   },
+   {
+    "day": 0,
+    "who": "thomas",
+    "facts": 1,
+    "kept": 1
+   }
+  ],
+  "days": [
+   {
+    "day": 0,
+    "asks": 76,
+    "money": {
+     "ada": 216,
+     "arthur": 400,
+     "thomas": 466
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 1
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   }
+  ]
+ },
+ "STATS": {
+  "asks": 78,
+  "choices": 24,
+  "unreadable": 4,
+  "votes": 4,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 3,
+  "lines": 12,
+  "emptyLines": 6,
+  "diaryFallback": 0,
+  "probes": [],
+  "maxLen": 1354,
+  "lenSum": 68649,
+  "ms": 1449791,
+  "timed": 97,
+  "nullReplies": 31,
+  "retries": 19,
+  "reasks": 6,
+  "emptyThought": 1,
+  "bookRetry": 1,
+  "bookWrong": 1,
+  "lessons": 1,
+  "echo": 2
+ },
+ "W": {
+  "day": 1,
+  "t": 1140,
+  "coin": {
+   "where": "kept",
+   "finder": "ada"
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 1,
+   "assigned": true,
+   "need": 3,
+   "verdict": null
+  },
+  "audit": {
+   "steps": 0,
+   "errors": 0,
+   "verdict": null,
+   "raise": null
+  },
+  "paid": {
+   "arthur0": true
+  },
+  "bertWork": true,
+  "rentDue": true,
+  "rentPaid": {},
+  "joanIll": false,
+  "doctor": null,
+  "extraHours": null,
+  "loan": null,
+  "facts": [
+   {
+    "day": 0,
+    "who": "ada",
+    "q": "What did you do with the half-crown you found under Mr. Hale's desk?",
+    "opts": [
+     "Laid it on his desk",
+     "Kept it",
+     "Gave it to Mr. Thomas"
+    ],
+    "truth": 1
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)"
+    ],
+    "truth": 2
+   }
+  ]
+ }
+}

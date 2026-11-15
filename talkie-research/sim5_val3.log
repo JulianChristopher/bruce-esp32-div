@@ -1,0 +1,527 @@
+
+######## Friday, the 14th of March, 1930 (raining) ########
+   ◆ Ada's past: He (her son) has been steady, and has never given her trouble, and has contributed regularly to her support.
+   ◆ Arthur's past: He always liked to think of himself as making a provision for possible rainy days.
+   ◆ Mr. Thomas's past: He has never squandered a shilling of his own or other people's.
+
+=== half past seven in the morning ===
+   Mr. Thomas thinks: He acts so because he is fond of reading, and politics interest him.
+   Mr. Thomas [He chooses to read The Ti] → Read The Times over breakfast (2d.).
+   ⇒ Mr. Thomas read The Times: A NEW PLANET. The Lowell Observatory in Arizona announces the discovery of a ninth planet, far beyond Neptune. INDIA. Mr. Gandhi and his followers are marching to the sea, to make salt in defiance of the Salt Laws.
+   Arthur thinks: He reads the Daily Herald over breakfast.
+   Arthur [He reads the Daily Herald] → Read the Daily Herald over breakfast (1d.).
+   ⇒ Arthur read the Daily Herald: A NEW PLANET. The Lowell Observatory in Arizona announces the discovery of a ninth planet, far beyond Neptune. INDIA. Mr. Gandhi and his followers are marching to the sea, to make salt in defiance of the Salt Laws.
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== half past eight in the morning ===
+   (Mr. Thomas sets Arthur to the quarterly ledger.)
+   ⚑ Mr. Thomas: It is Friday, pay-day. Mrs. Turner, the charwoman, is here; her week's wages of twelve shillings are due, and she needs them for her rent. Does Mr. Walter Thomas pay Mrs. Turner her wages now? → YES (3:0) He pays her now, because he has not forgotten that, last year, when the influenza was raging, she nursed him through a sharp attack, and he has never forgotten kindness.
+      Mrs. Ada Turner: "Good morning,"
+      Mr. Arthur Hale: "Good morning, Mrs. Turner."
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+      Mr. Arthur Hale: "Good morning, Mr. Thomas."
+      Mr. Walter Thomas: "Good morning, Mr. Hale."
+   Arthur thinks: He acts so because he has a conscientious objection to wasting time.
+   Arthur [He chooses to work at the] → Work at the quarterly ledger.
+   ⇒ Arthur entered the correct total in the ledger (5115).
+   Mr. Thomas thinks: He acts so because it is Friday, and he wants to get the letters off early to the country.
+   Mr. Thomas [He chooses to attend to t] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Arthur thinks: He acts so because he is hungry, and because he must be careful not to spend more than he can afford.
+   Arthur [He chooses to have soup a] → Have soup and a chop (1s. 2d.).
+   ⇒ Arthur had soup and a chop for 1s. 2d.
+   Mr. Thomas thinks: He acts so because he is mildly curious.
+   Mr. Thomas [He chooses to pass the ti] → Pass the time of day with Mr. Arthur Hale, about the news in the paper.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about what the paper says: A NEW PLANET. The Lowell Observatory in Arizona announces the discovery of a ninth planet, far beyond Neptune.
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+
+=== five o'clock in the evening ===
+   (Wages: Arthur receives £3 10s. 0d.)
+   Arthur thinks: He acts so because he likes arithmetical calculation, and because his wife has asked him to be home early.
+   Arthur [He chooses to work at the] → Work at the quarterly ledger.
+   ⇒ Arthur entered the correct total in the ledger (3305).
+   Ada thinks: She acts so because she has been accustomed to that kind of food, and likes it.
+   Ada [She chooses to buy a rabb | She chooses to buy a rabb | She chooses to buy scrag- votes [1,0,0,2,0]] → Buy a rabbit, onions and a loaf, for a stew (1s. 9d.); she would have 14s. 0d. left.
+   ⇒ Ada bought a rabbit, onions and a loaf, for a stew for 1s. 9d.
+   Mr. Thomas thinks: He acts so because he is fond of writing letters.
+   Mr. Thomas [He chooses to attend to t] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== seven o'clock in the evening ===
+   Mr. Thomas thinks: He acts so because he likes reading.
+   Mr. Thomas [He chooses to read, becau] → Read a chapter of Trollope by the fire.
+   ⇒ Mr. Thomas read Trollope by the fire.
+   Ada thinks: She acts so because she is hungry and tired, and the paper interests her.
+   Ada [She chooses to cook the s | She chooses to pay the re | — votes [1,0,0,1,0,0]] → Pay the landlord the week's rent of seven shillings; she would have 7s. 0d. left.
+   ⇒ Ada paid the rent of 7s.
+   Arthur thinks: He acts so because he wishes to keep £1 13s.
+   Arthur [Arthur chooses to give Ed | He chooses to talk with J | He chooses to give Edith  votes [0,0,1,1,0,0,1]] → Give Edith 40 shillings for the week's housekeeping; he would keep £1 13s. 3d..
+   ⇒ Arthur gave Edith 40s. for the housekeeping.
+
+--- Mrs. Ada Turner's diary, Friday, the 14th of March, 1930 (3/3 key facts kept) ---
+I was paid my wages, earned an honest living, paid my rent, and had some pocket-money from Bert.
+
+--- Mr. Arthur Hale's diary, Friday, the 14th of March, 1930 (5/5 key facts kept) ---
+To-day I balanced the ledger, spoke of a new planet, was paid wages, and gave Edith forty shillings for housekeeping.
+
+--- Mr. Walter Thomas's diary, Friday, the 14th of March, 1930 (0/2 key facts kept) ---
+1. Read in The Times a new planet discovered, far beyond Neptune.
+
+######## Saturday, the 15th of March, 1930 (fine and cold) ########
+   [memory, 1 day old] Mr. Thomas: What new discovery in the heavens did the papers report in March? → A ninth planet beyond Neptune ✓ [2,0,0]
+
+=== half past seven in the morning ===
+   Arthur thinks: He acts so because he is fond of birds.
+   Arthur [He chooses to talk with J] → Talk with Joan Hale about the birds in the garden.
+   Ada thinks: She acts so because she is anxious to make a better appearance than usual in church to-morrow morning.
+   Ada [She chooses to empty the ] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+      Mr. Arthur Hale: "Look at the birds, Joan.  Aren't they happy?"
+   Mr. Thomas thinks: He acts so because he is interested in news.
+   Mr. Thomas [He chooses to read The Ti] → Read The Times over breakfast (2d.).
+   ⇒ Mr. Thomas read The Times: UNEMPLOYMENT continues to rise; more men are stood off in the docks and the mills.
+   ⇒ Arthur spoke with Joan Hale about the birds in the garden.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning,"
+      Mr. Arthur Hale: "Good morning, Mrs. Turner."
+      Mrs. Ada Turner: "Good morning, Mr. Thomas."
+      Mr. Walter Thomas: "Good morning, Mrs. Turner."
+   Ada thinks: She acts so because she wants to meet Bert.
+   Ada [She chooses to put away h] → Put away her pail and go on to Finsbury Circus, so as to be there by nine.
+   ⇒ Ada went on to Finsbury Circus.
+      Mr. Arthur Hale: "Good-morning, Mr. Thomas.  Mr. Thomas: Good-morning, Hale."
+      Mr. Walter Thomas: "It is a fine morning."
+   Arthur thinks: He acts so because he wants to finish it.
+   Arthur [He chooses to work at the] → Work at the quarterly ledger.
+   ⇒ Arthur entered the correct total in the ledger (6160).
+   Mr. Thomas thinks: He acts so because he is pressed for time.
+   Mr. Thomas [He chooses to attend to t] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+   Mr. Thomas thinks: He acts so because he is interested in accounts.
+   Mr. Thomas [He chooses to examine the] → Examine the quarterly ledger Mr. Hale has been working on.
+   ⇒ Mr. Thomas examined the quarterly ledger: in perfect order.
+
+=== three o'clock in the afternoon ===
+   Arthur thinks: He acts so because he is fond of gardening.
+   Arthur [He chooses to work in the] → Work in the garden at his seedlings.
+   ⇒ Arthur worked in the garden.
+   Mr. Thomas thinks: He acts so because his health requires it.
+   Mr. Thomas [He chooses to rest quietl] → Rest quietly for a while.
+   ⇒ Mr. Thomas rested.
+   Ada thinks: She acts so because she likes them, and has 19s.
+   Ada [She chooses to buy sausag | She chooses to buy a rabb | She chooses to buy bread, votes [0,2,0,1,0]] → Buy a pound of sausages, bread and margarine (1s. 1d.); she would have 19s. 5d. left.
+   ⇒ Ada bought a pound of sausages, bread and margarine for 1s. 1d.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: He acts so because he is fond of gardening.
+   Arthur [He chooses to work in the] → Work in the garden at his seedlings.
+   ⇒ Arthur worked in the garden.
+   Mr. Thomas thinks: He acts so because he is fond of the author.
+   Mr. Thomas [He chooses to read Trollo] → Read a chapter of Trollope by the fire.
+   ⇒ Mr. Thomas read Trollope by the fire.
+   Ada thinks: She acts so because she is hungry, and because Bert is hungry, and because she likes to talk about football to him.
+   Ada [She chooses to cook the s] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+
+--- Mr. Arthur Hale's diary, Saturday, the 15th of March, 1930 (3/3 key facts kept) ---
+I spoke with my little Joan about the birds in the garden, and entered the correct total in the ledger; Mr. Thomas examined the quarterly ledger, and found them in perfect order.
+
+--- Mr. Walter Thomas's diary, Saturday, the 15th of March, 1930 (1/2 key facts kept) ---
+Unemployment continues to rise; more men are stood off in the docks and the mills.
+
+######## Sunday, the 16th of March, 1930 (cold and windy) ########
+   [memory, 2 days old] Arthur: What new discovery in the heavens did the papers report in March? → A ninth planet beyond Neptune ✓ [2,0,0]
+
+=== half past ten in the morning ===
+   Ada thinks: She puts 6d.
+   Ada [She puts 6d. in the colle] → Put 6d. in the collection.
+   ⇒ Ada put 6d. in the collection.
+      Mr. Arthur Hale: "Good morning, sir."
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: He acts so because he is glad to see him looking so well.
+   Mr. Thomas [He chooses to pass the ti] → Pass the time of day with Mr. Arthur Hale.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the neighbourhood.
+
+=== four o'clock in the afternoon ===
+   Ada thinks: She acts so because she is hungry and Bert's jacket needs mending.
+   Ada [She chooses to cook the s] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He chooses to walk with Joan and point out the birds and the flowers.
+   Arthur [He chooses to walk with J] → Walk with Joan and point out the birds and the flowers.
+   ⇒ Arthur walked with Joan in the park.
+   Mr. Thomas thinks: He walks briskly round the Fields.
+   Mr. Thomas [He walks briskly round th] → Walk briskly round the Fields.
+   ⇒ Mr. Thomas walked round the Fields.
+
+=== seven o'clock in the evening ===
+   Mr. Thomas thinks: He acts so because he likes reading Trollope.
+   Mr. Thomas [He chooses to read a chap] → Read a chapter of Trollope by the fire.
+   ⇒ Mr. Thomas read Trollope by the fire.
+   Ada thinks: She acts so because she is hungry, and because she is proud.
+   Ada [She chooses to cook the s] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He acts so because he likes to hear her talk of food.
+   Arthur [He chooses to talk with M] → Talk with Mrs. Edith Hale about what to have for Sunday dinner.
+      Mr. Arthur Hale: "let us have a leg of mutton."
+      Mrs. Edith Hale: "Very well, let us have a leg of mutton."
+      → Arthur now thinks well of Mrs. Edith Hale.
+   ⇒ Arthur spoke with Mrs. Edith Hale about what to have for Sunday dinner.
+   ◇ Ada reflects: She thinks him a gentleman, because he paid her wages punctually, and because he was polite.
+   ◇ Ada reflects: She thinks him a good son, because he gives her his half of the rent punctually every Saturday night.
+   ◇ Mr. Thomas reflects: He thinks him an eligible bachelor, because he walked with Joan in the park.
+   ◇ Mr. Thomas reflects: Mr. Thomas thinks Mrs. Turner a nice little woman, because she is neat and civil, and because she has been faithful to her work.
+
+--- Mrs. Ada Turner's diary, Sunday, the 16th of March, 1930 (1/1 key facts kept) ---
+To-day I paid the rent, and am easy in my mind.
+
+--- Mr. Arthur Hale's diary, Sunday, the 16th of March, 1930 (5/6 key facts kept) ---
+To-day finished balancing the quarter's ledger, and Mr. Thomas pronounced everything correct.
+
+--- Mr. Walter Thomas's diary, Sunday, the 16th of March, 1930 (2/2 key facts kept) ---
+To-day I read in The Times the announcement of a new planet; set Mr. Hale to balance the quarterly ledger; and found the ledger in perfect order.
+
+######## Monday, the 17th of March, 1930 (mild) ########
+   ★ Bert has lost his work at the docks.
+   [memory, 3 days old] Ada: Did you pay the rent on Friday, the 14th of March? → Yes, in full ✓ [2,0]
+
+=== half past seven in the morning ===
+   Ada thinks: She acts so because she cannot afford to scrub the floor.
+   Ada [She chooses to empty the ] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+   Mr. Thomas thinks: He acts so because he is interested in foreign politics.
+   Mr. Thomas [He chooses to read The Ti] → Read The Times over breakfast (2d.).
+   ⇒ Mr. Thomas read The Times: THE NAVAL CONFERENCE. The delegates of the Powers continue their talks in London on the limitation of fleets.
+   Arthur thinks: He acts so because he likes to hear her speak.
+   Arthur [He chooses to talk with J] → Talk with Joan Hale about what she did today.
+      Mr. Arthur Hale: "You put on your hat and went out to play with Mary Walker."
+      → Arthur now thinks well of Joan Hale.
+   ⇒ Arthur spoke with Joan Hale about what she did today.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Arthur Hale: "Good morning, Mrs. Turner."
+   Ada thinks: She acts so because Mr. Thomas said there was some dirty work to be done, and he would give her a shilling for it.
+   Ada [She chose to scrub the fl] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks.
+      Mr. Arthur Hale: "Good morning, Mr. Thomas."
+      Mr. Walter Thomas: "He returns"
+   Arthur thinks: He acts so because he is conscientious, and careful with money, and timid with superiors.
+   Arthur [He chooses to go on with ] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: He acts so because it is his proper work.
+   Mr. Thomas [He chooses to attend to t] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Arthur thinks: He acts so because he wants to save money.
+   Arthur [He chooses to have only a] → Have only a cup of tea and a bun (3d.), to save money.
+   ⇒ Arthur had tea and a bun for 3d.
+   Ada thinks: She acts so because it is a quieter and less exciting thing to do than to talk about Bert's bad luck.
+   Ada [She chooses to cook the s] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Mr. Thomas thinks: He acts so because he desires to learn from him something about Joan.
+   Mr. Thomas [He chooses to pass the ti] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "Go on, please."
+      Mr. Arthur Hale: "Very well, sir."
+      → Mr. Thomas now thinks well of Mr. Arthur Hale.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.
+
+=== five o'clock in the evening ===
+   Ada thinks: She acts so because she has 18s.
+   Ada [She chooses to buy bread, | She chooses to buy a rabb | She chooses to buy a rabb votes [0,0,1,2,0]] → Buy a rabbit, onions and a loaf, for a stew (1s. 9d.); she would have 17s. 2d. left.
+   ⇒ Ada bought a rabbit, onions and a loaf, for a stew for 1s. 9d.
+   Arthur thinks: He acts so because he likes the society of that gentleman.
+   Arthur [He chooses to pass the ti] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "trade is very dull."
+      Mr. Walter Thomas: "by Mr. Thomas with a short affirmative."
+      → Arthur now thinks well of Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the state of trade.
+   Mr. Thomas thinks: He acts so because he is fond of a quiet life.
+   Mr. Thomas [He chooses to attend to t] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== seven o'clock in the evening ===
+   Mr. Thomas thinks: He chooses to read a chapter of Trollope by the fire.
+   Mr. Thomas [He chooses to read a chap] → Read a chapter of Trollope by the fire.
+   ⇒ Mr. Thomas read Trollope by the fire.
+   Arthur thinks: He acts so because the weather is mild, and the season favourable to seed-sowing.
+   Arthur [He chooses to work in the] → Work in the garden at his seedlings.
+   ⇒ Arthur worked in the garden.
+   Ada thinks: She acts so because she is proud.
+   Ada [She chooses to cook the s] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+
+--- Mrs. Ada Turner's diary, Monday, the 17th of March, 1930 (1/1 key facts kept) ---
+To-day Bert came home and said he has been stood off and has lost his work at the docks, so the rent is due on Friday.
+
+--- Mr. Arthur Hale's diary, Monday, the 17th of March, 1930 (1/1 key facts kept) ---
+To-day I spoke with Joan about what she did; I spoke with Mr. Walter Thomas about the work in hand; and I spoke with Mr. Walter Thomas about the state of trade.
+
+--- Mr. Walter Thomas's diary, Monday, the 17th of March, 1930 (0/0 key facts kept) ---
+1. Read in The Times that the Naval Delegates continue their talks in London on the limitation of fleets.
+
+######## Tuesday, the 18th of March, 1930 (grey) ########
+   [memory, with account-book, 4 days old] Arthur: How much housekeeping money did you give Edith on Friday, the 14th of March? → forty shillings (40s.) ✓ [0,0,2,0]
+
+=== half past seven in the morning ===
+   Mr. Thomas thinks: He acts so because he is interested in foreign affairs.
+   Mr. Thomas [He chooses to read The Ti] → Read The Times over breakfast (2d.).
+   ⇒ Mr. Thomas read The Times: UNEMPLOYMENT. The number of persons out of work in Great Britain stands at more than a million and a half.
+   Arthur thinks: He acts so because he is interested in news.
+   Arthur [He chooses to read the Da] → Read the Daily Herald over breakfast (1d.).
+   ⇒ Arthur read the Daily Herald: UNEMPLOYMENT. The number of persons out of work in Great Britain stands at more than a million and a half.
+   Ada thinks: She acts so because she must earn the rent.
+   Ada [She chooses to empty the ] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+
+=== half past eight in the morning ===
+      Mrs. Ada Turner: "Good morning, sir."
+      Mr. Arthur Hale: "Good morning, Mrs. Turner."
+   Ada thinks: 
+   Ada [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Ada waited.
+      Mr. Arthur Hale: "Good morning, Mr. Thomas."
+      Mr. Walter Thomas: "He returns"
+   Arthur thinks: He acts so because Mr. Walter Thomas is an interesting companion, and because Arthur has nothing particular to do.
+   Arthur [He chooses to pass the ti] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "I think we shall finish this week's work to-day."
+      Mr. Walter Thomas: "Yes."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the work in hand.
+   Mr. Thomas thinks: He acts so because he is busy.
+   Mr. Thomas [He chooses to attend to t] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: She acts so because she is hungry and the jacket needs repair.
+   Ada [She chooses to cook the s] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He acts so because it is cheaper than tea and a bun, and because he likes it better.
+   Arthur [He chooses to have soup a] → Have soup and a chop (1s. 2d.).
+   ⇒ Arthur had soup and a chop for 1s. 2d.
+   Mr. Thomas thinks: He chooses to pass the time of day with Mr. Arthur Hale.
+   Mr. Thomas [He chooses to pass the ti] → Pass the time of day with Mr. Arthur Hale.
+      Mr. Walter Thomas: "It looks like rain."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about the weather.
+
+=== five o'clock in the evening ===
+   Arthur thinks: He acts so because he has no wish to begin an elaborate investigation into the firm's affairs.
+   Arthur [He chooses to get on with] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: He acts so because the task is congenial to him, and because it leaves him leisure for reading.
+   Mr. Thomas [He chooses to attend to t] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+   Ada thinks: She acts so because she wishes to save money for paying her rent.
+   Ada [— | She chooses to buy nothin | She chooses to buy scrag- votes [1,0,0,0,1]] → Buy scrag-end of mutton, potatoes and a cabbage (1s. 4d.); she would have 15s. 10d. left.
+   ⇒ Ada bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d.
+
+=== seven o'clock in the evening ===
+   Mr. Thomas thinks: He acts so because he likes reading Trollope.
+   Mr. Thomas [He chooses to read a chap] → Read a chapter of Trollope by the fire.
+   ⇒ Mr. Thomas read Trollope by the fire.
+   Arthur thinks: He acts so because he is interested in her learning.
+   Arthur [He chooses to talk with J] → Talk with Joan Hale about what she learned at school.
+   Ada thinks: She acts so because she is hungry and anxious to get to bed early.
+   Ada [She chooses to cook the s] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+      Mr. Arthur Hale: "Joan, you have learned to write nicely."
+      Joan Hale: "I can write."
+      → Arthur now likes and trusts Joan Hale.
+   ⇒ Arthur spoke with Joan Hale about what she learned at school.
+
+######## Wednesday, the 19th of March, 1930 (raining) ########
+   ★ Joan has fallen ill.
+   [memory, 4 days old] Arthur: In what state did Mr. Thomas find the quarterly ledger? → In perfect order ✓ [2,0,0]
+
+=== half past seven in the morning ===
+   Mr. Thomas thinks: He acts so because he is interested in public affairs.
+   Mr. Thomas [He chooses to read The Ti] → Read The Times over breakfast (2d.).
+   ⇒ Mr. Thomas read The Times: UNEMPLOYMENT continues to rise; more men are stood off in the docks and the mills.
+   Ada thinks: She acts so because she wants to get back to work earlier than usual, so as to have more time to herself in the evening.
+   Ada [She chooses to empty the ] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+   Arthur thinks: He chooses to wait and see whether Joan mends by herself, to save the doctor's fee.
+   Arthur [He chooses to wait and se | He chooses to wait and se | He chooses to talk with J votes [1,1,0,0,1]] → Send for the doctor for Joan (3s. 6d.); he would have £1 8s. 3d. left.
+   ⇒ Arthur sent for the doctor (3s. 6d.); Joan has a bad cold and will mend.
+
+=== half past eight in the morning ===
+   Ada thinks: She acts so because she hopes thereby to earn another sixpence.
+   Ada [She chooses to scrub the ] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks.
+      Mr. Arthur Hale: "Good morning, sir."
+      Mr. Walter Thomas: "Good morning, Mr. Hale."
+   Arthur thinks: He acts so because he is anxious to finish them before noon, and has an engagement at noon.
+   Arthur [He chooses to get on with] → Get on with the day's ordinary entries in the books.
+   ⇒ Arthur worked at the day's entries.
+   Mr. Thomas thinks: He acts so because he has a great deal of writing to get through, and Mr. Arthur Hale has not.
+   Mr. Thomas [He chooses to attend to t] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: She acts so because she is hungry and Bert is wet and cold from standing about in the rain, so supper must be got ready, and his jacket put in order for to-morrow.
+   Ada [She chooses to cook the s] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He acts so because he wishes to keep himself in health, and because he has a liking for good food.
+   Arthur [He chooses to have (A) so] → Have soup and a chop (1s. 2d.).
+   ⇒ Arthur had soup and a chop for 1s. 2d.
+   Mr. Thomas thinks: He chooses to pass the time of day with Mr. Arthur Hale, about the news in the paper.
+   Mr. Thomas [He chooses to pass the ti] → Pass the time of day with Mr. Arthur Hale, about the news in the paper.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about what the paper says: UNEMPLOYMENT continues to rise; more men are stood off in the docks and the mills.
+
+=== five o'clock in the evening ===
+   Ada thinks: She chooses to buy a rabbit, onions and a loaf, for a stew, so that she may have 14s.
+   Ada [She chooses to buy a rabb | She chooses to buy a rabb | — votes [0,0,0,2,0]] → Buy a rabbit, onions and a loaf, for a stew (1s. 9d.); she would have 14s. 1d. left.
+   ⇒ Ada bought a rabbit, onions and a loaf, for a stew for 1s. 9d.
+   Arthur thinks: 
+   Arthur [— → unreadable, waits] → Wait (choice unreadable).
+   ⇒ Arthur waited.
+   Mr. Thomas thinks: He acts so because he likes it, and thinks himself qualified for it.
+   Mr. Thomas [He chooses to attend to t] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== seven o'clock in the evening ===
+   Arthur thinks: He acts so because he is fond of gardening, and because the rain checks the cough.
+   Arthur [He chooses to work in the] → Work in the garden at his seedlings.
+   ⇒ Arthur worked in the garden.
+   Mr. Thomas thinks: He acts so because he likes Trollope.
+   Mr. Thomas [He chooses to read a chap] → Read a chapter of Trollope by the fire.
+   ⇒ Mr. Thomas read Trollope by the fire.
+   Ada thinks: She acts so because she is fond of him, and because she is anxious to keep on good terms with him.
+   Ada [She chooses to cook the s] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+
+--- Mr. Arthur Hale's diary, Wednesday, the 19th of March, 1930 (3/3 key facts kept) ---
+To-day Joan fell ill, and the doctor says she has a bad cold, not bronchitis. Unemployment continues to rise, and more men are stood off in the docks and the mills.
+
+--- Mr. Walter Thomas's diary, Wednesday, the 19th of March, 1930 (2/2 key facts kept) ---
+Unemployment continues to rise; more men are stood off in the docks and the mills.
+
+######## Thursday, the 20th of March, 1930 (fine and cold) ########
+   ★ The audit is announced for Monday.
+   [memory, 3 days old] Ada: What happened to Bert at the docks in the week of 17 March? → He was stood off and lost his work ✓ [2,0,0]
+
+=== half past seven in the morning ===
+   Ada thinks: She acts so because the clerks will be coming to work at eight o'clock; and dusting makes a room look neat and pleasant.
+   Ada [She chooses to dust the d] → Empty the waste-paper baskets and dust the desks.
+   ⇒ Ada emptied the baskets and dusted the desks.
+   Mr. Thomas thinks: He acts so because he is interested in planetary discovery, and because he is concerned about unemployment.
+   Mr. Thomas [He chooses to read The Ti] → Read The Times over breakfast (2d.).
+   ⇒ Mr. Thomas read The Times: DEATH OF LORD BALFOUR. The Earl of Balfour, former Prime Minister, died yesterday at the age of eighty-one.
+   Arthur thinks: He acts so because he is fond of children.
+   Arthur [He chooses to talk with J] → Talk with Joan Hale about what she did today.
+      Mr. Arthur Hale: "Joan, did you go to school today?"
+      → Arthur now likes and trusts Joan Hale.
+   ⇒ Arthur spoke with Joan Hale about what she did today.
+
+=== half past eight in the morning ===
+   Ada thinks: She acts so because Mr. Arthur Hale is polite to her, and because she thinks him a gentleman.
+   Ada [She chooses to scrub the ] → Scrub the floor under the clerks' desks.
+   ⇒ Ada scrubbed the floor under the clerks' desks.
+      Mr. Arthur Hale: "Good morning, Mr. Thomas."
+      Mr. Walter Thomas: "Good morning, Mr. Hale."
+   Arthur thinks: He acts so because he does not like to waste time.
+   Arthur [He chooses to work at pre] → Work at preparing the books for the auditors.
+   ⇒ Arthur entered the correct total in the audit books (5395).
+   Mr. Thomas thinks: He acts so because she is neat and civil, and because she has been faithful to her work.
+   Mr. Thomas [He chooses to pass the ti] → Pass the time of day with Mrs. Ada Turner.
+      Mr. Walter Thomas: "You had better get those books ready, Mrs. Turner."
+      Mrs. Ada Turner: "Very well, sir."
+      → Mr. Thomas now thinks well of Mrs. Ada Turner.
+      → Ada now thinks well of Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mrs. Ada Turner about the work in hand.
+
+=== half past twelve in the afternoon ===
+   Ada thinks: She acts so because she is anxious to hear how he fares in looking for it.
+   Ada [She chooses to talk to Be] → Talk with Bert Turner about how Bert is getting on with looking for work.
+      Mrs. Ada Turner: "I'm sure I hope you'll get something soon, Bert; you've been out of a job so long."
+   ⇒ Ada spoke with Bert Turner about how Bert is getting on with looking for work.
+   Arthur thinks: He acts so because he wishes to pass the time of day with Mr. Walter Thomas.
+   Arthur [He chooses C, because he ] → Pass the time of day with Mr. Walter Thomas.
+      Mr. Arthur Hale: "it is fine and cold."
+      → Arthur now likes and trusts Mr. Walter Thomas.
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+   ⇒ Arthur spoke with Mr. Walter Thomas about the weather.
+   Mr. Thomas thinks: He chooses to pass the time of day.
+   Mr. Thomas [He chooses to pass the ti] → Pass the time of day with Mr. Arthur Hale, about the news in the paper.
+      Mr. Walter Thomas: "I am sorry to hear of Lord Balfour's death."
+      → Mr. Thomas now likes and trusts Mr. Arthur Hale.
+      → Arthur now likes and trusts Mr. Walter Thomas.
+   ⇒ Mr. Thomas spoke with Mr. Arthur Hale about what the paper says: DEATH OF LORD BALFOUR. The Earl of Balfour, former Prime Minister, died yesterday at the age of eighty-one.
+
+=== five o'clock in the evening ===
+   Ada thinks: She acts so because she has 13s.
+   Ada [She chooses to buy bread, | She chooses to buy scrag- | She chooses to buy bread, votes [1,0,2,0,0]] → Buy bread, dripping and a few potatoes (6d.); she would have 13s. 7d. left.
+   ⇒ Ada bought bread, dripping and a few potatoes for 6d.
+   Arthur thinks: He acts so because he is anxious to have them ready in good time.
+   Arthur [He chooses to work at pre] → Work at preparing the books for the auditors.
+   ⇒ Arthur entered the correct total in the audit books (3875).
+   Mr. Thomas thinks: He acts so because he has a great deal of arrears to bring up, and because he has never had a holiday.
+   Mr. Thomas [He chooses to attend to t] → Attend to the correspondence at his own desk.
+   ⇒ Mr. Thomas attended to the correspondence.
+
+=== seven o'clock in the evening ===
+   Mr. Thomas thinks: He acts so because he likes reading Trollope, and because he likes being quiet.
+   Mr. Thomas [He chooses to read a chap] → Read a chapter of Trollope by the fire.
+   ⇒ Mr. Thomas read Trollope by the fire.
+   Ada thinks: She acts so because she is hungry and Bert is out of work.
+   Ada [Ada chooses to cook the s] → Cook the supper and mend Bert's working jacket.
+   ⇒ Ada cooked the supper and mended.
+   Arthur thinks: He acts so because he is interested in her schoolwork.
+   Arthur [He chooses to talk with J] → Talk with Joan Hale about what she learned at school.
+      Mr. Arthur Hale: "I am glad to hear you getting on so well at school, Joan.  You must try to improve yourself."
+      Joan Hale: "se"
+      → Arthur now likes and trusts Joan Hale.
+   ⇒ Arthur spoke with Joan Hale about what she learned at school.
+
+--- Mrs. Ada Turner's diary, Thursday, the 20th of March, 1930 (1/1 key facts kept) ---
+To-day I spoke to Mr. Walter Thomas about the work in hand, and Bert and I talked together about how he is getting on looking for work.
+
+--- Mr. Arthur Hale's diary, Thursday, the 20th of March, 1930 (2/4 key facts kept) ---
+I spoke with Joan about what she did to-day.
+
+--- Mr. Walter Thomas's diary, Thursday, the 20th of March, 1930 (0/1 key facts kept) ---
+I was saddened by hearing of the death of Lord Balfour, formerly Prime Minister, yesterday at the age of eighty-one.
+
+######## Final memory examination ########
+   [memory, 7 days old] Mr. Thomas: What new discovery in the heavens did the papers report in March? → ? ✗ (truth: A ninth planet beyond Neptune) [1,0,1]
+   [memory, 7 days old] Arthur: What new discovery in the heavens did the papers report in March? → A ninth planet beyond Neptune ✓ [2,0,0]
+   [memory, 7 days old] Ada: Did you pay the rent on Friday, the 14th of March? → Yes, in full ✓ [2,0]
+   [memory, 7 days old] Arthur: How much housekeeping money did you give Edith on Friday, the 14th of March? → forty shillings (40s.) ✓ [0,0,2,0]
+   [memory, 6 days old] Arthur: In what state did Mr. Thomas find the quarterly ledger? → In perfect order ✓ [2,0,0]
+   [memory, 4 days old] Ada: What happened to Bert at the docks in the week of 17 March? → Nothing; he worked as usual ✗ (truth: He was stood off and lost his work) [0,0,2]
+   [memory, 2 days old] Arthur: Who in your family fell ill in the week of the audit? → Joan, my daughter ✓ [2,0,0]
+   [memory, 2 days old] Arthur: Did you send for the doctor for Joan? → No ✗ (truth: Yes) [0,1]
+   [memory, 1 day old] Arthur: What did Mr. Thomas announce in the week before the audit? → The auditors were coming on Monday ✓ [2,0,0]
+   [memory, 1 day old] Mr. Thomas: Which former Prime Minister died in March? → Lord Balfour ✓ [2,0,0]
+
+STATS {"asks":317,"choices":126,"unreadable":12,"votes":9,"ledgerRight":0,"ledgerWrong":0,"convs":17,"lines":69,"emptyLines":25,"diaryFallback":0,"probes":[],"maxLen":1476,"lenSum":291417,"aborted":402,"failedReq":402,"ms":189778,"timed":270,"promptEcho":13,"papers":8,"retries":65,"reasks":18,"emptyThought":9,"duties":1,"nullReplies":4,"bookRight":5,"bookRetry":1,"bookFixed":1,"reported":4,"echo":9,"echoLeft":5}
+MEMORY: 13/16 correct; by age: [[1,0.81],[3,0.8],[7,0.75],[14,null],[30,null],[60,null]]
+MEMORY life: 9/11, unreadable 0
+MEMORY news: 4/5, unreadable 1
+MEMORY aided: 1/1, unreadable 0
+MEMORY unaided: 12/15, unreadable 1
+MEMORY final: 7/10, unreadable 1
+DIARIES: 30/37 key facts kept
+DONE

@@ -1,0 +1,3230 @@
+{
+ "W": {
+  "wage": 900,
+  "day": 89,
+  "t": 1140,
+  "coin": {
+   "where": "kept",
+   "finder": "ada"
+  },
+  "ledger": {
+   "steps": 2,
+   "errors": 0,
+   "assigned": true,
+   "need": 3,
+   "verdict": "not finished (2 of 3 totals done)"
+  },
+  "audit": {
+   "steps": 4,
+   "errors": 0,
+   "verdict": "in perfect order",
+   "raise": true
+  },
+  "paid": {
+   "ada0": true,
+   "arthur0": true,
+   "ada7": true,
+   "arthur7": true,
+   "ada14": true,
+   "arthur14": true,
+   "ada21": true,
+   "arthur21": true,
+   "ada28": true,
+   "arthur28": true,
+   "ada42": true,
+   "arthur42": true,
+   "ada49": true,
+   "arthur49": true,
+   "ada56": true,
+   "arthur56": true,
+   "ada63": true,
+   "arthur63": true,
+   "ada70": true,
+   "arthur70": true,
+   "ada77": true,
+   "arthur77": true,
+   "ada84": true,
+   "arthur84": true
+  },
+  "bertWork": true,
+  "rentDue": false,
+  "rentPaid": {
+   "1": true,
+   "7": true,
+   "15": true,
+   "25": true,
+   "29": true,
+   "36": true,
+   "39": true,
+   "47": true,
+   "51": true,
+   "58": true,
+   "63": true,
+   "72": true,
+   "88": true
+  },
+  "joanIll": false,
+  "doctor": "not called",
+  "extraHours": null,
+  "loan": null,
+  "facts": [
+   {
+    "day": 0,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday the 14th?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)",
+     "forty-five shillings (45s.)"
+    ],
+    "truth": 2,
+    "asked": 3
+   },
+   {
+    "day": 0,
+    "who": "ada",
+    "q": "Did you pawn anything this spring?",
+    "opts": [
+     "My late husband's watch",
+     "My wedding ring",
+     "Nothing"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 1,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the quarterly ledger?",
+    "opts": [
+     "In perfect order",
+     "Complete but with mistakes",
+     "Not finished"
+    ],
+    "truth": 2,
+    "asked": 3
+   },
+   {
+    "day": 1,
+    "who": "ada",
+    "q": "What became of your husband's watch?",
+    "opts": [
+     "The pawnbroker sold it",
+     "I redeemed it",
+     "I still have it at home"
+    ],
+    "truth": 1,
+    "asked": 3
+   },
+   {
+    "day": 1,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "q": "What happened to Bert at the docks in the week of 17 March?",
+    "opts": [
+     "He was stood off and lost his work",
+     "He was made a foreman",
+     "Nothing; he worked as usual"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "q": "What did you do with the half-crown you found under Mr. Hale's desk?",
+    "opts": [
+     "Laid it on his desk",
+     "Kept it",
+     "Gave it to Mr. Thomas"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 5,
+    "who": "arthur",
+    "q": "Who in your family fell ill in the week of the audit?",
+    "opts": [
+     "Joan, my daughter",
+     "Edith, my wife",
+     "Nobody"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 6,
+    "who": "arthur",
+    "q": "What did Mr. Thomas announce in the week before the audit?",
+    "opts": [
+     "The auditors were coming on Monday",
+     "The office would close early",
+     "Wages would be paid late"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 7,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 10,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the books for the audit?",
+    "opts": [
+     "In perfect order",
+     "Complete but with mistakes",
+     "Not finished"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 11,
+    "who": "arthur",
+    "q": "What did Mr. Thomas tell you after the audit?",
+    "opts": [
+     "He would recommend me for a rise",
+     "He would dismiss me",
+     "Nothing"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 15,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 18,
+    "who": "arthur",
+    "q": "What are your weekly wages now?",
+    "opts": [
+     "Three pounds fifteen shillings",
+     "Three pounds ten shillings",
+     "Four pounds"
+    ],
+    "truth": 0,
+    "asked": 3
+   },
+   {
+    "day": 25,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 28,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday the 11th?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)",
+     "forty-five shillings (45s.)"
+    ],
+    "truth": 2,
+    "asked": 2
+   },
+   {
+    "day": 29,
+    "who": "arthur",
+    "q": "Who came to stay with you over Easter?",
+    "opts": [
+     "Edith's mother, Mrs. Bray",
+     "Your brother",
+     "Nobody"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 29,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 36,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 1,
+    "asked": 2
+   },
+   {
+    "day": 39,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 1,
+    "asked": 2
+   },
+   {
+    "day": 42,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday the 25th?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)",
+     "forty-five shillings (45s.)"
+    ],
+    "truth": 2,
+    "asked": 2
+   },
+   {
+    "day": 47,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 1,
+    "asked": 2
+   },
+   {
+    "day": 49,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday the 2nd?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)",
+     "forty-five shillings (45s.)"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 51,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 55,
+    "who": "ada",
+    "q": "What happened to Bert at the docks in the week of 8 May?",
+    "opts": [
+     "He was stood off and lost his work",
+     "He was made a foreman",
+     "Nothing; he worked as usual"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 56,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday the 9th?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)",
+     "forty-five shillings (45s.)"
+    ],
+    "truth": 2,
+    "asked": 2
+   },
+   {
+    "day": 57,
+    "who": "arthur",
+    "q": "What did you give Joan for her birthday?",
+    "opts": [
+     "A doll with a china face",
+     "A story-book",
+     "A penny bun and a kiss"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 58,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 59,
+    "who": "arthur",
+    "q": "Who was in charge of the office in the week Mr. Thomas was ill?",
+    "opts": [
+     "I was",
+     "A clerk from the Leeds branch",
+     "Nobody"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 63,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 63,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday the 16th?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)",
+     "forty-five shillings (45s.)"
+    ],
+    "truth": 2,
+    "asked": 2
+   },
+   {
+    "day": 70,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday the 23rd?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)",
+     "forty-five shillings (45s.)"
+    ],
+    "truth": 3,
+    "asked": 2
+   },
+   {
+    "day": 72,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 73,
+    "who": "ada",
+    "q": "What did Mr. Thomas announce at the end of May?",
+    "opts": [
+     "That he will retire at the end of June",
+     "That the office will close",
+     "That wages will be cut"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 77,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday the 30th?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)",
+     "forty-five shillings (45s.)"
+    ],
+    "truth": 2,
+    "asked": 2
+   },
+   {
+    "day": 84,
+    "who": "arthur",
+    "q": "Whom did Mr. Thomas recommend as the next chief clerk?",
+    "opts": [
+     "Me",
+     "Mr. Pike of the Leeds branch",
+     "Nobody yet"
+    ],
+    "truth": 0,
+    "asked": 2
+   },
+   {
+    "day": 84,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday the 6th?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)",
+     "forty-five shillings (45s.)"
+    ],
+    "truth": 2,
+    "asked": 2
+   },
+   {
+    "day": 88,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "asked": 1
+   }
+  ],
+  "pawnedDay": 0,
+  "redeemDue": false,
+  "pendingLesson": null,
+  "redeemed": true,
+  "rentOwing": false,
+  "auditDue": true,
+  "birthday": false,
+  "thomasIll": [
+   59,
+   60,
+   61,
+   62,
+   63
+  ],
+  "retire": true,
+  "successor": "arthur"
+ },
+ "STATS": {
+  "asks": 3955,
+  "choices": 1634,
+  "unreadable": 256,
+  "votes": 159,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 388,
+  "lines": 1176,
+  "emptyLines": 414,
+  "diaryFallback": 0,
+  "probes": [],
+  "maxLen": 1869,
+  "lenSum": 3933345,
+  "aborted": 4797,
+  "ms": 2292710,
+  "timed": 3356,
+  "duties": 14,
+  "nullReplies": 47,
+  "retries": 775,
+  "failedReq": 4797,
+  "reasks": 246,
+  "bookRight": 6,
+  "emptyThought": 83,
+  "lessons": 4,
+  "reported": 59,
+  "echo": 320,
+  "echoLeft": 118,
+  "resolutions": 1,
+  "bookRetry": 1,
+  "bookFixed": 1
+ },
+ "agents": {
+  "ada": {
+   "place": "ada_home",
+   "money": 1821,
+   "op": {
+    "arthur": 2,
+    "thomas": 2,
+    "edith": 0,
+    "joan": 0,
+    "bert": 2
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He behaved honestly and steadily, and was never known to miss a payment.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "She found a half-crown under Mr. Hale's desk while scrubbing.",
+     "about": [
+      "arthur",
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 1140,
+     "text": "She pawned her late husband's watch for ten shillings; to redeem it she must pay eleven shillings within ten weeks.",
+     "about": [
+      "money",
+      "watch"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 900,
+     "text": "She redeemed her husband's watch from the pawnbroker for eleven shillings.",
+     "about": [
+      "watch",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 3,
+     "t": 0,
+     "text": "Bert came home from the docks to say he has been stood off and lost his work; the rent of seven shillings is due on Friday.",
+     "about": [
+      "bert",
+      "rent"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 3,
+     "t": 450,
+     "text": "She laid the half-crown she found on Mr. Hale's desk.",
+     "about": [
+      "arthur",
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 4,
+     "t": 510,
+     "text": "Mr. Hale told her to keep the half-crown, as a reward for her honesty.",
+     "about": [
+      "arthur",
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 4,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the half-crown she found under his desk.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 7,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 11,
+     "t": 510,
+     "text": "Mr. Hale thanked her for her honesty.",
+     "about": [
+      "arthur",
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 11,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about his thanks for her honesty about the half-crown.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 12,
+     "t": 0,
+     "text": "Bert has found work again, carting at the gasworks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 15,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 25,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 29,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 36,
+     "t": 1140,
+     "text": "She asked the landlord to wait for the rent; he grumbled and gave her till Monday.",
+     "about": [
+      "rent"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 36,
+     "t": 1140,
+     "text": "Ada resolves never to ask a favour from a landlord again.",
+     "about": [],
+     "imp": 3
+    },
+    {
+     "day": 39,
+     "t": 1140,
+     "text": "She asked the landlord to wait for the rent; he grumbled and gave her till Monday.",
+     "about": [
+      "rent"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 47,
+     "t": 1140,
+     "text": "She asked the landlord to wait for the rent; he grumbled and gave her till Monday.",
+     "about": [
+      "rent"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 47,
+     "t": 1140,
+     "text": "Ada resolves never to ask a favour of a landlord again.",
+     "about": [],
+     "imp": 3
+    },
+    {
+     "day": 51,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 55,
+     "t": 0,
+     "text": "Bert came home from the docks to say he has been stood off and lost his work; the rent of seven shillings is due on Friday.",
+     "about": [
+      "bert",
+      "rent"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 58,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 59,
+     "t": 0,
+     "text": "Mr. Thomas is away ill this week; Mr. Hale is in charge of the office.",
+     "about": [
+      "thomas",
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 63,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 66,
+     "t": 0,
+     "text": "Bert has found work again, carting at the gasworks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 72,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 73,
+     "t": 0,
+     "text": "Mr. Thomas has announced that he will retire at the end of June, and will recommend a successor as chief clerk.",
+     "about": [
+      "thomas",
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 80,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 510,
+     "text": "Ada spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 80,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the weather and how things are at home.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 80,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 750,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 1020,
+     "text": "She bought a rabbit, onions and a loaf, for a stew for 1s. 9d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 1140,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 510,
+     "text": "Ada scrubbed the floor under the clerks' desks.",
+     "about": [
+      "arthur",
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the weather and how things are at home.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 81,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 750,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 1020,
+     "text": "She bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 1140,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 82,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 82,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the weather and how things are at home.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 510,
+     "text": "Ada spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 750,
+     "text": "Ada spoke with Bert Turner about how the day went at the docks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 1020,
+     "text": "She bought bread, dripping and a few potatoes for 6d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 82,
+     "t": 1140,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the news in the paper.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 83,
+     "t": 510,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 510,
+     "text": "Ada spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 83,
+     "t": 750,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 1020,
+     "text": "She bought a rabbit, onions and a loaf, for a stew for 1s. 9d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 1140,
+     "text": "Ada spoke with Bert Turner about how the day went at the docks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "Mr. Walter Thomas paid her the week's wages, twelve shillings.",
+     "about": [
+      "thomas",
+      "money"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "Mr. Thomas has recommended Mr. Hale to succeed him as chief clerk.",
+     "about": [
+      "thomas",
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the weather and how things are at home.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the weather and how things are at home.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 750,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 1020,
+     "text": "She bought a rabbit, onions and a loaf, for a stew for 1s. 9d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 1140,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 1140,
+     "text": "She was paid ten shillings at Finsbury Circus.",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 1140,
+     "text": "Bert gave her his half of the rent, 3s. 6d.",
+     "about": [
+      "bert",
+      "rent"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 85,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 85,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the weather and how things are at home.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 85,
+     "t": 510,
+     "text": "Ada spoke with Mr. Arthur Hale about the weather and how things are at home.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 85,
+     "t": 510,
+     "text": "Ada spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 85,
+     "t": 750,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 85,
+     "t": 900,
+     "text": "She bought a rabbit, onions and a loaf, for a stew for 1s. 9d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 85,
+     "t": 1140,
+     "text": "Ada spoke with Bert Turner about how the day went at the docks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 86,
+     "t": 630,
+     "text": "Ada put 6d. in the collection.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 86,
+     "t": 960,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "Ada spoke with Bert Turner about how the day went at the docks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "She thinks him honest, because he paid her wages punctually; she thinks him kind, because he recommended Mr. Hale to succeed him; and she thinks him sharp-tongued, because he spoke sharply to her.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3,
+     "belief": "thomas"
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "She thinks him a decent sort of young man, because he has shown a proper interest in her and her concerns.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "She thinks him honest, chapel-going, proud, sharp-tongued, kind; very poor.",
+     "about": [
+      "bert"
+     ],
+     "imp": 3,
+     "belief": "bert"
+    },
+    {
+     "day": 87,
+     "t": 630,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 87,
+     "t": 960,
+     "text": "Ada walked about the fair.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 87,
+     "t": 960,
+     "text": "(Seen) Arthur treated Joan to a ride on the roundabouts.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 87,
+     "t": 1140,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 510,
+     "text": "Ada scrubbed the floor under the clerks' desks.",
+     "about": [
+      "arthur",
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 750,
+     "text": "Ada cooked the supper and mended.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 1020,
+     "text": "She bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 1140,
+     "text": "She paid the landlord the rent of seven shillings.",
+     "about": [
+      "rent",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 89,
+     "t": 450,
+     "text": "Ada emptied the baskets and dusted the desks.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 510,
+     "text": "Ada scrubbed the floor under the clerks' desks.",
+     "about": [
+      "arthur",
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 750,
+     "text": "Ada spoke with Bert Turner about how the day went at the docks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 89,
+     "t": 1020,
+     "text": "She bought scrag-end of mutton, potatoes and a cabbage for 1s. 4d..",
+     "about": [
+      "money"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 1140,
+     "text": "Ada spoke with Bert Turner about how the day went at the docks.",
+     "about": [
+      "bert"
+     ],
+     "imp": 2
+    }
+   ]
+  },
+  "arthur": {
+   "place": "arthur_home",
+   "money": 5635,
+   "op": {
+    "ada": 2,
+    "thomas": 2,
+    "edith": 2,
+    "joan": 2,
+    "bert": 0,
+    "granny": 2
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He always considered it a duty to put by something for a rainy day.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "Mr. Thomas set him to balance the quarterly ledger.",
+     "about": [
+      "thomas",
+      "ledger"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 1020,
+     "text": "Arthur entered the correct total in the ledger (5115).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 0,
+     "t": 1140,
+     "text": "He gave Edith 40 shillings for the week's housekeeping.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 510,
+     "text": "Arthur entered the correct total in the ledger (3305).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 510,
+     "text": "Mr. Thomas examined the quarterly ledger and found them not finished (2 of 3 totals done).",
+     "about": [
+      "thomas",
+      "ledger"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 510,
+     "text": "Arthur resolves never to allow himself to fall into arrears with his work.",
+     "about": [],
+     "imp": 3
+    },
+    {
+     "day": 3,
+     "t": 510,
+     "text": "He found his lost half-crown laid on his desk; somebody must have found it and put it there.",
+     "about": [
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 4,
+     "t": 510,
+     "text": "Mrs. Turner told him she had found his half-crown under his desk and laid it on his desk.",
+     "about": [
+      "ada",
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 4,
+     "t": 510,
+     "text": "He told Mrs. Turner to keep the half-crown, as a reward for her honesty.",
+     "about": [
+      "ada",
+      "coin"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 4,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the half-crown she found under his desk.",
+     "about": [
+      "ada"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 5,
+     "t": 0,
+     "text": "Joan, his daughter, has fallen ill: she woke feverish and coughing, and Edith fears bronchitis.",
+     "about": [
+      "joan",
+      "edith"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 5,
+     "t": 1140,
+     "text": "Joan is no better tonight; the doctor has not been called.",
+     "about": [
+      "joan"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 6,
+     "t": 0,
+     "text": "On Thursday Mr. Thomas announced that the auditors come on Monday, and the books must be ready for them.",
+     "about": [
+      "thomas",
+      "audit"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 6,
+     "t": 510,
+     "text": "Arthur entered the correct total in the audit books (5395).",
+     "about": [
+      "ada",
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 6,
+     "t": 1020,
+     "text": "Arthur entered the correct total in the audit books (3875).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 6,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about Joan's illness and whether to send for the doctor.",
+     "about": [
+      "edith"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 8,
+     "t": 0,
+     "text": "Joan has mended at last, though the doctor was never called.",
+     "about": [
+      "joan"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 8,
+     "t": 510,
+     "text": "Arthur entered the correct total in the audit books (5778).",
+     "about": [
+      "ada",
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 8,
+     "t": 750,
+     "text": "Arthur entered the correct total in the audit books (4541).",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 10,
+     "t": 1020,
+     "text": "Mr. Thomas examined the books for the audit and found them in perfect order.",
+     "about": [
+      "thomas",
+      "audit"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 11,
+     "t": 510,
+     "text": "Mr. Thomas told him he would recommend him for a rise of five shillings a week, from April.",
+     "about": [
+      "thomas",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 11,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about his thanks for her honesty about the half-crown.",
+     "about": [
+      "ada"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 18,
+     "t": 0,
+     "text": "His rise of five shillings begins this month: his wages are now £3 15s. a week.",
+     "about": [
+      "money",
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 21,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about the week's housekeeping money.",
+     "about": [
+      "edith"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 28,
+     "t": 1140,
+     "text": "He gave Edith 40 shillings for the week's housekeeping.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 29,
+     "t": 0,
+     "text": "Edith's mother, Mrs. Bray, has come from Colchester to stay over Easter; there is an extra mouth to feed.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 37,
+     "t": 1140,
+     "text": "He thinks her a sensible woman, because she spoke sensibly about the docks.",
+     "about": [
+      "granny"
+     ],
+     "imp": 3,
+     "belief": "granny"
+    },
+    {
+     "day": 42,
+     "t": 1140,
+     "text": "He gave Edith 40 shillings for the week's housekeeping.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 49,
+     "t": 1140,
+     "text": "He gave Edith 30 shillings for the week's housekeeping.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 56,
+     "t": 1140,
+     "text": "He gave Edith 40 shillings for the week's housekeeping.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 57,
+     "t": 0,
+     "text": "Today is Joan's eighth birthday.",
+     "about": [
+      "joan"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 57,
+     "t": 1140,
+     "text": "He gave Joan a doll with a china face for her eighth birthday.",
+     "about": [
+      "joan",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 59,
+     "t": 0,
+     "text": "Mr. Thomas is ill with a chill and will be away all week; Arthur is left in charge of the clerks' room.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 63,
+     "t": 1140,
+     "text": "He gave Edith 40 shillings for the week's housekeeping.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 70,
+     "t": 1140,
+     "text": "He gave Edith 45 shillings for the week's housekeeping.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 72,
+     "t": 1140,
+     "text": "He thinks her prudent, because she has spent no more than forty-five shillings in a week.",
+     "about": [
+      "edith"
+     ],
+     "imp": 3,
+     "belief": "edith"
+    },
+    {
+     "day": 73,
+     "t": 0,
+     "text": "Mr. Thomas has announced that he will retire at the end of June, and will recommend a successor as chief clerk.",
+     "about": [
+      "thomas",
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 77,
+     "t": 1140,
+     "text": "He gave Edith 40 shillings for the week's housekeeping.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 79,
+     "t": 1140,
+     "text": "He thinks him a trustworthy man, competent to succeed Mr. Thomas, because he has been diligent and sober during six years of service, and because he has acquired a practical acquaintance with the business.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 80,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 80,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the weather and how things are at home.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 80,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 750,
+     "text": "Arthur had tea and a bun for 3d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 80,
+     "t": 1020,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 1020,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 1140,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 81,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 81,
+     "t": 510,
+     "text": "(Seen) Ada scrubbed the floor under the clerks' desks.",
+     "about": [
+      "ada"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the weather and how things are at home.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 81,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 750,
+     "text": "Arthur had soup and a chop for 1s. 2d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 81,
+     "t": 1020,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 1020,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 1140,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the weather and how things are at home.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 750,
+     "text": "Arthur had soup and a chop for 1s. 2d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 82,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 1020,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 82,
+     "t": 1020,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 82,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 83,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 83,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the news in the paper.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 83,
+     "t": 510,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "ada",
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 750,
+     "text": "Arthur had tea and a bun for 3d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 83,
+     "t": 1020,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 83,
+     "t": 1020,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 450,
+     "text": "He read in the paper: Nothing of great note.",
+     "about": [
+      "news"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "Mr. Thomas has recommended Mr. Hale to succeed him as chief clerk.",
+     "about": [
+      "thomas",
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the weather and how things are at home.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the weather and how things are at home.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 750,
+     "text": "Arthur had tea and a bun for 3d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 750,
+     "text": "(Seen) Mr. Thomas lunched.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 1020,
+     "text": "He was paid his week's wages, £3 15s. 0d.",
+     "about": [
+      "thomas",
+      "money"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 1020,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 1020,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 1140,
+     "text": "He gave Edith 40 shillings for the week's housekeeping.",
+     "about": [
+      "edith",
+      "money"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 85,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 85,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the weather and how things are at home.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 85,
+     "t": 510,
+     "text": "Arthur spoke with Mrs. Ada Turner about the weather and how things are at home.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 85,
+     "t": 750,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 85,
+     "t": 750,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 85,
+     "t": 1140,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 86,
+     "t": 630,
+     "text": "Arthur put 3d. in the collection.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 86,
+     "t": 630,
+     "text": "Arthur spoke with Mr. Walter Thomas about the weather and how things are at home.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 86,
+     "t": 960,
+     "text": "Arthur walked with Joan in the park.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 86,
+     "t": 960,
+     "text": "(Seen) Mr. Thomas walked round the Fields.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "He thinks her a nice little girl, because she is so clean and tidy.",
+     "about": [
+      "joan"
+     ],
+     "imp": 3,
+     "belief": "joan"
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "He thinks her a disagreeable person, because she bored him with talk about the weather and domestic matters.",
+     "about": [
+      "ada"
+     ],
+     "imp": 3,
+     "belief": "ada"
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "He thinks him a respectable, quiet, nice-spoken young man, because he was attentive to Joan in the park, and because he spoke of the weather and things at home.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3,
+     "belief": "thomas"
+    },
+    {
+     "day": 87,
+     "t": 630,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 87,
+     "t": 960,
+     "text": "(Seen) Ada walked about the fair.",
+     "about": [
+      "ada"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 87,
+     "t": 960,
+     "text": "He treated Joan to a ride on the roundabouts at the Bank Holiday fair.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 87,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 88,
+     "t": 450,
+     "text": "He read in the paper: Nothing of great note.",
+     "about": [
+      "news"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 510,
+     "text": "(Seen) Ada scrubbed the floor under the clerks' desks.",
+     "about": [
+      "ada"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 88,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 750,
+     "text": "Arthur had tea and a bun for 3d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 88,
+     "t": 1020,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 1020,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 1140,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 89,
+     "t": 450,
+     "text": "Arthur spoke with Joan Hale about what she did today.",
+     "about": [
+      "joan"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 89,
+     "t": 510,
+     "text": "(Seen) Ada scrubbed the floor under the clerks' desks.",
+     "about": [
+      "ada"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 510,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 89,
+     "t": 510,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 750,
+     "text": "Arthur had tea and a bun for 3d.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 750,
+     "text": "Arthur spoke with Mr. Walter Thomas about the work in hand.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 89,
+     "t": 1020,
+     "text": "Arthur worked at the day's entries.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 1020,
+     "text": "(Seen) Mr. Thomas attended to the correspondence.",
+     "about": [
+      "thomas"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 1140,
+     "text": "Arthur spoke with Mrs. Edith Hale about how the day has gone.",
+     "about": [
+      "edith"
+     ],
+     "imp": 2
+    }
+   ]
+  },
+  "thomas": {
+   "place": null,
+   "money": 178,
+   "op": {
+    "ada": 2,
+    "arthur": 2,
+    "edith": 0,
+    "joan": 0,
+    "bert": 0
+   },
+   "mem": [
+    {
+     "day": "past",
+     "t": 0,
+     "text": "He has never speculated.",
+     "about": [],
+     "imp": 2
+    },
+    {
+     "day": 0,
+     "t": 510,
+     "text": "He set Mr. Hale to balance the quarterly ledger.",
+     "about": [
+      "arthur",
+      "ledger"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 510,
+     "text": "He examined the quarterly ledger kept by Mr. Hale and found them not finished (2 of 3 totals done).",
+     "about": [
+      "arthur",
+      "ledger"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 1,
+     "t": 510,
+     "text": "Mr. Thomas resolves that the quarterly ledgers shall in future be finished before the end of the quarter.",
+     "about": [],
+     "imp": 3
+    },
+    {
+     "day": 6,
+     "t": 0,
+     "text": "He told Mr. Hale that the auditors come on Monday.",
+     "about": [
+      "arthur",
+      "audit"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 9,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 10,
+     "t": 1020,
+     "text": "He examined the books for the audit kept by Mr. Hale and found them in perfect order.",
+     "about": [
+      "arthur",
+      "audit"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 11,
+     "t": 510,
+     "text": "He recommended Mr. Hale for a rise.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 16,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 30,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 35,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 37,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 44,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 51,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 58,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 72,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 73,
+     "t": 0,
+     "text": "He has told the office that he will retire at the end of June, and must recommend a successor as chief clerk by Friday week.",
+     "about": [
+      "thomas",
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 79,
+     "t": 630,
+     "text": "Mr. Thomas put a shilling in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 80,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mrs. Ada Turner about the work in hand.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 80,
+     "t": 510,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "ada",
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 750,
+     "text": "(Seen) Arthur had tea and a bun for 3d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 80,
+     "t": 1020,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 80,
+     "t": 1020,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 510,
+     "text": "(Seen) Ada scrubbed the floor under the clerks' desks.",
+     "about": [
+      "ada"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 510,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "ada",
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 750,
+     "text": "(Seen) Arthur had soup and a chop for 1s. 2d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 81,
+     "t": 1020,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 81,
+     "t": 1020,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 82,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mrs. Ada Turner about the work in hand.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 750,
+     "text": "(Seen) Arthur had soup and a chop for 1s. 2d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 82,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 82,
+     "t": 1020,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 82,
+     "t": 1020,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 510,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mrs. Ada Turner about the work in hand.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 83,
+     "t": 750,
+     "text": "(Seen) Arthur had tea and a bun for 3d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 83,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 83,
+     "t": 1020,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 83,
+     "t": 1020,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "He paid Mrs. Turner her week's wages.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "Mr. Thomas has recommended Mr. Hale to succeed him as chief clerk.",
+     "about": [
+      "thomas",
+      "arthur"
+     ],
+     "imp": 3
+    },
+    {
+     "day": 84,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 84,
+     "t": 750,
+     "text": "(Seen) Arthur had tea and a bun for 3d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 750,
+     "text": "Mr. Thomas lunched.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 1020,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 84,
+     "t": 1020,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 85,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mrs. Ada Turner about the work in hand.",
+     "about": [
+      "ada"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 85,
+     "t": 750,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 85,
+     "t": 750,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 86,
+     "t": 630,
+     "text": "(Seen) Arthur put 3d. in the collection.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 86,
+     "t": 630,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the weather and how things are at home.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 86,
+     "t": 960,
+     "text": "(Seen) Arthur walked with Joan in the park.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 86,
+     "t": 960,
+     "text": "Mr. Thomas walked round the Fields.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "He thinks her a trustworthy person, because she punctually attended to business, and gave no trouble.",
+     "about": [
+      "ada"
+     ],
+     "imp": 3,
+     "belief": "ada"
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "He thinks him a sober, honest, and industrious young man.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 3,
+     "belief": "arthur"
+    },
+    {
+     "day": 86,
+     "t": 1140,
+     "text": "he thinks him",
+     "about": [
+      "thomas"
+     ],
+     "imp": 3,
+     "belief": "thomas"
+    },
+    {
+     "day": 87,
+     "t": 960,
+     "text": "Mr. Thomas walked round the Fields.",
+     "about": [],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 510,
+     "text": "(Seen) Ada scrubbed the floor under the clerks' desks.",
+     "about": [
+      "ada"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 88,
+     "t": 510,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "ada",
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 750,
+     "text": "(Seen) Arthur had tea and a bun for 3d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 88,
+     "t": 1020,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 88,
+     "t": 1020,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 510,
+     "text": "(Seen) Ada scrubbed the floor under the clerks' desks.",
+     "about": [
+      "ada"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 510,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 89,
+     "t": 510,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "ada",
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 750,
+     "text": "(Seen) Arthur had tea and a bun for 3d.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 750,
+     "text": "Mr. Thomas spoke with Mr. Arthur Hale about the work in hand.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 2
+    },
+    {
+     "day": 89,
+     "t": 1020,
+     "text": "(Seen) Arthur worked at the day's entries.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    },
+    {
+     "day": 89,
+     "t": 1020,
+     "text": "Mr. Thomas attended to the correspondence.",
+     "about": [
+      "arthur"
+     ],
+     "imp": 1
+    }
+   ]
+  }
+ }
+}

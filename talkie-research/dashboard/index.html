@@ -1,0 +1,214 @@
+<meta name="dash-one-writer">
+<style>
+  .t30 { display: flex; flex-direction: column; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+  .t30 h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .t30 h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; text-wrap: balance; }
+  .t30-lede { color: var(--color-fg-muted); margin: var(--cds-gap-xs) 0 0; max-width: 68ch; line-height: 1.5; }
+  .t30-sec { display: flex; flex-direction: column; gap: var(--cds-gap-sm); min-width: 0; }
+  .t30-note { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: 0; max-width: 72ch; line-height: 1.45; }
+  .t30-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--cds-gap-md); }
+  .t30-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-xs); min-width: 0; }
+  .t30-tile .lab { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); letter-spacing: .02em; }
+  .t30-tile .num { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 2rem; font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .t30-tile .sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .t30-chart { position: relative; min-height: 220px; min-width: 0; }
+  .t30-chart svg { display: block; width: 100%; overflow: visible; }
+  .t30-chart text { fill: var(--cds-text-secondary); font-size: 11px; font-family: var(--font-anthropic-sans); }
+  .t30-chart .axis path, .t30-chart .axis line { stroke: var(--cds-chart-axis); }
+  .t30-chart .grid line { stroke: var(--cds-chart-grid); }
+  .t30-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover); border-radius: var(--cds-radius); padding: 6px 8px; font-size: var(--cds-font-size-caption); color: var(--color-fg); white-space: nowrap; z-index: 2; }
+  .t30-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .t30-legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; background: var(--sw); }
+  .t30-scroll { overflow-x: auto; max-width: 100%; }
+  .t30-scroll.tall { max-height: 420px; overflow-y: auto; }
+  .t30 table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); }
+  .t30 th, .t30 td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .t30 th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); position: sticky; top: 0; background: var(--color-bg); }
+  .t30 td.n, .t30 th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .t30 td.d { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .t30-pill { display: inline-block; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--color-border-line); white-space: nowrap; }
+  .t30-pill.Ereignis { border-color: var(--color-warn); }
+  .t30-pill.Lehre { border-color: var(--color-ok); }
+  .t30-pill.Pflicht { border-color: var(--cds-chart-reference); }
+  .t30-row { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); align-items: center; }
+  [data-dash-source-state=refreshing] { opacity: .5; }
+</style>
+
+<div class="t30" lang="de">
+  <header id="kopf">
+    <h1>talkie 1930 · Alltagssimulation</h1>
+    <p class="t30-lede" data-read lang="de">Drei Londoner von 1930 (Ada Turner, Arthur Hale, Mr. Thomas), gespielt vom Sprachmodell talkie-1930-13b. Im langen Lauf über <b data-draw="lede_days" data-source="runs_pct" data-field="days" data-where="folder=sim4_90">—</b> simulierte Tage beantworteten sie <b data-draw="lede_mem" data-source="runs_pct" data-field="memory_pct" data-where="folder=sim4_90">—</b> % der Gedächtnisfragen richtig; bei Erinnerungen, die älter als drei Wochen waren, <b data-draw="lede_old" data-source="mem_age" data-field="pct_correct" data-where="bucket=22-89">—</b> %.</p>
+  </header>
+
+  <section class="t30-sec" id="kennzahlen">
+    <h2>3-Monats-Lauf (v4) auf einen Blick</h2>
+    <div class="t30-tiles">
+      <div class="t30-tile" id="tile-asks"><span class="lab">Anfragen an talkie</span><span class="num" data-draw="tile_asks" data-source="runs_pct" data-field="asks" data-where="folder=sim4_90">—</span><span class="sub">Ø <span data-draw="tile_ms" data-source="runs_pct" data-field="avg_ms" data-where="folder=sim4_90">—</span> ms pro Antwort</span></div>
+      <div class="t30-tile" id="tile-empty"><span class="lab">Leere Antworten</span><span class="num"><span data-draw="tile_empty" data-source="runs_pct" data-field="empty_pct" data-where="folder=sim4_90">—</span> %</span><span class="sub">v3.0 lag bei <span data-draw="tile_empty0" data-source="runs_pct" data-field="empty_pct" data-where="folder=sim3_14">—</span> %</span></div>
+      <div class="t30-tile" id="tile-mem"><span class="lab">Gedächtnisfragen richtig</span><span class="num"><span data-draw="tile_mem" data-source="runs_pct" data-field="memory_pct" data-where="folder=sim4_90">—</span> %</span><span class="sub">von beantworteten: <span data-draw="tile_mem2" data-source="runs_pct" data-field="memory_pct_answered" data-where="folder=sim4_90">—</span> %</span></div>
+      <div class="t30-tile" id="tile-v5"><span class="lab">v5, 7-Tage-Validierung: Gedächtnis</span><span class="num"><span data-draw="tile_v5" data-source="runs_pct" data-field="memory_pct" data-where="folder=sim5_val3">—</span> %</span><span class="sub">offene Fragen, Bücher, Zeitung</span></div>
+      <div class="t30-tile" id="tile-diary"><span class="lab">Fakten im Tagebuch behalten</span><span class="num"><span data-draw="tile_diary" data-source="runs_pct" data-field="diary_pct" data-where="folder=sim4_90">—</span> %</span><span class="sub">Schlüsselfakten des Tages</span></div>
+    </div>
+  </section>
+
+  <section class="t30-sec" id="gedaechtnis">
+    <h2>Gedächtnis nach Alter der Erinnerung</h2>
+    <p class="t30-note">Jeden Morgen wird eine Figur nach einem Ereignis bekannten Datums gefragt. Balken: Anteil richtiger Antworten; heller Balken: Anteil überhaupt lesbarer Antworten.</p>
+    <div class="t30-legend"><span data-draw="age_sw">richtig</span><span style="--sw: var(--cds-chart-muted)">lesbar beantwortet</span></div>
+    <div class="t30-chart" id="chart-age" data-draw="age" data-source="mem_age"></div>
+  </section>
+
+  <section class="t30-sec" id="versionen">
+    <h2>Versionen im Vergleich</h2>
+    <p class="t30-note">Jede Version wurde nach einem Testlauf verbessert. Die Prüffragen wurden in v5 strenger (Datum in jeder Frage, Gleichstand zählt nicht), die Werte sind daher nur grob vergleichbar.</p>
+    <div class="t30-scroll">
+      <table data-source="runs_pct" data-row-key="folder" id="table-runs">
+        <thead><tr><th data-field="run">Version</th><th class="n" data-field="days">Tage</th><th class="n" data-field="asks">Anfragen</th><th class="n" data-field="avg_ms">ms</th><th class="n" data-field="empty_pct">leer %</th><th class="n" data-field="unreadable_pct">Wahl unlesbar %</th><th class="n" data-field="memory_pct">Gedächtnis %</th><th class="n" data-field="diary_pct">Tagebuch %</th></tr></thead>
+        <tbody data-draw="runs_rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="t30-sec" id="geld">
+    <h2>Geld in der Tasche, Tag für Tag</h2>
+    <p class="t30-note">Kassenstand jeder Figur am Abend, in Schilling (12 Pence = 1 Schilling). Freitags sind Zahltag und Miete.</p>
+    <div class="t30-legend" data-draw="money_legend"></div>
+    <div class="t30-chart" id="chart-money" data-draw="money" data-source="money"></div>
+  </section>
+
+  <section class="t30-sec" id="ereignisse">
+    <h2>Was geschah</h2>
+    <p class="t30-note">Ereignisse der Welt, Entscheidungen aus Pflicht (Mehrheit von drei Antworten), Abmachungen aus Gesprächen und Lehren, die die Figuren selbst zogen.</p>
+    <div class="t30-row"><label for="ev-kind" class="t30-note">Art</label><select class="dash-select" id="ev-kind" data-draw="ev_kind" aria-label="Art des Ereignisses"></select></div>
+    <div class="t30-scroll tall">
+      <table data-source="events_v4" id="table-events">
+        <thead><tr><th>Datum</th><th>Art</th><th>Was</th></tr></thead>
+        <tbody data-draw="events_rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="t30-sec" id="zeitung">
+    <h2>Die Zeitung der Figuren</h2>
+    <p class="t30-note">Was Ada, Arthur und Mr. Thomas in sim5 morgens und abends lesen: 24 von Hand zusammengestellte Hauptmeldungen und dazu echte Agenturmeldungen aus Großbritannien, dem Empire und Europa vom Vortag, aus dem NewsWire-Archiv (Dell Research Harvard, CC-BY 4.0; texterkennter Originaltext). Die Daten der Hauptmeldungen wurden mit dem Archiv abgeglichen.</p>
+    <div class="t30-scroll tall">
+      <table data-source="news" id="table-news">
+        <thead><tr><th>Datum</th><th>Meldung</th><th>Quelle</th></tr></thead>
+        <tbody data-draw="news_rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="t30-sec" id="last">
+    <h2>Anfragen pro simuliertem Tag</h2>
+    <p class="t30-note">Wochentage brauchen mehr Anfragen als Sonntage; Tage mit Gesprächen über offene Fragen (Lohn, Darlehen, Pfand) sind am teuersten.</p>
+    <div class="t30-chart" id="chart-asks" data-draw="asks" data-source="asks" style="min-height: 160px"></div>
+  </section>
+</div>
+
+<script>
+  dash.calc('runs_pct', {
+    title: 'Versionen in Prozent', description: 'Kennzahlen je Lauf, Anteile in ganzen Prozent.', inputs: ['runs'],
+    fn: (runs) => runs.map((r) => ({ folder: r.folder, run: r.run, days: r.days, asks: r.asks, avg_ms: r.avg_ms,
+      empty_pct: Math.round(r.empty_rate * 100), unreadable_pct: Math.round(r.unreadable_rate * 100),
+      memory_pct: r.memory_correct == null ? null : Math.round(r.memory_correct * 100), memory_pct_answered: r.memory_correct_of_answered == null ? null : Math.round(r.memory_correct_of_answered * 100), diary_pct: Math.round(r.diary_facts_kept * 100) }))
+  });
+  dash.calc('mem_age', {
+    title: 'Gedächtnis nach Alter', description: 'Gedächtnisfragen des 90-Tage-Laufs, nach Alter der Erinnerung in Tagen gruppiert.', inputs: ['probes_v4'],
+    fn: (probes) => [[0, 1, '0-1', '0–1 Tage'], [2, 7, '2-7', '2–7 Tage'], [8, 21, '8-21', '8–21 Tage'], [22, 89, '22-89', '22+ Tage']].map(([lo, hi, bucket, label]) => {
+      const x = probes.filter((p) => +p.age >= lo && +p.age <= hi);
+      return { bucket, label, n: x.length, pct_correct: x.length ? Math.round(100 * x.filter((p) => +p.ok === 1).length / x.length) : null, pct_answered: x.length ? Math.round(100 * x.filter((p) => +p.answered === 1).length / x.length) : null };
+    })
+  });
+
+  window.t30 = {
+    fmt: d3.format(',d'),
+    val(id, field, key, keyVal) { const d = dash.data(id); if (d.status !== 'ok' || !Array.isArray(d.data)) return null; const r = d.data.find((x) => String(x[key]) === keyVal); return r ? r[field] : null; },
+    tip(el) { let t = el.querySelector('.t30-tip'); if (!t) { t = document.createElement('div'); t.className = 't30-tip'; t.hidden = true; el.appendChild(t); } return t; },
+    place(el, t, x, y) { const w = el.clientWidth; t.hidden = false; const tw = t.offsetWidth; t.style.left = Math.max(0, Math.min(w - tw, x - tw / 2)) + 'px'; t.style.top = Math.max(0, y - t.offsetHeight - 10) + 'px'; },
+    status(el, s) { el.replaceChildren(); const p = document.createElement('p'); p.className = 't30-note'; p.textContent = s === 'error' ? 'Konnte nicht geladen werden.' : '—'; el.appendChild(p); }
+  };
+  const tileNum = (name, field, folder, f) => dash.draw(name, (el) => { const v = t30.val('runs_pct', field, 'folder', folder); el.textContent = v == null ? '—' : (f ? f(v) : String(v)); });
+  tileNum('lede_days', 'days', 'sim4_90'); tileNum('lede_mem', 'memory_pct', 'sim4_90');
+  tileNum('tile_asks', 'asks', 'sim4_90', t30.fmt); tileNum('tile_ms', 'avg_ms', 'sim4_90');
+  tileNum('tile_empty', 'empty_pct', 'sim4_90'); tileNum('tile_empty0', 'empty_pct', 'sim3_14');
+  tileNum('tile_mem', 'memory_pct', 'sim4_90'); tileNum('tile_mem2', 'memory_pct_answered', 'sim4_90'); tileNum('tile_diary', 'diary_pct', 'sim4_90'); tileNum('tile_v5', 'memory_pct', 'sim5_val3');
+  dash.draw('lede_old', (el) => { const d = dash.data('mem_age'); const r = d.status === 'ok' && Array.isArray(d.data) ? d.data.find((x) => x.bucket === '22-89') : null; el.textContent = r && r.pct_correct != null ? String(r.pct_correct) : '—'; });
+
+  dash.draw('runs_rows', (tb) => {
+    const d = dash.data('runs_pct'); tb.replaceChildren(); if (d.status !== 'ok' || !Array.isArray(d.data)) return;
+    for (const r of d.data) { const tr = document.createElement('tr'); for (const [k, n] of [['run', 0], ['days', 1], ['asks', 1], ['avg_ms', 1], ['empty_pct', 1], ['unreadable_pct', 1], ['memory_pct', 1], ['diary_pct', 1]]) { const td = document.createElement('td'); if (n) td.className = 'n'; const v = r[k]; td.textContent = v == null ? '–' : (k === 'asks' ? t30.fmt(v) : String(v)); tr.appendChild(td); } tb.appendChild(tr); }
+  });
+
+  dash.draw('age', (el) => {
+    const d = dash.data('mem_age'); if (d.status !== 'ok' || !Array.isArray(d.data)) return t30.status(el, d.status);
+    const rows = d.data; el.replaceChildren(); const W = el.clientWidth || 320, H = 220, m = { t: 20, r: 8, b: 28, l: 36 };
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Anteil richtiger und lesbarer Antworten nach Alter der Erinnerung');
+    const x = d3.scaleBand().domain(rows.map((r) => r.label)).range([m.l, W - m.r]).padding(0.28), y = d3.scaleLinear().domain([0, 100]).range([H - m.b, m.t]);
+    svg.append('g').attr('class', 'grid').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(4).tickSize(-(W - m.l - m.r)).tickFormat('')).call((g) => g.select('.domain').remove());
+    svg.append('g').attr('class', 'axis').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(4).tickFormat((v) => v + ' %')).call((g) => g.select('.domain').remove());
+    svg.append('g').attr('class', 'axis').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickSizeOuter(0));
+    const bw = x.bandwidth(); const tip = t30.tip(el);
+    const gs = svg.selectAll('g.b').data(rows).join('g').attr('class', 'b');
+    gs.append('rect').attr('x', (r) => x(r.label)).attr('width', bw).attr('y', (r) => y(r.pct_answered || 0)).attr('height', (r) => y(0) - y(r.pct_answered || 0)).style('fill', 'var(--cds-chart-muted)');
+    gs.append('rect').attr('x', (r) => x(r.label) + bw * 0.18).attr('width', bw * 0.64).attr('y', (r) => y(r.pct_correct || 0)).attr('height', (r) => y(0) - y(r.pct_correct || 0)).style('fill', dash.colors[0]);
+    gs.append('text').attr('x', (r) => x(r.label) + bw / 2).attr('y', (r) => y(r.pct_correct || 0) - 5).attr('text-anchor', 'middle').text((r) => r.pct_correct == null ? '' : r.pct_correct + ' %');
+    gs.append('rect').attr('x', (r) => x(r.label)).attr('width', bw).attr('y', m.t).attr('height', H - m.t - m.b).style('fill', 'transparent')
+      .on('pointerenter pointermove', (ev, r) => { tip.textContent = `${r.label}: ${r.pct_correct} % richtig, ${r.pct_answered} % beantwortet (${r.n} Fragen)`; const [px] = d3.pointer(ev, el); t30.place(el, tip, px, y(r.pct_answered || 0) * el.clientWidth / W); })
+      .on('pointerleave', () => { tip.hidden = true; });
+  });
+
+  dash.draw('age_sw', (el) => { el.style.setProperty('--sw', dash.colors[0]); el.textContent = 'richtig'; });
+  const WHO = ['Ada', 'Arthur', 'Mr. Thomas'];
+  dash.draw('money_legend', (el) => { el.replaceChildren(...WHO.map((w, i) => { const s = document.createElement('span'); s.style.setProperty('--sw', dash.colors[i]); s.textContent = w; return s; })); });
+  dash.draw('money', (el) => {
+    const d = dash.data('money'); if (d.status !== 'ok' || !Array.isArray(d.data) || !d.data.length) return t30.status(el, d.status);
+    el.replaceChildren(); const parse = d3.utcParse('%Y-%m-%d'); const rows = d.data.map((r) => ({ ...r, t: parse(r.date), s: +r.shillings }));
+    const W = el.clientWidth || 320, H = 240, m = { t: 12, r: 12, b: 26, l: 40 };
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Kassenstand von Ada, Arthur und Mr. Thomas in Schilling über die Tage der Simulation');
+    const x = d3.scaleUtc().domain(d3.extent(rows, (r) => r.t)).range([m.l, W - m.r]);
+    const y = d3.scaleSymlog().constant(10).domain([Math.min(0, d3.min(rows, (r) => r.s)), d3.max(rows, (r) => r.s)]).nice().range([H - m.b, m.t]);
+    const yt = [0, 5, 20, 100, 400, 1000].filter((v) => v <= y.domain()[1]);
+    svg.append('g').attr('class', 'grid').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).tickValues(yt).tickSize(-(W - m.l - m.r)).tickFormat('')).call((g) => g.select('.domain').remove());
+    svg.append('g').attr('class', 'axis').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).tickValues(yt).tickFormat((v) => v + 's')).call((g) => g.select('.domain').remove());
+    svg.append('g').attr('class', 'axis').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor(W / 110))).tickFormat(d3.utcFormat('%-d.%-m.')).tickSizeOuter(0));
+    const line = d3.line().x((r) => x(r.t)).y((r) => y(r.s));
+    WHO.forEach((w, i) => { const s = rows.filter((r) => r.who === w); svg.append('path').datum(s).attr('d', line).style('fill', 'none').style('stroke', dash.colors[i]).style('stroke-width', 1.8); });
+    const tip = t30.tip(el); const fd = d3.utcFormat('%-d. %B 1930');
+    const dates = [...new Set(rows.map((r) => +r.t))].sort((a, b) => a - b);
+    const rule = svg.append('line').attr('y1', m.t).attr('y2', H - m.b).style('stroke', 'var(--cds-chart-reference)').style('opacity', 0);
+    svg.append('rect').attr('x', m.l).attr('y', m.t).attr('width', W - m.l - m.r).attr('height', H - m.t - m.b).style('fill', 'transparent')
+      .on('pointerenter pointermove', (ev) => { const [px] = d3.pointer(ev); const t = dates[d3.bisectCenter(dates, +x.invert(px))]; const at = rows.filter((r) => +r.t === t); rule.attr('x1', x(t)).attr('x2', x(t)).style('opacity', 1); tip.textContent = fd(new Date(t)) + ' · ' + WHO.map((w) => { const r = at.find((q) => q.who === w); return `${w} ${r ? d3.format('.1f')(r.s) : '–'}s`; }).join(' · '); t30.place(el, tip, x(t) * el.clientWidth / W, m.t + 30); })
+      .on('pointerleave', () => { tip.hidden = true; rule.style('opacity', 0); });
+  });
+
+  dash.draw('ev_kind', (sel) => {
+    const cur = sel.value || ''; sel.replaceChildren(new Option('Alle', ''), ...['Ereignis', 'Pflicht', 'Abmachung', 'Lehre'].map((k) => new Option(k, k))); sel.value = cur;
+    sel.onchange = () => dash.draw('events_rows');
+  });
+  dash.draw('events_rows', (tb) => {
+    const d = dash.data('events_v4'); tb.replaceChildren(); if (d.status !== 'ok' || !Array.isArray(d.data)) return;
+    const sel = document.getElementById('ev-kind'); const k = sel ? sel.value : ''; const parse = d3.utcParse('%Y-%m-%d'), fd = d3.utcFormat('%a %-d.%-m.');
+    for (const r of d.data.filter((r) => !k || r.kind === k)) { const tr = document.createElement('tr'); const a = document.createElement('td'); a.className = 'd'; a.textContent = fd(parse(r.date)); const b = document.createElement('td'); const p = document.createElement('span'); p.className = 't30-pill ' + r.kind; p.textContent = r.kind; b.appendChild(p); const c = document.createElement('td'); c.textContent = r.text; tr.append(a, b, c); tb.appendChild(tr); }
+  });
+  dash.draw('news_rows', (tb) => {
+    const d = dash.data('news'); tb.replaceChildren(); if (d.status !== 'ok' || !Array.isArray(d.data)) return;
+    const parse = d3.utcParse('%Y-%m-%d'), fd = d3.utcFormat('%-d.%-m.1930');
+    for (const r of d.data) { const tr = document.createElement('tr'); const a = document.createElement('td'); a.className = 'd'; a.textContent = fd(parse(r.date)); const c = document.createElement('td'); c.textContent = r.text; const q = document.createElement('td'); q.className = 't30-note'; q.textContent = r.source; tr.append(a, c, q); tb.appendChild(tr); }
+  });
+  dash.draw('asks', (el) => {
+    const d = dash.data('asks'); if (d.status !== 'ok' || !Array.isArray(d.data) || !d.data.length) return t30.status(el, d.status);
+    el.replaceChildren(); const parse = d3.utcParse('%Y-%m-%d'); const rows = d.data.map((r) => ({ t: parse(r.date), v: +r.asks }));
+    const W = el.clientWidth || 320, H = 160, m = { t: 10, r: 8, b: 24, l: 34 };
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Anfragen an talkie pro simuliertem Tag');
+    const x = d3.scaleBand().domain(rows.map((r) => +r.t)).range([m.l, W - m.r]).padding(0.15), y = d3.scaleLinear().domain([0, d3.max(rows, (r) => r.v)]).nice().range([H - m.b, m.t]);
+    svg.append('g').attr('class', 'grid').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(3).tickSize(-(W - m.l - m.r)).tickFormat('')).call((g) => g.select('.domain').remove());
+    svg.append('g').attr('class', 'axis').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(3)).call((g) => g.select('.domain').remove());
+    const fd = d3.utcFormat('%-d.%-m.'); const every = Math.ceil(rows.length / Math.max(2, Math.floor(W / 70)));
+    svg.append('g').attr('class', 'axis').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickValues(x.domain().filter((_, i) => i % every === 0)).tickFormat((v) => fd(new Date(v))).tickSizeOuter(0));
+    const tip = t30.tip(el); const fl = d3.utcFormat('%A, %-d. %B 1930');
+    svg.selectAll('rect.b').data(rows).join('rect').attr('class', 'b').attr('x', (r) => x(+r.t)).attr('width', x.bandwidth()).attr('y', (r) => y(r.v)).attr('height', (r) => y(0) - y(r.v)).style('fill', dash.colors[0])
+      .on('pointerenter pointermove', (ev, r) => { tip.textContent = `${fl(r.t)}: ${r.v} Anfragen`; const [px] = d3.pointer(ev, el); t30.place(el, tip, px, y(r.v) * el.clientWidth / W); })
+      .on('pointerleave', () => { tip.hidden = true; });
+  });
+</script>

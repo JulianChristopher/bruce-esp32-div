@@ -1,0 +1,874 @@
+{
+ "METRICS": {
+  "probes": [
+   {
+    "day": 1,
+    "age": 1,
+    "who": "thomas",
+    "q": "What new discovery in the heavens did the papers report in March?",
+    "kind": "news",
+    "aided": false,
+    "final": false,
+    "ok": true,
+    "answer": "A ninth planet beyond Neptune",
+    "truth": "A ninth planet beyond Neptune",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: I report a new planet.",
+     "O: I heard last night from Arizona that another planet had been seen, and christened \"Neptune.\""
+    ]
+   },
+   {
+    "day": 2,
+    "age": 2,
+    "who": "arthur",
+    "q": "What new discovery in the heavens did the papers report in March?",
+    "kind": "news",
+    "aided": false,
+    "final": false,
+    "ok": true,
+    "answer": "A ninth planet beyond Neptune",
+    "truth": "A ninth planet beyond Neptune",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: A ninth planet, far beyond Neptune, was announced by the Lowell Observatory in Arizona.",
+     "O: A new planet was discovered in March, far beyond Neptune."
+    ]
+   },
+   {
+    "day": 3,
+    "age": 3,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday, the 14th of March?",
+    "kind": "life",
+    "aided": false,
+    "final": false,
+    "ok": true,
+    "answer": "Yes, in full",
+    "truth": "Yes, in full",
+    "tally": [
+     2,
+     0
+    ],
+    "raws": [
+     "O: I paid the rent on Friday, the 14th of March.",
+     "O: I paid the rent on Friday, the 14th of March."
+    ]
+   },
+   {
+    "day": 4,
+    "age": 4,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday, the 14th of March?",
+    "kind": "life",
+    "aided": true,
+    "final": false,
+    "ok": true,
+    "answer": "forty shillings (40s.)",
+    "truth": "forty shillings (40s.)",
+    "tally": [
+     0,
+     0,
+     2,
+     0
+    ],
+    "raws": [
+     "O: I gave her forty shillings.",
+     "O: I gave her forty shillings."
+    ]
+   },
+   {
+    "day": 5,
+    "age": 4,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the quarterly ledger?",
+    "kind": "life",
+    "aided": false,
+    "final": false,
+    "ok": true,
+    "answer": "In perfect order",
+    "truth": "In perfect order",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: In perfect order.",
+     "O: He found the quarterly ledger in perfect order."
+    ]
+   },
+   {
+    "day": 6,
+    "age": 3,
+    "who": "ada",
+    "q": "What happened to Bert at the docks in the week of 17 March?",
+    "kind": "life",
+    "aided": false,
+    "final": false,
+    "ok": true,
+    "answer": "He was stood off and lost his work",
+    "truth": "He was stood off and lost his work",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: Bert was stood off at the docks in the week of 17 March.",
+     "O: I heard Bert say he was stood off, and lost his work."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 7,
+    "who": "thomas",
+    "q": "What new discovery in the heavens did the papers report in March?",
+    "kind": "news",
+    "aided": false,
+    "final": true,
+    "ok": false,
+    "answer": null,
+    "truth": "A ninth planet beyond Neptune",
+    "tally": [
+     1,
+     0,
+     1
+    ],
+    "raws": [
+     "O: ",
+     "O: ",
+     "O: ",
+     "C: A new moon of Jupiter was discovered in March.",
+     "C: A ninth planet beyond Neptune was discovered in March."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 7,
+    "who": "arthur",
+    "q": "What new discovery in the heavens did the papers report in March?",
+    "kind": "news",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "A ninth planet beyond Neptune",
+    "truth": "A ninth planet beyond Neptune",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: A new planet was discovered in March.",
+     "O: I read in the Daily Herald: A NEW PLANET. The Lowell Observatory in Arizona announces the discovery of a ninth planet"
+    ]
+   },
+   {
+    "day": 7,
+    "age": 7,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday, the 14th of March?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "Yes, in full",
+    "truth": "Yes, in full",
+    "tally": [
+     2,
+     0
+    ],
+    "raws": [
+     "O: I paid the rent on Friday, the 14th of March.",
+     "O: I paid the rent on Friday, the 14th of March."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 7,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday, the 14th of March?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "forty shillings (40s.)",
+    "truth": "forty shillings (40s.)",
+    "tally": [
+     0,
+     0,
+     2,
+     0
+    ],
+    "raws": [
+     "O: I gave Edith forty shillings.",
+     "O: I gave her forty shillings."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 6,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the quarterly ledger?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "In perfect order",
+    "truth": "In perfect order",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: He found it in perfect order.",
+     "O: He found the quarterly ledger in perfect order."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 4,
+    "who": "ada",
+    "q": "What happened to Bert at the docks in the week of 17 March?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": false,
+    "answer": "Nothing; he worked as usual",
+    "truth": "He was stood off and lost his work",
+    "tally": [
+     0,
+     0,
+     2
+    ],
+    "raws": [
+     "O: Bert walked about looking for work, but couldn't get none.",
+     "O: Bert got no work at the docks in the week of 17 March.\n\nQUESTION:"
+    ]
+   },
+   {
+    "day": 7,
+    "age": 2,
+    "who": "arthur",
+    "q": "Who in your family fell ill in the week of the audit?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "Joan, my daughter",
+    "truth": "Joan, my daughter",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: Joan fell ill.",
+     "O: Joan fell ill."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 2,
+    "who": "arthur",
+    "q": "Did you send for the doctor for Joan?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": false,
+    "answer": "No",
+    "truth": "Yes",
+    "tally": [
+     0,
+     1
+    ],
+    "raws": [
+     "O: I sent for the doctor for Joan.",
+     "O: ",
+     "O: ",
+     "C: ",
+     "C: No."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 1,
+    "who": "arthur",
+    "q": "What did Mr. Thomas announce in the week before the audit?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "The auditors were coming on Monday",
+    "truth": "The auditors were coming on Monday",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: He announced that the auditors come on Monday, and the books must be ready for them.",
+     "O: He announced that the auditors come on Monday, and the books must be ready for them."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 1,
+    "who": "thomas",
+    "q": "Which former Prime Minister died in March?",
+    "kind": "news",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "Lord Balfour",
+    "truth": "Lord Balfour",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: Lord Balfour died in March.",
+     "O: Lord Balfour died in March, 1903."
+    ]
+   }
+  ],
+  "diaries": [
+   {
+    "day": 0,
+    "who": "ada",
+    "facts": 3,
+    "kept": 3
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "facts": 5,
+    "kept": 5
+   },
+   {
+    "day": 0,
+    "who": "thomas",
+    "facts": 2,
+    "kept": 0
+   },
+   {
+    "day": 1,
+    "who": "arthur",
+    "facts": 3,
+    "kept": 3
+   },
+   {
+    "day": 1,
+    "who": "thomas",
+    "facts": 2,
+    "kept": 1
+   },
+   {
+    "day": 2,
+    "who": "ada",
+    "facts": 1,
+    "kept": 1
+   },
+   {
+    "day": 2,
+    "who": "arthur",
+    "facts": 6,
+    "kept": 5
+   },
+   {
+    "day": 2,
+    "who": "thomas",
+    "facts": 2,
+    "kept": 2
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "facts": 1,
+    "kept": 1
+   },
+   {
+    "day": 3,
+    "who": "arthur",
+    "facts": 1,
+    "kept": 1
+   },
+   {
+    "day": 3,
+    "who": "thomas",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 5,
+    "who": "arthur",
+    "facts": 3,
+    "kept": 3
+   },
+   {
+    "day": 5,
+    "who": "thomas",
+    "facts": 2,
+    "kept": 2
+   },
+   {
+    "day": 6,
+    "who": "ada",
+    "facts": 1,
+    "kept": 1
+   },
+   {
+    "day": 6,
+    "who": "arthur",
+    "facts": 4,
+    "kept": 2
+   },
+   {
+    "day": 6,
+    "who": "thomas",
+    "facts": 1,
+    "kept": 0
+   }
+  ],
+  "days": [
+   {
+    "day": 0,
+    "asks": 47,
+    "money": {
+     "ada": 246,
+     "arthur": 399,
+     "thomas": 478
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 1,
+    "asks": 35,
+    "money": {
+     "ada": 233,
+     "arthur": 399,
+     "thomas": 476
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 2,
+    "asks": 31,
+    "money": {
+     "ada": 227,
+     "arthur": 399,
+     "thomas": 476
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 0,
+      "edith": 1,
+      "joan": 0,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 3,
+    "asks": 40,
+    "money": {
+     "ada": 206,
+     "arthur": 396,
+     "thomas": 474
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 1,
+      "edith": 1,
+      "joan": 1,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 4,
+    "asks": 44,
+    "money": {
+     "ada": 190,
+     "arthur": 381,
+     "thomas": 472
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 1,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 5,
+    "asks": 31,
+    "money": {
+     "ada": 169,
+     "arthur": 325,
+     "thomas": 470
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 1,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   },
+   {
+    "day": 6,
+    "asks": 60,
+    "money": {
+     "ada": 163,
+     "arthur": 325,
+     "thomas": 468
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 1,
+      "joan": 2,
+      "bert": 0
+     },
+     "thomas": {
+      "ada": 1,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0
+     }
+    }
+   }
+  ]
+ },
+ "STATS": {
+  "asks": 317,
+  "choices": 126,
+  "unreadable": 12,
+  "votes": 9,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 17,
+  "lines": 69,
+  "emptyLines": 25,
+  "diaryFallback": 0,
+  "probes": [],
+  "maxLen": 1476,
+  "lenSum": 291417,
+  "aborted": 402,
+  "failedReq": 402,
+  "ms": 189778,
+  "timed": 270,
+  "promptEcho": 13,
+  "papers": 8,
+  "retries": 65,
+  "reasks": 18,
+  "emptyThought": 9,
+  "duties": 1,
+  "nullReplies": 4,
+  "bookRight": 5,
+  "bookRetry": 1,
+  "bookFixed": 1,
+  "reported": 4,
+  "echo": 9,
+  "echoLeft": 5
+ },
+ "W": {
+  "wage": 840,
+  "day": 7,
+  "t": 1140,
+  "coin": {
+   "where": "floor",
+   "finder": null
+  },
+  "ledger": {
+   "steps": 3,
+   "errors": 0,
+   "assigned": true,
+   "need": 3,
+   "verdict": "in perfect order"
+  },
+  "audit": {
+   "steps": 2,
+   "errors": 0,
+   "verdict": null,
+   "raise": null
+  },
+  "paid": {
+   "ada0": true,
+   "arthur0": true
+  },
+  "bertWork": false,
+  "rentDue": false,
+  "rentPaid": {
+   "0": true
+  },
+  "joanIll": false,
+  "doctor": "called",
+  "extraHours": null,
+  "loan": null,
+  "facts": [
+   {
+    "day": 0,
+    "who": "thomas",
+    "q": "What new discovery in the heavens did the papers report in March?",
+    "opts": [
+     "A ninth planet beyond Neptune",
+     "A great comet near the sun",
+     "A new moon of Jupiter"
+    ],
+    "truth": 0,
+    "kind": "news",
+    "asked": 1
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "q": "What new discovery in the heavens did the papers report in March?",
+    "opts": [
+     "A ninth planet beyond Neptune",
+     "A great comet near the sun",
+     "A new moon of Jupiter"
+    ],
+    "truth": 0,
+    "kind": "news",
+    "asked": 1
+   },
+   {
+    "day": 0,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday, the 14th of March?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the landlord to wait"
+    ],
+    "truth": 0,
+    "kind": "life",
+    "asked": 1
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "q": "How much housekeeping money did you give Edith on Friday, the 14th of March?",
+    "opts": [
+     "thirty shillings (30s.)",
+     "thirty-five shillings (35s.)",
+     "forty shillings (40s.)",
+     "forty-five shillings (45s.)"
+    ],
+    "truth": 2,
+    "kind": "life",
+    "asked": 1
+   },
+   {
+    "day": 1,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the quarterly ledger?",
+    "opts": [
+     "In perfect order",
+     "Complete but with mistakes",
+     "Not finished"
+    ],
+    "truth": 0,
+    "kind": "life",
+    "asked": 1
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "q": "What happened to Bert at the docks in the week of 17 March?",
+    "opts": [
+     "He was stood off and lost his work",
+     "He was made a foreman",
+     "Nothing; he worked as usual"
+    ],
+    "truth": 0,
+    "kind": "life",
+    "asked": 1
+   },
+   {
+    "day": 5,
+    "who": "arthur",
+    "q": "Who in your family fell ill in the week of the audit?",
+    "opts": [
+     "Joan, my daughter",
+     "Edith, my wife",
+     "Nobody"
+    ],
+    "truth": 0,
+    "kind": "life",
+    "asked": 0
+   },
+   {
+    "day": 5,
+    "who": "arthur",
+    "q": "Did you send for the doctor for Joan?",
+    "opts": [
+     "Yes",
+     "No"
+    ],
+    "truth": 0,
+    "kind": "life",
+    "asked": 0
+   },
+   {
+    "day": 6,
+    "who": "arthur",
+    "q": "What did Mr. Thomas announce in the week before the audit?",
+    "opts": [
+     "The auditors were coming on Monday",
+     "The office would close early",
+     "Wages would be paid late"
+    ],
+    "truth": 0,
+    "kind": "life"
+   },
+   {
+    "day": 6,
+    "who": "thomas",
+    "q": "Which former Prime Minister died in March?",
+    "opts": [
+     "Lord Balfour",
+     "Mr. Lloyd George",
+     "Mr. Baldwin"
+    ],
+    "truth": 0,
+    "kind": "news"
+   }
+  ],
+  "factQ": {
+   "thomasWhat new discovery in the heavens did the papers report in March?": true,
+   "arthurWhat new discovery in the heavens did the papers report in March?": true,
+   "thomasWhich former Prime Minister died in March?": true
+  },
+  "rentOwing": false,
+  "auditDue": true
+ }
+}

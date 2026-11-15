@@ -79,6 +79,19 @@ places.labour_exchange = { name: 'the Employment Exchange in Bermondsey', kind: 
 places.relieving_office = { name: 'the Public Assistance relieving office in Bermondsey', kind: 'office', district: 'bermondsey', warmth: 35, open: w => !sat(w) && !sun(w) && w.between(hm(9), hm(12, 30)) };
 places.pollock_rooms = { name: "the Pollocks' rooms downstairs", kind: 'home', district: 'bermondsey', warmth: 40 };
 places.simms_house = { name: "Mrs. Simms's house next door to the Hales", kind: 'home', district: 'islington', warmth: 55 };
+places.baker = { name: "the baker's in Bermondsey", kind: 'shop', district: 'bermondsey', warmth: 60, open: w => !sun(w) && w.between(hm(7), hm(19)) };
+places.chemist = { name: "the chemist's in Bermondsey", kind: 'shop', district: 'bermondsey', warmth: 50, open: w => !sun(w) && w.between(hm(9), hm(20)) };
+places.newsagent = { name: "the newsagent and tobacconist's in Bermondsey", kind: 'shop', district: 'bermondsey', warmth: 45, open: w => w.between(hm(6), hm(20)) };
+places.fishshop = { name: 'the fried-fish shop in Bermondsey', kind: 'cafe', district: 'bermondsey', warmth: 65, open: w => !sun(w) && (w.between(hm(11, 30), hm(14)) || w.between(hm(17), hm(23))) };
+places.street_corner = { name: "the street corner where the bookie's runner stands", kind: 'street', district: 'bermondsey', warmth: w => 20, open: w => !sun(w) && w.between(hm(10), hm(15)) };
+places.islington_shop = { name: 'the corner shop in Islington', kind: 'shop', district: 'islington', warmth: 50, open: w => w.between(hm(7), hm(21)) };
+places.chemist_islington = { name: "the chemist's in Upper Street, Islington", kind: 'shop', district: 'islington', warmth: 50, open: w => !sun(w) && w.between(hm(9), hm(20)) };
+places.library = { name: 'the free public library in Bermondsey', kind: 'library', district: 'bermondsey', warmth: 60, open: w => !sun(w) && w.between(hm(10), hm(21)) };
+places.washhouse = { name: 'the public baths and wash-house in Grange Road', kind: 'washhouse', district: 'bermondsey', warmth: 70, open: w => !sun(w) && w.between(hm(8), hm(20)) };
+places.pictures = { name: 'the picture palace in the Old Kent Road', kind: 'pictures', district: 'bermondsey', warmth: 60, open: w => w.between(hm(13, 30), hm(23)) && (!sun(w) || w.mod >= hm(17)) };
+places.mission = { name: 'the Salvation Army hall in Bermondsey', kind: 'mission', district: 'bermondsey', warmth: 55, open: w => w.between(hm(18), hm(21)) || sun(w) && w.between(hm(10), hm(12)) };
+places.library_islington = { name: 'the public library in Islington', kind: 'library', district: 'islington', warmth: 60, open: w => !sun(w) && w.between(hm(10), hm(21)) };
+places.pictures_islington = { name: 'the Blue Hall picture house in Upper Street', kind: 'pictures', district: 'islington', warmth: 60, open: w => w.between(hm(13, 30), hm(23)) && (!sun(w) || w.mod >= hm(17)) };
 places.market_islington = { name: 'Chapel Market in Islington', kind: 'market', district: 'islington', warmth: outdoor, open: w => !sun(w) && w.between(hm(8), hm(19)) };
 
 // ---------- what can be done ----------
@@ -105,7 +118,7 @@ const actions = [
   { id: 'buy_coal', who: ['ada'], at: () => 'chandler', where: () => true, when: w => w.count('ada', 'coal') < 3, cost: w => (w.coldSnap && w.coldSnap(w.day) ? 15 : 12), payee: () => 'barker', onCredit: true, dur: 15, base: w => (w.count('ada', 'coal') === 0 ? 22 : 5),
     label: (w) => `Buy a hundredweight of coal at Barker's (${w.coldSnap && w.coldSnap(w.day) ? '1s. 3d., dearer in the frost' : '1s.'}); ${w.count('ada', 'coal')} fires' worth left`,
     effect: (w, p) => { w.add('ada', 'coal', 4); if (p.money < 0) H(w).debt('ada', 'Barker'); return 'Ada bought coal.'; } },
-  { id: 'light_fire', who: ['ada'], where: athome, when: w => w.count('ada', 'coal') > 0 && !(w.flags.fire_ada_home > w.t) && w.mod >= hm(6) && w.mod < hm(21, 30), dur: 10, meets: { warmth: 30 }, base: 5,
+  { id: 'light_fire', who: ['ada'], where: athome, when: w => w.count('ada', 'coal') > 0 && !(w.flags.fire_ada_home > w.t) && w.mod >= hm(6) && w.mod < hm(21, 30), dur: 10, meets: { warmth: 30 }, base: 5, habit: (w, p) => p.needs.warmth > 40,
     label: (w) => `Light the fire (${w.count('ada', 'coal')} fires' worth of coal left)`, effect: (w) => { w.add('ada', 'coal', -1); w.flags.fire_ada_home = w.t + 240; return 'Ada lit the fire.'; } },
   { id: 'market', who: ['ada'], at: () => 'market', where: () => true, when: (w, p) => !(p.marketDay === w.day), dur: 40, cost: 0, base: w => (sat(w) ? 14 : 2), meets: { social: 15 },
     label: () => 'Go round the street-market for cheap vegetables and a bit of company', habit: w => sat(w) && w.between(hm(14), hm(17)),
@@ -194,6 +207,17 @@ const objects = {
   kettle: { kind: 'kettle', name: 'her copper kettle', at: 'ada', value: 30 },
   coat: { kind: 'coat', name: 'her winter coat', at: 'ada', value: 48 },
   boots: { kind: 'boots', name: "Bert's Sunday boots", at: 'ada', value: 36 },
-  coin: { kind: 'coin', name: 'a half-crown', at: 'office_floor', value: 30 }
+  medals: { kind: 'medals', name: "Fred's war medals", at: 'ada', value: 24 },
+  clock: { kind: 'clock', name: 'the mantel clock', at: 'arthur', value: 36 },
+  blanket: { kind: 'blanket', name: 'the spare blanket', at: 'ada', value: 18 },
+  coin: { kind: 'coin', name: 'a half-crown', at: 'office_floor', value: 30 },
+  // what else a household had that Lamb would lend on (pledges commonly taken in, after the New Survey and pawnbrokers' ledgers)
+  suit: { kind: 'suit', name: "Bert's Sunday suit", at: 'ada', value: 60 }, sheets: { kind: 'sheets', name: 'her best pair of sheets', at: 'ada', value: 24 },
+  irons: { kind: 'irons', name: 'her flat-irons', at: 'ada', value: 12 }, bible: { kind: 'bible', name: 'the family Bible', at: 'ada', value: 12 },
+  dress: { kind: 'dress', name: 'her black Sunday dress', at: 'ada', value: 36 }, shawl: { kind: 'shawl', name: 'her Paisley shawl', at: 'ada', value: 18 },
+  overcoat: { kind: 'coat', name: 'his overcoat', at: 'arthur', value: 72 }, wireless: { kind: 'wireless', name: 'the wireless set', at: 'arthur', value: 60 },
+  umbrella: { kind: 'umbrella', name: 'his umbrella', at: 'arthur', value: 12 }, chain: { kind: 'chain', name: 'his silver watch-chain', at: 'arthur', value: 30 },
+  dickens: { kind: 'books', name: 'his set of Dickens', at: 'arthur', value: 24 }, brooch: { kind: 'brooch', name: "Edith's cameo brooch", at: 'arthur', value: 30 },
+  machine: { kind: 'machine', name: "Edith's sewing-machine", at: 'arthur', value: 96 }, goldwatch: { kind: 'watch', name: 'his gold hunter watch', at: 'thomas', value: 240 }
 };
 module.exports = { places, routes, people, actions, practices, objects, hm, s };

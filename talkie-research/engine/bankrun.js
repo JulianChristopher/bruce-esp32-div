@@ -29,7 +29,7 @@ function keyOfLabel(l) {
   return 'x:' + t.slice(0, 20);
 }
 function keyOfAnswer(text, s) {
-  const it = parse((text || '').split(/(?<=[.!?])\s/)[0]); if (!it) return null;
+  const it = parse(first(text)); if (!it) return null;
   const v = it.verb, to = (it.to || '').replace('relieving', 'cobb');
   if (v === 'rent') return 'rent'; if (v === 'pawn') return 'pawn'; if (v === 'redeem') return 'redeem'; if (v === 'fire') return 'fire'; if (v === 'sleep') return 'sleep'; if (v === 'rest') return 'rest';
   if (v === 'read') return 'read'; if (v === 'pray') return 'pray'; if (v === 'walk') return 'walk'; if (v === 'write') return 'write';
@@ -41,6 +41,18 @@ function keyOfAnswer(text, s) {
   if (v === 'work') return s.who === 'ada' && /office|scrub|clean/.test(text.toLowerCase()) ? 'go:office' : 'work';
   return 'other:' + v;
 }
+// any free deed the grammar can place is judged directly: the situation's world is restored and the deed is
+// carried out in a copy of it and rolled on for a day, on the same scale as the courses the engine knew of
+const SIT = require('./situations.js'), VERBS = require('./verbs.js'), PROSE = require('./prose1931.js');
+const first = t => ((t || '').replace(/\b(Mrs|Mr|Dr|St)\./g, '$1§').split(/(?<=[.!?])\s/)[0] || '').replace(/§/g, '.');
+function scoreDeed(s, text) {
+  const f = VERBS.frame(first(text)); if (!f || f.verb === 'other') return { deed: 'unparsed' };
+  const w = SIT.makeWorld(s.snapshot.t).restore(s.snapshot);
+  let why = null; const r = w.rolloutDeed(s.who, w2 => { const d = VERBS.deed(w2, s.who, f); if (d && d.why) why = d.why; if (d && d.plan) { const g = w2.affordances(s.who).find(x => x.a.id === 'go_home'); return g ? { aff: g } : null; } return d; }, 24);
+  if (!r) return { deed: why ? 'refused' : 'none', verb: f.verb, why };
+  const best = s.options[0].score, worst = s.options[s.options.length - 1].score;
+  return { deed: 'judged', verb: f.verb, label: r.label, rel: +((r.after - worst) / Math.max(1e-9, best - worst)).toFixed(2), beatsBest: r.after > best + 0.5 };
+}
 function score(s, key) {
   const best = s.options[0].score, worst = s.options[s.options.length - 1].score;
   const m = s.options.find(o => keyOfLabel(o.label) === key) || (key && key.startsWith('talk:') ? s.options.find(o => keyOfLabel(o.label).startsWith('talk:')) : null);
@@ -51,6 +63,13 @@ const He = s => (s.who === 'ada' ? 'She' : 'He'), Short = s => ({ ada: 'Ada', ar
 async function answer(s) {
   const q = `${s.context}\n\nWhat does ${Short(s)} do now, as ${He(s).toLowerCase()} truly would? Answer in the form: ${He(s)} ... (one sentence)`;
   const echo = t2 => !t2 || /CHARACTER:|PURSE:|AT HAND:/.test(t2) || /^\w+ (o'clock|minutes|past|to) /i.test(t2.trim());
+  if (MODE === 'prose' || MODE.startsWith('hybrid')) {   // the same facts as a page of a 1931 novel; prose asks in the novel's past, hybrid in the present
+    const w = SIT.makeWorld(s.snapshot.t).restore(s.snapshot), pg = SIT.proseContext(w, s.who);
+    const q2 = MODE === 'prose' ? `${pg}\n\n${PROSE.question(s.who)}` : `${pg}\n\nWhat does ${PROSE.SHORT[s.who]} do now? Answer in the form: ${He(s)} ...`;
+    const echo2 = t2 => !t2 || t2.length < 6 || /^It was /.test(t2.trim()) || t2.includes(pg.slice(0, 40));
+    let t2 = await io.ask(q2); if (echo2(t2)) t2 = await io.ask(q2); if (echo2(t2)) return null;
+    return /^(she|he)\b/i.test(t2.trim()) ? t2.trim().replace(/^\w/, c => c.toUpperCase()) : `${He(s)} ${t2.trim()}`;
+  }
   if (MODE === 'open') { let t2 = await io.ask(q); if (echo(t2)) t2 = await io.ask(q); return echo(t2) ? null : t2; }
   // foresee: three ideas -> the engine's judgement of each, in words -> she chooses
   const ideas = []; for (let i = 0; i < 3; i++) { const t = await io.ask(q); const k = keyOfAnswer(t, s); if (t && k && !ideas.some(x => x.k === k)) ideas.push({ t: t.split(/(?<=[.!?])\s/)[0], k }); }
@@ -64,14 +83,17 @@ async function answer(s) {
   await io.launch(); const out = fs.createWriteStream(OUTF, { flags: 'a' });
   for (const s of SAMPLE) {
     let t = null; try { t = await answer(s); } catch (e) {}
-    const key = keyOfAnswer(t, s), sc = key ? score(s, key) : { matched: false };
-    const row = { id: s.id, template: s.template, who: s.who, mode: MODE, answer: (t || '').slice(0, 200), key, ...sc, urgent: s.urgent.map(u => u[0]) };
+    const key = keyOfAnswer(t, s), sc = key ? score(s, key) : { matched: false }; const dj = t ? scoreDeed(s, t) : { deed: 'empty' };
+    const row = { id: s.id, template: s.template, who: s.who, mode: MODE, answer: (t || '').slice(0, 200), key, ...sc, deed: dj, urgent: s.urgent.map(u => u[0]) };
     out.write(JSON.stringify(row) + '\n');
-    console.log(s.template.padEnd(16), (t ? (sc.matched ? (sc.isBest ? 'BEST' : sc.rel.toFixed(2)) : 'unmatched') : 'EMPTY').padEnd(9), (key || '').padEnd(14), (t || '').replace(/\n/g, ' ').slice(0, 90));
+    console.log(s.template.padEnd(16), (t ? (dj.deed === 'judged' ? dj.rel.toFixed(2) + (dj.beatsBest ? '+' : '') : dj.deed) : 'EMPTY').padEnd(9), (key || '').padEnd(14), (t || '').replace(/\n/g, ' ').slice(0, 90));
   }
   const rows = fs.readFileSync(OUTF, 'utf8').trim().split('\n').map(l => JSON.parse(l));
   const m = rows.filter(r => r.matched); const mean = xs => xs.length ? +(xs.reduce((s2, x) => s2 + x, 0) / xs.length).toFixed(2) : null;
+  const dj2 = rows.filter(r => r.deed && r.deed.deed === 'judged'); console.log(`DEEDS judged ${dj2.length}/${rows.filter(r => r.answer).length} answered; mean ${mean(dj2.map(r => Math.min(1.5, r.deed.rel)))}; better than every listed course ${dj2.filter(r => r.deed.beatsBest).length}; refused ${rows.filter(r => r.deed && r.deed.deed === 'refused').length}; unparsed ${rows.filter(r => r.deed && r.deed.deed === 'unparsed').length}`);
   console.log(`\nMODE ${MODE}: ${rows.length} situations; answered ${rows.filter(r => r.answer).length}; matched ${m.length}; mean score ${mean(m.map(r => r.rel))}; best course ${m.filter(r => r.isBest).length}`);
+  const byD = {}; for (const r of dj2) (byD[r.template] = byD[r.template] || []).push(Math.min(1.5, r.deed.rel));
+  for (const [t2, xs] of Object.entries(byD)) console.log(`   deeds ${t2.padEnd(16)} n=${xs.length} mean ${mean(xs)}`);
   const by = {}; for (const r of m) (by[r.template] = by[r.template] || []).push(r.rel);
   for (const [t2, xs] of Object.entries(by)) console.log(`   ${t2.padEnd(16)} n=${xs.length} mean ${mean(xs)}`);
   await io.close();

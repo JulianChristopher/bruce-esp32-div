@@ -176,7 +176,8 @@ World.prototype.snapshot = function () {
   return { t: this.t, people, objects: structuredClone(this.objects), flags: structuredClone(this.flags) };
 };
 World.prototype.restore = function (snap) {
-  this.t = snap.t; this.objects = structuredClone(snap.objects); this.flags = structuredClone(snap.flags);
+  this.t = snap.t; this.objects = Object.assign(this.objects || {}, structuredClone(snap.objects));   // things added to the world since the snapshot keep their first state
+  this.flags = structuredClone(snap.flags);
   for (const [id, d] of Object.entries(snap.people)) if (this.people[id]) Object.assign(this.people[id], structuredClone(d));
   return this;
 };
@@ -205,8 +206,11 @@ World.prototype.wellbeing = function (id) {
   let v = Math.min(p.money, 480) / 12 - (n.hunger + n.warmth + n.energy) / 6 - (p.money < 0 ? 15 : 0);
   const unpaid = f.rentDue && this.t - (f.rentDueAt ?? this.t) > 3 * 60;   // due for hours and not settled: the collector went away with nothing
   if (id === 'ada') v -= (unpaid ? 35 : f.rentOwing ? 25 : 0) + (f.adaDismissed ? 60 : 0) + (this.objects.watch && this.objects.watch.at === 'sold' ? 20 : 0);
-  if (id === 'arthur') v -= (f.joanIll && !f.doctorCalled ? 15 : 0);
+  if (id === 'arthur') v -= (f.joanIll && !f.doctorCalled ? (f.medicine_joan !== undefined || f.nursed_joan >= this.day - 1 ? 8 : 15) : 0);
+  if (id === 'ada') v -= (f.ill_bert && !(f.medicine_bert !== undefined || f.nursed_bert >= this.day - 1) ? 6 : 0);
   if (id === 'ada') v += (f.extraWork ? 8 : 0) - (f.owesNolan ? 3 : 0) - (f.relief ? 6 : 0) - ['ring', 'kettle', 'coat', 'boots'].filter(x => this.objects[x] && this.objects[x].at === 'lamb').length * 3;
+  // a theft: found out, it means the police court and the end of a character (and of a charwoman's places); not found out, the fear and the conscience
+  const th = f['theft_' + id]; if (th) v -= th === 'caught' ? 60 : 20;
   return v;
 };
 // roll the world on from a fork: the person does `aff` (an affordance found in the fork) and then lives by habit
@@ -222,6 +226,13 @@ World.prototype.rollout = function (id, label, hours = 24) {
     for (const p of Object.values(w.people)) if (p.main && p.busyUntil <= w.t) { const all = w.affordances(p.id), h = all.find(x => x.habit && !x.a.sideEffects) || all.find(x => ['rest', 'sleep', 'go_home'].includes(x.a.id)); if (h) w.perform(p.id, h); else p.busyUntil = w.t + 15; }   // afterwards: only habit, rest, home, sleep
   }
   return { label, after: w.wellbeing(id), gain: +(w.wellbeing(id) - before).toFixed(1), money: w.people[id].money, needs: { ...w.people[id].needs }, flags: { rentDue: w.flags.rentDue, rentOwing: w.flags.rentOwing, dismissed: w.flags.adaDismissed } };
+};
+// roll on after a deed built in the fork itself (free deeds from verbs.js): the engine judges any sentence it can place
+World.prototype.rolloutDeed = function (id, build, hours = 24) {
+  const w = this.fork(); const before = w.wellbeing(id); const r = build(w); if (!r || !r.aff) return null;
+  w.perform(id, r.aff); const end = w.t + hours * 60;
+  while (w.t < end) { w.t += 15; w.stepBackground(); w.decay(15); for (const p of Object.values(w.people)) if (p.main && p.busyUntil <= w.t) { const all = w.affordances(p.id), h = all.find(x => x.habit && !x.a.sideEffects) || all.find(x => ['rest', 'sleep', 'go_home'].includes(x.a.id)); if (h) w.perform(p.id, h); else p.busyUntil = w.t + 15; } }
+  return { label: r.aff.label, after: w.wellbeing(id), gain: +(w.wellbeing(id) - before).toFixed(1), money: w.people[id].money, needs: { ...w.people[id].needs }, flags: { rentDue: w.flags.rentDue, rentOwing: w.flags.rentOwing, dismissed: w.flags.adaDismissed } };
 };
 // every course open to the person here and now, judged by rolling the world on: the engine's view of a decision
 World.prototype.judge = function (id, hours = 24) {

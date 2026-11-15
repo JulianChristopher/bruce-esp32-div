@@ -20,11 +20,15 @@ function rng(seed) { let a = seed >>> 0; return () => { a |= 0; a = a + 0x6D2B79
 
 // state-only consequences for the engine's rollouts (same as the simulation's simHooks)
 const simHooks = {
+  rel() {}, nurse() {}, letter() {}, chance: () => false,
   ask(q, k, kind) {   // a rule of thumb for the engine's foresight; in the live run the person asked decides
     const w = this.w, p = w.people[k], f = w.flags;
     if (kind === 'credit') { if (p.money > -60) { f.creditBarker = 60; return 'credit'; } f.creditRefusedDay = w.day; return 'refused'; }
-    if (kind === 'loan') { f.nolanAskedDay = w.day; if (!f.owesNolan) { p.money += 24; f.owesNolan = true; return 'lent'; } return 'refused'; }
+    if (kind === 'loan') { f.nolanAskedDay = w.day; if (q === 'nolan' && !f.owesNolan || ['bert', 'edith', 'dunn', 'arthur', 'thomas'].includes(q)) { p.money += 24; f.owesNolan = true; return 'lent'; } return 'refused'; }
     if (kind === 'work') return 'none';
+    if (kind === 'goods') { if (q === 'nolan' || q === 'mrspollock' || q === 'edith' || q === 'dunn') { w.add(k, 'food', 1); return 'given'; } return 'refused'; }
+    if (kind === 'wait') { if (q === 'gedge') { f.rentDue = false; f.rentOwing = true; return 'wait'; } return 'none'; }
+    if (kind === 'favour') return 'yes';
     if (kind === 'relief') { if (p.money < 24 && w.count(k, 'food') <= 1) { w.add(k, 'food', 6); w.add(k, 'coal', 4); f.relief = true; return 'relief'; } return 'refused'; }
     return 'none';
   },
@@ -75,6 +79,33 @@ function context(w, k) {   // the prompt context the simulation would give (shor
     `PLACE: ${w.places[p.place].name}. PRESENT: ${pres.length ? pres.join('; ') : 'nobody else'}. PURSE: ${money(p.money)}.`,
     feels ? `FEELS: ${feels}.` : '', now.length ? `NOW: ${now.join(' ')}` : '', `AT HAND: ${near.length ? 'open near by: ' + near.join('; ') : 'nothing open near by'}.`].filter(Boolean).join('\n');
 }
+// the same facts as a page of a novel of 1931 (see prose1931.js)
+const PROSE = require('./prose1931.js');
+function proseContext(w, k) {
+  const p = w.people[k], d = w.day, wx = LIFE.weatherOf(d), x = dateOf(d);
+  const bio = BIO[k][(d + Math.floor(w.mod / 60)) % BIO[k].length][1];
+  const he = p.f ? 'she' : 'he', He = p.f ? 'She' : 'He', his = p.f ? 'her' : 'his';
+  const scene = [];
+  if (p.place === 'ada_home') {
+    scene.push(w.flags.fire_ada_home > w.t ? 'A fire was burning in the grate' : `The fire was out, and the room was ${w.warmthOf('ada_home') < 30 ? 'bitterly cold' : 'cold'}`);
+    const food = p.inv.food || 0, coal = p.inv.coal || 0;
+    scene.push(food <= 0 ? 'There was nothing in the cupboard' : food === 1 ? 'There was food in the cupboard for one meal' : `There was food in the cupboard for ${PROSE.num(food)} meals`);
+    scene.push(coal <= 0 ? 'The coal-box was empty' : coal === 1 ? 'There was coal for one fire' : `There was coal for ${PROSE.num(coal)} fires`);
+  }
+  const pressing = [];
+  if (k === 'arthur' && w.flags.joanIll) pressing.push((p.place === p.home ? 'Upstairs' : 'At home') + ' Joan lay ill in bed with a fever and a bad cough, and the doctor had not been called');
+  if (k === 'ada') scene.push(w.flags.bertWork ? 'Bert had work at the docks' : 'Bert was out of work');
+  const feels = (w.needWords(k) || '').split('; ').filter(Boolean).map(s => PROSE.past(s));
+  const now = [];
+  if (k === 'ada' && w.flags.rentDue) now.push(w.flags.rentOwing ? 'The rent of seven shillings had been owing since Friday' : "The rent of seven shillings was due that night, and Mr. Gedge the collector would call at seven o'clock");
+  if (k === 'ada' && w.objects.watch.at === 'lamb') now.push("Her husband's watch was in pawn at Lamb's, to be redeemed for eleven shillings");
+  if (p.money < 0) now.push(`${He} owed Barker ${PROSE.moneyWords(-p.money)} on the slate`);
+  if (k === 'arthur' && w.flags['paid_arthur_' + d] && !w.flags['hk_' + d]) now.push("He had his week's wages in his pocket, and Edith had not yet had the housekeeping");
+  const near = Object.keys(w.places).filter(id => id !== p.place && w.travel(p.place, id) <= 10 && w.isOpen(id) && !/home/.test(w.places[id].kind)).map(id => w.places[id].name.replace(/ (in|of) (Bermondsey|Islington|Moorgate|Highbury|the City)$/, '')).slice(0, 4);
+  const SHORTN = { bert: 'Bert', joan: 'Joan', edith: k === 'arthur' ? 'Edith' : 'Mrs. Hale', ada: 'Mrs. Turner', arthur: 'Mr. Hale', thomas: 'Mr. Thomas' };
+  const placeName = p.place === p.home ? (k === 'ada' ? 'her two rooms in Bermondsey' : k === 'arthur' ? 'his house in Islington' : 'his house in Highbury') : w.places[p.place].name;
+  return PROSE.page(k, { mod: w.mod, date: x, wx: wx.text, place: placeName, present: w.presentWith(k).map(q => SHORTN[q.id] || q.name), purse: Math.max(0, p.money), bio, scene, feels, now, near, pressing });
+}
 function make(N, seed) {
   const R = rng(seed), out = [];
   for (let i = 0; i < N; i++) {
@@ -92,11 +123,11 @@ function make(N, seed) {
     let j; try { j = w.judge(k, 24); } catch (e) { continue; }
     if (!j.all.length) continue;
     out.push({ id: `${T.id}-${i}`, template: T.id, who: k, day: d, t: m, params: { money: p.money, food: p.inv.food, coal: p.inv.coal, needs: Object.fromEntries(Object.entries(p.needs).map(([a, b]) => [a, Math.round(b)])), bertWork: w.flags.bertWork },
-      urgent: j.urgent.map(u => [u.key, Math.round(u.w)]), context: context(w, k), options: j.all.map(r => ({ label: r.label, score: +r.after.toFixed(1) })), best: j.best.label, spread: +(j.best.after - j.worst.after).toFixed(1), snapshot: w.snapshot() });
+      urgent: j.urgent.map(u => [u.key, Math.round(u.w)]), context: context(w, k), prose: proseContext(w, k), options: j.all.map(r => ({ label: r.label, score: +r.after.toFixed(1) })), best: j.best.label, spread: +(j.best.after - j.worst.after).toFixed(1), snapshot: w.snapshot() });
   }
   return out;
 }
-module.exports = { make, makeWorld, simHooks, TEMPLATES, context };
+module.exports = { proseContext, make, makeWorld, simHooks, TEMPLATES, context };
 if (require.main === module) {
   const N = +(process.argv[2] || 2000), seed = +(process.argv[3] || 1931), t0 = Date.now();
   const S = make(N, seed);

@@ -415,20 +415,29 @@ WORLD.hooks = {
   housekeeping: x => { F['hk_' + W.day] = x; A.arthur.money -= x * 12; note('arthur', 'account-book', `housekeeping to Edith, ${x}s.`); remember('arthur', `He gave Edith ${x} shillings for the week's housekeeping.`, ['edith', 'money'], 3); fact('arthur', `How much housekeeping money did you give Edith on ${LONGDATE(W.day)}?`, ['thirty shillings (30s.)', 'thirty-five shillings (35s.)', 'forty shillings (40s.)', 'forty-five shillings (45s.)'], [30, 35, 40, 45].indexOf(x)); return `Arthur gave Edith ${x}s. for the housekeeping.`; },
   doctor: () => { F.doctorCalled = true; LIFE.doctor('joan'); W.doctor = 'called'; setState('joan', ['arthur'], 'Joan is mending; Dr. Gray has seen her'); note('arthur', 'account-book', 'Dr. Gray for Joan, 3s. 6d.'); remember('arthur', 'He fetched Dr. Gray to Joan, who said it was a bad cold, not bronchitis, and she would mend.', ['joan', 'money'], 3); fact('arthur', 'Did you fetch the doctor to Joan when she was ill?', ['Yes', 'No'], 0); return 'Arthur fetched Dr. Gray; Joan has a bad cold and will mend.'; },
   rent: pay => { jolt('ada', pay ? 'relief' : 'shock', pay ? 20 : 25); return payRent(pay); },
-  ask: (q, k, kind) => {
+  rel: (k, q, d) => { if (A[k] && A[k].op) A[k].op[q] = Math.max(-2, Math.min(2, (A[k].op[q] || 0) + d)); if (A[q] && A[q].op) A[q].op[k] = Math.max(-2, Math.min(2, (A[q].op[k] || 0) + d / 2)); },
+  nurse: (who, n) => { if (LIFE && LIFE.ill[who]) { LIFE.ill[who].left -= n; LIFE.ill[who].nursed = true; } },
+  letter: (k, q, text) => { const what = (text.match(/,\s*(telling|asking|saying)\b(.*)$/i) || [])[0] || ''; remember(k, `${A[k].short} wrote a letter${q ? ' to ' + nameOf(q) : ''}${what}`, q ? [q] : [], 2); if (q && A[q]) WORLD.schedule((W.day + 1) * 1440 + 7 * 60 + 30, () => letter(q, nameOf(k), (what.replace(/^,\s*/, '') || 'a few lines'), [k], null), 'post'); },
+  chance: p => Math.random() < p,
+  ask: (q, k, kind, detail) => {
     if (kind === 'work') return resolve(k, { verb: 'seekwork', _inner: true, text: 'She looks for more work.' }).aff.a.effect();
-    const it = { verb: 'ask', to: q, about: kind === 'credit' ? 'to let her have things on the slate till Bert is in work' : kind === 'loan' ? 'to lend her two shillings till Friday' : 'for relief', money: true, work: false, relief: kind === 'relief', text: '' };
+    const about = detail && detail.text ? detail.text.replace(/^.*?\b(asks?|begs?|borrows?|requests?|applies to|appeals to)\b\s*(\w+\.? \w+ )?/i, '').replace(/\.$/, '') : null;
+    const it = { verb: 'ask', to: q, about: about || (kind === 'credit' ? 'to let her have things on the slate till Bert is in work' : kind === 'loan' ? 'to lend her two shillings till Friday' : 'for relief'), money: ['credit', 'loan', 'relief'].includes(kind), work: kind === 'work', relief: kind === 'relief', goods: kind === 'goods' ? detail.goods : null, wait: kind === 'wait', text: detail ? detail.text : '' };
     if (kind === 'loan') F.nolanAskedDay = W.day;
-    return { talk: q, topic: kind === 'credit' ? 'having things on the slate till Bert is in work' : kind === 'loan' ? 'borrowing two shillings till Friday' : 'relief from the parish', request: it };
+    return { talk: q, topic: about || (kind === 'credit' ? 'having things on the slate till Bert is in work' : kind === 'loan' ? 'borrowing two shillings till Friday' : 'relief from the parish'), request: it };
   },
   talkLabel: (k, q) => { const t = topicFor(k, q); W.topicCache = W.topicCache || {}; W.topicCache[k + '>' + q] = t; return `Talk with ${nameOf(q)} about ${t.topic}`; }
 };
 WORLD.simHooks = {
+  rel() {}, nurse() {}, letter() {}, chance: () => false,
   ask(q, k, kind) {   // a rule of thumb for the engine's foresight; in the live run the person asked decides
     const w = this.w, p = w.people[k], f = w.flags;
     if (kind === 'credit') { if (p.money > -60) { f.creditBarker = 60; return 'credit'; } f.creditRefusedDay = w.day; return 'refused'; }
-    if (kind === 'loan') { f.nolanAskedDay = w.day; if (!f.owesNolan) { p.money += 24; f.owesNolan = true; return 'lent'; } return 'refused'; }
+    if (kind === 'loan') { f.nolanAskedDay = w.day; if (q === 'nolan' && !f.owesNolan || ['bert', 'edith', 'dunn', 'arthur', 'thomas'].includes(q)) { p.money += 24; f.owesNolan = true; return 'lent'; } return 'refused'; }
     if (kind === 'work') return 'none';
+    if (kind === 'goods') { if (q === 'nolan' || q === 'mrspollock' || q === 'edith' || q === 'dunn') { w.add(k, 'food', 1); return 'given'; } return 'refused'; }
+    if (kind === 'wait') { if (q === 'gedge') { f.rentDue = false; f.rentOwing = true; return 'wait'; } return 'none'; }
+    if (kind === 'favour') return 'yes';
     if (kind === 'relief') { if (p.money < 24 && w.count(k, 'food') <= 1) { w.add(k, 'food', 6); w.add(k, 'coal', 4); f.relief = true; return 'relief'; } return 'refused'; }
     return 'none';
   },
@@ -508,7 +517,43 @@ const SHEET = {   // compact persona for prompts (the long sheet stays for diari
   arthur: "Mr. Arthur Hale, 34, ledger clerk at an insurance office in Moorgate, £3 10s. a week; wife Edith, daughter Joan (7). Conscientious, careful with money, timid with superiors.",
   thomas: "Mr. Walter Thomas, 56, chief clerk of the same office; pays the wages on Fridays. Stern, exact, dutiful, fair and secretly kind. Widower in Highbury."
 };
+// the same facts told as a page of a novel of 1931 (PROSE=1): talkie read novels and papers, not forms
+const PROSE = require('./prose1931.js'); const PROSEON = process.env.PROSE !== '0';
+function perceiveProse(k, query = '') {
+  const a = A[k], others = presentAt(k), npcs = Object.keys(NPC).filter(n => !NPC[n].away && NPC[n].place === a.place);
+  const he = heshe(k), He = he[0].toUpperCase() + he.slice(1), his = hisher(k), P = PROSE.past;
+  const OPW = { 'likes and trusts': 'whom ' + he + ' liked and trusted', 'thinks well of': 'of whom ' + he + ' thought well', 'is a little put out with': 'with whom ' + he + ' was a little put out', 'is angry with': 'with whom ' + he + ' was angry' };
+  const pres = [...others.map(o => { const w2 = opinionWords(k, o); return OPW[w2] ? `${nameOf(o)}, ${OPW[w2]},` : nameOf(o); }), ...npcs.map(n => NPC[n].name)];
+  const bel = beliefs(k, [...others, ...npcs]).slice(0, 220);
+  const home = { ada: 'her two rooms in Bermondsey', arthur: 'his house in Islington', thomas: 'his house in Highbury' }[k];
+  const placeName = a.place === WORLD.people[k]?.home ? home : PLACE[a.place];
+  const S = (x, f = P) => x ? f(x).trim().replace(/([^.!?…])$/, '$1.') : '';
+  const goalsTxt = (() => { const g = typeof goals === 'function' ? goals(k) : []; return g.length ? `${He} meant to ${PROSE.list(g.map(x => x.text))}.` : ''; })();
+  const rec = recall(k, [...others, ...npcs], query, 440);
+  const parts = [
+    ['when', `It was ${clock(W.t)} on ${DAYS[W.day]}, and the day was ${PROSE.wxWords(WEATHER[W.day])}.`],
+    ['who', `${PROSE.PORTRAIT[k]} ${S(bio(k, query))}`],
+    ['where', `${He} was in ${placeName}${pres.length ? ', with ' + PROSE.list(pres).replace(/,$/, '') : ', alone'}, and had ${a.money < 0 ? 'not a penny' : PROSE.moneyWords(a.money)} in ${his} ${k === 'ada' ? 'purse' : 'pocket'}.`],
+    ['scene', [S(scene(k)), S(household(k))].filter(Boolean).join(' ')],
+    ['feels', S([WORLD.needWords(k), typeof feelWords === 'function' && a.chem ? feelWords(k) : ''].filter(Boolean).join('; '))],
+    ['known', core(k) ? S(core(k).slice(0, 280)) : ''],
+    ['now', (() => { const st = off('states') ? '' : states(k, query); return st ? S(st) : ''; })()],
+    ['values', query && !off('values') ? S(values(k, query)) : ''],
+    ['wants', goalsTxt],
+    ['remembers', rec ? `${He} remembered: ${rec}` : ''],
+    ['books', (() => { const b = query && !off('books') ? lookup(k, query, qdayOf(query), 1) : ''; return b ? S(b.slice(0, 200)) : ''; })()],
+    ['opinions', bel ? S(bel) : '']
+  ].filter(x => x[1]);
+  const BUDGET = 1500, len = () => parts.map(x => x[1]).join(' ').length;
+  for (const drop of ['opinions', 'books', 'values', 'known']) { if (len() <= BUDGET) break; const i = parts.findIndex(x => x[0] === drop); if (i >= 0) { parts.splice(i, 1); STATS.trimmed = (STATS.trimmed || 0) + 1; } }
+  if (len() > BUDGET) { const i = parts.findIndex(x => x[0] === 'remembers'); if (i >= 0) parts[i][1] = parts[i][1].slice(0, Math.max(120, parts[i][1].length - (len() - BUDGET))).replace(/\s+\S*$/, '…'); }
+  // paragraphs as a novel sets them: the moment and the person; the place; what weighs on the mind
+  const para = ids => parts.filter(x => ids.includes(x[0])).map(x => x[1]).join(' ');
+  // what presses comes last, as a novel sets the turn of a scene; memory before it
+  return [para(['when', 'who']), para(['where', 'scene', 'feels']), para(['remembers', 'books', 'opinions']), para(['values', 'wants', 'known', 'now'])].filter(Boolean).join('\n\n');
+}
 function perceive(k, query = '') {
+  if (PROSEON) return perceiveProse(k, query);
   const a = A[k], others = presentAt(k), npcs = Object.keys(NPC).filter(n => !NPC[n].away && NPC[n].place === a.place);
   const pres = [...others.map(o => `${nameOf(o)} (${a.short} ${opinionWords(k, o)} ${himher(o)})`), ...npcs.map(n => NPC[n].name)];
   const bel = beliefs(k, [...others, ...npcs]).slice(0, 220);
@@ -882,7 +927,19 @@ function dyn(id, label, at, dur, cost, effect, meets = {}) { return { a: { id, l
 function mk(k, id, label, at, dur, cost, effect, meets = {}) { const walk = at ? WORLD.travel(A[k].place, at) : 0; return { a: { id, label: () => label, dur, meets, effect, free: true }, x: null, at: at || A[k].place, walk, cost, u: 0, label: label + (walk ? ` (${walk} minutes' walk)` : '') }; }
 function findAff(k, id, pred = () => true) { return WORLD.affordances(k).find(x => x.a.id === id && pred(x)) || null; }
 // returns { aff } to perform, or { why } when the world does not allow it
+const VERBS = require('./verbs.js');
 function resolve(k, it) {
+  if (it.text && !it._inner) {
+    const f = VERBS.frame(it.text);
+    if (f && f.verb !== 'other') {
+      const r = VERBS.deed(WORLD, k, f);
+      if (r && r.plan && A[k].place !== A[k].home) { const g = findAff(k, 'go_home'); if (g) { A[k].plan = it; return { aff: g }; } }
+      if (r && (r.aff || r.why)) { STATS.deeds = STATS.deeds || {}; STATS.deeds[f.verb] = (STATS.deeds[f.verb] || 0) + 1; return r; }
+    }
+  }
+  return resolveOld(k, it);
+}
+function resolveOld(k, it) {
   const a = A[k], He = heshe(k)[0].toUpperCase() + heshe(k).slice(1);
   const money_ok = c => a.money >= c || (k === 'ada' && W.credit && W.credit.barker && a.money - c > -W.credit.barker);
   switch (it.verb) {
@@ -992,7 +1049,9 @@ async function consent(q, k, it) {
   if (ok && it.money) {
     if (q === 'barker') { W.credit = W.credit || {}; W.credit.barker = Math.max(amount, 60); F.creditBarker = W.credit.barker; setState('credit', ['ada'], `Barker lets Ada have goods on tick up to ${money(W.credit.barker)}`); remember(k, `Mr. Barker agreed to let her have goods on credit, up to ${money(W.credit.barker)}.`, ['barker', 'money'], 3); }
     else if (WORLD.people[q].money === undefined || WORLD.people[q].money >= amount || !A[q]) { WORLD.pay(q, k, amount); if (q === 'nolan') F.owesNolan = true; (W.debts = W.debts || []).push({ from: k, to: q, amount, day: W.day }); setState('debt_' + q, [k], `${A[k].short} owes ${nameOf(q)} ${money(amount)}`); remember(k, `${nameOf(q)} lent ${himher(k)} ${money(amount)}.`, [q, 'money'], 3); fact(k, `Who lent you money on ${LONGDATE(W.day)}?`, [nameOf(q).replace(/^young /, ''), 'Nobody', 'Mr. Thomas'], 0); }
-  } else if (ok) remember(k, `${nameOf(q)} agreed: ${why}`, [q], 3);
+  } else if (ok && it.goods && it.goods.length) { WORLD.add(k, 'food', 1); remember(k, `${nameOf(q)} let ${himher(k)} have what ${heshe(k)} asked for.`, [q], 2); }
+  else if (ok && it.wait && q === 'gedge') { F.rentDue = false; F.rentOwing = true; remember(k, 'Mr. Gedge agreed to wait for the rent till Monday.', ['gedge', 'rent'], 3); }
+  else if (ok) remember(k, `${nameOf(q)} agreed: ${why}`, [q], 3);
   if (!ok && q === 'barker') F.creditRefusedDay = W.day;
   else remember(k, `${nameOf(q)} refused ${himher(k)}: ${why}`, [q], 3);
   if (A[q]) remember(q, `${who} asked ${himher(q)} ${it.about}; ${heshe(q)} ${ok ? 'agreed' : 'refused'}.`, [k], 3);
@@ -1135,7 +1194,7 @@ async function act(k) {
   const res = WORLD.perform(k, o);
   if (['worship', 'pray'].includes(o.a.id)) jolt(k, 'comfort', 15); if (o.a.id === 'sleep') { a.chem.arousal = 10; }
   let result = res;
-  if (res && res.talk) { const t = res.topic ? { topic: res.topic } : (W.topicCache || {})[k + '>' + res.talk] || topicFor(k, res.talk); result = await converse(k, { to: res.talk, ...t }); if (res.request) await consent(res.talk, k, res.request); }
+  if (res && res.talk) { if (res.verb && res.verb !== 'talk') res.topic = `${res.verb === 'quarrel' ? 'a quarrel' : res.verb === 'comfort' ? 'comforting' : res.verb === 'apologise' ? 'an apology' : res.verb === 'thank' ? 'thanks' : res.verb === 'warn' ? 'a warning' : 'a promise'}: ${res.topic}`; const t = res.topic ? { topic: res.topic } : (W.topicCache || {})[k + '>' + res.talk] || topicFor(k, res.talk); result = await converse(k, { to: res.talk, ...t }); if (res.request) await consent(res.talk, k, res.request); }
   else if (res && res.book) result = await bookWork(res.book);
   if (typeof result !== 'string') result = `${a.short}: ${o.label}.`;
   say(`      ⇒ ${result}`);

@@ -597,6 +597,7 @@ function core(k) {
   if (k === 'ada' && W.rentDue && !W.rentPaid[W.day]) f.push('The rent of seven shillings is due tonight.');
   if (k === 'ada' && W.loan) f.push(W.loan);
   if (k === 'ada' && W.visitor) f.push(`${W.visitor.req.text}.`);
+  if (k === 'ada' && (F.rentDue || F.rentOwing)) { const due = 84 * (1 + (F.rentOwing ? (W.rentOwingCount || 1) : 0)); f.push(A.ada.money >= due ? `She has ${money(A.ada.money)} in her purse: enough for the rent of ${money(due)}, with ${money(A.ada.money - due)} over.` : `She has ${money(Math.max(0, A.ada.money))}; the rent is ${money(due)}, so she is ${money(due - Math.max(0, A.ada.money))} short.`); }
   if (k === 'ada') { const inPawn = Object.values(WORLD.objects).filter(o => o.at === 'lamb' && !/his |Edith|the wireless|the mantel clock/.test(o.name)).map(o => o.name); if (inPawn.length) f.push(`In pawn at Lamb's: ${inPawn.join(', ')}.`); }
   if (k === 'ada' && W.standWords) f.push(W.standWords.replace('Mrs. Turner is', 'She knows she is').replace('Mrs. Turner has', 'She knows she has') + '.');
   if (k === 'arthur' && W.loan) f.push(W.loan.replace('She owes Mr. Hale', 'Mrs. Turner owes him'));
@@ -1316,6 +1317,15 @@ async function act(k) {
 // duties: direct questions asked of one person at a fixed moment (pay-day, the rise, the successor)
 async function interrupts(d, t) {
   const w = DOW(d);
+  // the collector at the door: from seven o'clock while the rent is due and she is at home, he must be answered
+  if (F.rentDue && !W.rentPaid[d] && !W['rentAsked' + d] && t >= hm(19) && t <= hm(20, 30) && A.ada.place === 'ada_home') {
+    W['rentAsked' + d] = true;
+    const weeks = 1 + (F.rentOwing ? (W.rentOwingCount || 1) : 0), due = 84 * weeks, has = A.ada.money;
+    const r = await duty('ada', `Mr. Gedge, the landlord's collector, is at the door for the rent: ${weeks > 1 ? `${weeks} weeks, ${money(due)} in all, with the arrears` : 'the week\'s seven shillings'}. She has ${money(Math.max(0, has))} in her purse.`, `pays him`, `asks him to wait`);
+    if (r.yes && has >= due) { A.ada.money -= due; payRent(true); W.rentOwingCount = 0; WORLD.people.gedge && (WORLD.people.gedge.money = (WORLD.people.gedge.money || 0) + due); say(`   🏠 Ada pays Mr. Gedge ${money(due)}.`); }
+    else if (r.yes && has >= 84) { A.ada.money -= 84; payRent(false); W.rentOwingCount = Math.max(1, weeks - 1); remember('ada', `She paid Mr. Gedge seven shillings off what she owes; the rest is to wait till Monday.`, ['gedge', 'rent'], 3); say('   🏠 Ada pays part of the rent.'); }
+    else { payRent(false); say(`   🏠 Ada asks Mr. Gedge to wait${has >= due ? ' (though she has the money)' : ''}.`); if (weeks >= 3) { remember('ada', 'Mr. Gedge said that if the arrears are not cleared by next week the landlord will give her notice to quit.', ['gedge', 'rent'], 3); } }
+  }
   // nobody cleaned the office this morning / Mr. Hale did not come in: Mr. Thomas notices, and may act
   if (!['sun'].includes(w) && t === hm(9, 15) && A.thomas.place === 'office' && !F.adaDismissed && A.ada.cleanedDay !== d && !F.ill_ada) {
     W.missedClean = (W.missedClean || 0) + 1; remember('thomas', `The office was not cleaned this morning; Mrs. Turner did not come (${W.missedClean} time${W.missedClean > 1 ? 's' : ''} this winter).`, ['ada'], 3); say(`   ✶ The office is not cleaned: Mrs. Turner did not come (${W.missedClean}).`);

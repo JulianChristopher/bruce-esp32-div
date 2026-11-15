@@ -52,3 +52,42 @@ paired over the 71 situations judged in all three):
 | labelled lines (CHARACTER:, PLACE:, NOW: …) | 0.69 | |
 | novel page, asked in the present ("What does Mrs. Turner do now?") | 0.63 | better for rent and hunger; worse when the illness was mid-paragraph |
 | novel page, asked in the past ("What did Mrs. Turner do then?") | 0.59 | invites drama: 'She stole a loaf', 'She robbed Barker' |
+
+Second version of the novel page, with what presses last, in a paragraph of its own (`hybrid2`), re-judged with the
+current engine (`node rescore.js`; paired over 75 situations judged in all three):
+
+| prompt | paired mean | all answers | poor (<0.3) | better than every listed course |
+|---|---|---|---|---|
+| labelled lines | 0.63 | 0.57 | 36 | 12 |
+| novel page v1 | 0.61 | 0.60 | 35 | 12 |
+| novel page v2, what presses last | **0.67** | **0.67** | **28** | **20** |
+
+The prose wins for rent, hunger, cold and the morning walk to work; the labelled lines still win when a child is ill
+(0.60 against 0.37). `sim10.js` uses the v2 page by default.
+
+## Chronos: the outside world played in from records (chronos1931.js)
+
+- sun and moon over London computed (sunrise, sunset, lighting-up time under the Road Transport Lighting Act 1927,
+  phase of the moon); Ada's light is a penny-in-the-slot gas meter (a penny for about four hours).
+- every League and Cup match of the London clubs, 1 Jan – 6 Apr 1931 (`football1931.json`, from engsoccerdata):
+  in the Saturday-night and Monday papers, in small talk ("Millwall beat Burnley by two goals to one"), and as a deed
+  (Bert at the Den when Millwall are at home; a shilling on the terraces).
+- the main Commons debates of each sitting (`hansard1931.json`, from Historic Hansard, crawled by `hansard.py`).
+- public-house hours by the Licensing Act 1921 for London (11.30–3, 5.30–11; Sundays 12.30–2.30, 7–10).
+
+## Period tools (as deeds, no JSON)
+
+telegram (a shilling for twelve words, delivered within the hour or two), reckoning up (the engine does the sums,
+the person reads them in words: purse, slate, loans, pledges and their redemption price, rent, food and coal),
+looking it up (talkie writes as *Enquire Within Upon Everything* or a home doctor-book of the 1920s would; the page
+goes into the person's books).
+
+## The Buildings (street1931.js)
+
+Thirty households (about 110 people) in Ada's block, drawn from the figures of the New Survey of London Life and
+Labour, the Ministry of Labour Gazette and the 1931 insurance rates: casual dock work by the day (less in frost),
+weekly wages, the dole, the pension; rent day on Monday; the weekly pledge (in on Monday, out on Saturday), the slate
+at Barker's, going short, illness (cold, hunger, contagion), being stood off, notice to quit and eviction, rows on
+pay-night, births and deaths. What happens there becomes gossip through Mrs. Nolan; Barker's willingness to give
+credit follows the street's slate; in the evening a neighbour may come to Ada's door to ask for a loan or for help
+with a sick child, and Ada answers by her own free deed. `node streettest.js` runs the street alone for 90 days.

@@ -21,7 +21,7 @@ const PLACES = [
   [/\b(mrs\.? nolan'?s?|across the landing)\b/, 'nolan_rooms'], [/\b(the pollocks'?|downstairs)\b/, 'pollock_rooms'], [/\b(street corner|bookie|bookmaker'?s? runner)\b/, 'street_corner'], [/\b(free library|public library|the library|reading-room)\b/, 'LIBRARY'], [/\b(wash-?house|public baths|the baths)\b/, 'washhouse'],
   [/\b(pictures|picture palace|picture house|cinema|kinema|blue hall)\b/, 'PICTURES'], [/\b(salvation army|the army hall|mission hall|the mission|soup kitchen)\b/, 'mission']
 ];
-const ITEMS = [[/\bwatch\b/, 'watch'], [/\b(wedding[- ]ring|ring)\b/, 'ring'], [/\bkettle\b/, 'kettle'], [/\b(winter coat|coat|overcoat)\b/, 'coat'], [/\b(sunday boots|bert's boots|(a pair of |his |her |the )?boots)\b/, 'boots'], [/\b(medals?)\b/, 'medals'], [/\b(clock)\b/, 'clock'], [/\b(blankets?)\b/, 'blanket'],
+const ITEMS = [[/\bwatch\b/, 'watch'], [/\b(wedding[- ]ring|ring)\b/, 'ring'], [/\bkettle\b/, 'kettle'], [/\b(winter coat|coat|overcoat|greatcoat|top-?coat)\b/, 'coat'], [/\b(sunday boots|bert's boots|(a pair of |his |her |the )?boots)\b/, 'boots'], [/\b(medals?)\b/, 'medals'], [/\b(clock)\b/, 'clock'], [/\b(blankets?)\b/, 'blanket'],
   [/\b(sunday suit|bert'?s suit|his suit|the suit)\b/, 'suit'], [/\b(sheets?)\b/, 'sheets'], [/\b(flat-?irons?|irons)\b/, 'irons'], [/\b(bible)\b/, 'bible'], [/\b(sunday dress|black dress|best dress|her dress)\b/, 'dress'],
   [/\b(paisley shawl|her shawl|best shawl)\b/, 'shawl'], [/\b(wireless|radio)\b/, 'wireless'], [/\b(umbrella|brolly)\b/, 'umbrella'], [/\b(watch-?chain|chain)\b/, 'chain'], [/\b(dickens|his books|the books)\b/, 'books'],
   [/\b(brooch|cameo)\b/, 'brooch'], [/\b(sewing-?machine)\b/, 'machine']];
@@ -45,7 +45,7 @@ function frame(text) {
   const V = [
     ['match', /\b(goes to (see )?(the )?(match|football|millwall|the arsenal|arsenal|the den|highbury)|watch(es)? (the )?(match|football|millwall|the arsenal)|to the den\b|stands? on the terraces?)/],
     // going to, asking or consulting the doctor is calling the doctor in (before 'ask' and 'go' can take it)
-    ['fetch', /\b(goes|hurries|runs|walks|calls|asks|consults|sees|visits|takes \w+|sends|fetches|fetch|goes for|calls in|sends for|summons|brings)\b[^.;]{0,30}?\b(the doctor|dr\.? gray|the surgery|doctor's)/],
+    ['fetch', /\b(goes|hurries|runs|walks|calls|asks|consults|sees|visits|takes \w+|sends|fetches|fetch|goes for|calls in|sends for|summons|brings)\b[^.;]{0,30}?\b(the doctor|a doctor|dr\.? gray|the surgery|doctor's|medical (aid|man|advice)|the parish doctor)/],
     ['bet', /\b(puts? .{0,15}on a horse|backs? a horse|has a bet|bets?|a flutter)\b/], ['pawn', /\b(pawns?|pledges?|takes .{0,30} to (the )?(pawn|uncle|lamb))/], ['redeem', /\b(redeems?|gets? .{0,20} out of pawn)\b/],
     ['sell', /\b(sells?)\b/], ['borrow', /\b(borrows?|asks? .{0,30}\bto lend\b|asks? .{0,30}\bfor the loan of)\b/], ['lend', /\b(lends?)\b/], ['repay', /\b(pays? (him|her|mrs\.? \w+|mr\.? \w+) back|repays?)\b/], ['rent', /\bpays? (the |her |his )?(week'?s? )?rent\b/],
     ['borrow', /\b(borrows?|asks? .{0,30}\bto lend\b|asks? .{0,30}\bfor the loan of)\b/], ['ask', /\b(asks?|begs?|beseeches|entreats|requests?|applies to|appeals to|applies for)\b/],
@@ -81,7 +81,9 @@ function frame(text) {
   }
   return { verb: 'other', goods, item, amount, persons, place, purpose, text };
 }
-module.exports = { frame, moneyIn, PEOPLE, PLACES, ITEMS };
+// neighbours from the street join the people the grammar knows by name
+function addPerson(re, id) { if (!PEOPLE.some(([, v]) => v === id)) PEOPLE.unshift([re, id]); }
+module.exports = { frame, moneyIn, PEOPLE, PLACES, ITEMS, addPerson };
 
 // ---------------- schemas: from a frame to an engine deed (or the reason it cannot be done) ----------------
 const KIND_PLACES = { LIBRARY: ['library', 'library_islington'], PICTURES: ['pictures', 'pictures_islington'], SHOP: ['chandler', 'islington_shop'], MARKET: ['market', 'market_islington'], EAT: ['cookshop', 'teashop', 'fishshop'], CHEMIST: ['chemist', 'chemist_islington'] };
@@ -178,8 +180,9 @@ function deed(w, k, f) {
       return { aff: mk(w, p, earn ? 'washing' : 'clean', earn ? `Take in washing${q ? ' for ' + PN(w, q) : ''} (two hours, about 8d.)` : 'Clean and tidy the rooms', earn ? p.home : p.place, earn ? 120 : 45, 0, (w2, p2) => { if (earn) { p2.money += 8; p2.needs.energy = Math.min(100, p2.needs.energy + 20); } return earn ? `${p2.short} did a neighbour's washing for 8d.` : `${p2.short} cleaned the rooms.`; }) };
     }
     case 'seekwork': return { aff: mk(w, p, 'seekwork', 'Go round asking for more cleaning work', w.isOpen('labour_exchange') ? 'labour_exchange' : p.place, 120, 0, (w2, p2) => w2.hooks.ask('market', p2.id, 'work', { text: f.text })) };
-    case 'fetch': { if (!w.flags.joanIll && !w.flags.ill_bert && !w.flags.ill_edith) return { why: 'nobody is ill' }; if (!purse(42)) return { why: 'the doctor\'s fee is 3s. 6d.' }; const at = 'doctor'; if (!w.placeOpenAtArrival(at, w.travel(p.place, at))) return { why: "the doctor's surgery is shut till five" };
-      return { aff: mk(w, p, 'fetch_doctor', 'Fetch Dr. Gray (3s. 6d.)', at, 40, 42, (w2, p2) => { w2.flags.doctorCalled = true; w2.hooks.nurse && w2.hooks.nurse('joan', 2); return `${p2.short} fetched Dr. Gray.`; }) }; }
+    case 'fetch': { if (!w.flags.joanIll && !w.flags.ill_bert && !w.flags.ill_edith) return { why: 'nobody is ill' }; const at = 'doctor', night = !w.placeOpenAtArrival(at, w.travel(p.place, at)), fee = night ? 60 : 42;   // out of hours the doctor comes to the house, for five shillings
+      if (!purse(fee)) return { why: `the doctor's fee is ${money(fee)}` };
+      return { aff: mk(w, p, 'fetch_doctor', `Fetch Dr. Gray${night ? ' to the house' : ''} (${money(fee)})`, at, night ? 60 : 40, fee, (w2, p2) => { w2.flags.doctorCalled = true; w2.hooks.nurse && w2.hooks.nurse('joan', 2); return `${p2.short} fetched Dr. Gray.`; }) }; }
     case 'nurse': { const who = q || (k === 'ada' ? 'bert' : 'joan'); if (w.people[who] && w.people[who].place !== p.place && p.place !== p.home) return { plan: true };
       return { aff: mk(w, p, 'nurse', `Sit with ${PN(w, who)} and nurse ${who === 'bert' ? 'him' : 'her'}`, p.home, 60, 0, (w2, p2) => { w2.hooks.nurse && w2.hooks.nurse(who, 1); w2.flags['nursed_' + who] = w2.day; w2.hooks.rel && w2.hooks.rel(p2.id, who, 1); return `${p2.short} nursed ${PN(w2, who)}.`; }, { social: 30 }) }; }
     case 'comfort': case 'thank': case 'apologise': case 'quarrel': case 'warn': case 'promise': case 'talk': {

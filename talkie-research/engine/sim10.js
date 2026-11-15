@@ -250,6 +250,9 @@ const WORLD = new World({ ...DEF, weather: d => WEATHER[Math.min(d, ND - 1)] }, 
 for (const pl of Object.values(WORLD.places)) if (['market', 'park', 'work'].includes(pl.kind) && pl.name.match(/market|Fields|dock gates/)) pl.warmth = w => LIFEMOD.outdoorWarmth(w.day);
 WORLD.coldSnap = d => { let n = 0; for (let i = Math.max(0, d - 2); i <= d; i++) if (LIFEMOD.weatherOf(i).tmean < 1) n++; return n >= 3; };   // three hard days running: coal dearer
 const F = WORLD.flags; Object.assign(F, { bertWork: true, joanIll: false, brayVisiting: false, thomasIll: false, rentDue: false, rentOwing: false });
+const STREETMOD = require('./street1931.js'), VERBSMOD = require('./verbs.js');
+const STREET = STREETMOD.makeStreet(+(process.env.SEED || 31));
+const BARKER0 = (WORLD.people.barker || {}).sheet || '';
 const A = {}, NPC = {};
 for (const p of Object.values(WORLD.people)) (p.main ? A : NPC)[p.id] = p;
 const PLACE = new Proxy({}, { get: (_, id) => WORLD.places[id]?.name || String(id) });
@@ -399,11 +402,45 @@ function morningEvents() {   // chance and rule (life1931.js) + the company's ow
     if (e.kind !== 'found') rumour(e.text, about, who);
   }
   if (F.joanIll && !joanBefore) F.doctorCalled = false;
+  // the Buildings: thirty households live their day by rule; what happens becomes talk on the landing
+  const wx = LIFEMOD.weatherOf(d);
+  const sev = STREET.step(d, { dow: w, frost: wx.tmin < 0, cold: wx.tmean < 6, barkerLimit: STREET.slateTotal > 900 ? 60 : 120 });
+  for (const e of sev) {
+    if (e.kind === 'repay') { A.ada.money += e.amount; remember('ada', e.text + '.', [], 3); continue; }
+    if (['pawn', 'row', 'quarrel', 'ill', 'hunger', 'arrears', 'notice', 'eviction', 'death', 'birth', 'stoodoff'].includes(e.kind) && (['notice', 'eviction', 'death', 'birth', 'stoodoff'].includes(e.kind) || STREET.R() < 0.35))
+      rumour(e.text[0].toUpperCase() + e.text.slice(1) + '.', 'street', ['nolan', ...(['eviction', 'death'].includes(e.kind) ? ['barker', 'ada'] : [])]);
+    if (['eviction', 'death'].includes(e.kind)) jolt('ada', 'shock', 15);
+  }
+  if (WORLD.people.barker) WORLD.people.barker.sheet = BARKER0 + ` Just now the families in the Buildings owe him ${money(STREET.slateTotal)} on his slate between them${STREET.slateTotal > 900 ? ', and he is giving no more credit than he must' : ''}.`;
+  METRICS.street = METRICS.street || []; METRICS.street.push({ day: d, ...STREET.stats(), events: sev.map(e => e.kind) });
   // the company's calendar: the year's books in January, the auditors on the second Monday, the salary review after
   if (d === 6) { remember('arthur', 'Mr. Thomas announced that the auditors come on Monday, and the books must be ready for them.', ['thomas', 'audit'], 3); remember('thomas', 'He told Mr. Hale that the auditors come on Monday.', ['arthur', 'audit'], 3); W.auditDue = true; fact('arthur', 'What did Mr. Thomas announce in the week before the audit?', ['The auditors were coming on Monday', 'The office would close early', 'Wages would be paid late'], 0); say('   ★ The audit is announced for Monday (company calendar).'); }
   if (d === 30 && W.audit.raise) { W.wage = 900; setState('wage', ['arthur'], 'Arthur earns £3 15s. a week, after his rise'); remember('arthur', 'His rise of five shillings begins this month, February: his wages are now £3 15s. a week.', ['money', 'thomas'], 3); fact('arthur', 'What are your weekly wages now?', ['Three pounds fifteen shillings', 'Three pounds ten shillings', 'Four pounds'], 0); say("   ★ Arthur's rise begins: £3 15s. a week."); }
   if (w === 'fri' || (w === 'mon' && F.rentOwing)) { F.rentDue = true; F.rentDueAt = d * 1440 + hm(19); }
   if (W.pawnedDay !== undefined && !W.redeemed && d - W.pawnedDay >= 70 && !F.watchForfeit) { F.watchForfeit = true; WORLD.obj('watch').at = 'sold'; setState('watch', ['ada'], `Her husband's watch, pawned on ${SHORTDATE(W.pawnedDay)}, was sold by the pawnbroker when the ticket ran out`); note('ada', 'pawn-ticket', 'the ticket has run out; the watch is forfeit'); remember('ada', "The pawnbroker has sold her husband's watch: the ticket ran out before she could redeem it.", ['money'], 3); fact('ada', "What became of your husband's watch?", ['The pawnbroker sold it', 'I redeemed it from the pawnbroker', 'It is still at the pawnshop'], 0); say("   ★ Ada's watch is forfeited."); }
+}
+// a neighbour from the Buildings comes to Ada's door with a request; she answers by her own free deed
+function neighbourAtDoor(t) {
+  const d = W.day, vis = W.visitor;
+  if (vis) {   // what came of it: did she lend, did she sit with the child?
+    const p = WORLD.people[vis.id], gave = p.money - vis.money0;
+    if (gave > 0 && !vis.done) { vis.done = true; STREET.lend(vis.hh, gave); remember('ada', `${A.ada.short} lent ${vis.from} ${money(gave)}; she is to pay it back on Saturday.`, [], 3); }
+    if (WORLD.t >= vis.until) { p.place = null; p.away = true; if (!vis.done) remember('ada', `${vis.from} went away again${vis.req.kind === 'loan' ? ' without the loan' : ''}.`, [], 2); W.visitor = null; }
+    return;
+  }
+  if (t < hm(18) || t > hm(20, 30) || A.ada.place !== 'ada_home' || W.visitDay === d) return;
+  let req = STREET.requestFor(d, A.ada.money); W.visitDay = d;
+  if (!req && process.env.FORCEVISIT) { const h = STREET.hh.find(x => !x.out && x.landing === 0); req = { hh: h.id, from: h.wifeTitle, kind: 'loan', amount: 24, text: `${h.wifeTitle} of No. ${h.no} asks Mrs. Turner for the loan of two shillings till Saturday` }; }
+  if (!req) return;
+  const h = STREET.hh.find(x => x.id === req.hh), id = 'nb_' + h.id;
+  if (!WORLD.people[id]) { WORLD.people[id] = { id, name: req.from, short: req.from, f: true, home: null, place: null, needs: { hunger: 0, energy: 0, warmth: 0, social: 0 }, money: 0, inv: {}, know: {}, routine: () => null,
+    sheet: `${req.from}, a neighbour in the Buildings (No. ${h.no}); ${h.trait}${h.trait2 !== h.trait ? ' and ' + h.trait2 : ''}. ${STREET.describe(h)}` }; NPC[id] = WORLD.people[id];
+    VERBSMOD.addPerson(new RegExp('\\b(' + req.from.replace('.', '\\.?') + '|mrs\\.? ' + h.sur.toLowerCase() + '|' + req.from.split(' ')[1].toLowerCase() + ')\\b'), id); for (const k in A) A[k].op[id] = A[k].op[id] || 0; }
+  const p = WORLD.people[id]; p.place = 'ada_home'; p.away = false; p.routine = () => (W.visitor && W.visitor.id === id ? 'ada_home' : null);
+  W.visitor = { id, hh: h.id, from: req.from, req, money0: p.money, until: WORLD.t + 45 };
+  rumour(`${req.text}.`, 'ada', ['ada']); remember('ada', `${req.text}.`, [id], 3);
+  say(`   🚪 ${req.text}.`);
+  STATS.visits = (STATS.visits || 0) + 1;
 }
 // money that comes and goes whatever anybody decides (household budgets of 1931, rounded)
 function dueMoney(t) {
@@ -434,7 +471,7 @@ WORLD.hooks = {
   doctor: () => { F.doctorCalled = true; LIFE.doctor('joan'); W.doctor = 'called'; setState('joan', ['arthur'], 'Joan is mending; Dr. Gray has seen her'); note('arthur', 'account-book', 'Dr. Gray for Joan, 3s. 6d.'); remember('arthur', 'He fetched Dr. Gray to Joan, who said it was a bad cold, not bronchitis, and she would mend.', ['joan', 'money'], 3); fact('arthur', 'Did you fetch the doctor to Joan when she was ill?', ['Yes', 'No'], 0); return 'Arthur fetched Dr. Gray; Joan has a bad cold and will mend.'; },
   rent: pay => { jolt('ada', pay ? 'relief' : 'shock', pay ? 20 : 25); return payRent(pay); },
   rel: (k, q, d) => { if (A[k] && A[k].op) A[k].op[q] = Math.max(-2, Math.min(2, (A[k].op[q] || 0) + d)); if (A[q] && A[q].op) A[q].op[k] = Math.max(-2, Math.min(2, (A[q].op[k] || 0) + d / 2)); },
-  nurse: (who, n) => { if (LIFE && LIFE.ill[who]) { LIFE.ill[who].left -= n; LIFE.ill[who].nursed = true; } },
+  nurse: (who, n) => { if (/^nb_/.test(who)) { STREET.help(who.slice(3)); remember('ada', `${A.ada.short} sat with the sick child at ${WORLD.people[who].name}'s.`, [who], 3); return; } if (LIFE && LIFE.ill[who]) { LIFE.ill[who].left -= n; LIFE.ill[who].nursed = true; } },
   letter: (k, q, text, opt) => { const what = (text.match(/,\s*(telling|asking|saying)\b(.*)$/i) || [])[0] || ''; remember(k, `${A[k].short} wrote a letter${q ? ' to ' + nameOf(q) : ''}${what}`, q ? [q] : [], 2); if (q && A[q]) WORLD.schedule(opt && opt.telegram ? WORLD.t + 90 : (W.day + 1) * 1440 + 7 * 60 + 30, () => letter(q, nameOf(k), (what.replace(/^,\s*/, '') || 'a few lines'), [k], null), 'post'); },
   chance: p => Math.random() < p,
   lookup: (k, text) => ({ lookup: text }),
@@ -522,6 +559,7 @@ function core(k) {
   if (k === 'ada' && !W.bertWork) f.push('Bert is out of work, so she must find his half of the rent herself.');
   if (k === 'ada' && W.rentDue && !W.rentPaid[W.day]) f.push('The rent of seven shillings is due tonight.');
   if (k === 'ada' && W.loan) f.push(W.loan);
+  if (k === 'ada' && W.visitor) f.push(`${W.visitor.req.text}.`);
   if (k === 'arthur' && W.loan) f.push(W.loan.replace('She owes Mr. Hale', 'Mrs. Turner owes him'));
   if (k === 'arthur' && W.joanIll) f.push('Joan is ill in bed' + (W.doctor === 'not called' ? ', and the doctor has not been called.' : '.'));
   if (k === 'arthur' && W.auditDue && !W.audit.verdict) f.push('The auditors come on Monday; the books must be ready.');
@@ -1146,6 +1184,7 @@ function scene(k) {   // what the place is like just now: the senses, the fire, 
   else if (WORLD.places[pl] && ['market', 'park', 'work'].includes(WORLD.places[pl].kind)) out.push(wx.rain > 1 ? 'It is wet underfoot.' : wx.tmin < 0 ? 'The ground is iron-hard with frost.' : '', /fog/.test(wx.words) ? 'A yellow fog hangs in the street.' : '');
   else if (pl === 'arthur_home') out.push(F.joanIll ? 'Joan is in bed upstairs, coughing.' : WORLD.people.joan.place === 'arthur_home' ? 'Joan is playing by the fire.' : '', F.brayVisiting ? 'Mrs. Bray is knitting in the best chair.' : '');
   else if (pl === 'thomas_home') out.push(WORLD.people.dunn.place === 'thomas_home' ? 'Mrs. Dunn is about the house.' : 'The house is quiet.');
+  if (['pawnshop', 'chandler', 'market'].includes(pl)) for (const n of STREET.presentAt(pl, W.day, WORLD.mod)) out.push(`${n.name} from the Buildings is here, ${n.doing}.`);
   if (CHRONOS.isDark(W.day, WORLD.mod)) out.push(pl === 'ada_home' ? (F.gas_ada_home > WORLD.t ? 'The gas is lit.' : 'It is dark but for the fire; there is no penny in the meter.') : WORLD.places[pl] && !/home|office|shop|cafe|pub/.test(WORLD.places[pl].kind) ? 'The street-lamps are lit.' : '');
   if (DOW(W.day) === 'sat' && CHRONOS.homeGame(W.day, 'Arsenal') && WORLD.mod >= 13 * 60 && WORLD.mod < 17 * 60 + 30 && WORLD.places[pl] && WORLD.places[pl].district === 'highbury') out.push('The streets are thick with people going to the Arsenal.');
   return out.filter(Boolean).join(' ');
@@ -1175,7 +1214,8 @@ async function act(k) {
   const urg = WORLD.urgency(k)[0], habitStep = opts.find(x => x.habit);
   const unanswered = urg && urg.w >= 70 && !(habitStep && ((urg.key === 'hunger' && /eat|lunch/.test(habitStep.a.id)) || (urg.key === 'tired' && /sleep|rest/.test(habitStep.a.id)) || (urg.key === 'work' && /clean|desk|chief|finsbury/.test(habitStep.a.id)) || (urg.key === 'cold' && /fire/.test(habitStep.a.id))));
   const someone = opts.some(x => x.a.id === 'talk' && (A[x.x] || (() => { const t = topicFor(k, x.x); return !!(t.resolve || t.fact); })()));
-  const fork = opts.some(x => KEYACT.test(x.label)) || unanswered || someone || (a.sinceAsked || 0) >= 8;
+  const visitor = k === 'ada' && W.visitor && !W.visitor.asked && (W.visitor.asked = true);   // a neighbour at the door is a fork
+  const fork = opts.some(x => KEYACT.test(x.label)) || unanswered || someone || visitor || (a.sinceAsked || 0) >= 8;
   // no list from the engine: at a fork the person is asked openly (several thoughts at weighty moments, one otherwise);
   // the engine only checks what is possible. If nothing usable comes, they do the usual thing (habit, System 1).
   let freeAct = null;
@@ -1281,7 +1321,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     W.t = hm(6); try { await morningProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; await ensureBrowser(); }
     for (let t = hm(6, 15); t <= hm(23); t += STEP) {
       WORLD.t = d * 1440 + t; W.t = t;
-      WORLD.runDue(); WORLD.stepBackground(); WORLD.decay(STEP); dueMoney(t); institutions(t); npcGossip(); for (const k in A) chemStep(k, STEP);
+      WORLD.runDue(); WORLD.stepBackground(); WORLD.decay(STEP); dueMoney(t); institutions(t); npcGossip(); for (const k in A) chemStep(k, STEP); neighbourAtDoor(t);
       await interrupts(d, t);
       const idle = Object.keys(A).filter(k => A[k].busyUntil <= WORLD.t);
       if (t >= hm(23)) { for (const k of idle) { A[k].busyUntil = (d + 1) * 1440 + hm(6, 15); A[k].needs.energy = 20; say(`   (${A[k].short} drops off to sleep at last.)`); } break; }

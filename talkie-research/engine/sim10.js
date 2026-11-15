@@ -192,10 +192,10 @@ function qdayOf(q) {   // a date named in a question -> day index ("the 19th of 
 const HOL = { 0: 'the day after New Year\'s Day', 46: 'Shrove Tuesday', 47: 'Ash Wednesday', 72: 'Mothering Sunday', 82: 'Lady Day, the quarter-day' };   // no Bank Holiday falls in January-March 1931 (Good Friday is 3 April)
 const BANK = [], GOODFRI = null;
 const isRest = d => DOW(d) === 'sun' || BANK.includes(d) || d === GOODFRI;
-const { newsFor } = require('./news1931.js');
+const { newsFor } = require('./news1931.js'); const CHRONOS = require('./chronos1931.js');
 const paperText = d => newsFor(d).map(x => x.text).join(' ');
 function readPaper(k, name, cost) {
-  const items = newsFor(W.day); A[k].money -= cost; A[k].readDay = W.day;
+  const items = [...newsFor(W.day), ...CHRONOS.paperItems(W.day, k, WORLD.mod)]; A[k].money -= cost; A[k].readDay = W.day;
   if (!items.length) return `${A[k].short} read ${name}, but found nothing of great note.`;
   A[k].lastNews = items[0].text;
   W.factQ = W.factQ || {};
@@ -220,7 +220,25 @@ const NTOP = {
 };
 function varied(k, p, list) {
   const last = A[k].lastTopic[p]; const pool = list.filter(x => x !== last);
-  const t = pool[(W.day + W.t) % pool.length]; A[k].lastTopic[p] = t; return t;
+  let t = pool[(W.day + W.t) % pool.length]; A[k].lastTopic[p] = t;
+  if (t === 'the football') { for (let b = 0; b < 8; b++) { const r = CHRONOS.footballNews(W.day - b, ['Millwall', 'Arsenal']); if (r.length && (b > 0 || WORLD.mod > 17 * 60)) { t = 'the football: ' + r[0]; break; } } }
+  return t;
+}
+// a book of the time, consulted (the diegetic reference tool): talkie writes as the book would; the page is remembered
+async function lookupBook(k, text) {
+  const a = A[k], t = (text || '').toLowerCase();
+  const topic = (t.match(/\b(?:about|on|for|how to)\s+([a-z' -]{4,40})/) || [])[1]
+    || (k === 'arthur' && F.joanIll ? 'feverish colds and coughs in children' : k === 'ada' && F.ill_bert ? 'bronchitis, and the nursing of it' : k === 'ada' && a.money < 84 && (F.rentDue || DOW(W.day) === 'fri') ? 'rent, and the law between landlord and lodger'
+      : k === 'ada' ? 'cheap and nourishing dishes for a working family' : 'household accounts, the keeping of them');
+  const book = /library/.test(t) ? 'Cassell\'s Household Guide (London, 1911)' : k === 'ada' ? 'Enquire Within Upon Everything (London, 1923 edition)' : 'The Home Doctor and Family Adviser (London, 1925)';
+  const head = topic.toUpperCase().replace(/[.]$/, '');
+  const ans = await ask(`The following passage is taken from ${book}.\n\n${head}.—`);
+  const page = (ans || '').replace(/\s+/g, ' ').split(/(?<=[.!?])\s/).slice(0, 2).join(' ').slice(0, 320);
+  if (!page) return `${a.short} looked in ${book.split(' (')[0]}, but found nothing to the purpose.`;
+  note(k, book.split(' (')[0], `${topic}: ${page}`);
+  remember(k, `${isF(k) ? 'She' : 'He'} read in ${book.split(' (')[0]}, on ${topic}: "${page}"`, [], 3);
+  STATS.lookups = (STATS.lookups || 0) + 1;
+  return `${a.short} looked up ${topic} in ${book.split(' (')[0]}: "${page}"`;
 }
 const LIFEMOD = require('./life1931.js');
 const WEATHER = Array.from({ length: ND }, (_, d) => LIFEMOD.weatherOf(d).text);
@@ -417,8 +435,9 @@ WORLD.hooks = {
   rent: pay => { jolt('ada', pay ? 'relief' : 'shock', pay ? 20 : 25); return payRent(pay); },
   rel: (k, q, d) => { if (A[k] && A[k].op) A[k].op[q] = Math.max(-2, Math.min(2, (A[k].op[q] || 0) + d)); if (A[q] && A[q].op) A[q].op[k] = Math.max(-2, Math.min(2, (A[q].op[k] || 0) + d / 2)); },
   nurse: (who, n) => { if (LIFE && LIFE.ill[who]) { LIFE.ill[who].left -= n; LIFE.ill[who].nursed = true; } },
-  letter: (k, q, text) => { const what = (text.match(/,\s*(telling|asking|saying)\b(.*)$/i) || [])[0] || ''; remember(k, `${A[k].short} wrote a letter${q ? ' to ' + nameOf(q) : ''}${what}`, q ? [q] : [], 2); if (q && A[q]) WORLD.schedule((W.day + 1) * 1440 + 7 * 60 + 30, () => letter(q, nameOf(k), (what.replace(/^,\s*/, '') || 'a few lines'), [k], null), 'post'); },
+  letter: (k, q, text, opt) => { const what = (text.match(/,\s*(telling|asking|saying)\b(.*)$/i) || [])[0] || ''; remember(k, `${A[k].short} wrote a letter${q ? ' to ' + nameOf(q) : ''}${what}`, q ? [q] : [], 2); if (q && A[q]) WORLD.schedule(opt && opt.telegram ? WORLD.t + 90 : (W.day + 1) * 1440 + 7 * 60 + 30, () => letter(q, nameOf(k), (what.replace(/^,\s*/, '') || 'a few lines'), [k], null), 'post'); },
   chance: p => Math.random() < p,
+  lookup: (k, text) => ({ lookup: text }),
   ask: (q, k, kind, detail) => {
     if (kind === 'work') return resolve(k, { verb: 'seekwork', _inner: true, text: 'She looks for more work.' }).aff.a.effect();
     const about = detail && detail.text ? detail.text.replace(/^.*?\b(asks?|begs?|borrows?|requests?|applies to|appeals to)\b\s*(\w+\.? \w+ )?/i, '').replace(/\.$/, '') : null;
@@ -1127,6 +1146,8 @@ function scene(k) {   // what the place is like just now: the senses, the fire, 
   else if (WORLD.places[pl] && ['market', 'park', 'work'].includes(WORLD.places[pl].kind)) out.push(wx.rain > 1 ? 'It is wet underfoot.' : wx.tmin < 0 ? 'The ground is iron-hard with frost.' : '', /fog/.test(wx.words) ? 'A yellow fog hangs in the street.' : '');
   else if (pl === 'arthur_home') out.push(F.joanIll ? 'Joan is in bed upstairs, coughing.' : WORLD.people.joan.place === 'arthur_home' ? 'Joan is playing by the fire.' : '', F.brayVisiting ? 'Mrs. Bray is knitting in the best chair.' : '');
   else if (pl === 'thomas_home') out.push(WORLD.people.dunn.place === 'thomas_home' ? 'Mrs. Dunn is about the house.' : 'The house is quiet.');
+  if (CHRONOS.isDark(W.day, WORLD.mod)) out.push(pl === 'ada_home' ? (F.gas_ada_home > WORLD.t ? 'The gas is lit.' : 'It is dark but for the fire; there is no penny in the meter.') : WORLD.places[pl] && !/home|office|shop|cafe|pub/.test(WORLD.places[pl].kind) ? 'The street-lamps are lit.' : '');
+  if (DOW(W.day) === 'sat' && CHRONOS.homeGame(W.day, 'Arsenal') && WORLD.mod >= 13 * 60 && WORLD.mod < 17 * 60 + 30 && WORLD.places[pl] && WORLD.places[pl].district === 'highbury') out.push('The streets are thick with people going to the Arsenal.');
   return out.filter(Boolean).join(' ');
 }
 function household(k) {   // the people one lives for, wherever they are
@@ -1196,6 +1217,7 @@ async function act(k) {
   let result = res;
   if (res && res.talk) { if (res.verb && res.verb !== 'talk') res.topic = `${res.verb === 'quarrel' ? 'a quarrel' : res.verb === 'comfort' ? 'comforting' : res.verb === 'apologise' ? 'an apology' : res.verb === 'thank' ? 'thanks' : res.verb === 'warn' ? 'a warning' : 'a promise'}: ${res.topic}`; const t = res.topic ? { topic: res.topic } : (W.topicCache || {})[k + '>' + res.talk] || topicFor(k, res.talk); result = await converse(k, { to: res.talk, ...t }); if (res.request) await consent(res.talk, k, res.request); }
   else if (res && res.book) result = await bookWork(res.book);
+  else if (res && res.lookup) result = await lookupBook(k, res.lookup);
   if (typeof result !== 'string') result = `${a.short}: ${o.label}.`;
   say(`      ⇒ ${result}`);
   if (!(res && res.talk)) { if (a.mem.length === before && !/rested|had a meal|went to bed|went home/.test(result)) remember(k, result, presentAt(k)); for (const p of presentAt(k)) remember(p, `(Seen) ${result}`, [k], 1); }

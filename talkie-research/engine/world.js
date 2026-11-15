@@ -201,6 +201,12 @@ World.prototype.urgency = function (id) {
   return out.sort((a, b) => b.w - a.w);
 };
 // a person's lot as one number: money, needs met, duties kept, debts and arrears (higher is better)
+World.prototype.lit = function (id) {   // can one see to sew or read here and now?
+  const p = this.people[id]; const C = require('./chronos1931.js');
+  if (!C.isDark(this.day, this.mod)) return true;
+  if (p.place === 'ada_home') return this.flags.gas_ada_home > this.t || (this.count && this.count('ada', 'candles') > 0);
+  return true;   // the Hales and Mr. Thomas pay for their gas by the quarter; shops and offices are lit
+};
 World.prototype.wellbeing = function (id) {
   const p = this.people[id], n = p.needs, f = this.flags;
   let v = Math.min(p.money, 480) / 12 - (n.hunger + n.warmth + n.energy) / 6 - (p.money < 0 ? 15 : 0);

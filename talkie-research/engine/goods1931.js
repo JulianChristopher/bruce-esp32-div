@@ -7,7 +7,7 @@
 const SHOPS = {
   grocer: ['chandler', 'islington_shop'], coal: ['chandler'], market: ['market', 'market_islington'], baker: ['baker', 'islington_shop'],
   butcher: ['market', 'market_islington'], chemist: ['chemist', 'chemist_islington'], draper: ['market', 'market_islington'], news: ['newsagent', 'islington_shop', 'post_office'],
-  pub: ['pub'], eating: ['cookshop', 'teashop', 'fishshop'], post: ['post_office'], pawn: ['pawnshop'], toy: ['market', 'market_islington'], flowers: ['market', 'market_islington']
+  pub: ['pub'], eating: ['cookshop', 'teashop', 'fishshop'], post: ['post_office', 'post_office_bermondsey'], pawn: ['pawnshop'], toy: ['market', 'market_islington'], flowers: ['market', 'market_islington']
 };
 const G = [
   // food

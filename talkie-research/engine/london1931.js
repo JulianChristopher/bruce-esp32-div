@@ -3,6 +3,7 @@
 // recurring social practices, and the dated events of the story. Prices after the New Survey of London
 // Life and Labour (1929-31), rounded. Effects that touch memory call the driver's hooks (w.hooks).
 'use strict';
+const CHRONOS = require('./chronos1931.js');
 const H = w => w.hooks;
 const hm = (h, m = 0) => h * 60 + m;
 const weekday = w => !['sat', 'sun'].includes(w.dow());
@@ -18,7 +19,7 @@ const places = {
   market: { name: 'the street-market in Bermondsey', kind: 'market', district: 'bermondsey', warmth: outdoor, open: w => !sun(w) && w.between(hm(8), hm(19)) },
   pawnshop: { name: "Lamb's, the pawnbroker in Bermondsey", kind: 'shop', district: 'bermondsey', warmth: 45, open: w => !sun(w) && w.between(hm(9), hm(19)) },
   chapel: { name: 'the Bermondsey Methodist chapel', kind: 'chapel', district: 'bermondsey', warmth: 40, open: w => sun(w) && w.between(hm(10), hm(12, 30)) },
-  pub: { name: 'the Lord Nelson public-house', kind: 'pub', district: 'bermondsey', warmth: 65, open: w => w.between(hm(11), hm(15)) || w.between(hm(17, 30), hm(22)) },
+  pub: { name: 'the Lord Nelson public-house', kind: 'pub', district: 'bermondsey', warmth: 65, open: w => CHRONOS.pubOpen(w.day, w.mod) },   // Licensing Act 1921, London hours
   docks: { name: 'the dock gates at Surrey Commercial Docks', kind: 'work', district: 'bermondsey', warmth: outdoor },
   office: { name: "the clerks' room of the Moorgate Fire and Life Assurance Company", kind: 'work', district: 'moorgate', warmth: 64, open: w => !sun(w) && w.between(hm(7, 30), sat(w) ? hm(13) : hm(18, 30)) },
   finsbury: { name: 'the offices in Finsbury Circus', kind: 'work', district: 'moorgate', warmth: 55, open: w => !sun(w) && w.between(hm(8, 30), hm(13)) },
@@ -48,7 +49,7 @@ const people = [
   { id: 'joan', name: 'Joan Hale', short: 'Joan', f: true, home: 'arthur_home', sheet: "Joan Hale, aged seven, Arthur's daughter; lively, curious, full of questions.",
     routine: (w) => (w.flags.joanIll ? 'arthur_home' : weekday(w) && w.between(hm(8, 45), hm(16)) ? 'school' : sun(w) && w.between(hm(10, 30), hm(12, 30)) ? 'church' : 'arthur_home') },
   { id: 'bert', name: 'Bert Turner', short: 'Bert', f: false, home: 'ada_home', sheet: "Bert Turner, aged twenty, Ada's son, a docker; good-humoured, devoted to his mother, ashamed when out of work.",
-    routine: (w) => (sun(w) ? (w.between(hm(12), hm(14)) ? 'pub' : 'ada_home') : w.flags.bertWork ? (w.between(hm(6, 30), hm(17, 30)) ? 'docks' : w.between(hm(19, 30), hm(21, 30)) && fri(w) ? 'pub' : 'ada_home') : (w.between(hm(6, 30), hm(9)) ? 'docks' : w.between(hm(14), hm(16)) ? 'pub' : 'ada_home')) },
+    routine: (w) => (sat(w) && w.flags.bertWork && CHRONOS.homeGame(w.day, 'Millwall') && w.between(hm(14), hm(17)) ? 'den' : sun(w) ? (w.between(hm(12), hm(14)) ? 'pub' : 'ada_home') : w.flags.bertWork ? (w.between(hm(6, 30), hm(17, 30)) ? 'docks' : w.between(hm(19, 30), hm(21, 30)) && fri(w) ? 'pub' : 'ada_home') : (w.between(hm(6, 30), hm(9)) ? 'docks' : w.between(hm(14), hm(16)) ? 'pub' : 'ada_home')) },
   { id: 'nolan', name: 'Mrs. Kate Nolan', short: 'Mrs. Nolan', f: true, home: 'nolan_rooms', sheet: "Mrs. Kate Nolan, Ada's neighbour across the landing, aged fifty, an Irish widow who takes in washing; a great talker who knows everybody's business.",
     routine: (w) => (sun(w) && w.between(hm(10), hm(12, 30)) ? 'chapel' : sat(w) && w.between(hm(10), hm(12)) ? 'market' : w.between(hm(16), hm(17)) && !sun(w) ? 'chandler' : 'nolan_rooms') },
   { id: 'barker', name: 'Mr. Barker', short: 'Mr. Barker', f: false, home: 'chandler', sheet: "Mr. Barker, the grocer and chandler, aged sixty; gives credit to old customers but keeps a sharp slate.",
@@ -92,6 +93,9 @@ places.pictures = { name: 'the picture palace in the Old Kent Road', kind: 'pict
 places.mission = { name: 'the Salvation Army hall in Bermondsey', kind: 'mission', district: 'bermondsey', warmth: 55, open: w => w.between(hm(18), hm(21)) || sun(w) && w.between(hm(10), hm(12)) };
 places.library_islington = { name: 'the public library in Islington', kind: 'library', district: 'islington', warmth: 60, open: w => !sun(w) && w.between(hm(10), hm(21)) };
 places.pictures_islington = { name: 'the Blue Hall picture house in Upper Street', kind: 'pictures', district: 'islington', warmth: 60, open: w => w.between(hm(13, 30), hm(23)) && (!sun(w) || w.mod >= hm(17)) };
+places.post_office_bermondsey = { name: 'the post office in Bermondsey', kind: 'shop', district: 'bermondsey', warmth: 45, open: w => !sun(w) && w.between(hm(8), hm(19)) };
+places.den = { name: 'the Den, Millwall\'s ground in Cold Blow Lane', kind: 'ground', district: 'bermondsey', warmth: outdoor, open: w => !!CHRONOS.homeGame(w.day, 'Millwall') && w.between(hm(14), hm(17)) };
+places.highbury_ground = { name: 'the Arsenal Stadium at Highbury', kind: 'ground', district: 'highbury', warmth: outdoor, open: w => !!CHRONOS.homeGame(w.day, 'Arsenal') && w.between(hm(14), hm(17)) };
 places.market_islington = { name: 'Chapel Market in Islington', kind: 'market', district: 'islington', warmth: outdoor, open: w => !sun(w) && w.between(hm(8), hm(19)) };
 
 // ---------- what can be done ----------
@@ -120,6 +124,9 @@ const actions = [
     effect: (w, p) => { w.add('ada', 'coal', 4); if (p.money < 0) H(w).debt('ada', 'Barker'); return 'Ada bought coal.'; } },
   { id: 'light_fire', who: ['ada'], where: athome, when: w => w.count('ada', 'coal') > 0 && !(w.flags.fire_ada_home > w.t) && w.mod >= hm(6) && w.mod < hm(21, 30), dur: 10, meets: { warmth: 30 }, base: 5, habit: (w, p) => p.needs.warmth > 40,
     label: (w) => `Light the fire (${w.count('ada', 'coal')} fires' worth of coal left)`, effect: (w) => { w.add('ada', 'coal', -1); w.flags.fire_ada_home = w.t + 240; return 'Ada lit the fire.'; } },
+  // the penny-in-the-slot gas meter: a penny's worth of gas lights the room for about four hours
+  { id: 'gas_penny', who: ['ada'], where: athome, when: (w, p) => CHRONOS.isDark(w.day, w.mod) && !(w.flags.gas_ada_home > w.t) && w.mod < hm(22, 30) && p.money >= 1, dur: 2, cost: 1, base: 3, meets: {}, habit: (w, p) => true,
+    label: () => 'Put a penny in the gas meter for light', effect: (w) => { w.flags.gas_ada_home = w.t + 240; return 'Ada put a penny in the gas meter.'; } },
   { id: 'market', who: ['ada'], at: () => 'market', where: () => true, when: (w, p) => !(p.marketDay === w.day), dur: 40, cost: 0, base: w => (sat(w) ? 14 : 2), meets: { social: 15 },
     label: () => 'Go round the street-market for cheap vegetables and a bit of company', habit: w => sat(w) && w.between(hm(14), hm(17)),
     effect: (w, p) => { p.marketDay = w.day; if (p.money >= 4) { w.pay('ada', null, 4); w.add('ada', 'food', 1); return 'Ada bought cheap vegetables at the market (4d.).'; } return 'Ada walked round the market.'; } },

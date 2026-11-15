@@ -43,6 +43,7 @@ function frame(text) {
   const persons = PEOPLE.map(([re, v]) => [v, (t.match(re) || { index: -1 }).index]).filter(([, i]) => i >= 0).sort((a, b) => a[1] - b[1]).map(([v]) => v), place = find(PLACES, t), goods = goodsIn(t), item = find(ITEMS, t), amount = moneyIn(t);
   const purpose = (t.match(/\b(?:to|so as to|in order to|for)\s+(pay the rent|pay (?:the |her )?(?:debt|slate)|buy|keep warm|get coal|get food|bert|joan|the rent|supper|her (?:cough|cold|chest))\b[^.,;]*/) || [])[0] || null;
   const V = [
+    ['match', /\b(goes to (see )?(the )?(match|football|millwall|the arsenal|arsenal|the den|highbury)|watch(es)? (the )?(match|football|millwall|the arsenal)|to the den\b|stands? on the terraces?)/],
     // going to, asking or consulting the doctor is calling the doctor in (before 'ask' and 'go' can take it)
     ['fetch', /\b(goes|hurries|runs|walks|calls|asks|consults|sees|visits|takes \w+|sends|fetches|fetch|goes for|calls in|sends for|summons|brings)\b[^.;]{0,30}?\b(the doctor|dr\.? gray|the surgery|doctor's)/],
     ['bet', /\b(puts? .{0,15}on a horse|backs? a horse|has a bet|bets?|a flutter)\b/], ['pawn', /\b(pawns?|pledges?|takes .{0,30} to (the )?(pawn|uncle|lamb))/], ['redeem', /\b(redeems?|gets? .{0,20} out of pawn)\b/],
@@ -59,6 +60,10 @@ function frame(text) {
     ['pray', /\b(prays?|goes to (church|chapel)|attends (service|church|chapel)|reads (her|his) bible)\b/], ['sing', /\b(sings?|hums?)\b/], ['play', /\b(plays?)\b/], ['read', /\b(reads?|looks at the paper)\b/],
     ['save', /\b(saves?|puts? .{0,20} by|puts? .{0,20}(in|into) the (post office|savings|tin|teapot))\b/], ['hide', /\b(hides?)\b/],
     ['steal', /\b(steals?|stole|stolen|pinch(es)?|nicks?|filch(es)?|pockets? .{0,20}(from|off) the|shop-?lifts?|robs?|helps? (herself|himself) to .{0,30}(from|off) the)\b/],
+    ['gas', /\b(penny in the (gas[- ])?(meter|slot)|feeds? the meter|puts? .{0,10}in the meter|lights? the gas)\b/],
+    ['telegram', /\b(telegraphs?|telegrams?|sends? a wire|wires (to )?\w+)\b/],
+    ['reckon', /\b(reckons? up|counts? (up )?(her|his|the) (money|coppers|pence|savings)|goes? over (her|his|the) (accounts|books|money|account-book)|does (her|his) sums|adds? up (what|her|his))\b/],
+    ['lookup', /\b(looks? (it |this |that )?up|consults? (a |the |her |his )?(book|encyclopaedia|enquire within|medical book|almanac|dictionary|library)|enquire within|looks? in (a |the |her |his )?(book|encyclopaedia|medical book|almanac|cookery-book|enquire within))/],
     ['pictures', /\b(goes to the pictures|to the pictures|takes .{0,20} to the pictures|picture palace|picture house|cinema|the films?|a film)\b/],
     ['library', /\b(free library|public library|the library|reading-room|changes? (her|his) (library )?book)\b/],
     ['mission', /\b(salvation army|army hall|mission hall|soup kitchen|the mission)\b/],
@@ -160,6 +165,7 @@ function deed(w, k, f) {
     case 'fire': { const a = w.affordances(k).find(x => x.a.id === 'light_fire'); return a ? { aff: a } : { why: k === 'ada' && (p.inv.coal || 0) <= 0 ? 'there is no coal' : 'the fire is in already' }; }
     case 'smoke': return (p.inv.woodbines || p.inv.tobacco) ? { aff: mk(w, p, 'smoke', 'Smoke a pipe', p.place, 15, 0, (w2, p2) => { w2.add(p2.id, p2.inv.woodbines ? 'woodbines' : 'tobacco', -1); p2.needs.social = Math.max(0, p2.needs.social - 5); return `${p2.short} smoked.`; }) } : { why: 'there is no tobacco' };
     case 'mend': case 'knit': {
+      if (w.lit && !w.lit(k) && p.place === p.home) return { why: `it is too dark to see; there is no penny in the gas meter` };
       const need = f.verb === 'knit' ? 'wool' : 'thread'; if (!(p.inv[need] > 0) && !(f.verb === 'mend')) return { why: `${SHE(p)} has no ${need}` };
       if (p.place !== p.home) return { plan: true };
       return { aff: mk(w, p, f.verb, f.text.replace(/^(she|he)\s+/i, '').replace(/\.$/, '').replace(/^./, c => c.toUpperCase()).slice(0, 80), p.home, f.verb === 'knit' ? 120 : 60, 0, (w2, p2) => { if (f.verb === 'knit') { w2.add(p2.id, 'wool', -1); w2.add(p2.id, 'socks', 1); } if (q) w2.hooks.rel && w2.hooks.rel(p2.id, q, 0.5); return `${p2.short} ${f.verb === 'knit' ? 'knitted' : 'mended'} for a while.`; }) };
@@ -186,7 +192,7 @@ function deed(w, k, f) {
     case 'bet': { const stake = f.amount || 6; if (!purse(stake)) return { why: 'not the money for a bet' }; return { aff: mk(w, p, 'bet', `Put ${money(stake)} on a horse with the bookie's runner`, 'street_corner', 10, stake, (w2, p2) => { const win = w2.hooks.chance ? w2.hooks.chance(1 / 6) : false; if (win) p2.money += stake * 6; return `${p2.short} put ${money(stake)} on a horse${win ? ' and won!' : ', and lost it'}.`; }) }; }
     case 'save': case 'hide': { const amt = f.amount || 12; if (p.money < amt) return { why: `${SHE(p)} has not ${money(amt)} to put by` }; return { aff: mk(w, p, 'save', `Put ${money(amt)} by${f.verb === 'hide' ? ' where nobody will find it' : ''}`, p.place, 5, amt, (w2, p2) => { w2.add(p2.id, 'savings', amt); return `${p2.short} put ${money(amt)} by.`; }) }; }
     case 'pray': { const a = w.affordances(k).find(x => x.a.id === 'worship'); return { aff: a || mk(w, p, 'pray', 'Pray quietly', p.place, 15, 0, (w2, p2) => `${p2.short} prayed.`) }; }
-    case 'read': { const a = w.affordances(k).find(x => x.a.id === 'read_paper'); return { aff: a || mk(w, p, 'read', 'Read for a while', p.place, 40, 0, (w2, p2) => `${p2.short} read for a while.`, { energy: 10 }) }; }
+    case 'read': { if (w.lit && !w.lit(k) && p.place === p.home && !f.place) return { why: 'it is too dark to read; there is no penny in the gas meter' }; const a = w.affordances(k).find(x => x.a.id === 'read_paper'); return { aff: a || mk(w, p, 'read', 'Read for a while', p.place, 40, 0, (w2, p2) => `${p2.short} read for a while.`, { energy: 10 }) }; }
     case 'sing': case 'play': return { aff: mk(w, p, f.verb, f.text.replace(/^(she|he)\s+/i, '').replace(/\.$/, '').slice(0, 80), p.place, 30, 0, (w2, p2) => { if (q) w2.hooks.rel && w2.hooks.rel(p2.id, q, 0.5); return `${p2.short} ${f.verb === 'sing' ? 'sang' : 'played'} a while.`; }, { social: 20 }) };
     case 'sleep': { const a = w.affordances(k).find(x => x.a.id === 'sleep'); return { aff: a || mk(w, p, 'lie_down', 'Lie down for a while', p.home, 60, 0, (w2, p2) => `${p2.short} lay down.`, { energy: 30 }) }; }
     case 'rest': { const a = w.affordances(k).find(x => x.a.id === 'rest'); return { aff: a || mk(w, p, 'wait', 'Sit and think a while', p.place, 30, 0, (w2, p2) => `${p2.short} sat a while.`, { energy: 10 }) }; }
@@ -222,7 +228,42 @@ function deed(w, k, f) {
         w2.hooks.remember && w2.hooks.remember(p2.id, caught ? `${p2.short} was caught stealing ${g ? g.name : 'money'}, and taken before the magistrate.` : `${p2.short} stole ${g ? g.name : money(amt)}, and nobody saw.`, [], 3);
         return caught ? `${p2.short} was caught stealing.` : `${p2.short} stole ${g ? g.name : money(amt)}.`; }) };
     }
+    case 'match': {   // a home match today, at three o'clock; a shilling on the terraces (sixpence for boys)
+      const CH = require('./chronos1931.js'), t = f.text.toLowerCase();
+      const club = /arsenal|highbury/.test(t) ? 'Arsenal' : /millwall|the den/.test(t) ? 'Millwall' : (CH.homeGame(w.day, 'Millwall') ? 'Millwall' : 'Arsenal');
+      const m = CH.homeGame(w.day, club); if (!m) return { why: `${club === 'Arsenal' ? 'the Arsenal are' : 'Millwall are'} not at home today` };
+      const at = club === 'Arsenal' ? 'highbury_ground' : 'den'; if (!w.placeOpenAtArrival(at, w.travel(p.place, at))) return { why: 'the match is over, or not yet begun' };
+      const with_ = q && w.people[q] && w.people[q].place === p.place ? q : null, cost = 12 * (with_ ? 2 : 1); if (!purse(cost)) return { why: `${SHE(p)} has not the shilling for the gate` };
+      return { aff: mk(w, p, 'match', `Go to see ${CH.CLUB[club]} play ${CH.CLUB[m.away] || m.away}${with_ ? ' with ' + PN(w, with_) : ''} (${money(cost)})`, at, 150, cost, (w2, p2) => {
+        const r = CH.resultWords(m); w2.hooks.remember && w2.hooks.remember(p2.id, `${p2.short} saw ${CH.CLUB[club]} play ${CH.CLUB[m.away] || m.away}: ${r}.`, with_ ? [with_] : [], 2);
+        if (with_ && w2.hooks.rel) w2.hooks.rel(p2.id, with_, 1); return `${p2.short} went to the match: ${r}.`; }, { social: 35 }) };
+    }
+    case 'gas': { if (k !== 'ada') return { why: 'the gas is paid by the quarter' }; if (p.place !== p.home) return { plan: true }; if (!purse(1)) return { why: 'not a penny for the meter' };
+      return { aff: mk(w, p, 'gas_penny', 'Put a penny in the gas meter for light', p.home, 2, 1, (w2) => { w2.flags.gas_ada_home = w2.t + 240; return 'Ada put a penny in the gas meter.'; }) }; }
+    case 'telegram': {   // inland telegrams 1931: a shilling for twelve words, a penny a word beyond; delivered within the hour or two
+      if (!q) return { why: 'there is nobody named to send it to' }; const at = nearestOpen(w, p, ['post_office', 'post_office_bermondsey']) || null; if (!at) return { why: 'the post office is shut' };
+      if (!purse(12)) return { why: 'a telegram costs a shilling' };
+      return { aff: mk(w, p, 'telegram', `Send a telegram to ${PN(w, q)} (1s. 0d.)`, at, 20, 12, (w2, p2) => { w2.hooks.letter && w2.hooks.letter(p2.id, q, f.text, { telegram: true }); return `${p2.short} sent a telegram to ${PN(w2, q)}.`; }) };
+    }
+    case 'reckon': {   // the account-book and the pencil: the engine does the sums, the person reads them in words
+      return { aff: mk(w, p, 'reckon', 'Reckon up the money and what is owing', p.place, 15, 0, (w2, p2) => { const t = reckoning(w2, p2.id); w2.hooks.remember && w2.hooks.remember(p2.id, `${p2.short} reckoned up: ${t}`, [], 3); return `${p2.short} reckoned up: ${t}`; }) };
+    }
+    case 'lookup': {   // a book of the time answers (talkie, as the book); in a rollout it only costs the time
+      const at = /library/.test(f.text.toLowerCase()) ? (nearestOpen(w, p, ['library', 'library_islington']) || p.place) : p.place;
+      return { aff: mk(w, p, 'lookup', `Look it up in ${/library/.test(f.text.toLowerCase()) ? 'the free library' : k === 'ada' ? 'the old copy of Enquire Within' : 'the household encyclopaedia'}`, at, 30, 0, (w2, p2) => (w2.hooks.lookup ? w2.hooks.lookup(p2.id, f.text) : `${p2.short} looked it up.`) ) };
+    }
     default: return null;
   }
 }
-module.exports.deed = deed;
+// the reckoning in words, from the engine's books: purse, slate, loans, pledges and when they fall due, the rent
+function reckoning(w, k) {
+  const p = w.people[k], f = w.flags, out = [`${money(Math.max(0, p.money))} in hand`];
+  if (p.money < 0) out.push(`${money(-p.money)} owing on Barker's slate`);
+  if (k === 'ada' && f.owesNolan) out.push('a loan owing to Mrs. Nolan');
+  if (k === 'ada') out.push(f.rentOwing ? 'the rent of seven shillings owing' : f.rentDue ? 'the rent of seven shillings due tonight' : 'the rent of seven shillings due on Friday');
+  for (const [id, o] of Object.entries(w.objects)) if (o.at === 'lamb' && (o.owner || 'ada') && (k === 'ada' ? !['overcoat', 'wireless', 'umbrella', 'chain', 'dickens', 'brooch', 'machine', 'goldwatch', 'clock'].includes(id) : ['overcoat', 'wireless', 'umbrella', 'chain', 'dickens', 'brooch', 'machine', 'clock'].includes(id))) out.push(`${o.name} in pawn, to be had back for ${money(Math.round(o.value * 1.1))}`);
+  if (p.inv && p.inv.savings) out.push(`${money(p.inv.savings)} put by`);
+  if (k === 'ada') out.push(`food for ${p.inv.food || 0} meals and coal for ${p.inv.coal || 0} fires`);
+  return out.join('; ') + '.';
+}
+module.exports.deed = deed; module.exports.reckoning = reckoning;

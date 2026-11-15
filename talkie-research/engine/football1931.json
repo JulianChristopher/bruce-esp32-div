@@ -1,0 +1,2277 @@
+[
+{
+"date": "1931-01-03",
+"home": "Manchester United",
+"away": "Chelsea",
+"hg": 1,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-01-03",
+"home": "West Ham United",
+"away": "Aston Villa",
+"hg": 5,
+"ag": 5,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-01-03",
+"home": "Millwall",
+"away": "Charlton Athletic",
+"hg": 6,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-01-03",
+"home": "Tottenham Hotspur",
+"away": "Wolverhampton Wanderers",
+"hg": 1,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-01-03",
+"home": "Bristol Rovers",
+"away": "Brentford",
+"hg": 2,
+"ag": 5,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-03",
+"home": "Fulham",
+"away": "Notts County",
+"hg": 3,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-03",
+"home": "Luton Town",
+"away": "Crystal Palace",
+"hg": 1,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-03",
+"home": "Queens Park Rangers",
+"away": "Norwich City",
+"hg": 3,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-03",
+"home": "Walsall",
+"away": "Thames",
+"hg": 6,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-10",
+"home": "Southend United",
+"away": "Thames",
+"hg": 1,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-10",
+"home": "Aldershot",
+"away": "Bradford Park Avenue",
+"hg": 0,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Arsenal",
+"away": "Aston Villa",
+"hg": 2,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Barnsley",
+"away": "Bristol City",
+"hg": 4,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Blackburn Rovers",
+"away": "Walsall",
+"hg": 1,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Bolton Wanderers",
+"away": "Carlisle United",
+"hg": 1,
+"ag": 0,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Brentford",
+"away": "Cardiff City",
+"hg": 2,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Bristol Rovers",
+"away": "Queens Park Rangers",
+"hg": 3,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Burnley",
+"away": "Manchester City",
+"hg": 3,
+"ag": 0,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Bury",
+"away": "Torquay United",
+"hg": 1,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Corinthian",
+"away": "Port Vale",
+"hg": 1,
+"ag": 3,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Crystal Palace",
+"away": "Reading",
+"hg": 1,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Exeter City",
+"away": "Derby County",
+"hg": 3,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Fulham",
+"away": "Portsmouth",
+"hg": 0,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Gateshead",
+"away": "Sheffield Wednesday",
+"hg": 2,
+"ag": 6,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Hull City",
+"away": "Blackpool",
+"hg": 1,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Leeds United",
+"away": "Huddersfield Town",
+"hg": 2,
+"ag": 0,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Leicester City",
+"away": "Brighton & Hove Albion",
+"hg": 1,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Liverpool",
+"away": "Birmingham City",
+"hg": 0,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "43,907",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Newcastle United",
+"away": "Nottingham Forest",
+"hg": 4,
+"ag": 0,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Notts County",
+"away": "Swansea City",
+"hg": 3,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Oldham Athletic",
+"away": "Watford",
+"hg": 1,
+"ag": 3,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Plymouth Argyle",
+"away": "Everton",
+"hg": 0,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Scarborough",
+"away": "Grimsby Town",
+"hg": 1,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Sheffield United",
+"away": "York City",
+"hg": 1,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Southport",
+"away": "Millwall",
+"hg": 3,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Stoke City",
+"away": "Manchester United",
+"hg": 3,
+"ag": 3,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Sunderland",
+"away": "Southampton",
+"hg": 2,
+"ag": 0,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Tottenham Hotspur",
+"away": "Preston North End",
+"hg": 3,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "West Bromwich Albion",
+"away": "Charlton Athletic",
+"hg": 2,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "27,749",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "West Ham United",
+"away": "Chelsea",
+"hg": 1,
+"ag": 3,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-10",
+"home": "Wolverhampton Wanderers",
+"away": "Wrexham",
+"hg": 9,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-14",
+"home": "Bristol Rovers",
+"away": "Queens Park Rangers",
+"hg": 3,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-14",
+"home": "Exeter City",
+"away": "Fulham",
+"hg": 3,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-14",
+"home": "Middlesbrough",
+"away": "Bradford City",
+"hg": 1,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-14",
+"home": "Aston Villa",
+"away": "Arsenal",
+"hg": 1,
+"ag": 3,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-14",
+"home": "Cardiff City",
+"away": "Brentford",
+"hg": 1,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-14",
+"home": "Charlton Athletic",
+"away": "West Bromwich Albion",
+"hg": 1,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-14",
+"home": "Manchester United",
+"away": "Stoke City",
+"hg": 0,
+"ag": 0,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-14",
+"home": "Reading",
+"away": "Crystal Palace",
+"hg": 1,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-14",
+"home": "Torquay United",
+"away": "Bury",
+"hg": 1,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-14",
+"home": "York City",
+"away": "Sheffield United",
+"hg": 0,
+"ag": 2,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-15",
+"home": "Walsall",
+"away": "Blackburn Rovers",
+"hg": 0,
+"ag": 3,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-17",
+"home": "Arsenal",
+"away": "Sunderland",
+"hg": 1,
+"ag": 3,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-01-17",
+"home": "Chelsea",
+"away": "West Ham United",
+"hg": 2,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-01-17",
+"home": "Barnsley",
+"away": "Charlton Athletic",
+"hg": 5,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-01-17",
+"home": "Bradford Park Avenue",
+"away": "Tottenham Hotspur",
+"hg": 4,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-01-17",
+"home": "Millwall",
+"away": "Oldham Athletic",
+"hg": 1,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-01-17",
+"home": "Brentford",
+"away": "Newport County",
+"hg": 3,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-17",
+"home": "Brighton & Hove Albion",
+"away": "Queens Park Rangers",
+"hg": 1,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-17",
+"home": "Crystal Palace",
+"away": "Bristol Rovers",
+"hg": 0,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-17",
+"home": "Leyton Orient",
+"away": "Fulham",
+"hg": 2,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-17",
+"home": "Thames",
+"away": "Coventry City",
+"hg": 1,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-19",
+"home": "Bradford City",
+"away": "Middlesbrough",
+"hg": 2,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-19",
+"home": "Crystal Palace",
+"away": "Reading",
+"hg": 2,
+"ag": 0,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-19",
+"home": "Stoke City",
+"away": "Manchester United",
+"hg": 2,
+"ag": 4,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-19",
+"home": "West Bromwich Albion",
+"away": "Charlton Athletic",
+"hg": 2,
+"ag": 1,
+"div": "FA Cup 3",
+"comp": "FA Cup",
+"att": "36,350",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Charlton Athletic",
+"away": "Bristol City",
+"hg": 0,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-01-24",
+"home": "Nottingham Forest",
+"away": "Millwall",
+"hg": 2,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-01-24",
+"home": "Fulham",
+"away": "Thames",
+"hg": 4,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-24",
+"home": "Walsall",
+"away": "Queens Park Rangers",
+"hg": 0,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-24",
+"home": "Barnsley",
+"away": "Sheffield Wednesday",
+"hg": 2,
+"ag": 1,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Birmingham City",
+"away": "Port Vale",
+"hg": 2,
+"ag": 0,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "39,885",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Blackburn Rovers",
+"away": "Bristol Rovers",
+"hg": 5,
+"ag": 1,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Bolton Wanderers",
+"away": "Sunderland",
+"hg": 1,
+"ag": 1,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Bradford City",
+"away": "Wolverhampton Wanderers",
+"hg": 0,
+"ag": 0,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Bradford Park Avenue",
+"away": "Burnley",
+"hg": 2,
+"ag": 0,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Brentford",
+"away": "Portsmouth",
+"hg": 0,
+"ag": 1,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Bury",
+"away": "Exeter City",
+"hg": 1,
+"ag": 2,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Chelsea",
+"away": "Arsenal",
+"hg": 2,
+"ag": 1,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Crystal Palace",
+"away": "Everton",
+"hg": 0,
+"ag": 6,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Grimsby Town",
+"away": "Manchester United",
+"hg": 1,
+"ag": 0,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Leeds United",
+"away": "Newcastle United",
+"hg": 4,
+"ag": 1,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Sheffield United",
+"away": "Notts County",
+"hg": 4,
+"ag": 1,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Southport",
+"away": "Blackpool",
+"hg": 2,
+"ag": 1,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "Watford",
+"away": "Brighton & Hove Albion",
+"hg": 2,
+"ag": 0,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-24",
+"home": "West Bromwich Albion",
+"away": "Tottenham Hotspur",
+"hg": 1,
+"ag": 0,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "46,850",
+"venue": "NA"
+},
+{
+"date": "1931-01-26",
+"home": "West Ham United",
+"away": "Newcastle United",
+"hg": 3,
+"ag": 2,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-01-26",
+"home": "Tottenham Hotspur",
+"away": "Stoke City",
+"hg": 3,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-01-26",
+"home": "Newport County",
+"away": "Crystal Palace",
+"hg": 2,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-28",
+"home": "Arsenal",
+"away": "Grimsby Town",
+"hg": 9,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-01-28",
+"home": "Gillingham",
+"away": "Brentford",
+"hg": 1,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-28",
+"home": "Sunderland",
+"away": "Bolton Wanderers",
+"hg": 3,
+"ag": 1,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-28",
+"home": "Wolverhampton Wanderers",
+"away": "Bradford City",
+"hg": 4,
+"ag": 2,
+"div": "FA Cup 4",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-01-31",
+"home": "Arsenal",
+"away": "Birmingham City",
+"hg": 1,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-01-31",
+"home": "Chelsea",
+"away": "Liverpool",
+"hg": 2,
+"ag": 2,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-01-31",
+"home": "Sheffield Wednesday",
+"away": "West Ham United",
+"hg": 5,
+"ag": 3,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-01-31",
+"home": "Cardiff City",
+"away": "Charlton Athletic",
+"hg": 0,
+"ag": 2,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-01-31",
+"home": "Millwall",
+"away": "Tottenham Hotspur",
+"hg": 2,
+"ag": 3,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-01-31",
+"home": "Brentford",
+"away": "Exeter City",
+"hg": 2,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-31",
+"home": "Crystal Palace",
+"away": "Gillingham",
+"hg": 5,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-31",
+"home": "Norwich City",
+"away": "Fulham",
+"hg": 1,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-31",
+"home": "Queens Park Rangers",
+"away": "Coventry City",
+"hg": 2,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-01-31",
+"home": "Thames",
+"away": "Swindon Town",
+"hg": 3,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-04",
+"home": "Bolton Wanderers",
+"away": "Chelsea",
+"hg": 1,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-05",
+"home": "Leicester City",
+"away": "Arsenal",
+"hg": 2,
+"ag": 7,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-07",
+"home": "Middlesbrough",
+"away": "Chelsea",
+"hg": 2,
+"ag": 2,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-07",
+"home": "Sheffield United",
+"away": "Arsenal",
+"hg": 1,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-07",
+"home": "West Ham United",
+"away": "Grimsby Town",
+"hg": 3,
+"ag": 4,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-07",
+"home": "Charlton Athletic",
+"away": "Everton",
+"hg": 0,
+"ag": 7,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-07",
+"home": "Preston North End",
+"away": "Millwall",
+"hg": 1,
+"ag": 3,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-07",
+"home": "Tottenham Hotspur",
+"away": "Oldham Athletic",
+"hg": 4,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-07",
+"home": "AFC Bournemouth",
+"away": "Thames",
+"hg": 3,
+"ag": 3,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-07",
+"home": "Brighton & Hove Albion",
+"away": "Brentford",
+"hg": 1,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-07",
+"home": "Exeter City",
+"away": "Crystal Palace",
+"hg": 4,
+"ag": 3,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-07",
+"home": "Fulham",
+"away": "Queens Park Rangers",
+"hg": 0,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-14",
+"home": "Arsenal",
+"away": "Derby County",
+"hg": 6,
+"ag": 3,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-14",
+"home": "Manchester United",
+"away": "West Ham United",
+"hg": 1,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-14",
+"home": "Bury",
+"away": "Charlton Athletic",
+"hg": 0,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-14",
+"home": "Millwall",
+"away": "Burnley",
+"hg": 2,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-14",
+"home": "Nottingham Forest",
+"away": "Tottenham Hotspur",
+"hg": 2,
+"ag": 2,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-14",
+"home": "Brentford",
+"away": "Torquay United",
+"hg": 0,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-14",
+"home": "Crystal Palace",
+"away": "Brighton & Hove Albion",
+"hg": 0,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-14",
+"home": "Queens Park Rangers",
+"away": "Swindon Town",
+"hg": 1,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-14",
+"home": "Walsall",
+"away": "Fulham",
+"hg": 2,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-14",
+"home": "Barnsley",
+"away": "Wolverhampton Wanderers",
+"hg": 1,
+"ag": 3,
+"div": "FA Cup 5",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-02-14",
+"home": "Birmingham City",
+"away": "Watford",
+"hg": 3,
+"ag": 0,
+"div": "FA Cup 5",
+"comp": "FA Cup",
+"att": "49,729",
+"venue": "NA"
+},
+{
+"date": "1931-02-14",
+"home": "Chelsea",
+"away": "Blackburn Rovers",
+"hg": 3,
+"ag": 0,
+"div": "FA Cup 5",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-02-14",
+"home": "Everton",
+"away": "Grimsby Town",
+"hg": 5,
+"ag": 3,
+"div": "FA Cup 5",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-02-14",
+"home": "Exeter City",
+"away": "Leeds United",
+"hg": 3,
+"ag": 1,
+"div": "FA Cup 5",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-02-14",
+"home": "Portsmouth",
+"away": "West Bromwich Albion",
+"hg": 0,
+"ag": 1,
+"div": "FA Cup 5",
+"comp": "FA Cup",
+"att": "30,981",
+"venue": "NA"
+},
+{
+"date": "1931-02-14",
+"home": "Southport",
+"away": "Bradford Park Avenue",
+"hg": 1,
+"ag": 0,
+"div": "FA Cup 5",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-02-14",
+"home": "Sunderland",
+"away": "Sheffield United",
+"hg": 2,
+"ag": 1,
+"div": "FA Cup 5",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-02-16",
+"home": "Thames",
+"away": "Watford",
+"hg": 3,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-18",
+"home": "Chelsea",
+"away": "Huddersfield Town",
+"hg": 1,
+"ag": 2,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-21",
+"home": "Arsenal",
+"away": "Manchester United",
+"hg": 4,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-21",
+"home": "Blackburn Rovers",
+"away": "West Ham United",
+"hg": 1,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-21",
+"home": "Sheffield United",
+"away": "Chelsea",
+"hg": 4,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-21",
+"home": "Bristol City",
+"away": "Millwall",
+"hg": 1,
+"ag": 2,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-21",
+"home": "Bury",
+"away": "Tottenham Hotspur",
+"hg": 2,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-21",
+"home": "Charlton Athletic",
+"away": "Bradford Park Avenue",
+"hg": 3,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-21",
+"home": "Coventry City",
+"away": "Brentford",
+"hg": 0,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-21",
+"home": "Fulham",
+"away": "Crystal Palace",
+"hg": 2,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-21",
+"home": "Queens Park Rangers",
+"away": "Torquay United",
+"hg": 1,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-21",
+"home": "Thames",
+"away": "Exeter City",
+"hg": 1,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-28",
+"home": "West Ham United",
+"away": "Arsenal",
+"hg": 2,
+"ag": 4,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-02-28",
+"home": "Millwall",
+"away": "Barnsley",
+"hg": 4,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-28",
+"home": "Stoke City",
+"away": "Charlton Athletic",
+"hg": 0,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-02-28",
+"home": "Brentford",
+"away": "Walsall",
+"hg": 6,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-28",
+"home": "Brighton & Hove Albion",
+"away": "Thames",
+"hg": 2,
+"ag": 4,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-28",
+"home": "Crystal Palace",
+"away": "Coventry City",
+"hg": 1,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-28",
+"home": "Northampton Town",
+"away": "Queens Park Rangers",
+"hg": 6,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-28",
+"home": "Southend United",
+"away": "Fulham",
+"hg": 2,
+"ag": 4,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-02-28",
+"home": "Birmingham City",
+"away": "Chelsea",
+"hg": 2,
+"ag": 2,
+"div": "FA Cup 6",
+"comp": "FA Cup",
+"att": "55,298",
+"venue": "NA"
+},
+{
+"date": "1931-02-28",
+"home": "Everton",
+"away": "Southport",
+"hg": 9,
+"ag": 1,
+"div": "FA Cup 6",
+"comp": "FA Cup",
+"att": "45,647",
+"venue": "NA"
+},
+{
+"date": "1931-02-28",
+"home": "Sunderland",
+"away": "Exeter City",
+"hg": 1,
+"ag": 1,
+"div": "FA Cup 6",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-02-28",
+"home": "West Bromwich Albion",
+"away": "Wolverhampton Wanderers",
+"hg": 1,
+"ag": 1,
+"div": "FA Cup 6",
+"comp": "FA Cup",
+"att": "53,385",
+"venue": "NA"
+},
+{
+"date": "1931-03-04",
+"home": "Chelsea",
+"away": "Birmingham City",
+"hg": 0,
+"ag": 3,
+"div": "FA Cup 6",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-03-04",
+"home": "Wolverhampton Wanderers",
+"away": "West Bromwich Albion",
+"hg": 1,
+"ag": 2,
+"div": "FA Cup 6",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-03-04",
+"home": "Exeter City",
+"away": "Sunderland",
+"hg": 2,
+"ag": 4,
+"div": "FA Cup 6",
+"comp": "FA Cup",
+"att": "NA",
+"venue": "NA"
+},
+{
+"date": "1931-03-07",
+"home": "Arsenal",
+"away": "Huddersfield Town",
+"hg": 0,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-07",
+"home": "Blackpool",
+"away": "Chelsea",
+"hg": 2,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-07",
+"home": "Sheffield United",
+"away": "West Ham United",
+"hg": 1,
+"ag": 2,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-07",
+"home": "Charlton Athletic",
+"away": "Tottenham Hotspur",
+"hg": 1,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-07",
+"home": "West Bromwich Albion",
+"away": "Millwall",
+"hg": 0,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-07",
+"home": "Fulham",
+"away": "Luton Town",
+"hg": 2,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-07",
+"home": "Queens Park Rangers",
+"away": "Brentford",
+"hg": 3,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-07",
+"home": "Thames",
+"away": "Torquay United",
+"hg": 1,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-07",
+"home": "Walsall",
+"away": "Crystal Palace",
+"hg": 2,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-11",
+"home": "Leeds United",
+"away": "Arsenal",
+"hg": 1,
+"ag": 2,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-14",
+"home": "Aston Villa",
+"away": "Arsenal",
+"hg": 5,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-14",
+"home": "Chelsea",
+"away": "Blackburn Rovers",
+"hg": 3,
+"ag": 2,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-14",
+"home": "Millwall",
+"away": "Swansea City",
+"hg": 3,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-14",
+"home": "Preston North End",
+"away": "Charlton Athletic",
+"hg": 4,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-14",
+"home": "Tottenham Hotspur",
+"away": "Bradford City",
+"hg": 3,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-14",
+"home": "Brentford",
+"away": "Norwich City",
+"hg": 3,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-14",
+"home": "Bristol Rovers",
+"away": "Fulham",
+"hg": 2,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-14",
+"home": "Crystal Palace",
+"away": "Queens Park Rangers",
+"hg": 4,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-14",
+"home": "Northampton Town",
+"away": "Thames",
+"hg": 4,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-14",
+"home": "Birmingham City",
+"away": "Sunderland",
+"hg": 2,
+"ag": 0,
+"div": "FA Cup s",
+"comp": "FA Cup",
+"att": "43,570",
+"venue": "Elland Road, Leeds"
+},
+{
+"date": "1931-03-14",
+"home": "West Bromwich Albion",
+"away": "Everton",
+"hg": 1,
+"ag": 0,
+"div": "FA Cup s",
+"comp": "FA Cup",
+"att": "75,000",
+"venue": "Old Trafford, Manchester"
+},
+{
+"date": "1931-03-16",
+"home": "West Ham United",
+"away": "Birmingham City",
+"hg": 1,
+"ag": 2,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-16",
+"home": "Tottenham Hotspur",
+"away": "Everton",
+"hg": 1,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-21",
+"home": "Arsenal",
+"away": "Sheffield Wednesday",
+"hg": 2,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-21",
+"home": "Leeds United",
+"away": "West Ham United",
+"hg": 3,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-21",
+"home": "Manchester City",
+"away": "Chelsea",
+"hg": 2,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-21",
+"home": "Charlton Athletic",
+"away": "Reading",
+"hg": 2,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-21",
+"home": "Everton",
+"away": "Millwall",
+"hg": 2,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-21",
+"home": "Swansea City",
+"away": "Tottenham Hotspur",
+"hg": 1,
+"ag": 2,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-21",
+"home": "Fulham",
+"away": "Newport County",
+"hg": 0,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-21",
+"home": "Norwich City",
+"away": "Crystal Palace",
+"hg": 2,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-21",
+"home": "Queens Park Rangers",
+"away": "Southend United",
+"hg": 0,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-21",
+"home": "Thames",
+"away": "Brentford",
+"hg": 2,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-25",
+"home": "Chelsea",
+"away": "Birmingham City",
+"hg": 1,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-28",
+"home": "Chelsea",
+"away": "Leeds United",
+"hg": 1,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-28",
+"home": "Middlesbrough",
+"away": "Arsenal",
+"hg": 2,
+"ag": 5,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-28",
+"home": "West Ham United",
+"away": "Derby County",
+"hg": 0,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-03-28",
+"home": "Millwall",
+"away": "Bury",
+"hg": 1,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-28",
+"home": "Southampton",
+"away": "Charlton Athletic",
+"hg": 3,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-28",
+"home": "Tottenham Hotspur",
+"away": "West Bromwich Albion",
+"hg": 2,
+"ag": 2,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-03-28",
+"home": "Brentford",
+"away": "Leyton Orient",
+"hg": 3,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-28",
+"home": "Crystal Palace",
+"away": "Thames",
+"hg": 2,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-28",
+"home": "Gillingham",
+"away": "Fulham",
+"hg": 3,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-03-28",
+"home": "Luton Town",
+"away": "Queens Park Rangers",
+"hg": 5,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-03",
+"home": "Portsmouth",
+"away": "Arsenal",
+"hg": 1,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-04-03",
+"home": "West Ham United",
+"away": "Bolton Wanderers",
+"hg": 1,
+"ag": 4,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-04-03",
+"home": "Millwall",
+"away": "Southampton",
+"hg": 1,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-04-03",
+"home": "Plymouth Argyle",
+"away": "Charlton Athletic",
+"hg": 1,
+"ag": 3,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-04-03",
+"home": "Tottenham Hotspur",
+"away": "Cardiff City",
+"hg": 2,
+"ag": 2,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-04-03",
+"home": "Brentford",
+"away": "Southend United",
+"hg": 3,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-03",
+"home": "Crystal Palace",
+"away": "Swindon Town",
+"hg": 3,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-03",
+"home": "Fulham",
+"away": "AFC Bournemouth",
+"hg": 1,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-03",
+"home": "Queens Park Rangers",
+"away": "Leyton Orient",
+"hg": 4,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-03",
+"home": "Thames",
+"away": "Norwich City",
+"hg": 2,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-04",
+"home": "Arsenal",
+"away": "Chelsea",
+"hg": 2,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-04-04",
+"home": "Leicester City",
+"away": "West Ham United",
+"hg": 1,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-04-04",
+"home": "Charlton Athletic",
+"away": "Burnley",
+"hg": 2,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-04-04",
+"home": "Plymouth Argyle",
+"away": "Millwall",
+"hg": 5,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-04-04",
+"home": "Port Vale",
+"away": "Tottenham Hotspur",
+"hg": 3,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-04-04",
+"home": "Fulham",
+"away": "Exeter City",
+"hg": 4,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-04",
+"home": "Leyton Orient",
+"away": "Crystal Palace",
+"hg": 3,
+"ag": 2,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-04",
+"home": "Notts County",
+"away": "Brentford",
+"hg": 1,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-04",
+"home": "Queens Park Rangers",
+"away": "Bristol Rovers",
+"hg": 2,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-04",
+"home": "Thames",
+"away": "Southend United",
+"hg": 3,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-05",
+"home": "West Bromwich Albion",
+"away": "Birmingham City",
+"hg": 2,
+"ag": 1,
+"div": "FA Cup f",
+"comp": "FA Cup",
+"att": "92,406",
+"venue": "Wembley (original), London"
+},
+{
+"date": "1931-04-06",
+"home": "Arsenal",
+"away": "Portsmouth",
+"hg": 1,
+"ag": 1,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-04-06",
+"home": "Bolton Wanderers",
+"away": "West Ham United",
+"hg": 4,
+"ag": 2,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-04-06",
+"home": "Chelsea",
+"away": "Leicester City",
+"hg": 1,
+"ag": 0,
+"div": "1",
+"comp": "League"
+},
+{
+"date": "1931-04-06",
+"home": "Cardiff City",
+"away": "Tottenham Hotspur",
+"hg": 0,
+"ag": 0,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-04-06",
+"home": "Charlton Athletic",
+"away": "Plymouth Argyle",
+"hg": 1,
+"ag": 3,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-04-06",
+"home": "Southampton",
+"away": "Millwall",
+"hg": 3,
+"ag": 1,
+"div": "2",
+"comp": "League"
+},
+{
+"date": "1931-04-06",
+"home": "AFC Bournemouth",
+"away": "Fulham",
+"hg": 2,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-06",
+"home": "Leyton Orient",
+"away": "Queens Park Rangers",
+"hg": 2,
+"ag": 3,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-06",
+"home": "Norwich City",
+"away": "Thames",
+"hg": 0,
+"ag": 0,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-06",
+"home": "Southend United",
+"away": "Brentford",
+"hg": 0,
+"ag": 1,
+"div": "3S",
+"comp": "League"
+},
+{
+"date": "1931-04-06",
+"home": "Swindon Town",
+"away": "Crystal Palace",
+"hg": 4,
+"ag": 4,
+"div": "3S",
+"comp": "League"
+}
+]

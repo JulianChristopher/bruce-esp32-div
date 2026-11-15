@@ -11,7 +11,7 @@ const C = {
   chapel: [51.4990, -0.0712], pub: [51.4983, -0.0757], docks: [51.4985, -0.0475], baker: [51.4975, -0.0740], chemist: [51.4969, -0.0726], newsagent: [51.4976, -0.0752],
   fishshop: [51.4962, -0.0745], street_corner: [51.4970, -0.0768], cookshop: [51.4985, -0.0790], labour_exchange: [51.4958, -0.0682], relieving_office: [51.4950, -0.0703],
   library: [51.4954, -0.0735], washhouse: [51.4944, -0.0775], pictures: [51.4880, -0.0705], mission: [51.4963, -0.0712], post_office_bermondsey: [51.4973, -0.0745],
-  police_station: [51.4990, -0.0690], police_court: [51.5022, -0.0790], den: [51.4835, -0.0505],
+  police_station: [51.4990, -0.0690], river: [51.5010, -0.0640], police_court: [51.5022, -0.0790], den: [51.4835, -0.0505],
   office: [51.5181, -0.0887], finsbury: [51.5174, -0.0862], teashop: [51.5170, -0.0893],
   arthur_home: [51.5408, -0.1068], simms_house: [51.5409, -0.1070], school: [51.5398, -0.1052], church: [51.5390, -0.1026], doctor: [51.5382, -0.1040], post_office: [51.5370, -0.1036],
   islington_shop: [51.5404, -0.1060], chemist_islington: [51.5372, -0.1031], market_islington: [51.5338, -0.1080], library_islington: [51.5468, -0.1060], pictures_islington: [51.5376, -0.1030],

@@ -99,6 +99,7 @@ places.pictures_islington = { name: 'the Blue Hall picture house in Upper Street
 places.post_office_bermondsey = { name: 'the post office in Bermondsey', kind: 'shop', district: 'bermondsey', warmth: 45, open: w => !sun(w) && w.between(hm(8), hm(19)) };
 places.police_station = { name: 'the police station in Bermondsey', kind: 'office', district: 'bermondsey', warmth: 45 };
 places.police_court = { name: 'the police court at Tower Bridge', kind: 'office', district: 'bermondsey', warmth: 40, open: w => !sun(w) && w.between(hm(10), hm(16)) };
+places.river = { name: 'the river stairs at Cherry Garden Pier', kind: 'street', district: 'bermondsey', warmth: outdoor };
 places.den = { name: 'the Den, Millwall\'s ground in Cold Blow Lane', kind: 'ground', district: 'bermondsey', warmth: outdoor, open: w => !!CHRONOS.homeGame(w.day, 'Millwall') && w.between(hm(14), hm(17)) };
 places.highbury_ground = { name: 'the Arsenal Stadium at Highbury', kind: 'ground', district: 'highbury', warmth: outdoor, open: w => !!CHRONOS.homeGame(w.day, 'Arsenal') && w.between(hm(14), hm(17)) };
 places.market_islington = { name: 'Chapel Market in Islington', kind: 'market', district: 'islington', warmth: outdoor, open: w => !sun(w) && w.between(hm(8), hm(19)) };

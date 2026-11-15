@@ -43,6 +43,7 @@ function frame(text) {
   const persons = PEOPLE.map(([re, v]) => [v, (t.match(re) || { index: -1 }).index]).filter(([, i]) => i >= 0).sort((a, b) => a[1] - b[1]).map(([v]) => v), place = find(PLACES, t), goods = goodsIn(t), item = find(ITEMS, t), amount = moneyIn(t);
   const purpose = (t.match(/\b(?:to|so as to|in order to|for)\s+(pay the rent|pay (?:the |her )?(?:debt|slate)|buy|keep warm|get coal|get food|bert|joan|the rent|supper|her (?:cough|cold|chest))\b[^.,;]*/) || [])[0] || null;
   const V = [
+    ['despair', /\b(drown(s|ed)? (her|him)self|throws? (her|him)self (in|into|off|from)|takes? (her|his) own life|kills? (her|him)self|makes? away with (her|him)self|puts? (her|his) head in the gas|gass(es|ed) (her|him)self|poisons? (her|him)self|ends? it all|(her|his) life is not worth)\b/],
     ['police', /\b(hands? (it|them|the [\w-]+) (in )?(at|to) the police|takes? (it|them|the [\w-]+) to the police|goes? to the police|reports? (it|this|the \w+)? ?to the police|tells? (a |the )?(policeman|constable|police)|fetch(es)? (a |the )?(policeman|constable|copper)|calls? (a |the )?(policeman|constable))\b/],
     ['match', /\b(goes to (see )?(the )?(match|football|millwall|the arsenal|arsenal|the den|highbury)|watch(es)? (the )?(match|football|millwall|the arsenal)|to the den\b|stands? on the terraces?)/],
     // going to, asking or consulting the doctor is calling the doctor in (before 'ask' and 'go' can take it)
@@ -128,9 +129,12 @@ function deed(w, k, f) {
       const own = o => w.objects[o].at === k && w.objects[o].value;
       let id = f.item ? (own(f.item) ? f.item : Object.keys(w.objects).find(o => own(o) && w.objects[o].kind === f.item) || f.item) : Object.keys(w.objects).find(own);
       // a thing the world has not listed ('the family spoons', 'her warm cloak'): every household had a few small things Lamb would take
-      if (!f.item && !w.objects.oddments) { const m = f.text.match(/\b(?:pawns?|pledges?|sells?|takes)\s+((?:her|his|the|a|an|their|some)\s+[a-z' -]{3,30}?)(?=[.,;]| to | for | at | and |$)/i);
-        if (m && !/\b(watch|ring|money|shilling|things?|something|anything|bits)\b/.test(m[1])) { w.objects.oddments = { kind: 'oddments', name: m[1].trim(), at: k, value: 9 }; id = 'oddments'; } }
-      const o = id && w.objects[id]; if (!o || o.at !== k) return { why: `${SHE(p)} has nothing of that kind to ${f.verb}` };
+      if (!f.item) { const m = f.text.match(/\b(?:pawns?|pledges?|sells?|takes)\s+((?:her|his|the|a|an|their|some)\s+[a-z' -]{3,30}?)(?=[.,;]| to | for | at | and |$)/i);
+        if (m && !/\b(watch|ring|money|shilling|things?|something|anything|bits)\b/.test(m[1])) {   // a thing the world has not listed: each its own small pledge
+          const nm = m[1].trim().replace(/^(her|his|their|the|a|an|some)\s+/i, ''), oid = 'odd_' + nm.toLowerCase().replace(/[^a-z]+/g, '_');
+          if (!w.objects[oid]) w.objects[oid] = { kind: 'oddments', name: m[1].trim().replace(/^(a|an|some)\s+/i, 'the '), at: k, value: 9 };
+          id = oid; } }
+      const o = id && w.objects[id]; if (o && o.at === 'lamb') return { why: `${o.name} is in pawn at Lamb's already` }; if (!o || o.at !== k) return { why: `${SHE(p)} has nothing of that kind to ${f.verb}` };
       const at = f.verb === 'pawn' ? 'pawnshop' : placeOf(w, p, f, 'pawnshop'); if (!at || !w.placeOpenAtArrival(at, w.travel(p.place, at))) return { why: "the shop is shut" };
       const pay = f.verb === 'pawn' ? o.value : Math.round(o.value * 1.2);
       return { aff: mk(w, p, f.verb + '_' + id, `${f.verb === 'pawn' ? 'Pawn' : 'Sell'} ${o.name} for ${money(pay)}`, at, 20, 0, (w2, p2) => { const o2 = w2.objects[id]; o2.at = f.verb === 'pawn' ? 'lamb' : 'sold'; p2.money += pay; w2.hooks.remember(p2.id, `${p2.short} ${f.verb === 'pawn' ? 'pawned' : 'sold'} ${o2.name} for ${money(pay)}.`, ['money'], 3); return `${p2.short} ${f.verb === 'pawn' ? 'pawned' : 'sold'} ${o2.name}.`; }) };
@@ -211,6 +215,9 @@ function deed(w, k, f) {
       const pl = placeOf(w, p, f, null); if (!pl) return { why: 'there is nowhere of that kind open' };
       if (!w.placeOpenAtArrival(pl, w.travel(p.place, pl))) return { why: `${w.places[pl].name} would be shut` };
       return { aff: mk(w, p, 'go', `Go to ${w.places[pl].name}`, pl, 5, 0, (w2, p2) => `${p2.short} went to ${w2.places[pl].name}.`) };
+    }
+    case 'despair': {   // the world does not carry this out: she goes out in despair, and somebody finds her (see hooks.despair)
+      return { aff: mk(w, p, 'despair', 'Go out in despair, towards the river', 'river', 45, 0, (w2, p2) => { w2.flags['despair_' + p2.id] = w2.day; return w2.hooks.despair ? w2.hooks.despair(p2.id) : `${p2.short} walked by the river a long while, and came home.`; }) };
     }
     case 'pictures': {   // the pictures: 4d. in the afternoon, 6d. in the evening, each; warm and dark for two hours and a half
       const at = nearestOpen(w, p, ['pictures', 'pictures_islington']); if (!at) return { why: 'the pictures are not open yet' };

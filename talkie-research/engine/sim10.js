@@ -435,6 +435,11 @@ function morningEvents() {   // chance and rule (life1931.js) + the company's ow
 // a neighbour from the Buildings comes to Ada's door with a request; she answers by her own free deed
 function neighbourAtDoor(t) {
   const d = W.day, vis = W.visitor;
+  if (t === hm(20, 30) && F.rentDue && !W.rentPaid[d]) {   // Mr. Gedge called and went away with nothing
+    F.rentDue = false; F.rentOwing = true; W.rentOwingCount = (W.rentOwingCount || 0) + 1;
+    remember('ada', A.ada.place === 'ada_home' ? 'Mr. Gedge went away without the rent; he will be back on Monday.' : `Mr. Gedge called for the rent at seven and found nobody in; he left word that he will be back on Monday, and that he wants the ${W.rentOwingCount > 1 ? 'arrears' : 'seven shillings'} then.`, ['gedge', 'rent'], 3);
+    setState('rent', ['ada'], `The rent of seven shillings is owing since ${SHORTDATE(d)}; Mr. Gedge comes again on Monday evening`);
+  }
   if (vis) {   // what came of it: did she lend, did she sit with the child?
     const p = WORLD.people[vis.id], gave = p.money - vis.money0;
     if (gave > 0 && !vis.done) { vis.done = true; STREET.lend(vis.hh, gave); STREET.standing.ada = (STREET.standing.ada || 0) + 1; rumour(`Mrs. Turner lent ${vis.from} ${money(gave)} when she was hard up`, 'ada', ['nolan']); remember('ada', `${A.ada.short} lent ${vis.from} ${money(gave)}; she is to pay it back on Saturday.`, [], 3); }
@@ -488,6 +493,13 @@ WORLD.hooks = {
   letter: (k, q, text, opt) => { const what = (text.match(/,\s*(telling|asking|saying)\b(.*)$/i) || [])[0] || ''; remember(k, `${A[k].short} wrote a letter${q ? ' to ' + nameOf(q) : ''}${what}`, q ? [q] : [], 2); if (q && A[q]) WORLD.schedule(opt && opt.telegram ? WORLD.t + 90 : (W.day + 1) * 1440 + 7 * 60 + 30, () => letter(q, nameOf(k), (what.replace(/^,\s*/, '') || 'a few lines'), [k], null), 'post'); },
   chance: p => Math.random() < p,
   lookup: (k, text) => ({ lookup: text }),
+  despair: k => {   // found at the river stairs by the constable on his beat, and walked home; a neighbour sits with her
+    const a = A[k]; STATS.despair = (STATS.despair || 0) + 1; a.place = a.home; WORLD.people[k].place = a.home;
+    remember(k, `${a.short} went down to the river stairs at Cherry Garden Pier in the dark, in despair; P.C. Dawe found ${himher(k)} there, spoke kindly, and walked ${himher(k)} home.`, ['pc'], 3);
+    if (k === 'ada') { remember('ada', 'Mrs. Nolan came across the landing with a cup of tea and sat with her a long while; Bert was told.', ['nolan', 'bert'], 3); if (A.ada.op) A.ada.op.nolan = Math.min(2, (A.ada.op.nolan || 0) + 1); }
+    if (a.chem) { a.chem.stress = Math.max(30, a.chem.stress - 25); a.chem.arousal = 20; a.chem.mood = Math.min(50, a.chem.mood + 15); }
+    return `${a.short} went out in despair towards the river; the constable found ${himher(k)} and walked ${himher(k)} home, and a neighbour sat with ${himher(k)}.`;
+  },
   police: (kind, k, detail) => {   // the police as an institution: found property, a report, a raid and its summons
     if (kind === 'found') {
       if (k === 'ada' && W.coin.where === 'ada') { W.coin.where = 'police'; A.ada.money -= 30; remember('ada', "Ada handed in the half-crown she found under Mr. Hale's desk at the police station, as found property; the sergeant wrote it in his book.", ['pc', 'coin'], 3);
@@ -585,6 +597,7 @@ function core(k) {
   if (k === 'ada' && W.rentDue && !W.rentPaid[W.day]) f.push('The rent of seven shillings is due tonight.');
   if (k === 'ada' && W.loan) f.push(W.loan);
   if (k === 'ada' && W.visitor) f.push(`${W.visitor.req.text}.`);
+  if (k === 'ada') { const inPawn = Object.values(WORLD.objects).filter(o => o.at === 'lamb' && !/his |Edith|the wireless|the mantel clock/.test(o.name)).map(o => o.name); if (inPawn.length) f.push(`In pawn at Lamb's: ${inPawn.join(', ')}.`); }
   if (k === 'ada' && W.standWords) f.push(W.standWords.replace('Mrs. Turner is', 'She knows she is').replace('Mrs. Turner has', 'She knows she has') + '.');
   if (k === 'arthur' && W.loan) f.push(W.loan.replace('She owes Mr. Hale', 'Mrs. Turner owes him'));
   if (k === 'arthur' && W.joanIll) f.push('Joan is ill in bed' + (W.doctor === 'not called' ? ', and the doctor has not been called.' : '.'));

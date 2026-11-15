@@ -20,7 +20,7 @@ function rng(seed) { let a = seed >>> 0; return () => { a |= 0; a = a + 0x6D2B79
 
 // state-only consequences for the engine's rollouts (same as the simulation's simHooks)
 const simHooks = {
-  rel() {}, nurse() {}, letter() {}, chance: () => false, police: () => 'went to the police', lookup: () => 'looked it up',
+  rel() {}, nurse() {}, letter() {}, chance: () => false, police: () => 'went to the police', despair: () => 'walked by the river and came home', lookup: () => 'looked it up',
   ask(q, k, kind) {   // a rule of thumb for the engine's foresight; in the live run the person asked decides
     const w = this.w, p = w.people[k], f = w.flags;
     if (kind === 'credit') { if (p.money > -60) { f.creditBarker = 60; return 'credit'; } f.creditRefusedDay = w.day; return 'refused'; }

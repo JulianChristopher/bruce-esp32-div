@@ -220,7 +220,8 @@ World.prototype.wellbeing = function (id) {
   if (id === 'ada') v += (f.extraWork ? 8 : 0) - (f.owesNolan ? 3 : 0) - (f.relief ? 6 : 0) - ['ring', 'kettle', 'coat', 'boots'].filter(x => this.objects[x] && this.objects[x].at === 'lamb').length * 3;
   // a theft: found out, it means the police court and the end of a character (and of a charwoman's places); not found out, the fear and the conscience
   const th = f['theft_' + id]; if (th) v -= th === 'caught' ? 60 : 20;
-  if (f['summons_' + id] !== undefined) v -= 8;   // a summons for street betting: the fine and the shame
+  if (f['summons_' + id] !== undefined) v -= 8;
+  if (f['despair_' + id] !== undefined && this.day - f['despair_' + id] < 3) v -= 10;   // a summons for street betting: the fine and the shame
   return v;
 };
 // roll the world on from a fork: the person does `aff` (an affordance found in the fork) and then lives by habit

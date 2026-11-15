@@ -18,23 +18,23 @@ Experiments with [talkie-1930-13b-it](https://talkie-lm.com) (a 13B language mod
 - Its default "present" is c. 1890; "The year is 1930." or a retrieved 1930 passage moves it to 1930.
 - v3.3 two-week run: ledger tool use 82 % correct, memory probes 49 % (61 % of answered), no decay with age up to 13 days.
 
-## v4: 90-Tage-Lauf (14. März – 11. Juni 1930) und v5
+## v4: 90-day run (14 March – 11 June 1930) and v5
 
-**v4** (`sim4.js`, Ergebnisse in `sim4_90/`): 90 simulierte Tage, 3 993 Anfragen, 0 Fehler, 1 % leere Antworten.
-Gedächtnis 34/127 richtig (27 %), Tagebücher behalten 74 % der Schlüsselfakten.
-Diagnose (`probetest*.js`): Die Suche fand die richtige Erinnerung meist, aber talkie liest schlecht:
-vorgelegte Antwortmöglichkeiten verleiten zu erfundenen Antworten, Gleichstände wurden zugunsten der Wahrheit gewertet (Messfehler),
-Fragen wie „am Freitag“ waren mehrdeutig.
+**v4** (`sim4.js`, results in `sim4_90/`): 90 simulated days, 3,993 asks, 0 errors, 1 % empty replies.
+Memory 34/127 correct (27 %); diaries kept 74 % of the key facts.
+Diagnosis (`probetest*.js`): retrieval usually found the right memory, but talkie reads it poorly. Listed answer options
+prime invented answers, ties were scored in favour of the truth (a measurement bug), and questions such as "on Friday" were ambiguous.
 
 **v5** (`sim5.js`):
-- Gedächtnissuche mit seltenen Wörtern (idf), logarithmischer Alterung und Datumsbezug; jede Prüffrage nennt ein Datum.
-- Prüffragen zuerst offen gestellt, Antwortmöglichkeiten nur als Rückfall; Gleichstand = keine Antwort; Prompt-Echos werden erkannt.
-- Bücher der Zeit als Gedächtnisstütze, von der Engine geführt: Mietbuch, Pfandschein, Haushaltsbuch, Büro-Tagebuch, Lohnbuch.
-- Tägliche Zeitung für alle drei Figuren (Daily Herald, The Times/Observer, Abendzeitung/News of the World), Radio bei Mr. Thomas
-  (Karfreitag 1930: „There is no news to-night“). Quellen: `news1930.js` (24 Hauptmeldungen, Daten mit NewsWire abgeglichen),
-  `newswire_spring1930.json` (Auszug aus NewsWire, Dell Research Harvard, CC-BY 4.0: AP-Meldungen aus Großbritannien, Empire, Europa),
-  `news_loc/` (Titelseiten des Washington Evening Star, Chronicling America / Library of Congress, `fetchnews.js`).
-- Gesprächsthemen wechseln; Feiertage und Zeitung als Themen; Gesprächsverlauf aus Sicht des Sprechers (nach SPASM, Egocentric Context Projection).
-- 7-Tage-Validierung (`sim5_val3/`): Gedächtnis 13/16 (81 %), Zeitungsfragen 4/5.
+- Memory retrieval weights rare words (idf), ages memories logarithmically and boosts the date a question names; every probe names a date.
+- Probes are asked open first, with the options only as a fallback; a tie counts as no answer; prompt echoes are detected.
+- Period books as memory aids, kept by the engine: rent-book, pawn-ticket, account-book, office diary, wages-book.
+- A daily paper for all three characters (Daily Herald, The Times/Observer, evening paper/News of the World) and the wireless for
+  Mr. Thomas (Good Friday 1930: "There is no news to-night"). Sources: `news1930.js` (24 headline items, dates checked against NewsWire),
+  `newswire_spring1930.json` (extract of NewsWire, Dell Research Harvard, CC-BY 4.0: AP stories from Britain, the Empire and Europe),
+  `news_loc/` (front pages of the Washington Evening Star, Chronicling America / Library of Congress, via `fetchnews.js`).
+- Conversation topics rotate; holidays and the paper become topics; the dialogue history is shown from the speaker's own point of view
+  (after SPASM's Egocentric Context Projection).
+- 7-day validation (`sim5_val3/`): memory 13/16 (81 %), newspaper questions 4/5.
 
-`dashdata.js` erzeugt die Daten des Dashboards (`dash/`), die Seite liegt in `dashboard/index.html`.
+`dashdata.js` builds the dashboard's data (`dash/`); the page itself is `dashboard/index.html`.

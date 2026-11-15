@@ -2,7 +2,8 @@
 // Rates are rough figures for London in the winter of 1931 (casual dock labour, winter illness, post); the weather
 // is real: Met Office HadCET daily temperatures (Central England) and HadSEEP daily rainfall (South-East England).
 'use strict';
-const WEATHER = require('./weather1931.json');
+const SIMDATE = require('./simdate.js'); const W31 = require('./weather1931.json');
+const WEATHER = new Proxy([], { get: (t, k) => (k === 'length' ? 3653 : /^\d+$/.test(k) ? (SIMDATE.weatherOn(+k) || W31[Math.min(+k, W31.length - 1)]) : t[k]) });   // the decade's real weather, by the run's start date
 
 function rng(seed) {   // mulberry32: the same seed gives the same life
   let a = seed >>> 0;

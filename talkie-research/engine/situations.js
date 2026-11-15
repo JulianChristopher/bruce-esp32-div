@@ -5,7 +5,7 @@
 const fs = require('fs'), path = require('path');
 const { World } = require('./world.js'); const DEF = require('./london1931.js');
 const LIFE = require('./life1931.js'); const BIO = require('./bio1931.js');
-const T0 = Date.UTC(1931, 0, 2), hm = DEF.hm;
+const T0 = require('./simdate.js').T0, hm = DEF.hm;
 const money = d => { d = Math.round(d); const neg = d < 0; d = Math.abs(d); const P = Math.floor(d / 240), s2 = Math.floor((d % 240) / 12), p = d % 12; return (neg ? 'minus ' : '') + (P ? `£${P} ${s2}s. ${p}d.` : `${s2}s. ${p}d.`); };
 const WD = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], MON = ['January', 'February', 'March', 'April'];
 const ORD = n => n + ((n % 10 === 1 && n !== 11) ? 'st' : (n % 10 === 2 && n !== 12) ? 'nd' : (n % 10 === 3 && n !== 13) ? 'rd' : 'th');

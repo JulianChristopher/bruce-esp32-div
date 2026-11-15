@@ -11,8 +11,9 @@
 //  - Fog: no daily fog record is to hand as data; a day is foggy when the real weather (Met Office HadCET, HadSEEP) is
 //    cold, dry and still-looking (small range between day and night temperature), as London fogs formed.
 'use strict';
-const WX = (() => { try { return require('./weather1931.json'); } catch (e) { return []; } })();
-const T0 = Date.UTC(1931, 0, 2);
+const SIMDATE = require('./simdate.js');
+const WX = new Proxy([], { get: (t, k) => (k === 'length' ? 3653 : /^\d+$/.test(k) ? SIMDATE.weatherOn(+k) : t[k]) });
+const T0 = SIMDATE.T0;
 // influenza deaths in London, weeks ended 10 Jan ... 4 Apr 1931 (reconstructed: peak 116 in the week ended 14 Feb, total 797)
 const FLU_WEEKS = ['1931-01-10', '1931-01-17', '1931-01-24', '1931-01-31', '1931-02-07', '1931-02-14', '1931-02-21', '1931-02-28', '1931-03-07', '1931-03-14', '1931-03-21', '1931-03-28', '1931-04-04'];
 const FLU_DEATHS = [12, 22, 40, 66, 95, 116, 108, 88, 70, 58, 50, 40, 32];

@@ -66,13 +66,13 @@ function makeStreet(seed = 31) {
       // earnings
       for (const x of people(h)) {
         if (!x.job || h.ill[x.first]) continue; const J = JOBS[x.job];
-        if (J.casual) { if (ctx.dow === 'sun' || x.unemployedUntil > d) continue; const fogStop = ctx.fog === 'thick' && x.job === 'docker'; if (R() < (fogStop ? 0.1 : ctx.frost && J.frost ? J.frost : J.p)) h.cash += J.day; }
+        if (J.casual) { if (ctx.dow === 'sun' || x.unemployedUntil > d) continue; const fogStop = ctx.fog === 'thick' && x.job === 'docker'; const slack = ctx.unemp != null ? Math.max(0.3, Math.min(1.3, (1 - ctx.unemp / 100) / 0.81)) : 1; if (R() < (fogStop ? 0.1 : (ctx.frost && J.frost ? J.frost : J.p) * slack)) h.cash += J.day; }   // the borough's real unemployment (Ministry of Labour, quarterly) scales the chance of being taken on
         else if (ctx.dow === (J.pension ? 'fri' : 'sat')) { if (x.unemployedUntil > d) h.cash += x.age >= 18 ? (x.m ? 204 : 108) : 0; else h.cash += J.week; }
       }
       // the dole for the man out of steady work (signing at the Exchange; paid Fridays)
       if (ctx.dow === 'fri') for (const x of people(h)) if (x.unemployedUntil > d && x.m && x.age >= 18) h.cash += 24 * (people(h).filter(y => y.age < 14).length) + (people(h).some(y => !y.m && y.age >= 18) ? 108 : 0);
       // spending: food and, in winter, coal
-      const need = people(h).reduce((s, x) => s + (x.age >= 14 ? 7 : 4), 0) + (ctx.cold ? 2 * h.rooms : h.rooms);
+      const need = Math.round((people(h).reduce((s, x) => s + (x.age >= 14 ? 7 : 4), 0) + (ctx.cold ? 2 * h.rooms : h.rooms)) * (ctx.priceFactor || 1));   // prices follow the official cost-of-living index
       if (h.cash >= need) h.cash -= need;
       else {
         let short = need - h.cash; h.cash = 0;
@@ -109,7 +109,7 @@ function makeStreet(seed = 31) {
         if (R() < p) { const bad = R() < 0.12; h.ill[x.first] = { left: bad ? 10 + Math.floor(R() * 10) : 3 + Math.floor(R() * 5), bad }; if (bad || x.age < 5) say(h, `${nameOf(h, x)} of No. ${h.no} is down with ${bad ? (x.age < 10 ? 'the measles' : 'bronchitis') : 'a feverish cold'}`, 'ill', { who: x.first }); }
       }
       // work lost and found
-      for (const x of people(h)) if (x.job && !JOBS[x.job].casual && !JOBS[x.job].pension && !(x.unemployedUntil > d) && R() < 0.002) { x.unemployedUntil = d + 14 + Math.floor(R() * 60); say(h, `${nameOf(h, x)} of No. ${h.no} has been stood off ${/^at /.test(JOBS[x.job].name) ? JOBS[x.job].name : 'from ' + (x.m ? 'his' : 'her') + ' place as ' + JOBS[x.job].name}`, 'stoodoff'); }
+      for (const x of people(h)) if (x.job && !JOBS[x.job].casual && !JOBS[x.job].pension && !(x.unemployedUntil > d) && R() < 0.002 * (ctx.unemp != null ? ctx.unemp / 19 : 1)) { x.unemployedUntil = d + 14 + Math.floor(R() * 60); say(h, `${nameOf(h, x)} of No. ${h.no} has been stood off ${/^at /.test(JOBS[x.job].name) ? JOBS[x.job].name : 'from ' + (x.m ? 'his' : 'her') + ' place as ' + JOBS[x.job].name}`, 'stoodoff'); }
       // the drinker on pay-night; the quarrelsome on the landing
       if (ctx.dow === 'sat' && (h.trait === 'a drinker' || h.trait2 === 'a drinker') && R() < 0.35 && people(h).some(x => x.m && x.age >= 18)) { h.cash = Math.max(0, h.cash - 30); say(h, `${h.title} of No. ${h.no} came home from the Nelson the worse for drink, and there was a row`, 'row');
         // drunk and disorderly: the constable takes him in; Monday at Tower Bridge, five shillings or five days

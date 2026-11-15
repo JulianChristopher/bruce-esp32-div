@@ -6,17 +6,17 @@
 // and the Licensing Act 1921 hours for London public-houses. GMT throughout: Summer Time began on 19 April 1931.
 'use strict';
 const path = require('path');
-const T0 = Date.UTC(1931, 0, 2);   // day 0 of the simulation: Friday 2 January 1931
+const T0 = require('./simdate.js').T0;   // day 0 of the run (START, default Friday 2 January 1931)
 const dateOf = d => new Date(T0 + d * 864e5);
 const iso = d => dateOf(d).toISOString().slice(0, 10);
 let FOOT = [], HANS = {};
-try { FOOT = require(path.join(__dirname, 'football1931.json')); } catch (e) {}
-try { HANS = require(path.join(__dirname, 'hansard1931.json')); } catch (e) {}
+try { FOOT = require(path.join(__dirname, 'decade', 'football.json')); } catch (e) { try { FOOT = require(path.join(__dirname, 'football1931.json')); } catch (e2) {} }
+try { HANS = require(path.join(__dirname, 'decade', 'hansard.json')); } catch (e) { try { HANS = require(path.join(__dirname, 'hansard1931.json')); } catch (e2) {} }
 
 // ---------- sun and moon over London (51.51 N, 0.12 W), NOAA solar equations; minutes after midnight GMT ----------
 const RAD = Math.PI / 180, LAT = 51.507, LON = -0.128;
 function sun(d) {
-  const x = dateOf(d), N = Math.round((x - Date.UTC(1931, 0, 1)) / 864e5) + 1;
+  const x = dateOf(d), N = Math.round((x - Date.UTC(x.getUTCFullYear(), 0, 1)) / 864e5) + 1;
   const g = 2 * Math.PI / 365 * (N - 1 + 0.5);
   const eqt = 229.18 * (0.000075 + 0.001868 * Math.cos(g) - 0.032077 * Math.sin(g) - 0.014615 * Math.cos(2 * g) - 0.040849 * Math.sin(2 * g));
   const decl = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g) - 0.002697 * Math.cos(3 * g) + 0.00148 * Math.sin(3 * g);
@@ -87,8 +87,18 @@ function fluNews(d) {
     : now < before * 0.9 ? 'INFLUENZA. The deaths from influenza in London fell last week, and it is hoped that the epidemic has passed its worst.' : 'INFLUENZA. The influenza still has a hold on London.';
 }
 // the paper of the day as each household would have it: what they read beyond the cables
+// the East Islington by-election of 19 February 1931 (on the death of Dr. Ethel Bentham): Mrs. Leah Manning (Labour)
+// 10,591; Brig.-Gen. A. C. Critchley (Empire Crusade) 8,314; Miss Thelma Cazalet (Conservative) 7,182; Major H. E.
+// Crawfurd (Liberal) 4,450; poll 50 per cent. https://en.wikipedia.org/wiki/1931_Islington_East_by-election
+function electionNews(d, who) {
+  const s = iso(d); if (who === 'ada') return null;
+  if (s >= '1931-02-05' && s < '1931-02-19') return 'EAST ISLINGTON. The by-election caused by the death of Dr. Ethel Bentham is fought by four candidates: Mrs. Leah Manning for Labour, Brigadier-General Critchley for Lord Beaverbrook\'s Empire Crusade, Miss Thelma Cazalet for the Conservatives and Major Crawfurd for the Liberals. Polling is on Thursday, the 19th.';
+  if (s === '1931-02-19') return 'EAST ISLINGTON. The poll is being taken today.';
+  if (s === '1931-02-20' || s === '1931-02-21') return 'EAST ISLINGTON BY-ELECTION. Mrs. Leah Manning (Lab.) 10,591; Brig.-Gen. Critchley (Empire Crusade) 8,314; Miss Cazalet (C.) 7,182; Major Crawfurd (L.) 4,450. Labour majority 2,277; the Conservative vote split by the Empire Crusade.';
+  return null;
+}
 function paperItems(d, who, mod = 1200) {
-  const out = [];
+  const out = []; const el = electionNews(d, who); if (el) out.push({ text: el, kind: 'election' });
   if (dateOf(d).getUTCDay() === 6 && mod < 1020) d = d - 1;   // a morning paper on Saturday has not the afternoon's matches
   const keen = who === 'ada' ? ['Millwall'] : who === 'arthur' ? ['Arsenal', 'Millwall'] : ['Arsenal'];
   const f = footballNews(d, keen); if (f.length) out.push({ text: `FOOTBALL. ${f.map(x => x[0].toUpperCase() + x.slice(1)).join('. ')}.`, kind: 'football' });

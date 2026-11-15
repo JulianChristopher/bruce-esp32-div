@@ -174,7 +174,7 @@ function clock(min) {
 // Schedule decides WHERE people are; agents decide WHAT they do there. A 14-day event plan creates
 // consequences that span days (lost work, rent, illness, audit, raise). Memory probes ask about facts
 // of known age every morning; metrics are written to metrics.json.
-const T0 = Date.UTC(1931, 0, 2), ND = 90;   // Friday 2 January 1931: the first days after talkie's knowledge ends
+const SIMDATE = require('./simdate.js'), T0 = SIMDATE.T0, ND = Math.max(90, +(process.env.DAYS || 90));   // START (default Friday 2 January 1931: the first days after talkie's knowledge ends)
 const dateOf = d => new Date(T0 + d * 864e5);
 const ORD = n => n + ((n % 10 === 1 && n !== 11) ? 'st' : (n % 10 === 2 && n !== 12) ? 'nd' : (n % 10 === 3 && n !== 13) ? 'rd' : 'th');
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -192,11 +192,15 @@ function qdayOf(q) {   // a date named in a question -> day index ("the 19th of 
 const HOL = { 0: 'the day after New Year\'s Day', 46: 'Shrove Tuesday', 47: 'Ash Wednesday', 72: 'Mothering Sunday', 82: 'Lady Day, the quarter-day' };   // no Bank Holiday falls in January-March 1931 (Good Friday is 3 April)
 const BANK = [], GOODFRI = null;
 const isRest = d => DOW(d) === 'sun' || BANK.includes(d) || d === GOODFRI;
-const { newsFor } = require('./news1931.js'); const CHRONOS = require('./chronos1931.js');
+const { newsFor } = require('./news1931.js'); const CHRONOS = require('./chronos1931.js'); const FETCH = require('./decade/fetch1930s.js'); const DECADE = require('./decade/chronos1930s.js');
 const paperText = d => newsFor(d).map(x => x.text).join(' ');
 function readPaper(k, name, cost) {
   const local = k === 'ada' && DOW(W.day) === 'fri' ? STREET.log.filter(e => e.day > W.day - 7 && ['court', 'eviction'].includes(e.kind)).slice(-2).map(e => ({ text: `LOCAL NEWS. ${e.text[0].toUpperCase() + e.text.slice(1)}.` })) : [];
-  const items = [...newsFor(W.day), ...CHRONOS.paperItems(W.day, k, WORLD.mod), ...local]; A[k].money -= cost; A[k].readDay = W.day;
+  const star = (FETCH.cached('star', SIMDATE.iso(W.day)) || { items: [] }).items.filter(x => x.british && x.text.length > 150);
+  const base = newsFor(W.day), seenW = new Set(base.flatMap(x => words(x.text)));
+  const fresh = star.find(x => words(x.text.slice(0, 200)).filter(w => !seenW.has(w)).length > 8);
+  const cable = fresh ? [{ text: `${fresh.place}. ${fresh.text.replace(/\s*\S*$/, '').replace(/[^.]*$/, '').trim() || fresh.text}` }] : [];
+  const items = [...base, ...cable, ...CHRONOS.paperItems(W.day, k, WORLD.mod), ...local]; A[k].money -= cost; A[k].readDay = W.day;
   if (!items.length) return `${A[k].short} read ${name}, but found nothing of great note.`;
   A[k].lastNews = items[0].text;
   W.factQ = W.factQ || {};
@@ -406,7 +410,8 @@ function morningEvents() {   // chance and rule (life1931.js) + the company's ow
   // the Buildings: thirty households live their day by rule; what happens becomes talk on the landing
   const wx = LIFEMOD.weatherOf(d);
   const HEALTH = require('./health1931.js'), fogd = HEALTH.fog(d); WORLD.fogFactor = fogd === 'thick' ? 1.5 : fogd === 'mist' ? 1.1 : 1;
-  const sev = STREET.step(d, { dow: w, fog: fogd, frost: wx.tmin < 0, cold: wx.tmean < 6, barkerLimit: STREET.slateTotal > 900 ? 60 : 120 });
+  const DAYDATA = DECADE.day(SIMDATE.iso(d)), U = DAYDATA.unemployment.bermondsey;
+  const sev = STREET.step(d, { dow: w, fog: fogd, unemp: U ? U.men : null, priceFactor: DAYDATA.priceFactor, frost: wx.tmin < 0, cold: wx.tmean < 6, barkerLimit: STREET.slateTotal > 900 ? 60 : 120 });
   for (const e of sev) {
     if (e.kind === 'repay') { A.ada.money += e.amount; remember('ada', e.text + '.', [], 3); continue; }
     if (['pawn', 'row', 'quarrel', 'ill', 'flu', 'hunger', 'arrears', 'notice', 'eviction', 'death', 'birth', 'stoodoff'].includes(e.kind) && (['notice', 'eviction', 'death', 'birth', 'stoodoff'].includes(e.kind) || STREET.R() < 0.35))
@@ -1349,6 +1354,8 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     const asks0 = STATS.asks;
     if (d === 0) for (const k in A) await formative(k);
     await ensureBrowser();
+    try { const t0 = Date.now(); await Promise.race([FETCH.ensure(SIMDATE.iso(d)), new Promise(r => setTimeout(r, 120000))]); STATS.fetchMs = (STATS.fetchMs || 0) + Date.now() - t0; } catch (e) { STATS.fetchErrors = (STATS.fetchErrors || 0) + 1; }
+    FETCH.prefetch([1, 2, 3].map(k => SIMDATE.iso(d + k)));
     morningEvents(); letters();
     W.t = hm(6); try { await morningProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; await ensureBrowser(); }
     for (let t = hm(6, 15); t <= hm(23); t += STEP) {

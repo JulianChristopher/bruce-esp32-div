@@ -130,10 +130,15 @@ function deed(w, k, f) {
       let id = f.item ? (own(f.item) ? f.item : Object.keys(w.objects).find(o => own(o) && w.objects[o].kind === f.item) || f.item) : Object.keys(w.objects).find(own);
       // a thing the world has not listed ('the family spoons', 'her warm cloak'): every household had a few small things Lamb would take
       if (!f.item) { const m = f.text.match(/\b(?:pawns?|pledges?|sells?|takes)\s+((?:her|his|the|a|an|their|some)\s+[a-z' -]{3,30}?)(?=[.,;]| to | for | at | and |$)/i);
-        if (m && !/\b(watch|ring|money|shilling|things?|something|anything|bits)\b/.test(m[1])) {   // a thing the world has not listed: each its own small pledge
-          const nm = m[1].trim().replace(/^(her|his|their|the|a|an|some)\s+/i, ''), oid = 'odd_' + nm.toLowerCase().replace(/[^a-z]+/g, '_');
-          if (!w.objects[oid]) w.objects[oid] = { kind: 'oddments', name: m[1].trim().replace(/^(a|an|some)\s+/i, 'the '), at: k, value: 9 };
-          id = oid; } }
+        if (m && /\b(letters?|note|paper|bread|food|loaf|coal)\b/.test(m[1])) return { why: `Lamb would not lend on ${m[1].trim().replace(/^(her|his|their)\s+/i, 'the ')}` };
+        if (m && !/\b(watch|ring|money|shilling|things?|something|anything|bits|letters?|note|paper|ticket|bread|food|loaf)\b/.test(m[1])) {   // a thing the world has not listed: each its own small pledge
+          // one thing is one thing: 'the other/second/third silver pencil' is the same pencil; the head noun decides
+          const nm = m[1].trim().replace(/^(her|his|their|the|a|an|some)\s+/i, '').replace(/\b(other|another|second|third|fourth|fifth|last|remaining|old|best|little|own)\s+/gi, '').trim();
+          const head = (nm.match(/([a-z]+)\s*$/i) || [])[1] || nm, same = Object.keys(w.objects).find(o => w.objects[o].kind === 'oddments' && new RegExp('\\b' + head + 's?\\b', 'i').test(w.objects[o].name));
+          const mine = Object.keys(w.objects).filter(o => w.objects[o].kind === 'oddments' && w.objects[o].firstOwner === k).length;
+          if (same) id = same;
+          else if (mine >= 4) return { why: `${SHE(p)} has nothing more that Lamb would lend on` };   // a household's few small things are soon gone
+          else { const oid = 'odd_' + nm.toLowerCase().replace(/[^a-z]+/g, '_'); w.objects[oid] = { kind: 'oddments', name: 'the ' + nm, at: k, value: 9, firstOwner: k }; id = oid; } } }
       const o = id && w.objects[id]; if (o && o.at === 'lamb') return { why: `${o.name} is in pawn at Lamb's already` }; if (!o || o.at !== k) return { why: `${SHE(p)} has nothing of that kind to ${f.verb}` };
       const at = f.verb === 'pawn' ? 'pawnshop' : placeOf(w, p, f, 'pawnshop'); if (!at || !w.placeOpenAtArrival(at, w.travel(p.place, at))) return { why: "the shop is shut" };
       const pay = f.verb === 'pawn' ? o.value : Math.round(o.value * 1.2);

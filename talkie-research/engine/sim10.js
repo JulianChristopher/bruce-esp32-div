@@ -1397,7 +1397,9 @@ async function interrupts(d, t) {
       else { remember('ada', `${A[payer].name} did not pay her wages this Friday.`, [payer, 'money'], 3); fact('ada', `Were you paid your wages at the insurance office on ${LONGDATE(d)}?`, ['Yes', 'No'], 1); }
     }
   }
-  if (w === 'fri' && t === hm(17) && !W.paid['arthur' + d] && A.arthur.place === 'office') { W.paid['arthur' + d] = true; F['paid_arthur_' + d] = true; A.arthur.money += W.wage; note('arthur', 'account-book', `wages received, ${money(W.wage)}`); remember('arthur', `He was paid his week's wages, ${money(W.wage)}`, ['thomas', 'money'], 2); say(`   (Wages: Arthur receives ${money(W.wage)})`); }
+  // the pay envelope: handed out from half past four on Friday; if he has gone, it waits for him in the office till Saturday dinner-time
+  const payday = w === 'fri' ? d : w === 'sat' ? d - 1 : null;
+  if (payday !== null && ((w === 'fri' && t >= hm(16, 30)) || (w === 'sat' && t <= hm(13))) && !W.paid['arthur' + payday] && A.arthur.place === 'office') { W.paid['arthur' + payday] = true; F['paid_arthur_' + payday] = true; A.arthur.money += W.wage; note('arthur', 'account-book', `wages received, ${money(W.wage)}`); remember('arthur', `He was paid his week's wages, ${money(W.wage)}`, ['thomas', 'money'], 2); say(`   (Wages: Arthur receives ${money(W.wage)})`); }
   if (d === 0 && t === hm(9) && !W.ledger.assigned) { W.ledger.assigned = true; remember('arthur', 'Mr. Thomas set him to balance the quarterly ledger.', ['thomas', 'ledger'], 3); remember('thomas', 'He set Mr. Hale to balance the quarterly ledger.', ['arthur', 'ledger'], 3); say('   (Mr. Thomas sets Arthur to the quarterly ledger.)'); }
   if (d === 10 && t === hm(17) && W.auditDue && !W.audit.verdict) say(`   (The auditors examine the books.) ${verdict('audit')}`);
   if (d === 11 && t === hm(9) && W.audit.verdict && W.audit.raise === null && A.thomas.place === 'office') {

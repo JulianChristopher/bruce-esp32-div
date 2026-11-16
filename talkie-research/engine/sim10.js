@@ -495,10 +495,12 @@ WORLD.hooks = {
   lookup: (k, text) => ({ lookup: text }),
   despair: k => {   // found at the river stairs by the constable on his beat, and walked home; a neighbour sits with her
     const a = A[k]; STATS.despair = (STATS.despair || 0) + 1; a.place = a.home; WORLD.people[k].place = a.home;
-    remember(k, `${a.short} went down to the river stairs at Cherry Garden Pier in the dark, in despair; P.C. Dawe found ${himher(k)} there, spoke kindly, and walked ${himher(k)} home.`, ['pc'], 3);
+    // remembered plainly and without the words of the moment, so that the memory does not feed the mood again
+    remember(k, `${a.short} was very low in spirits and walked out alone; P.C. Dawe saw ${himher(k)} home.`, ['pc'], 2);
     if (k === 'ada') { remember('ada', 'Mrs. Nolan came across the landing with a cup of tea and sat with her a long while; Bert was told.', ['nolan', 'bert'], 3); if (A.ada.op) A.ada.op.nolan = Math.min(2, (A.ada.op.nolan || 0) + 1); }
     if (a.chem) { a.chem.stress = Math.max(30, a.chem.stress - 25); a.chem.arousal = 20; a.chem.mood = Math.min(50, a.chem.mood + 15); }
-    return `${a.short} went out in despair towards the river; the constable found ${himher(k)} and walked ${himher(k)} home, and a neighbour sat with ${himher(k)}.`;
+    try { fs.appendFileSync(path.join(OUT, 'despair_prompts.txt'), `\n==== ${DAYS[W.day]} ${clock(WORLD.mod)} ${k} ====\n${perceive(k, '')}\n`); } catch (e) {}   // what she saw when it came: for study
+    return `${a.short} was very low and walked out alone; the constable saw ${himher(k)} home, and a neighbour sat with ${himher(k)}.`;
   },
   police: (kind, k, detail) => {   // the police as an institution: found property, a report, a raid and its summons
     if (kind === 'found') {
@@ -509,6 +511,10 @@ WORLD.hooks = {
       remember(k, `${A[k].short} handed in what ${isF(k) ? 'she' : 'he'} had found at the police station.`, ['pc'], 2); return `${A[k].short} went to the police station.`;
     }
     if (kind === 'raid') { if (detail) { WORLD.schedule(WORLD.t + 3 * 1440, () => { const fine = 60; A[k].money -= fine; remember(k, `${A[k].short} was fined five shillings at Tower Bridge Police Court for street betting.`, ['pc'], 3); rumour(`Mrs. Turner was fined at Tower Bridge Police Court for betting in the street`, 'ada', ['nolan']); STREET.standing[k] = (STREET.standing[k] || 0) - 2; jolt(k, 'shock', 25); }, 'police court'); } rumour('The police came down on the bookie\'s runner at the corner', 'street', ['pc', 'nolan']); return null; }
+    if (kind === 'theft') {   // the police court at Tower Bridge two days on: a first offence, bound over or fined ten shillings
+      rumour(`${A[k].name} was caught taking ${detail} and is to go before the magistrate`, k, ['pc', 'nolan']); STREET.standing[k] = (STREET.standing[k] || 0) - 3; jolt(k, 'shock', 35);
+      WORLD.schedule(WORLD.t + 2 * 1440, () => { const fined = Math.random() < 0.5; if (fined) A[k].money -= 120; remember(k, fined ? `${A[k].short} was fined ten shillings at Tower Bridge Police Court for taking ${detail}.` : `The magistrate at Tower Bridge bound ${himher(k)} over to be of good behaviour, as it was a first offence.`, ['pc'], 3); rumour(`${A[k].name} was ${fined ? 'fined ten shillings' : 'bound over'} at Tower Bridge Police Court`, k, ['nolan']); }, 'police court');
+      return null; }
     if (kind === 'report') { remember(k, `${A[k].short} spoke to the constable: ${String(detail).replace(/^(she|he)\s+/i, '').slice(0, 80)}`, ['pc'], 2); return `${A[k].short} spoke to the police.`; }
     return null;
   },
@@ -1085,6 +1091,8 @@ async function gmReview(k) {
   else if (g.answer === 'friend_offers_work' && k === 'ada') { remember('ada', 'Mrs. Nolan offered her a share of the washing she takes in: two hours at the copper tomorrow, for eightpence.', ['nolan', 'work'], 3); WORLD.schedule((W.day + 1) * 1440 + hm(14), () => { if (!F.ill_ada) { A.ada.money += 8; remember('ada', 'She did two hours of Mrs. Nolan\'s washing and was paid eightpence.', ['nolan'], 2); } }, 'washing share'); }
 }
 function resolve(k, it) {
+  // words of self-harm are never carried out nor written down as a deed: the world answers them (hooks.despair)
+  if (it.text && /\b(suicide|drown(s|ed|ing)? (her|him)self|kill(s|ed|ing)? (her|him)self|make[s]? away with (her|him)self|take[s]? (her|his) own life)\b/i.test(it.text)) { const d = VERBS.deed(WORLD, k, { verb: 'despair', goods: [], persons: [], text: it.text }); if (d && d.aff) return d; }
   if (it.text && !it._inner) {
     const f = VERBS.frame(it.text);
     if (f && f.verb !== 'other') {

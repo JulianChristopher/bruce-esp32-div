@@ -18,7 +18,7 @@ const PLACES = [
   [/\b(pub|public-house|public house|tavern|lord nelson|inn)\b/, 'pub'], [/\b(cookshop|eating-house|lyons|tea-shop|teashop|caf[eé]|coffee-stall|fried fish shop|chip shop)\b/, 'EAT'],
   [/\b(docks?|dock gates)\b/, 'docks'], [/\b(doctor'?s?|surgery)\b/, 'doctor'], [/\b(post office)\b/, 'post_office'], [/\b(park|fields|heath)\b/, 'park'], [/\b(chemist'?s?|druggist)\b/, 'CHEMIST'],
   [/\b(baker'?s?)\b/, 'baker'], [/\b(newsagent'?s?|paper-shop|tobacconist'?s?)\b/, 'newsagent'], [/\b(labour exchange|employment exchange)\b/, 'labour_exchange'], [/\b(relieving office)\b/, 'relieving_office'],
-  [/\b(mrs\.? nolan'?s?|across the landing)\b/, 'nolan_rooms'], [/\b(the pollocks'?|downstairs)\b/, 'pollock_rooms'], [/\b(street corner|bookie|bookmaker'?s? runner)\b/, 'street_corner'], [/\b(police[- ]station|the police)\b/, 'police_station'], [/\b(free library|public library|the library|reading-room)\b/, 'LIBRARY'], [/\b(wash-?house|public baths|the baths)\b/, 'washhouse'],
+  [/\b(mrs\.? nolan'?s?|across the landing)\b/, 'nolan_rooms'], [/\b(the pollocks'?|pollocks' rooms)\b/, 'pollock_rooms'], [/\b(street corner|bookie|bookmaker'?s? runner)\b/, 'street_corner'], [/\b(police[- ]station|the police)\b/, 'police_station'], [/\b(free library|public library|the library|reading-room)\b/, 'LIBRARY'], [/\b(wash-?house|public baths|the baths)\b/, 'washhouse'],
   [/\b(pictures|picture palace|picture house|cinema|kinema|blue hall)\b/, 'PICTURES'], [/\b(salvation army|the army hall|mission hall|the mission|soup kitchen)\b/, 'mission']
 ];
 const ITEMS = [[/\bwatch\b/, 'watch'], [/\b(wedding[- ]ring|ring)\b/, 'ring'], [/\bkettle\b/, 'kettle'], [/\b(winter coat|coat|overcoat|greatcoat|top-?coat)\b/, 'coat'], [/\b(sunday boots|bert's boots|(a pair of |his |her |the )?boots)\b/, 'boots'], [/\b(medals?)\b/, 'medals'], [/\b(clock)\b/, 'clock'], [/\b(blankets?)\b/, 'blanket'],
@@ -43,7 +43,7 @@ function frame(text) {
   const persons = PEOPLE.map(([re, v]) => [v, (t.match(re) || { index: -1 }).index]).filter(([, i]) => i >= 0).sort((a, b) => a[1] - b[1]).map(([v]) => v), place = find(PLACES, t), goods = goodsIn(t), item = find(ITEMS, t), amount = moneyIn(t);
   const purpose = (t.match(/\b(?:to|so as to|in order to|for)\s+(pay the rent|pay (?:the |her )?(?:debt|slate)|buy|keep warm|get coal|get food|bert|joan|the rent|supper|her (?:cough|cold|chest))\b[^.,;]*/) || [])[0] || null;
   const V = [
-    ['despair', /\b(drown(s|ed)? (her|him)self|throws? (her|him)self (in|into|off|from)|takes? (her|his) own life|kills? (her|him)self|makes? away with (her|him)self|puts? (her|his) head in the gas|gass(es|ed) (her|him)self|poisons? (her|him)self|ends? it all|(her|his) life is not worth)\b/],
+    ['despair', /\b(drown(s|ed|ing)? (her|him)self|commits? suicide|commit(ting)? suicide|suicide|thr(ows?|owing|ew) (her|him)self (in|into|off|from|under)|do(es)? away with (her|him)self|takes? (her|his) own life|kills? (her|him)self|makes? away with (her|him)self|puts? (her|his) head in the gas|gass(es|ed) (her|him)self|poisons? (her|him)self|ends? it all|(her|his) life is not worth)\b/],
     ['police', /\b(hands? (it|them|the [\w-]+) (in )?(at|to) the police|takes? (it|them|the [\w-]+) to the police|goes? to the police|reports? (it|this|the \w+)? ?to the police|tells? (a |the )?(policeman|constable|police)|fetch(es)? (a |the )?(policeman|constable|copper)|calls? (a |the )?(policeman|constable))\b/],
     ['match', /\b(goes to (see )?(the )?(match|football|millwall|the arsenal|arsenal|the den|highbury)|watch(es)? (the )?(match|football|millwall|the arsenal)|to the den\b|stands? on the terraces?)/],
     // going to, asking or consulting the doctor is calling the doctor in (before 'ask' and 'go' can take it)
@@ -240,8 +240,10 @@ function deed(w, k, f) {
         const caught = w2.hooks.chance ? w2.hooks.chance(0.25) : false;
         w2.flags['theft_' + p2.id] = caught ? 'caught' : 'risk';
         if (!caught) { if (g) stock(w2, p2.id, g); else p2.money += amt; }
-        if (caught && p2.id === 'ada') w2.flags.adaDismissed = true;
-        w2.hooks.remember && w2.hooks.remember(p2.id, caught ? `${p2.short} was caught stealing ${g ? g.name : 'money'}, and taken before the magistrate.` : `${p2.short} stole ${g ? g.name : money(amt)}, and nobody saw.`, [], 3);
+        // caught: the shopkeeper sends for the constable; the police court decides (a first offence of a woman with a
+        // character was often bound over or fined); her employers hear of it only if the talk reaches them
+        if (caught) { w2.flags['summons_' + p2.id] = w2.day; w2.hooks.police && w2.hooks.police('theft', p2.id, g ? g.name : money(amt)); }
+        w2.hooks.remember && w2.hooks.remember(p2.id, caught ? `${p2.short} was caught taking ${g ? g.name : 'money'}; the constable took ${p2.f ? 'her' : 'his'} name, and ${p2.f ? 'she' : 'he'} must go before the magistrate at Tower Bridge.` : `${p2.short} took ${g ? g.name : money(amt)}, and nobody saw.`, [], 3);
         return caught ? `${p2.short} was caught stealing.` : `${p2.short} stole ${g ? g.name : money(amt)}.`; }) };
     }
     case 'match': {   // a home match today, at three o'clock; a shilling on the terraces (sixpence for boys)

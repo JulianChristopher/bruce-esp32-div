@@ -123,9 +123,11 @@ const actions = [
     label: (w, p) => p.id === 'ada' ? `Cook a meal and eat it${w.peopleAt('ada_home', 'ada').some(q => q.id === 'bert') ? ' with Bert' : ''} (uses one of her ${w.count('ada', 'food')} meals' worth of food)` : w.mod < hm(10) ? 'Have breakfast' : w.mod < hm(15) ? 'Have dinner at home' : 'Have tea with the family',
     effect: (w, p) => { p.ateAt = w.t; if (p.id === 'ada') w.add('ada', 'food', -1); return `${p.short} had a meal.`; } },
   { id: 'buy_food', who: ['ada'], at: () => 'chandler', where: () => true, when: w => w.count('ada', 'food') < 4, cost: 27, payee: () => 'barker', onCredit: true, dur: 20, base: w => (w.count('ada', 'food') === 0 ? 30 : 8),
+    habit: (w, p) => w.count('ada', 'food') === 0 && p.money >= 27 && w.mod >= hm(12, 30),   // the larder is bare and there is money: she shops, as every housewife did
     label: (w) => `Buy bread, margarine, tea and a bit of bacon at Barker's: three meals for two (2s. 3d.); ${w.count('ada', 'food')} meals' worth left at home`,
     effect: (w, p) => { w.add('ada', 'food', 3); if (p.money < 0) H(w).debt('ada', 'Barker'); return 'Ada bought food at Barker\'s.'; } },
   { id: 'buy_coal', who: ['ada'], at: () => 'chandler', where: () => true, when: w => w.count('ada', 'coal') < 3, cost: w => (w.coldSnap && w.coldSnap(w.day) ? 15 : 12), payee: () => 'barker', onCredit: true, dur: 15, base: w => (w.count('ada', 'coal') === 0 ? 22 : 5),
+    habit: (w, p) => w.count('ada', 'coal') === 0 && p.money >= 15 && w.mod >= hm(12, 30),   // the coal-box is empty and there is money: she fetches a hundredweight
     label: (w) => `Buy a hundredweight of coal at Barker's (${w.coldSnap && w.coldSnap(w.day) ? '1s. 3d., dearer in the frost' : '1s.'}); ${w.count('ada', 'coal')} fires' worth left`,
     effect: (w, p) => { w.add('ada', 'coal', 4); if (p.money < 0) H(w).debt('ada', 'Barker'); return 'Ada bought coal.'; } },
   { id: 'light_fire', who: ['ada'], where: athome, when: w => w.count('ada', 'coal') > 0 && !(w.flags.fire_ada_home > w.t) && w.mod >= hm(6) && w.mod < hm(21, 30), dur: 10, meets: { warmth: 30 }, base: 5, habit: (w, p) => p.needs.warmth > 40,

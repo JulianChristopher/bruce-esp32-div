@@ -22,6 +22,7 @@
 //   talk     {with, topic}                         a conversation (the period model speaks both parts)
 //   create   {entity, kind, hint, district?, opens?, closes?, price?, value?}   something new in the world
 //   schedule {in_hours, event, who?, pence?, note?}   something that will happen later
+//   away     {days, pence, for}                    a journey out of London (relatives, the hop-gardens, the sea): gone for days
 //   despair  {}                                    never carried out; the world answers it
 'use strict';
 const G = require('./goods1931.js');
@@ -83,10 +84,20 @@ function run(w, k, ops, ctx = {}) {
   const ref = x => (x === '$new' || x === '$new0') ? newIds[0] : /^\$new(\d)$/.test(x || '') ? newIds[+x.slice(4)] : x;
   if (!Array.isArray(ops) || !ops.length) return fail('nothing is done');
   if (ops.length > 8) return fail('too much at once');
+  let gone = false;
   for (const raw of ops) {
+    if (gone) break;
     const o = { ...raw }; for (const key of ['to', 'at', 'with', 'of', 'thing', 'who']) if (o[key]) o[key] = ref(o[key]);
     switch (o.op) {
       case 'despair': return { ok: true, despair: true, minutes, text };
+      case 'away': {   // out of London: by train or carrier, for some days; the person leaves the stage and comes back
+        const days = clip(Math.round(+o.days || 1), 1, 21), fare = Math.round(+o.pence || 0);
+        if (fare < 4 || fare > 480) return fail('that is not the fare for such a journey');
+        if (p.money < fare) return fail(`${p.f ? 'she' : 'he'} has not the fare`);
+        p.money -= fare; minutes += 45; w.t += 45; const where = OWN(o.for);
+        if (ctx.scheduler && H.away) H.away(k, days, where);   // only in the real world: the person is gone till the return
+        text.push(`went away${where ? ' (' + where + ')' : ''} for ${days === 1 ? 'the day' : days + ' days'}, the fare ${money(fare)}`); gone = true; break;
+      }
       case 'go': {
         if (!o.to || !w.places[o.to]) return fail(`there is no such place as ${o.to || 'that'}`);
         const walk = w.travel(p.place, o.to, k); if (w.places[o.to].open && !w.placeOpenAtArrival(o.to, walk)) return fail(`${w.places[o.to].name} would be shut`);

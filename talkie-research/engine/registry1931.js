@@ -6,6 +6,7 @@
 const fs = require('fs'), path = require('path');
 const OPS = require('./ops1931.js'), GEO = require('./geo1931.js');
 const DISTRICTS = { bermondsey: [51.4972, -0.0730], moorgate: [51.5178, -0.0880], islington: [51.5395, -0.1050], highbury: [51.5500, -0.1000], southwark: [51.5030, -0.0920], 'london bridge': [51.5055, -0.0860], rotherhithe: [51.4990, -0.0520], 'old kent road': [51.4880, -0.0720] };
+const LONDON = new Set(['bermondsey', 'southwark', 'rotherhithe', 'deptford', 'walworth', 'lambeth', 'camberwell', 'islington', 'highbury', 'holloway', 'finsbury', 'city', 'the city', 'moorgate', 'shoreditch', 'hackney', 'bethnal green', 'stepney', 'whitechapel', 'poplar', 'westminster', 'soho', 'holborn', 'clerkenwell', 'kensington', 'chelsea', 'battersea', 'london bridge', 'old kent road', 'new cross', 'peckham', 'kennington', 'st pancras', 'camden town', 'kentish town', 'stoke newington', 'limehouse', 'wapping', 'tower hill', 'aldgate', 'bow', 'mile end', 'canning town', 'greenwich', 'lewisham', 'brixton', 'vauxhall', 'marylebone', 'paddington', 'hampstead', 'fulham', 'hammersmith', 'strand', 'covent garden', 'bloomsbury', 'fleet street', 'charing cross', 'london', 'jamaica road', 'tower bridge road', 'dockhead', 'borough']);
 const DISTRICT_OF = { southwark: 'bermondsey', 'london bridge': 'bermondsey', rotherhithe: 'bermondsey', 'old kent road': 'bermondsey' };
 const HOURS = { shop: [8 * 60, 20 * 60], stall: [6 * 60, 20 * 60], market: [8 * 60, 19 * 60], cafe: [6 * 60, 22 * 60], pub: null, church: [8 * 60, 21 * 60], chapel: [8 * 60, 21 * 60], hall: [9 * 60, 21 * 60], office: [9 * 60, 17 * 60], works: [7 * 60, 18 * 60], school: [9 * 60, 16 * 60], hospital: null, park: [7 * 60, 19 * 60] };
 // kinds as people name them, mapped to the kinds the engine knows (so the game master is not held to a word list)
@@ -59,7 +60,8 @@ class Registry {
     let it;
     if (ent === 'place') {
       if (!kind) return { ok: false, why: 'there was no such kind of place' };
-      const dkey = String(o.district || '').toLowerCase(); const district = DISTRICT_OF[dkey] || (DISTRICTS[dkey] ? dkey : (w.places[p.place] ? w.places[p.place].district : 'bermondsey'));
+      const dkey = String(o.district || '').toLowerCase().trim();
+      if (dkey && !LONDON.has(dkey) && !DISTRICTS[dkey] && !DISTRICT_OF[dkey]) return { ok: false, why: 'that is out of London: a journey (away), not a walk' }; const district = DISTRICT_OF[dkey] || (DISTRICTS[dkey] ? dkey : (w.places[p.place] ? w.places[p.place].district : 'bermondsey'));
       const base = DISTRICTS[dkey] || DISTRICTS[district] || GEO.C[p.place] || DISTRICTS.bermondsey;
       const coords = [base[0] + (Math.random() - 0.5) * 0.004, base[1] + (Math.random() - 0.5) * 0.006];
       let hours = HOURS[kind] === undefined ? [8 * 60, 20 * 60] : HOURS[kind];

@@ -1,0 +1,349 @@
+{
+ "made": "2026-11-17T08:47:28.532Z",
+ "seeds": 100,
+ "years": 10,
+ "from": 1931,
+ "ms": 72104,
+ "years_": [
+  {
+   "year": 1931,
+   "seeds": 100,
+   "people": 106,
+   "deathRate": {
+    "sim": 16,
+    "sdPerStreet": 12.4,
+    "record": 13.1
+   },
+   "birthRate": {
+    "sim": 19.4,
+    "sdPerStreet": 14.6,
+    "record": 17.4
+   },
+   "infantMortality": {
+    "sim": 39,
+    "record": 57,
+    "note": "per 1000 births; the record parse is noisy (57 for 1931 is the MOH figure)"
+   },
+   "menOutOfWork": {
+    "sim": 23.1,
+    "record": 22.4,
+    "note": "per cent of men in work or seeking it; record: insured men, Bermondsey"
+   },
+   "perStreetAndYear": {
+    "evictions": 1.04,
+    "noticesToQuit": 4.18,
+    "arrests": 1.46,
+    "pledgesTold": 109.6,
+    "hungerWeeks": 3.48,
+    "stoodOff": 14.75,
+    "shareInArrearsOnMonday": 0.027
+   }
+  },
+  {
+   "year": 1932,
+   "seeds": 100,
+   "people": 107,
+   "deathRate": {
+    "sim": 11.2,
+    "sdPerStreet": 10.4,
+    "record": 12
+   },
+   "birthRate": {
+    "sim": 17.7,
+    "sdPerStreet": 13.9,
+    "record": 16.6
+   },
+   "infantMortality": {
+    "sim": 37,
+    "record": null,
+    "note": "per 1000 births; the record parse is noisy (57 for 1931 is the MOH figure)"
+   },
+   "menOutOfWork": {
+    "sim": 25.5,
+    "record": 24.4,
+    "note": "per cent of men in work or seeking it; record: insured men, Bermondsey"
+   },
+   "perStreetAndYear": {
+    "evictions": 0.38,
+    "noticesToQuit": 1.57,
+    "arrests": 1.34,
+    "pledgesTold": 101,
+    "hungerWeeks": 1.11,
+    "stoodOff": 17.48,
+    "shareInArrearsOnMonday": 0.012
+   }
+  },
+  {
+   "year": 1933,
+   "seeds": 100,
+   "people": 107,
+   "deathRate": {
+    "sim": 12.8,
+    "sdPerStreet": 10.9,
+    "record": 12.5
+   },
+   "birthRate": {
+    "sim": 14.2,
+    "sdPerStreet": 11,
+    "record": 14
+   },
+   "infantMortality": {
+    "sim": 59,
+    "record": null,
+    "note": "per 1000 births; the record parse is noisy (57 for 1931 is the MOH figure)"
+   },
+   "menOutOfWork": {
+    "sim": 22.7,
+    "record": 21,
+    "note": "per cent of men in work or seeking it; record: insured men, Bermondsey"
+   },
+   "perStreetAndYear": {
+    "evictions": 0.25,
+    "noticesToQuit": 0.85,
+    "arrests": 1.3,
+    "pledgesTold": 98,
+    "hungerWeeks": 0.62,
+    "stoodOff": 16.46,
+    "shareInArrearsOnMonday": 0.009
+   }
+  },
+  {
+   "year": 1934,
+   "seeds": 100,
+   "people": 109,
+   "deathRate": {
+    "sim": 11.4,
+    "sdPerStreet": 9.4,
+    "record": null
+   },
+   "birthRate": {
+    "sim": 11.2,
+    "sdPerStreet": 10.9,
+    "record": 14.8
+   },
+   "infantMortality": {
+    "sim": 25,
+    "record": null,
+    "note": "per 1000 births; the record parse is noisy (57 for 1931 is the MOH figure)"
+   },
+   "menOutOfWork": {
+    "sim": 16.5,
+    "record": 17.8,
+    "note": "per cent of men in work or seeking it; record: insured men, Bermondsey"
+   },
+   "perStreetAndYear": {
+    "evictions": 0.24,
+    "noticesToQuit": 0.84,
+    "arrests": 1.46,
+    "pledgesTold": 94.9,
+    "hungerWeeks": 0.74,
+    "stoodOff": 14.64,
+    "shareInArrearsOnMonday": 0.007
+   }
+  },
+  {
+   "year": 1935,
+   "seeds": 100,
+   "people": 109,
+   "deathRate": {
+    "sim": 11.9,
+    "sdPerStreet": 8.7,
+    "record": 11.7
+   },
+   "birthRate": {
+    "sim": 13.8,
+    "sdPerStreet": 12.1,
+    "record": 14.5
+   },
+   "infantMortality": {
+    "sim": 60,
+    "record": null,
+    "note": "per 1000 births; the record parse is noisy (57 for 1931 is the MOH figure)"
+   },
+   "menOutOfWork": {
+    "sim": 15.4,
+    "record": 17.5,
+    "note": "per cent of men in work or seeking it; record: insured men, Bermondsey"
+   },
+   "perStreetAndYear": {
+    "evictions": 0.14,
+    "noticesToQuit": 0.65,
+    "arrests": 1.24,
+    "pledgesTold": 92.2,
+    "hungerWeeks": 0.59,
+    "stoodOff": 15.18,
+    "shareInArrearsOnMonday": 0.007
+   }
+  },
+  {
+   "year": 1936,
+   "seeds": 100,
+   "people": 110,
+   "deathRate": {
+    "sim": 11.6,
+    "sdPerStreet": 9.7,
+    "record": 12.8
+   },
+   "birthRate": {
+    "sim": 13.3,
+    "sdPerStreet": 11.7,
+    "record": 15.4
+   },
+   "infantMortality": {
+    "sim": 41,
+    "record": null,
+    "note": "per 1000 births; the record parse is noisy (57 for 1931 is the MOH figure)"
+   },
+   "menOutOfWork": {
+    "sim": 13.5,
+    "record": 13.9,
+    "note": "per cent of men in work or seeking it; record: insured men, Bermondsey"
+   },
+   "perStreetAndYear": {
+    "evictions": 0.2,
+    "noticesToQuit": 0.91,
+    "arrests": 1.38,
+    "pledgesTold": 94.1,
+    "hungerWeeks": 0.45,
+    "stoodOff": 12.77,
+    "shareInArrearsOnMonday": 0.007
+   }
+  },
+  {
+   "year": 1937,
+   "seeds": 100,
+   "people": 109,
+   "deathRate": {
+    "sim": 11.5,
+    "sdPerStreet": 9.6,
+    "record": 12.3
+   },
+   "birthRate": {
+    "sim": 12.5,
+    "sdPerStreet": 11.7,
+    "record": 14.4
+   },
+   "infantMortality": {
+    "sim": 51,
+    "record": null,
+    "note": "per 1000 births; the record parse is noisy (57 for 1931 is the MOH figure)"
+   },
+   "menOutOfWork": {
+    "sim": 11.2,
+    "record": 12,
+    "note": "per cent of men in work or seeking it; record: insured men, Bermondsey"
+   },
+   "perStreetAndYear": {
+    "evictions": 0.22,
+    "noticesToQuit": 0.87,
+    "arrests": 1.26,
+    "pledgesTold": 94.5,
+    "hungerWeeks": 0.54,
+    "stoodOff": 10.93,
+    "shareInArrearsOnMonday": 0.007
+   }
+  },
+  {
+   "year": 1938,
+   "seeds": 100,
+   "people": 110,
+   "deathRate": {
+    "sim": 12.4,
+    "sdPerStreet": 11.8,
+    "record": 11
+   },
+   "birthRate": {
+    "sim": 13.3,
+    "sdPerStreet": 10.5,
+    "record": 14.8
+   },
+   "infantMortality": {
+    "sim": 34,
+    "record": null,
+    "note": "per 1000 births; the record parse is noisy (57 for 1931 is the MOH figure)"
+   },
+   "menOutOfWork": {
+    "sim": 11,
+    "record": 13.6,
+    "note": "per cent of men in work or seeking it; record: insured men, Bermondsey"
+   },
+   "perStreetAndYear": {
+    "evictions": 0.12,
+    "noticesToQuit": 0.76,
+    "arrests": 1.32,
+    "pledgesTold": 95,
+    "hungerWeeks": 0.39,
+    "stoodOff": 13.14,
+    "shareInArrearsOnMonday": 0.006
+   }
+  },
+  {
+   "year": 1939,
+   "seeds": 100,
+   "people": 110,
+   "deathRate": {
+    "sim": 15.2,
+    "sdPerStreet": 12.3,
+    "record": 11.2
+   },
+   "birthRate": {
+    "sim": 13.7,
+    "sdPerStreet": 11.6,
+    "record": 13.4
+   },
+   "infantMortality": {
+    "sim": 33,
+    "record": null,
+    "note": "per 1000 births; the record parse is noisy (57 for 1931 is the MOH figure)"
+   },
+   "menOutOfWork": {
+    "sim": 10.6,
+    "record": 12,
+    "note": "per cent of men in work or seeking it; record: insured men, Bermondsey"
+   },
+   "perStreetAndYear": {
+    "evictions": 0.13,
+    "noticesToQuit": 0.79,
+    "arrests": 1.43,
+    "pledgesTold": 94.7,
+    "hungerWeeks": 0.5,
+    "stoodOff": 10.63,
+    "shareInArrearsOnMonday": 0.007
+   }
+  },
+  {
+   "year": 1940,
+   "seeds": 100,
+   "people": 111,
+   "deathRate": {
+    "sim": 12.2,
+    "sdPerStreet": 9.9,
+    "record": null
+   },
+   "birthRate": {
+    "sim": 11.4,
+    "sdPerStreet": 9.2,
+    "record": null
+   },
+   "infantMortality": {
+    "sim": 56,
+    "record": null,
+    "note": "per 1000 births; the record parse is noisy (57 for 1931 is the MOH figure)"
+   },
+   "menOutOfWork": {
+    "sim": 10.7,
+    "record": 9,
+    "note": "per cent of men in work or seeking it; record: insured men, Bermondsey"
+   },
+   "perStreetAndYear": {
+    "evictions": 0.4,
+    "noticesToQuit": 1.36,
+    "arrests": 1.39,
+    "pledgesTold": 103.1,
+    "hungerWeeks": 1.32,
+    "stoodOff": 8.95,
+    "shareInArrearsOnMonday": 0.013
+   }
+  }
+ ]
+}

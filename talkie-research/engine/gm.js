@@ -60,7 +60,7 @@ const S_REVIEW = { type: 'object', additionalProperties: false, required: ['stuc
   stuck: { type: 'boolean' }, pattern: { type: 'string', enum: ['none', 'despair', 'pawning_spiral', 'melodrama', 'repetition', 'forgetting_facts'] },
   answer: { type: 'string', enum: ['none', 'neighbour_calls', 'constable_speaks', 'goes_home_to_rest', 'ask_directly_about_rent', 'remind_of_purse', 'friend_offers_work'] } } };
 // ---------- open deeds: the game master writes a short program of primitive operations (see ops1931.js) ----------
-const PRIMS = ['go', 'wait', 'buy', 'pay', 'earn', 'give', 'use', 'pledge', 'sell', 'redeem', 'need', 'relate', 'request', 'talk', 'create', 'schedule', 'despair', 'none'];
+const PRIMS = ['go', 'wait', 'buy', 'pay', 'earn', 'give', 'use', 'pledge', 'sell', 'redeem', 'need', 'relate', 'request', 'talk', 'create', 'schedule', 'away', 'despair', 'none'];
 const S_RESOLVE = { type: 'object', additionalProperties: false, required: ['plausible', 'ops'], properties: {
   plausible: { type: 'boolean', description: 'could such a person really do this, here and now, in 1931?' },
   ops: { type: 'array', maxItems: 8, items: { type: 'object', additionalProperties: false, required: ['op'], properties: {
@@ -68,7 +68,7 @@ const S_RESOLVE = { type: 'object', additionalProperties: false, required: ['pla
     to: { type: 'string', description: 'place id (go) or person id (pay, give)' }, at: { type: 'string', description: 'place id where something is bought, sold, or where a new person is found' },
     with: { type: 'string', description: 'person id (talk, relate)' }, of: { type: 'string', description: 'person id who is asked (request)' }, who: { type: 'string', description: 'person id (schedule)' },
     thing: { type: 'string', description: 'object id, or food / coal, or an inventory word' }, what: { type: 'string', description: 'goods in plain words (buy, request goods)' },
-    qty: { type: 'integer' }, pence: { type: 'integer' }, minutes: { type: 'integer' }, delta: { type: 'number' }, in_hours: { type: 'number' },
+    qty: { type: 'integer' }, pence: { type: 'integer' }, minutes: { type: 'integer' }, days: { type: 'integer' }, delta: { type: 'number' }, in_hours: { type: 'number' },
     need: { type: 'string', enum: ['hunger', 'warmth', 'energy', 'social'] }, kind: { type: 'string', description: 'request kind, or kind of a new entity' },
     entity: { type: 'string', enum: ['place', 'person', 'thing'] }, hint: { type: 'string', description: 'for create: a short plain noun phrase of 1931, e.g. "a coffee-stall by London Bridge"' },
     district: { type: 'string' }, opens: { type: 'number', description: 'hour' }, closes: { type: 'number', description: 'hour' }, value: { type: 'integer', description: 'pawn value in pence' },
@@ -78,7 +78,7 @@ go{to:place id} | wait{minutes, for} | buy{what, qty, at:place id, pence (only i
 earn{pence, minutes, for} (casual work: about 4-8d. an hour) | give{thing, qty, to:person id} | use{thing: food|coal|item} | pledge{thing:object id} | sell{thing, at} | redeem{thing}
 need{need, delta -40..30} | relate{with, delta -2..2} | request{of:person id, kind: loan|credit|goods|work|wait|favour|help|relief, pence, what} (the other person decides; never decide it yourself)
 talk{with:person id, topic} | create{entity: place|person|thing, kind, hint, district, opens, closes, value} (only if the deed needs something not in the lists; refer to it afterwards as "$new")
-schedule{in_hours, event: repay|visit|letter|court|collect|return|deliver|meet|work, who, pence, for} | despair{} (for any words of self-harm) | none{}.
+schedule{in_hours, event: repay|visit|letter|court|collect|return|deliver|meet|work, who, pence, for} | away{days, pence: the fare, for: where} (a journey out of London: relatives, the hop-gardens, the sea; places out of London are not created) | despair{} (for any words of self-harm) | none{}.
 Use ids exactly as listed. Money in pence (1s = 12d, £1 = 240d). Do not decide another person's will: ask with request.
 Use talk only when the character says they speak with someone; a deed (paying, working, writing) is not talk.
 For the words in what, for, topic and hint use the character's own words from the sentence: other words are dropped by the engine.

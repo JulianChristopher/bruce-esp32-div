@@ -498,6 +498,7 @@ async function chorus(t, only = null, forced = null) {
     const wx = LIFEMOD.weatherOf(W.day);
     const want = forced || (WORLD.count(k, 'coal') === 0 && wx.tmean < 8 ? 'coal' : WORLD.count(k, 'food') === 0 && a.money < 12 ? 'food' : F['ill_' + k] ? 'ill' : a.chem && a.chem.stress > 75 ? 'low' : null);
     if (!want) continue;
+    W.chorusLast = W.chorusLast || {}; if (['coal', 'food'].includes(want) && W.day - (W.chorusLast[k + want] ?? -99) < 7) continue;   // a neighbour helps out once; she does not keep a household in coal
     const helpers = [...CHORUS[k], ...PROM.list().filter(id => /^nb_/.test(id))].filter(q => WORLD.people[q] && !WORLD.people[q].away && (a.op[q] ?? 0) >= 0 && whereIs(q) === WORLD.people[q].home);
     if (!helpers.length) continue;
     W.chorusDay[k] = W.day;
@@ -511,7 +512,7 @@ async function chorus(t, only = null, forced = null) {
     STATS.chorus = STATS.chorus || { asked: 0, came: 0 }; STATS.chorus.asked++;
     say(`   ♡ ${nameOf(q)} ${yes ? 'comes across' : 'stays at home'} (${want}): ${sentences(ans, 1)}`);
     if (!yes) continue;
-    STATS.chorus.came++;
+    STATS.chorus.came++; W.chorusLast = W.chorusLast || {}; W.chorusLast[k + want] = W.day;
     if (want === 'coal') WORLD.add(k, 'coal', 1); else if (want === 'food') WORLD.add(k, 'food', 1);
     a.needs.social = Math.max(0, a.needs.social - 20); if (a.chem) a.chem.stress = Math.max(0, a.chem.stress - (want === 'low' ? 20 : 10));
     a.op[q] = Math.min(2, (a.op[q] || 0) + 1);

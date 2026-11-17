@@ -113,7 +113,11 @@ evictions (a household under notice often scrapes something together; the bailif
 
 Step 4, two seeds of 7 days with the chorus and despair only as a settled mind: no despair (one and two episodes
 before), dark thoughts in 1-3 % of own decisions (4-9 % before), 5 and 3 pawnings (20 and 9); the chorus came five
-times, each time because Ada had no coal, which led to buying coal becoming a habit when the box is empty.
+times, each time because Ada had no coal, which led to buying coal becoming a habit when the box is empty. A last check
+(work7, 7 days, `FAST=1`): work hours are kept to habit unless something cannot wait (twice before, a morning question
+had sent Ada to the pawnshop instead of the office, and two missed mornings cost her the place): no missed morning,
+no notice, no despair; coal is bought when the box is all but empty, and a neighbour helps out with coal at most once
+a week (in the run before, the neighbours had kept Ada in coal evening after evening).
 
 Open points: promotion needs longer runs to be judged; a run started in a later year knows nothing of the years
 before it (it should read the main news of the missing years first); the portraits age in their numbers but keep words such as

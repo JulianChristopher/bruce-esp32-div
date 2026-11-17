@@ -94,3 +94,24 @@ talkie surprise score).
 3. Event-driven time with weekly planning and salience zoom; promotion of background people (3.5, 3.6).
 4. Calibration dashboard against the records; anti-melodrama measures; several seeds per run (3.7, 3.8).
 5. The decade: ageing, life events, yearly memory consolidation, leakage probes, optional model change (3.9).
+
+## 5. State of the work (17 November 2026)
+
+What was built in the order of section 4, and what the runs showed (logs and metrics in `engine/runs/`).
+
+| Step | Built | Measured |
+|---|---|---|
+| 1. Open deeds | `ops1931.js` (18 primitive operations, checked on a fork, one repair round), `registry1931.js` (generate once, persist, talkie names), provenance of words, journeys out of London (`away`) | 3 days (open3): 25 open deeds, 18 accepted, 3 repaired; 61 game-master calls, $0.06. Fixed on the way: a frame leak into memory ("that would not be done in 1931"), the game master not knowing place names (it built a second Barker's), "plausible" read as "possible right now" |
+| 2. Learned rules | `rules1931.js`: templates with slots of the sentence, two agreeing cases make a rule, the cases are its tests, shadow audit, retirement | live test with the game master: rules for 5 of 5 kinds of deed; 3 days (open4): 2 rules learned live, 5 uses, 4 of 4 audits agreed |
+| 3. Time by salience, plans, promotion | `tempo1931.js`: salience from the state of the world, a floor of three own decisions a day; weekly plans in talkie's words, tried on their day; promotion of background people | 7 days (tempo7b) against the fine-grained week (live7b): model calls 58 a day instead of 82, own decisions 8 instead of 21, judged decision quality 0.82 (n=11) against 0.78 (n=22), rent paid, 9 of 17 plan items done. No neighbour reached promotion within a week |
+| 4. Calibration and melodrama | `calib1931.js` (the Buildings for whole years, many seeds, on the real day data); the sober chorus; despair only as a settled mind | 1931-1940, 100 seeds: mean absolute error 1.5 a thousand for death and birth rates (MOH Bermondsey), 1.4 points for men out of work (Ministry of Labour, Bermondsey); the fall of unemployment after 1932 follows from the coupling alone |
+| 5. The decade | `decade1931.js` (ageing of portraits and sheets, yearly consolidation of memory, the named days of any year, deaths and births by the rates with successors), `leak1931.js` (monthly probes for leakage and uptake), `FAST=1`, `SAMPLE=n` (one week in n played in full, and every week after a great event) | see below |
+
+Judgements that are not tuned to a record (no record held): arrests (about one a street-year, down from twelve),
+evictions (a household under notice often scrapes something together; the bailiffs after eight weeks), moving away
+(a tenth of households a year).
+
+Open points: promotion needs longer runs to be judged; the portraits age in their numbers but keep words such as
+"little daughter"; life events beyond deaths and births (courting and marriage, a new place, the death of a main
+person with `MORTAL=1`) are left to the persons' plans and to later work; the scripted letters of 1931 assume the
+run starts on 2 January 1931.

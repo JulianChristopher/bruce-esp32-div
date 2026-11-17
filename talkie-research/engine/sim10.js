@@ -1547,7 +1547,7 @@ async function act(k) {
     const ill = !!(F['ill_' + k] || (k === 'arthur' && F.joanIll) || (k === 'ada' && F.ill_bert));
     const sal = TEMPO.salience({ urg: urg ? urg.w : 0, stress: a.chem.stress, rentToday: k === 'ada' && F.rentDue && WORLD.mod >= hm(17), rentOwing: k === 'ada' && F.rentOwing, illHome: ill,
       arranged: (W.arranged || []).some(x => x.key.startsWith(k + '>') && x.at >= WORLD.t && x.at - WORLD.t <= 180), planDue: !!planNow(k), visitor, newPresent: newcomers, free: ['sat', 'sun'].includes(DOW(W.day)) && freeHour(k) });
-    a.sal = sal; const floor = (a.forksToday || 0) < FLOOR && sal.z >= 15 && WORLD.mod >= hm(12) && (a.sinceAsked || 0) >= 4; const zoomed = sal.z >= ZMIN || floor; STATS.zoom = STATS.zoom || { on: 0, off: 0 }; STATS.zoom[zoomed ? 'on' : 'off']++;
+    a.sal = sal; const floor = (a.forksToday || 0) < FLOOR && WORLD.mod >= hm(12) && (a.sinceAsked || 0) >= (sal.z >= 15 ? 4 : 6);   // a few of one's own decisions every day, even a calm one const zoomed = sal.z >= ZMIN || floor; STATS.zoom = STATS.zoom || { on: 0, off: 0 }; STATS.zoom[zoomed ? 'on' : 'off']++;
     if (!zoomed) fork = (unanswered && urg.w >= 85) || visitor || (a.sinceAsked || 0) >= 16;
   }
   if (W.quiet) fork = !!visitor;

@@ -19,6 +19,8 @@ for (const run of process.argv.slice(2)) {
     pawned: count(/pawned /g), plans: { items: S.planItems || 0, done: S.planDone || 0, failed: S.planFailed || 0, missed: S.planMissed || 0, unread: S.planUnread || 0 },
     promoted: S.promoted || 0, conversations: S.convs || 0, consents: S.consents || 0, visits: S.visits || 0,
     gm: S.gm ? { calls: S.gm.calls, cost: +(S.gm.cost || 0).toFixed(3) } : null, openDeeds: S.gmOpen || 0, rulesUsed: S.ruleUsed || 0,
+    melodrama: (() => { const th = log.split('\n').filter(l => / thinks: \(in (her|his) own words\)/.test(l)); const dark = th.filter(l => /\b(die|dies|dying|death|dead|starv\w*|ruin\w*|despair\w*|drown\w*|beg|begs|begging|steal\w*|workhouse|suicide|grave|hopeless|wretched|misery)\b/i.test(l)); return { thoughts: th.length, dark: dark.length, share: th.length ? +(dark.length / th.length).toFixed(2) : null }; })(),
+    chorus: S.chorus || null,
     endMoney: last.money || null, probesOk: (M.probes || []).filter(p => p.final).length ? `${(M.probes || []).filter(p => p.final && p.ok).length}/${(M.probes || []).filter(p => p.final).length}` : null });
 }
 console.log(JSON.stringify(rows, null, 1));

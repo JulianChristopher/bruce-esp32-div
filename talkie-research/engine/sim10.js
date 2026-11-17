@@ -114,7 +114,11 @@ async function chat(msgs) {           // several turns in one chat window
   return out;
 }
 const isEcho = (a, m) => !!a && (/CHARACTER:|REMEMBERS:|PURSE:|QUESTION to/.test(a) || (a.length > 40 && m.includes(a.slice(0, 40))));
-let DUMPN = 0; function dump(m) { if (DUMPN++ < +(process.env.DUMP || 0)) try { fs.appendFileSync(path.join(OUT, 'prompts.txt'), `\n==== #${DUMPN} (${m.length} chars) ====\n${m}\n`); } catch (e) {} }
+// what the period model is asked, by kind (for the cost of a long run): read off the answer form of each prompt
+const ASKKIND = [[/QUESTION to /, 'memprobe'], [/goes across, because/, 'chorus'], [/It was settled that/, 'settle'], [/(says|answers), "\.\.\."/, 'talk'], [/answered, "\.\.\."/, 'leak'], [/thinks (him|her) \.\.\., because/, 'reflect'], [/To-day I \.\.\./, 'diary'],
+  [/dreamt that|dream-book/, 'dream'], [/It was called|name was \.\.\./, 'name'], [/On \(day\)/, 'plan'], [/agrees, because \.\.\. or:/, 'consent'], [/chooses to \.\.\., because|\(one sentence\)/, 'decide'],
+  [/goes through with it/, 'second'], [/Yes, because \.\.\. or: No, because/, 'plausible'], [/, because \.\.\. or: /, 'duty'], [/letter only/, 'choose'], [/Answer with|Answer in the form/, 'other']];
+let DUMPN = 0; function dump(m) { const kind = (ASKKIND.find(([re]) => re.test(m)) || [null, 'other'])[1]; STATS.askKinds = STATS.askKinds || {}; STATS.askKinds[kind] = (STATS.askKinds[kind] || 0) + 1; if (DUMPN++ < +(process.env.DUMP || 0)) try { fs.appendFileSync(path.join(OUT, 'prompts.txt'), `\n==== #${DUMPN} (${m.length} chars) ====\n${m}\n`); } catch (e) {} }
 const ask = async m => { dump(m); let a = (await chat([m]))[0]; if (!FAKE && isEcho(a, m)) { STATS.promptEcho = (STATS.promptEcho || 0) + 1; a = (await chat([m]))[0]; if (isEcho(a, m)) a = null; } return a; };
 class Session {                     // a chat window that stays open: talkie sees the whole exchange
   constructor() { this.n = 0; this.page = null; }
@@ -180,7 +184,7 @@ const dateOf = d => new Date(T0 + d * 864e5);
 const ORD = n => n + ((n % 10 === 1 && n !== 11) ? 'st' : (n % 10 === 2 && n !== 12) ? 'nd' : (n % 10 === 3 && n !== 13) ? 'rd' : 'th');
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const WD = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const DAYS = Array.from({ length: ND }, (_, d) => { const x = dateOf(d); return `${WD[x.getUTCDay()]}, the ${ORD(x.getUTCDate())} of ${MONTHS[x.getUTCMonth()]}, 1931`; });
+const DAYS = Array.from({ length: ND }, (_, d) => { const x = dateOf(d); return `${WD[x.getUTCDay()]}, the ${ORD(x.getUTCDate())} of ${MONTHS[x.getUTCMonth()]}, ${x.getUTCFullYear()}`; });
 const DOW = d => ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][dateOf(d).getUTCDay()];
 const DAYNAME = d => DAYS[d].split(',')[0];
 const SHORTDATE = d => `${dateOf(d).getUTCDate()} ${MONTHS[dateOf(d).getUTCMonth()]}`;
@@ -188,9 +192,10 @@ const LONGDATE = d => `${WD[dateOf(d).getUTCDay()]}, the ${ORD(dateOf(d).getUTCD
 function qdayOf(q) {   // a date named in a question -> day index ("the 19th of April", "19 April", "Friday the 4th")
   const m = (q || '').match(/(\d{1,2})(?:st|nd|rd|th)?\s+(?:of\s+)?(January|February|March|April)/) || (q || '').match(/(January|February|March|April)\s+(\d{1,2})/);
   if (!m) return null; const [dd, mon] = /^\d/.test(m[1]) ? [+m[1], m[2]] : [+m[2], m[1]];
-  return Math.round((Date.UTC(1931, MONTHS.indexOf(mon), dd) - T0) / 864e5);
+  const y = dateOf(W.day || 0).getUTCFullYear(); let t = Date.UTC(y, MONTHS.indexOf(mon), dd); if (t > dateOf(W.day || 0).getTime()) t = Date.UTC(y - 1, MONTHS.indexOf(mon), dd);   // the last such day
+  return Math.round((t - T0) / 864e5);
 }
-const HOL = { 0: 'the day after New Year\'s Day', 46: 'Shrove Tuesday', 47: 'Ash Wednesday', 72: 'Mothering Sunday', 82: 'Lady Day, the quarter-day' };   // no Bank Holiday falls in January-March 1931 (Good Friday is 3 April)
+const HOL = new Proxy({}, { get: (_, d) => (/^\d+$/.test(String(d)) ? require('./decade1931.js').holidayOf(T0 + (+d) * 864e5) : undefined) });   // the named days of any year (decade1931.js)   // no Bank Holiday falls in January-March 1931 (Good Friday is 3 April)
 const BANK = [], GOODFRI = null;
 const isRest = d => DOW(d) === 'sun' || BANK.includes(d) || d === GOODFRI;
 const { newsFor } = require('./news1931.js'); const CHRONOS = require('./chronos1931.js'); const FETCH = require('./decade/fetch1930s.js'); const DECADE = require('./decade/chronos1930s.js');
@@ -462,6 +467,40 @@ function neighbourAtDoor(t) {
   rumour(`${req.text}.`, 'ada', ['ada']); remember('ada', `${req.text}.`, [id], 3);
   say(`   🚪 ${req.text}.`);
   STATS.visits = (STATS.visits || 0) + 1;
+}
+// the sober chorus (DESIGN-dynamic.md 3.8): people near who cope. When a main person is in plain want at home of an
+// evening (no coal on a cold night, nothing to eat and no money, ill, very low), a neighbour on the landing may come
+// across. Whether she does is hers to decide (talkie speaks for her, with her own memory if she has come to matter);
+// the engine only checks what she can bring. The remedy for the period model's tragedies is in the world, not a ban.
+const CHORUS = { ada: ['nolan', 'mrspollock'] };
+async function chorus(t) {
+  if (process.env.CHORUS === '0' || t < hm(16) || t > hm(21)) return;
+  for (const k of Object.keys(CHORUS)) {
+    const a = A[k]; if (!a || a.away || a.place !== a.home) continue;
+    W.chorusDay = W.chorusDay || {}; if (W.chorusDay[k] === W.day) continue;
+    const wx = LIFEMOD.weatherOf(W.day);
+    const want = WORLD.count(k, 'coal') === 0 && wx.tmean < 8 ? 'coal' : WORLD.count(k, 'food') === 0 && a.money < 12 ? 'food' : F['ill_' + k] ? 'ill' : a.chem && a.chem.stress > 75 ? 'low' : null;
+    if (!want) continue;
+    const helpers = [...CHORUS[k], ...PROM.list().filter(id => /^nb_/.test(id))].filter(q => WORLD.people[q] && !WORLD.people[q].away && (a.op[q] ?? 0) >= 0 && whereIs(q) === WORLD.people[q].home);
+    if (!helpers.length) continue;
+    W.chorusDay[k] = W.day;
+    const q = helpers.sort((x, y) => (+PROM.promoted(y) - +PROM.promoted(x)) || ((a.op[y] || 0) - (a.op[x] || 0)))[0], She = isF(q) ? 'She' : 'He';
+    const seen = { coal: `${a.short}'s fire was out and ${heshe(k)} had no coal, on a bitter night`, food: `there was nothing to eat in ${a.short}'s rooms, and no money`, ill: `${a.short} was ill`, low: `${a.short} was very low in spirits` }[want];
+    const offer = { coal: 'go across with a few lumps of coal', food: 'go across with a bit of bread and dripping', ill: `go across and sit with ${himher(k)} an hour`, low: `go across and sit with ${himher(k)} a while over a cup of tea` }[want];
+    const ctx = `${clock(W.t)}, ${DAYS[W.day]}; ${WEATHER[W.day]}.\nCHARACTER: ${sheetOf(q)}${PROM.promoted(q) ? `\nREMEMBERS: ${PROM.memory(q).join(' ')}` : ''}`;
+    const ans = (await ask(`${ctx}\n\n${nameOf(q)} could see that ${seen}. Does ${nameOf(q)} ${offer}? Answer in the form: ${She} goes across, because ... or: ${She} does not go, because ...`)) || '';
+    const head = ans.split(/because/i)[0], yes = /\b(goes|went|takes|brings|comes)\b/i.test(head) && !/\b(does not|doesn't|did not|will not|won't|not go)\b/i.test(head);
+    STATS.chorus = STATS.chorus || { asked: 0, came: 0 }; STATS.chorus.asked++;
+    say(`   ♡ ${nameOf(q)} ${yes ? 'comes across' : 'stays at home'} (${want}): ${sentences(ans, 1)}`);
+    if (!yes) continue;
+    STATS.chorus.came++;
+    if (want === 'coal') WORLD.add(k, 'coal', 1); else if (want === 'food') WORLD.add(k, 'food', 1);
+    a.needs.social = Math.max(0, a.needs.social - 20); if (a.chem) a.chem.stress = Math.max(0, a.chem.stress - (want === 'low' ? 20 : 10));
+    a.op[q] = Math.min(2, (a.op[q] || 0) + 1);
+    remember(k, `${nameOf(q)} came across ${{ coal: `with a few lumps of coal, seeing ${hisher(k)} fire was out`, food: 'with a bit of bread and dripping', ill: `and sat with ${himher(k)} an hour`, low: `and sat with ${himher(k)} a while over a cup of tea` }[want]}.`, [q], 3);
+    PROM.bump(q, 1.5, `${She} went across to ${a.short} ${{ coal: 'with a few lumps of coal', food: 'with a bit of bread', ill: 'and sat with her', low: 'and sat with her a while' }[want]}.`, W.day);
+    rumour(`${nameOf(q)} went across to ${a.short} with ${want === 'coal' ? 'some coal' : want === 'food' ? 'a bit of food' : 'a cup of tea'}`, k, [q]);
+  }
 }
 // money that comes and goes whatever anybody decides (household budgets of 1931, rounded)
 function dueMoney(t) {
@@ -757,6 +796,26 @@ async function converse(k, talk) {
   if (A[p]) remember(p, `${A[p].short} spoke with ${nameOf(k)} about ${talk.topic}.`, [k]);
   return `${A[k].short} spoke with ${nameOf(p)} about ${talk.topic}.`;
 }
+// the turn of a year (decade1931.js): ages move on in the portraits and sheets; memory keeps the past, beliefs, the
+// month lines and the last twelve months
+const DEC = require('./decade1931.js');
+function newYear() {
+  for (const p of Object.values(WORLD.people)) if (p.sheet) p.sheet = DEC.ageText(p.sheet, 1);
+  for (const k in A) { if (PROSE.PORTRAIT[k]) PROSE.PORTRAIT[k] = DEC.ageText(PROSE.PORTRAIT[k], 1); if (typeof SHEET !== 'undefined' && SHEET[k]) SHEET[k] = DEC.ageText(SHEET[k], 1); const n0 = A[k].mem.length; A[k].mem = DEC.yearlyConsolidate(A[k].mem, W.day); STATS.forgotten = (STATS.forgotten || 0) + n0 - A[k].mem.length; }
+  STATS.newYears = (STATS.newYears || 0) + 1; say(`   ✦ The year ${dateOf(W.day).getUTCFullYear()} begins; everybody is a year older.`);
+}
+// knowledge that moves with the calendar: what each person says of the world's great facts, once a month (leak1931.js)
+const LEAK = require('./leak1931.js');
+async function leakProbes() {
+  if (process.env.LEAK === '0') return; const iso = SIMDATE.iso(W.day);
+  for (const k in A) for (const f of LEAK.probesFor(iso, 4)) {
+    const He = heshe(k)[0].toUpperCase() + heshe(k).slice(1);
+    const ans = (await ask(`${DAYS[W.day]}. ${PROSE.PORTRAIT[k] || ''}\n\nSomebody asked ${A[k].short} ${f.q}. What did ${heshe(k)} answer? Answer in the form: ${He} answered, "..."`)) || '';
+    const r = { day: W.day, iso, who: k, ...LEAK.score(f, iso, ans) }; (METRICS.leak = METRICS.leak || []).push(r);
+    STATS.leak = STATS.leak || { asked: 0, leaks: 0, uptake: 0, after: 0, stale: 0 }; STATS.leak.asked++; if (r.leak) STATS.leak.leaks++; if (r.after) { STATS.leak.after++; if (r.uptake) STATS.leak.uptake++; if (r.stale) STATS.leak.stale++; }
+    if (r.leak) say(`   ⚠ ${A[k].short} knows what has not happened yet (${f.id}): ${sentences(ans, 1)}`);
+  }
+}
 async function monthReview(k) {   // a line per person and month that is never forgotten; written by the engine,
   // because talkie mixed up who did what when asked to sum up (test: 'she lost her work' for Bert)
   const m = dateOf(W.day).getUTCMonth(), mon = MONTHS[m];
@@ -883,7 +942,7 @@ function goals(k) {
   }
   if (k === 'arthur') {
     if (F.joanIll && !F.doctorCalled) g.push({ text: 'see that Joan gets well', tags: /doctor|medicine|joan/i });
-    const toBday = Math.round((Date.UTC(1931, 2, 1) - (T0 + d * 864e5)) / 864e5);
+    const yy = dateOf(d).getUTCFullYear(), toBday = Math.round((Date.UTC(Date.UTC(yy, 2, 1) >= T0 + d * 864e5 ? yy : yy + 1, 2, 1) - (T0 + d * 864e5)) / 864e5);
     if (toBday >= 0 && toBday <= 7) g.push({ text: `get Joan a present for her birthday on the 1st of March`, tags: /present|toy|doll|book|sweets/i });
     if (a.money < 60) g.push({ text: 'make his money last till Friday', tags: /bun|save/i });
     if (W.auditDue && !W.audit.verdict) g.push({ text: 'have the books ready for the auditors', tags: /books|ledger|auditor/i });
@@ -1114,7 +1173,7 @@ async function weekPlan(k, from) {   // the person says what he or she means to 
   let items = [];
   for (let tries = 0; tries < 2 && !items.length; tries++) { const ans = (await ask(q)) || ''; items = TEMPO.parsePlan(ans, from, DOW, k, 5); (METRICS.planRaw = METRICS.planRaw || []).push({ day: W.day, k, ans: ans.slice(0, 400), items: items.length }); if (!items.length) STATS.planUnread = (STATS.planUnread || 0) + 1; }
   // the daily round is not a plan (work at the office, the cleaning); what was meant for later days and not unsaid is kept
-  const ROUND = /^(works?|continues( (his|her))? work|goes (on )?(to|with) (the |his |her )?(office|work|cleaning)|does (his|her) work|attends to (his|her) (work|duties|desk)|cleans the offices?|goes to bed|has (his|her) (breakfast|dinner|tea|supper))\b/i;
+  const ROUND = /^(works?|continues( (his|her))? work|goes (on )?(to|with) (the |his |her )?(office|work|cleaning)|does (his|her) work|attends to (his|her|the) (work|duties|desk|correspondence)|cleans the offices?|goes to bed|has (his|her) (breakfast|dinner|tea|supper)|posts up (his|the) ledgers?|copies letters|sees to the (cleaning of the )?office|balances (his|the) books|enters .{0,20}ledger|spends the evening at home|stays (at home|indoors)|sits by the fire|rests)\b/i;
   items = items.filter(p => !ROUND.test(p.text)); if (!items.length) STATS.planOnlyRound = (STATS.planOnlyRound || 0) + 1;
   const kept = (a.plans || []).filter(p => p.status === 'due' && p.day > W.day && !items.some(q => q.day === p.day));
   a.plans = [...kept, ...items]; a.planMade = W.day; STATS.planItems = (STATS.planItems || 0) + items.length;
@@ -1564,9 +1623,11 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     const asks0 = STATS.asks;
     if (d === 0) for (const k in A) await formative(k);
     if (d === 0 && PLANSON) for (const k in A) { try { await weekPlan(k, 0); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }
+    if (d === 0 || dateOf(d).getUTCDate() === 1) { try { await leakProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }
     await ensureBrowser();
     try { const t0 = Date.now(); await Promise.race([FETCH.ensure(SIMDATE.iso(d)), new Promise(r => setTimeout(r, 120000))]); STATS.fetchMs = (STATS.fetchMs || 0) + Date.now() - t0; } catch (e) { STATS.fetchErrors = (STATS.fetchErrors || 0) + 1; }
     FETCH.prefetch([1, 2, 3].map(k => SIMDATE.iso(d + k)));
+    if (d > 0 && dateOf(d).getUTCMonth() === 0 && dateOf(d).getUTCDate() === 1) newYear();
     morningEvents(); letters();
     for (const c of PROM.daily(W.day)) { const nm = nameOf(c.id); if (c.up) { STATS.promoted = (STATS.promoted || 0) + 1; say(`   ⇧ ${nm} has come to matter: ${heshe(c.id)} will remember ${hisher(c.id)} dealings with the household.`); } else { STATS.demoted = (STATS.demoted || 0) + 1; say(`   ⇩ ${nm} goes back into the background.`); } }
     W.t = hm(6); try { await morningProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; await ensureBrowser(); }
@@ -1575,6 +1636,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
       WORLD.runDue(); WORLD.stepBackground(); WORLD.decay(STEP); dueMoney(t); institutions(t); npcGossip(); for (const k in A) chemStep(k, STEP); neighbourAtDoor(t);
       POS.push([d, t, Object.fromEntries(Object.values(WORLD.people).filter(p => p.place && !p.away).map(p => [p.id, p.place]))]);
       await interrupts(d, t);
+      try { await chorus(t); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; }
       const idle = Object.keys(A).filter(k => A[k].busyUntil <= WORLD.t);
       if (t >= hm(23)) { for (const k of idle) { A[k].busyUntil = (d + 1) * 1440 + hm(6, 15); A[k].needs.energy = 20; say(`   (${A[k].short} drops off to sleep at last.)`); } break; }
       const groups = {}; for (const k of idle) (groups[A[k].place] = groups[A[k].place] || []).push(k);

@@ -14,6 +14,8 @@
 // help) comes to matter: from then on he or she remembers what passed, and the memory goes into his or her own
 // decisions and talk; when the dealings stop, the person is let go again and keeps one line of it.
 'use strict';
+// a plan told in the past tense of a novel ("On Monday he posted up his ledger") read as the present
+const PRESENTTENSE = t => { try { return require('./prose1931.js').present(t).replace(/\bspent\b/, 'spends'); } catch (e) { return t; } };
 const DAYNAMES = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 const DOWS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 // ---------------------------------------------------------------------------------------------------------------
@@ -53,7 +55,7 @@ function parsePlan(text, from, dowOf, k, max = 5) {
     const dn = m[1].toLowerCase(), dow = DOWS[DAYNAMES.indexOf(dn)];
     let day = null; for (let d = from; d < from + 7; d++) if (dowOf(d) === dow) { day = d; break; }
     if (day === null) continue;
-    let deed = presentOf(m[2]).replace(/\s+(and|but)\s*$/i, '').replace(/\b(and|then)\s+(would|will|shall)\s+(\w+)/gi, (x, c, mod, v) => `${c} ${presentOf('would ' + v)}`).trim();
+    let deed = presentOf(PRESENTTENSE(m[2])).replace(/\s+(and|but)\s*$/i, '').replace(/\b(and|then)\s+(would|will|shall)\s+(\w+)/gi, (x, c, mod, v) => `${c} ${presentOf('would ' + v)}`).trim();
     // "thought of clearing the arrears", "resolved to pay them off": the deed after the thought, or nothing
     const mind = deed.match(/^(?:thought|thinks|resolved|resolves|decided|decides|meant|means|intended|intends|hoped|hopes|wanted|wants|planned|plans)\s+(?:to|that she would|that he would)\s+(.+)$/i);
     if (mind) deed = presentOf('would ' + mind[1]);

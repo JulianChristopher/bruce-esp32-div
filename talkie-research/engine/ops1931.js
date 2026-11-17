@@ -44,12 +44,42 @@ function kindOfGoods(what) { const t = (what || '').toLowerCase();
     : /beer|stout|ale|gin|rum|whisk/.test(t) ? 'drink' : /coal|coke|wood|kindling|paraffin|oil|candle|match/.test(t) ? 'fuel' : /shirt|coat|boot|shoe|dress|shawl|sock|stocking|vest|hat|cap|glove|apron|collar/.test(t) ? 'clothing'
     : /pill|powder|mixture|ointment|liniment|lozenge|medicine|tonic|salts/.test(t) ? 'medicine' : /paper|stamp|envelope|postcard/.test(t) ? 'paper' : /tobacco|woodbine|cigarette|snuff/.test(t) ? 'tobacco' : /doll|toy|ball|top/.test(t) ? 'toy' : /soap|soda|brush|pail|cloth|needle|thread|pot|pan|kettle|cup|plate|blacklead|polish/.test(t) ? 'household' : 'other'; }
 // ---------------------------------------------------------------------------------------------------------------
+// provenance: words the characters will read come only from the character's own sentence, the world's names, or the
+// engine's own vocabulary. A text field the game master writes (for, topic, what, hint) is kept only if every content
+// word in it has such a source; otherwise it is replaced by the character's own clause (narration) or dropped.
+const PROSE = require('./prose1931.js');
+const STOP = new Set(('a an the and or but nor of to in on at for from with by as is are was were be been being his her hers their theirs its it he she they him them this that these those ' +
+  'one some any no not into over under up down out off about than then so very just only own same other another such what which who whom whose when where while because if till until after before ' +
+  'again also there here all both each few more most much many little less can could will would shall should may might must do does did done has have had having get gets got make makes made ' +
+  'go goes went take takes took give gives gave say says said tell tells told ask asks asked come comes came put puts back way day now well good bit few lot').split(' '));
+const ENGINE_WORDS = ('shop stall market cafe pub church chapel hall office works street home school hospital park yard lodging neighbour shopkeeper stall-keeper tradesman workman official relative friend ' +
+  'stranger child clergyman nurse clothing household ornament tool keepsake book toy furniture loan credit goods work wait favour help relief rent fare collection doctor club insurance burial ' +
+  'penny pence pennies shilling shillings half-crown florin sovereign pound pounds halfpenny farthing hour hours minute minutes morning afternoon evening night today tomorrow week letter post ' +
+  'bermondsey southwark islington highbury moorgate london bridge rotherhithe road food coal wages money');
+const stem = x => x.replace(/'s$/, '').replace(/-/g, '').replace(/ies$/, 'y').replace(/(?<=[a-z]{3})(es|s)$/, '').replace(/(?<=[a-z]{3})(ing|ed)$/, '');
+const wordsOf = s => (String(s || '').toLowerCase().match(/[a-z][a-z'-]*/g) || []);
+const ENGINE = new Set(wordsOf(ENGINE_WORDS).map(stem));
+function vocabOf(w) { const v = new Set(); const add = s => { for (const x of wordsOf(s)) v.add(stem(x)); };
+  for (const p of Object.values(w.people || {})) add(p.name + ' ' + (p.short || '')); for (const pl of Object.values(w.places || {})) add(pl.name);
+  for (const o of Object.values(w.objects || {})) add(o.name); for (const g of (Array.isArray(G.GOODS) ? G.GOODS : Object.values(G.GOODS || {}))) add(g.name); return v; }
+const PROV = { kept: 0, replaced: 0, dropped: 0 };
+function own(text, sentence, vocab, mode) {   // mode 'narrate': fall back to the character's own clause; else drop
+  if (!text) return null; const sent = String(sentence || '');
+  const said = new Set(wordsOf(sent).map(stem)); const content = wordsOf(text).filter(x => x.length > 2 && !STOP.has(x));
+  if (content.length && content.every(x => { const y = stem(x); return said.has(y) || ENGINE.has(y) || (vocab && vocab.has(y)); }) && periodOK(text)) { PROV.kept++; return String(text).slice(0, 80); }
+  if (mode !== 'narrate') { PROV.dropped++; return null; }
+  const clauses = sent.replace(/^(she|he)\s+/i, '').replace(/\.$/, '').split(/[,;]|\band then\b|\bthen\b|\band\b/i).map(c => c.trim()).filter(c => c.length > 3);
+  let best = null, bs = 0; for (const c of clauses) { const cw = new Set(wordsOf(c).map(stem)); const n = content.filter(x => cw.has(stem(x))).length; if (n > bs) { bs = n; best = c; } }
+  if (best) { PROV.replaced++; return PROSE.past(best.charAt(0).toLowerCase() + best.slice(1)).slice(0, 80); } PROV.dropped++; return null;
+}
+const GOODS_WORDS = { food: 'some food', drink: 'something to drink', fuel: 'some firing', clothing: 'some clothing', household: 'some household things', medicine: 'some medicine', paper: 'some paper', toy: 'a toy', tobacco: 'some tobacco', other: 'a few things' };
+// ---------------------------------------------------------------------------------------------------------------
 // check and apply one program on a world `w` (a fork when checking); returns { ok, why, minutes, text[] }
 function run(w, k, ops, ctx = {}) {
   const p = w.people[k], text = [], H = w.hooks || {}; let minutes = 0, ret = null;
   const here = q => w.people[q] && !w.people[q].away && w.people[q].place === p.place;
   const fail = why => ({ ok: false, why, minutes, text });
-  const newIds = [];
+  const newIds = []; let VOC = null; const OWN = (t, mode) => own(t, ctx.sentence, VOC || (VOC = vocabOf(w)), mode);
   const ref = x => (x === '$new' || x === '$new0') ? newIds[0] : /^\$new(\d)$/.test(x || '') ? newIds[+x.slice(4)] : x;
   if (!Array.isArray(ops) || !ops.length) return fail('nothing is done');
   if (ops.length > 8) return fail('too much at once');
@@ -62,7 +92,7 @@ function run(w, k, ops, ctx = {}) {
         const walk = w.travel(p.place, o.to, k); if (w.places[o.to].open && !w.placeOpenAtArrival(o.to, walk)) return fail(`${w.places[o.to].name} would be shut`);
         w.move(k, o.to); w.t += walk; minutes += walk; text.push(`went to ${w.places[o.to].name}`); break;
       }
-      case 'wait': { const m = clip(+o.minutes || 15, 5, 240); w.t += m; minutes += m; if (o.for && periodOK(o.for)) text.push(String(o.for).slice(0, 60)); break; }
+      case 'wait': { const m = clip(+o.minutes || 15, 5, 240); w.t += m; minutes += m; const f = OWN(o.for, 'narrate'); if (f) text.push(f.slice(0, 60)); break; }
       case 'buy': {
         const at = o.at && w.places[o.at] ? o.at : p.place; const pl = w.places[at];
         if (at !== p.place) { const walk = w.travel(p.place, at, k); if (pl.open && !w.placeOpenAtArrival(at, walk)) return fail(`${pl.name} would be shut`); w.move(k, at); w.t += walk; minutes += walk; }
@@ -71,21 +101,22 @@ function run(w, k, ops, ctx = {}) {
         const qty = clip(Math.round(+o.qty || 1), 1, 12), known = G.goodsIn(o.what || '')[0];
         if (!periodOK(o.what)) return fail('no such thing is to be had');
         let price = known ? known.price : Math.round(+o.pence || 0);
-        const band = BAND[known ? 'food' : kindOfGoods(o.what)]; if (!known && (price < band[0] || price > band[1])) return fail(`${o.what} would not cost ${money(price)}`);
+        const band = BAND[known ? 'food' : kindOfGoods(o.what)]; if (!known && (price < band[0] || price > band[1])) return fail(`such a thing would not cost ${money(price)}`);
         price = Math.round(price * (ctx.priceFactor || 1)) * qty;
         const credit = w.flags.creditBarker && at === 'chandler' ? w.flags.creditBarker : 0;
-        if (p.money - price < -credit) return fail(`${p.f ? 'she' : 'he'} has only ${money(Math.max(0, p.money))}, and ${o.what} costs ${money(price)}`);
+        if (p.money - price < -credit) return fail(`${p.f ? 'she' : 'he'} has only ${money(Math.max(0, p.money))}, and that costs ${money(price)}`);
         p.money -= price; minutes += 10; w.t += 10;
         if (known) { if (known.eatNow) { p.needs.hunger = Math.max(0, p.needs.hunger - 50 * Math.min(1, known.meals || 0.3)); } else if (known.meals) w.add(k, 'food', Math.max(1, Math.round(known.meals * qty))); else if (known.fuel) w.add(k, 'coal', Math.max(1, Math.round(known.fuel * qty))); else w.add(k, known.id, qty); }
-        else { const kind = kindOfGoods(o.what); if (kind === 'food') w.add(k, 'food', qty); else if (kind === 'fuel') w.add(k, 'coal', qty); else w.add(k, String(o.what).toLowerCase().slice(0, 30), qty); }
-        text.push(`bought ${qty > 1 ? qty + ' × ' : ''}${known ? known.name : o.what} (${money(price)})`); break;
+        const gname = known ? known.name : (OWN(o.what) || GOODS_WORDS[kindOfGoods(o.what)]);
+        if (!known) { const kind = kindOfGoods(o.what); if (kind === 'food') w.add(k, 'food', qty); else if (kind === 'fuel') w.add(k, 'coal', qty); else w.add(k, gname.toLowerCase().slice(0, 30), qty); }
+        text.push(`bought ${qty > 1 ? qty + ' × ' : ''}${gname} (${money(price)})`); break;
       }
       case 'pay': {
         const pence = Math.round(+o.pence || 0); if (pence <= 0 || pence > 2400) return fail('that sum makes no sense');
         if (p.money < pence) return fail(`${p.f ? 'she' : 'he'} has not ${money(pence)}`);
         if (o.to && w.people[o.to]) { if (!here(o.to)) return fail(`${w.people[o.to].name} is not here`); w.people[o.to].money += pence; }
         else if (!['rent', 'fare', 'collection', 'club', 'doctor', 'insurance', 'burial club'].includes(String(o.to || o.for || '').toLowerCase())) return fail('there is nobody here to pay');
-        p.money -= pence; text.push(`paid ${o.to && w.people[o.to] ? w.people[o.to].name + ' ' : ''}${money(pence)}${o.for && periodOK(o.for) ? ' for ' + String(o.for).slice(0, 40) : ''}`); break;
+        p.money -= pence; const pf = OWN(o.for); text.push(`paid ${o.to && w.people[o.to] ? w.people[o.to].name + ' ' : ''}${money(pence)}${pf ? ' for ' + pf.slice(0, 40) : ''}`); break;
       }
       case 'earn': {
         const m = clip(+o.minutes || 60, 15, 480), pence = Math.round(+o.pence || 0);
@@ -93,7 +124,7 @@ function run(w, k, ops, ctx = {}) {
         if (pence > Math.ceil(m / 60 * 8) + 2) return fail(`nobody would pay ${money(pence)} for ${Math.round(m / 60 * 10) / 10} hours' work`);   // casual work: about 4-8d. an hour in 1931
         if (w.mod + m > 22 * 60) return fail('it is too late in the day for work');
         p.money += pence; w.t += m; minutes += m; p.needs.energy = Math.min(100, p.needs.energy + m / 12);
-        text.push(`earned ${money(pence)}${o.for && periodOK(o.for) ? ' ' + String(o.for).slice(0, 50) : ''}`); break;
+        const ef = OWN(o.for, 'narrate'); text.push(`earned ${money(pence)}${ef ? ' (' + ef.slice(0, 50) + ')' : ''}`); break;
       }
       case 'give': {
         if (!o.to || !w.people[o.to]) return fail('there is nobody to give it to'); if (!here(o.to)) return fail(`${w.people[o.to].name} is not here`);
@@ -128,18 +159,18 @@ function run(w, k, ops, ctx = {}) {
       case 'request': {
         if (!o.of || !w.people[o.of]) return fail('there is nobody to ask'); if (!REQUESTS.includes(o.kind)) return fail('that is not a thing one asks for');
         if (!here(o.of) && o.kind !== 'relief') return fail(`${w.people[o.of].name} is not here`);
-        if (H.ask) ret = H.ask(o.of, k, o.kind, { text: ctx.sentence || '', amount: o.pence || null, what: o.what || null });
-        text.push(`asked ${w.people[o.of].name} for ${o.kind === 'goods' ? (o.what && periodOK(o.what) ? o.what : 'a little help') : o.kind}`); w.t += 10; minutes += 10; break;
+        const rw = OWN(o.what); if (H.ask) ret = H.ask(o.of, k, o.kind, { text: ctx.sentence || '', amount: o.pence || null, what: rw });
+        text.push(`asked ${w.people[o.of].name} for ${o.kind === 'goods' ? (rw || 'a little help') : o.kind}`); w.t += 10; minutes += 10; break;
       }
-      case 'talk': { if (!o.with || !w.people[o.with]) return fail('there is nobody to talk to'); if (!here(o.with)) return fail(`${w.people[o.with].name} is not here`); ret = { talk: o.with, topic: o.topic && periodOK(o.topic) ? String(o.topic).slice(0, 80) : null }; w.t += 15; minutes += 15; break; }
+      case 'talk': { if (!o.with || !w.people[o.with]) return fail('there is nobody to talk to'); if (!here(o.with)) return fail(`${w.people[o.with].name} is not here`); ret = { talk: o.with, topic: OWN(o.topic) }; w.t += 15; minutes += 15; break; }
       case 'create': {
         if (!ctx.registry) return fail('the world cannot grow here');
-        const r = ctx.registry.propose(w, k, o); if (!r.ok) return fail(r.why); newIds.push(r.id); text.push(r.text || ''); break;
+        const r = ctx.registry.propose(w, k, { ...o, shown: OWN(o.hint) }); if (!r.ok) return fail(r.why); newIds.push(r.id); text.push(r.text || ''); break;
       }
       case 'schedule': {
         if (!EVENTS.includes(o.event)) return fail('no such event'); const hrs = clip(+o.in_hours || 24, 1, 720);
         if (o.who && !w.people[o.who]) return fail('no such person');
-        if (ctx.scheduler) ctx.scheduler(w, k, { ...o, at: w.t + hrs * 60 });
+        if (ctx.scheduler) ctx.scheduler(w, k, { ...o, for: OWN(o.for), note: null, said: ctx.sentence || '', at: w.t + hrs * 60 });
         text.push(''); break;
       }
       default: return fail(`unknown operation ${o.op}`);
@@ -163,4 +194,4 @@ function deedOf(w, k, ops, ctx = {}) {
     x: null, at: p.place, walk: 0, cost: 0, u: 0, label };
   return { aff, minutes: trial.minutes, preview: trial.text };
 }
-module.exports = { run, deedOf, periodOK, PLACE_KINDS, PERSON_KINDS, THING_KINDS, EVENTS, REQUESTS, BAND, kindOfGoods, money };
+module.exports = { own, vocabOf, PROV, run, deedOf, periodOK, PLACE_KINDS, PERSON_KINDS, THING_KINDS, EVENTS, REQUESTS, BAND, kindOfGoods, money };

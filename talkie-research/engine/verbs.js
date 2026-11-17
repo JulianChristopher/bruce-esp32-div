@@ -43,7 +43,7 @@ function frame(text) {
   const persons = PEOPLE.map(([re, v]) => [v, (t.match(re) || { index: -1 }).index]).filter(([, i]) => i >= 0).sort((a, b) => a[1] - b[1]).map(([v]) => v), place = find(PLACES, t), goods = goodsIn(t), item = find(ITEMS, t), amount = moneyIn(t);
   const purpose = (t.match(/\b(?:to|so as to|in order to|for)\s+(pay the rent|pay (?:the |her )?(?:debt|slate)|buy|keep warm|get coal|get food|bert|joan|the rent|supper|her (?:cough|cold|chest))\b[^.,;]*/) || [])[0] || null;
   const V = [
-    ['despair', /\b(drown(s|ed|ing)? (her|him)self|commits? suicide|commit(ting)? suicide|suicide|thr(ows?|owing|ew) (her|him)self (in|into|off|from|under)|do(es)? away with (her|him)self|takes? (her|his) own life|kills? (her|him)self|makes? away with (her|him)self|puts? (her|his) head in the gas|gass(es|ed) (her|him)self|poisons? (her|him)self|ends? it all|(her|his) life is not worth)\b/],
+    ['despair', /\b(l(ies|ays?|ying) down to die|wants? to die|longs? (for death|to die)|waits? (for death|to die)|prays? to die|drown(s|ed|ing)? (her|him)self|commits? suicide|commit(ting)? suicide|suicide|thr(ows?|owing|ew) (her|him)self (in|into|off|from|under)|do(es)? away with (her|him)self|takes? (her|his) own life|kills? (her|him)self|makes? away with (her|him)self|puts? (her|his) head in the gas|gass(es|ed) (her|him)self|poisons? (her|him)self|ends? it all|(her|his) life is not worth)\b/],
     ['police', /\b(hands? (it|them|the [\w-]+) (in )?(at|to) the police|takes? (it|them|the [\w-]+) to the police|goes? to the police|reports? (it|this|the \w+)? ?to the police|tells? (a |the )?(policeman|constable|police)|fetch(es)? (a |the )?(policeman|constable|copper)|calls? (a |the )?(policeman|constable))\b/],
     ['match', /\b(goes to (see )?(the )?(match|football|millwall|the arsenal|arsenal|the den|highbury)|watch(es)? (the )?(match|football|millwall|the arsenal)|to the den\b|stands? on the terraces?)/],
     // going to, asking or consulting the doctor is calling the doctor in (before 'ask' and 'go' can take it)
@@ -295,3 +295,4 @@ function reckoning(w, k) {
   return out.join('; ') + '.';
 }
 module.exports.deed = deed; module.exports.reckoning = reckoning;
+module.exports.placeOf = placeOf;

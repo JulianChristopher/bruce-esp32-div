@@ -46,32 +46,35 @@ class Registry {
   propose(w, k, o) {
     const hint = String(o.hint || '').trim();
     if (!hint || hint.split(/\s+/).length > 14) return { ok: false, why: 'that is too vague a thing to find' };
-    if (!OPS.periodOK(hint)) return { ok: false, why: `there was no such thing as ${hint} in 1931` };
+    if (!OPS.periodOK(hint)) return { ok: false, why: 'there was no such thing in 1931' };
     const day = w.day; this.today[day] = (this.today[day] || 0) + 1; if (this.today[day] > 4) return { ok: false, why: 'the world has grown enough for one day' };
     const ent = o.entity, raw = String(o.kind || '').toLowerCase() + ' ' + hint.toLowerCase();
     const kind = ent === 'place' ? (OPS.PLACE_KINDS.includes(String(o.kind).toLowerCase()) ? String(o.kind).toLowerCase() : mapKind(PLACE_MAP, raw)) : ent === 'person' ? (OPS.PERSON_KINDS.includes(String(o.kind).toLowerCase()) ? String(o.kind).toLowerCase() : mapKind(PERSON_MAP, raw)) : (OPS.THING_KINDS.includes(String(o.kind).toLowerCase()) ? String(o.kind).toLowerCase() : mapKind(THING_MAP, raw));
     const p = w.people[k];
+    // what the characters will see: the hint only if it is in the character's own words (ops: own), else the engine's kind
+    const shownOf = (district) => (o.shown === undefined ? hint : o.shown) || `a ${kind}${district ? ' in ' + district[0].toUpperCase() + district.slice(1) : ''}`;
     // the same thing proposed again is the same thing: look for it first
-    const same = this.items.find(it => it.entity === ent && it.kind === kind && (it.hint === hint || (it.district === (o.district || '').toLowerCase() && slug(it.hint) === slug(hint))));
+    const same = this.items.find(it => it.entity === ent && it.kind === kind && ((it.raw || it.hint) === hint || (it.district === (o.district || '').toLowerCase() && slug(it.raw || it.hint) === slug(hint))));
     if (same) { if (!w.places[same.id] && !w.people[same.id] && !w.objects[same.id]) this.install(w, same); return { ok: true, id: same.id, text: '' }; }
     let it;
     if (ent === 'place') {
-      if (!kind) return { ok: false, why: `there was no such kind of place as ${o.kind}` };
+      if (!kind) return { ok: false, why: 'there was no such kind of place' };
       const dkey = String(o.district || '').toLowerCase(); const district = DISTRICT_OF[dkey] || (DISTRICTS[dkey] ? dkey : (w.places[p.place] ? w.places[p.place].district : 'bermondsey'));
       const base = DISTRICTS[dkey] || DISTRICTS[district] || GEO.C[p.place] || DISTRICTS.bermondsey;
       const coords = [base[0] + (Math.random() - 0.5) * 0.004, base[1] + (Math.random() - 0.5) * 0.006];
       let hours = HOURS[kind] === undefined ? [8 * 60, 20 * 60] : HOURS[kind];
       if (hours && o.opens != null && o.closes != null) { const a = Math.round(+o.opens * 60), b = Math.round(+o.closes * 60); if (a >= 4 * 60 && b <= 24 * 60 && b - a >= 60) hours = [a, b]; }
-      it = { entity: 'place', id: 'reg_' + slug(hint), kind, hint, district, coords, hours, name: hint.replace(/^(a|an)\s+/i, 'the '), day, by: k };
+      const shown = shownOf(district); it = { entity: 'place', id: 'reg_' + slug(hint), kind, hint: shown, raw: hint, district, coords, hours, name: shown.replace(/^(a|an)\s+/i, 'the '), day, by: k };
     } else if (ent === 'person') {
-      if (!kind) return { ok: false, why: `there was no such kind of person as ${o.kind}` };
+      if (!kind) return { ok: false, why: 'there was no such kind of person' };
       const place = o.at && w.places[o.at] ? o.at : null;
-      it = { entity: 'person', id: 'reg_' + slug(hint), kind, hint, district: place ? w.places[place].district : (w.places[p.place] || {}).district, place, f: /\b(woman|wife|widow|girl|mrs|miss|landlady|mother|aunt|sister)\b/i.test(hint), name: hint.replace(/^(a|an)\s+/i, 'the '), day, by: k };
+      const district = place ? w.places[place].district : (w.places[p.place] || {}).district, shown = shownOf(district);
+      it = { entity: 'person', id: 'reg_' + slug(hint), kind, hint: shown, raw: hint, district, place, f: /\b(woman|wife|widow|girl|mrs|miss|landlady|mother|aunt|sister)\b/i.test(hint), name: shown.replace(/^(a|an)\s+/i, 'the '), day, by: k };
     } else if (ent === 'thing') {
-      if (!kind) return { ok: false, why: `there was no such kind of thing as ${o.kind}` };
+      if (!kind) return { ok: false, why: 'there was no such kind of thing' };
       const mine = this.items.filter(x => x.entity === 'thing' && x.owner === k).length; if (mine >= 6) return { ok: false, why: `${p.f ? 'she' : 'he'} has nothing more of that kind` };
       const value = Math.max(3, Math.min(60, Math.round(+o.value || 9)));
-      it = { entity: 'thing', id: 'reg_' + slug(hint), kind, hint, owner: k, value, name: hint.replace(/^(a|an|her|his)\s+/i, 'the '), day, by: k };
+      const shown = shownOf(null); it = { entity: 'thing', id: 'reg_' + slug(hint), kind, hint: shown, raw: hint, owner: k, value, name: shown.replace(/^(a|an|her|his)\s+/i, 'the '), day, by: k };
     } else return { ok: false, why: 'the world cannot grow that way' };
     if (w.places[it.id] || w.people[it.id] || w.objects[it.id]) it.id += '_' + day;
     this.install(w, it);

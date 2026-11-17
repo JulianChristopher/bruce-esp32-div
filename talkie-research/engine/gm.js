@@ -31,7 +31,7 @@ function call(user, schema) {
     const kill = setTimeout(() => p.kill('SIGKILL'), 90000);
     p.on('close', () => {
       clearTimeout(kill); STATS.calls++; STATS.ms += Date.now() - t0;
-      try { const j = JSON.parse(out); STATS.cost += j.total_cost_usd || 0; const r = j.structured_output || null; if (LOG) fs.appendFileSync(LOG, JSON.stringify({ t: new Date().toISOString(), user: user.slice(0, 1500), out: r, ms: Date.now() - t0 }) + '\n'); res(r); }
+      try { const j = JSON.parse(out); STATS.cost += j.total_cost_usd || 0; const r = j.structured_output || null; if (LOG) fs.appendFileSync(LOG, JSON.stringify({ t: new Date().toISOString(), kind: schema === S_REVIEW ? 'review' : schema === S_RESOLVE ? 'resolve' : 'interpret', said: (user.match(/The character says: "([^\n]*)"/) || [])[1] || null, failure: (user.match(/could not be carried out: ([^\n]*)/) || [])[1] || null, user: user.slice(0, 900), out: r, ms: Date.now() - t0 }) + '\n'); res(r); }
       catch (e) { STATS.errors++; res(null); }
     });
     p.stdin.end(user);
@@ -43,7 +43,7 @@ function describe(ctx) {
     ctx.rentDue ? `Rent: ${ctx.rentDue}.` : '', ctx.own && ctx.own.length ? `Owns (can pawn or sell): ${ctx.own.join('; ')}.` : '', ctx.inPawn && ctx.inPawn.length ? `In pawn at Lamb's: ${ctx.inPawn.join('; ')}.` : '',
     ctx.present && ctx.present.length ? `Here: ${ctx.present.map(p => `${p.name} [${p.id}]`).join('; ')}.` : 'Nobody else here.',
     `People who can be named (id): ${ctx.people.map(p => `${p.id}=${p.name}`).join(', ')}.`,
-    `Places (id, open now?): ${ctx.places.map(p => `${p.id}${p.open ? '' : ' (shut)'}`).join(', ')}.`,
+    `Places (id = name; open now?):\n${ctx.places.map(p => `${p.id}${p.name ? ' = ' + p.name : ''}${p.open ? '' : ' (shut)'}`).join('; ')}.`,
     ctx.pressing ? `Pressing now (engine's measure, 0-100): ${ctx.pressing.length ? ctx.pressing.join(', ') : 'nothing'}.` : '', ctx.failures ? `Attempts the world refused or did not understand today: ${ctx.failures}.` : '',
     ctx.recent && ctx.recent.length ? `Recently:\n- ${ctx.recent.join('\n- ')}` : ''].filter(Boolean).join('\n');
 }
@@ -51,7 +51,7 @@ const S_INTERPRET = { type: 'object', additionalProperties: false, required: ['o
   op: { type: 'string', enum: OPS }, item: { type: 'string', description: 'the thing pawned, sold, redeemed or stolen, in plain words, or ""' },
   goods: { type: 'string', description: 'what is bought, given or sent for, in plain words, or ""' }, person: { type: 'string', description: 'id of the person addressed or concerned, or ""' },
   place: { type: 'string', description: 'id of the place where it is done, or ""' }, pence: { type: 'integer', description: 'sum of money in pence, or 0' },
-  plausible: { type: 'boolean', description: 'could such a person really do this, here and now, in 1931?' } } };
+  plausible: { type: 'boolean', description: 'false only if no such person could do this in 1931 at all; whether it can be done right now (a shop shut, too little money) is found out by the engine' } } };
 async function interpret(ctx, sentence) {
   const r = await call(`${describe(ctx)}\n\nThe character says: "${sentence}"\n\nWhich single operation of the engine is meant (the first deed, if several)? Choose "none" if nothing is done.`, S_INTERPRET);
   return r;
@@ -80,6 +80,10 @@ need{need, delta -40..30} | relate{with, delta -2..2} | request{of:person id, ki
 talk{with:person id, topic} | create{entity: place|person|thing, kind, hint, district, opens, closes, value} (only if the deed needs something not in the lists; refer to it afterwards as "$new")
 schedule{in_hours, event: repay|visit|letter|court|collect|return|deliver|meet|work, who, pence, for} | despair{} (for any words of self-harm) | none{}.
 Use ids exactly as listed. Money in pence (1s = 12d, £1 = 240d). Do not decide another person's will: ask with request.
+Use talk only when the character says they speak with someone; a deed (paying, working, writing) is not talk.
+For the words in what, for, topic and hint use the character's own words from the sentence: other words are dropped by the engine.
+Events: letter = the person's letter reaches "who"; repay = "who" pays the person back; collect = "who" calls to be paid; visit = "who" calls on the person;
+meet = the person meets "who"; deliver = what was ordered is brought; return = "who" brings back a thing lent; work = promised work is done; court = a summons is heard.
 People own ordinary things that are not in the lists (a tea-caddy, a razor, a pair of sheets): to pawn, sell or give one, first create{entity:"thing", kind, hint, value} and then use "$new".
 A place or person the deed needs that is not listed (a coffee-stall, a moneylender, the rag-and-bone man) is created first with create, and then referred to as "$new" ("$new1" for the second one created).
 "plausible" is false only if such a person could not do this in 1931 at all; a deed that merely needs a new place, person or thing is plausible.`;

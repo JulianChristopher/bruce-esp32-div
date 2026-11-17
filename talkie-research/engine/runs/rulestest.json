@@ -1,0 +1,830 @@
+{
+ "rules": {
+  "buy|borrow": [
+   {
+    "sig": "buy|borrow",
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{home:c0.person}\"},{\"op\":\"go\",\"to\":\"{home:c1.person}\"},{\"op\":\"request\",\"of\":\"{c1.person}\",\"kind\":\"goods\",\"what\":\"{c1.goods}\"}]",
+    "tpl": [
+     {
+      "op": "go",
+      "to": "{home:c0.person}"
+     },
+     {
+      "op": "buy",
+      "what": "{c0.goods}",
+      "qty": 1,
+      "at": "{home:c0.person}"
+     },
+     {
+      "op": "go",
+      "to": "{home:c1.person}"
+     },
+     {
+      "op": "request",
+      "of": "{c1.person}",
+      "kind": "goods",
+      "what": "{c1.goods}"
+     }
+    ],
+    "cases": 2,
+    "uses": 1,
+    "agree": 0,
+    "disagree": 1,
+    "born": "2026-11-17T08:19:14.770Z"
+   }
+  ],
+  "pawn|buy": [
+   {
+    "sig": "pawn|buy",
+    "key": "[{\"op\":\"go\",\"to\":\"pawnshop\"},{\"op\":\"pledge\",\"thing\":\"{c0.item}\"},{\"op\":\"go\",\"to\":\"{shop:c1.goods}\"},{\"op\":\"buy\",\"what\":\"{c1.goods}\",\"at\":\"{shop:c1.goods}\"}]",
+    "tpl": [
+     {
+      "op": "go",
+      "to": "pawnshop"
+     },
+     {
+      "op": "pledge",
+      "thing": "{c0.item}"
+     },
+     {
+      "op": "go",
+      "to": "{shop:c1.goods}"
+     },
+     {
+      "op": "buy",
+      "what": "{c1.goods}",
+      "qty": 1,
+      "at": "{shop:c1.goods}"
+     }
+    ],
+    "cases": 2,
+    "uses": 1,
+    "agree": 0,
+    "disagree": 1,
+    "born": "2026-11-17T08:19:41.920Z"
+   }
+  ],
+  "talk|borrow": [
+   {
+    "sig": "talk|borrow",
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"request\",\"of\":\"{c0.person}\",\"kind\":\"loan\",\"pence\":\"{c1.amount}\",\"what\":\"{c1.goods}\"}]",
+    "tpl": [
+     {
+      "op": "go",
+      "to": "{home:c0.person}"
+     },
+     {
+      "op": "request",
+      "of": "{c0.person}",
+      "kind": "loan",
+      "pence": "{c1.amount}",
+      "what": "{c1.goods}"
+     }
+    ],
+    "cases": 2,
+    "uses": 1,
+    "agree": 1,
+    "disagree": 0,
+    "born": "2026-11-17T08:19:53.237Z"
+   }
+  ],
+  "buy|go": [
+   {
+    "sig": "buy|go",
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{home:c0.person}\"}]",
+    "tpl": [
+     {
+      "op": "go",
+      "to": "{home:c0.person}"
+     },
+     {
+      "op": "buy",
+      "what": "{c0.goods}",
+      "qty": 1,
+      "at": "{home:c0.person}"
+     },
+     {
+      "op": "go",
+      "to": "{home:self}"
+     }
+    ],
+    "cases": 3,
+    "uses": 1,
+    "agree": 1,
+    "disagree": 0,
+    "born": "2026-11-17T08:20:07.685Z"
+   },
+   {
+    "sig": "buy|go",
+    "key": "[{\"op\":\"go\",\"to\":\"{c0.place}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{c0.place}\"},{\"op\":\"go\",\"to\":\"{home:c0.person}\"}]",
+    "tpl": [
+     {
+      "op": "go",
+      "to": "{c0.place}"
+     },
+     {
+      "op": "buy",
+      "what": "{c0.goods}",
+      "qty": 1,
+      "at": "{c0.place}",
+      "pence": 6
+     },
+     {
+      "op": "go",
+      "to": "{home:c0.person}"
+     }
+    ],
+    "cases": 2,
+    "uses": 0,
+    "agree": 0,
+    "disagree": 0,
+    "born": "2026-11-17T08:20:22.660Z"
+   }
+  ],
+  "go|go": []
+ },
+ "cases": {
+  "buy|borrow": [
+   {
+    "sentence": "She goes to Barker's for a hundredweight of coal, and borrows a few lumps from Mrs. Nolan.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "goes to Barker's for a hundredweight of coal",
+      "verb": "buy",
+      "person": "barker",
+      "place": "chandler",
+      "goods": "a hundredweight of coal",
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "borrows a few lumps from Mrs. Nolan",
+      "verb": "borrow",
+      "person": "nolan",
+      "place": "nolan_rooms",
+      "goods": "a few lumps",
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "chandler"
+     },
+     {
+      "op": "buy",
+      "what": "hundredweight of coal",
+      "qty": 1,
+      "at": "chandler",
+      "pence": 150
+     },
+     {
+      "op": "go",
+      "to": "nolan_rooms"
+     },
+     {
+      "op": "request",
+      "of": "nolan",
+      "kind": "goods",
+      "what": "a few lumps of coal"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{home:c0.person}\"},{\"op\":\"go\",\"to\":\"{home:c1.person}\"},{\"op\":\"request\",\"of\":\"{c1.person}\",\"kind\":\"goods\",\"what\":\"{c1.goods}\"}]",
+    "at": "2026-11-17T08:19:04.736Z"
+   },
+   {
+    "sentence": "She goes to Barker's for a loaf, and borrows a little tea from Mrs. Nolan.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "goes to Barker's for a loaf",
+      "verb": "buy",
+      "person": "barker",
+      "place": "chandler",
+      "goods": "a loaf",
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "borrows a little tea from Mrs. Nolan",
+      "verb": "borrow",
+      "person": "nolan",
+      "place": "nolan_rooms",
+      "goods": "a little tea",
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "chandler"
+     },
+     {
+      "op": "buy",
+      "what": "a loaf",
+      "qty": 1,
+      "at": "chandler"
+     },
+     {
+      "op": "go",
+      "to": "nolan_rooms"
+     },
+     {
+      "op": "request",
+      "of": "nolan",
+      "kind": "goods",
+      "what": "a little tea"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{home:c0.person}\"},{\"op\":\"go\",\"to\":\"{home:c1.person}\"},{\"op\":\"request\",\"of\":\"{c1.person}\",\"kind\":\"goods\",\"what\":\"{c1.goods}\"}]",
+    "at": "2026-11-17T08:19:14.770Z"
+   },
+   {
+    "sentence": "She goes to Barker's for a quarter of sugar, and borrows a little milk from Mrs. Nolan.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "goes to Barker's for a quarter of sugar",
+      "verb": "buy",
+      "person": "barker",
+      "place": "chandler",
+      "goods": "a quarter of sugar",
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "borrows a little milk from Mrs. Nolan",
+      "verb": "borrow",
+      "person": "nolan",
+      "place": "nolan_rooms",
+      "goods": "a little milk",
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "chandler"
+     },
+     {
+      "op": "buy",
+      "what": "a quarter of sugar",
+      "qty": 1,
+      "at": "chandler"
+     },
+     {
+      "op": "go",
+      "to": "ada_home"
+     },
+     {
+      "op": "go",
+      "to": "nolan_rooms"
+     },
+     {
+      "op": "request",
+      "of": "nolan",
+      "kind": "favour",
+      "what": "a little milk"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{home:c0.person}\"},{\"op\":\"go\",\"to\":\"{home:self}\"},{\"op\":\"go\",\"to\":\"{home:c1.person}\"},{\"op\":\"request\",\"of\":\"{c1.person}\",\"kind\":\"favour\",\"what\":\"{c1.goods}\"}]",
+    "at": "2026-11-17T08:19:21.695Z"
+   }
+  ],
+  "pawn|buy": [
+   {
+    "sentence": "She pawns her shawl, and buys bread with the money.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "pawns her shawl",
+      "verb": "pawn",
+      "person": null,
+      "place": null,
+      "goods": null,
+      "amount": null,
+      "item": "shawl"
+     },
+     {
+      "text": "buys bread with the money",
+      "verb": "buy",
+      "person": null,
+      "place": null,
+      "goods": "bread with the money",
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "pawnshop"
+     },
+     {
+      "op": "pledge",
+      "thing": "shawl"
+     },
+     {
+      "op": "go",
+      "to": "baker"
+     },
+     {
+      "op": "buy",
+      "what": "bread",
+      "qty": 1,
+      "at": "baker"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"pawnshop\"},{\"op\":\"pledge\",\"thing\":\"{c0.item}\"},{\"op\":\"go\",\"to\":\"baker\"},{\"op\":\"buy\",\"what\":\"{c1.goods}\",\"at\":\"baker\"}]",
+    "at": "2026-11-17T08:19:31.384Z"
+   },
+   {
+    "sentence": "She pawns her best boots, and buys coal with the money.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "pawns her best boots",
+      "verb": "pawn",
+      "person": null,
+      "place": null,
+      "goods": null,
+      "amount": null,
+      "item": "boots"
+     },
+     {
+      "text": "buys coal with the money",
+      "verb": "buy",
+      "person": null,
+      "place": null,
+      "goods": "coal with the money",
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "pawnshop"
+     },
+     {
+      "op": "pledge",
+      "thing": "boots",
+      "for": "pawns her best boots"
+     },
+     {
+      "op": "go",
+      "to": "chandler"
+     },
+     {
+      "op": "buy",
+      "what": "coal",
+      "qty": 1,
+      "at": "chandler",
+      "pence": 24,
+      "for": "buys coal with the money"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"pawnshop\"},{\"op\":\"pledge\",\"thing\":\"{c0.item}\"},{\"op\":\"go\",\"to\":\"{shop:c1.goods}\"},{\"op\":\"buy\",\"what\":\"{c1.goods}\",\"at\":\"{shop:c1.goods}\"}]",
+    "at": "2026-11-17T08:19:37.660Z"
+   },
+   {
+    "sentence": "She pawns her flat-irons, and buys tea with the money.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "pawns her flat-irons",
+      "verb": "pawn",
+      "person": null,
+      "place": null,
+      "goods": null,
+      "amount": null,
+      "item": "irons"
+     },
+     {
+      "text": "buys tea with the money",
+      "verb": "buy",
+      "person": null,
+      "place": null,
+      "goods": "tea with the money",
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "pawnshop"
+     },
+     {
+      "op": "pledge",
+      "thing": "irons"
+     },
+     {
+      "op": "go",
+      "to": "chandler"
+     },
+     {
+      "op": "buy",
+      "what": "tea",
+      "qty": 1,
+      "at": "chandler"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"pawnshop\"},{\"op\":\"pledge\",\"thing\":\"{c0.item}\"},{\"op\":\"go\",\"to\":\"{shop:c1.goods}\"},{\"op\":\"buy\",\"what\":\"{c1.goods}\",\"at\":\"{shop:c1.goods}\"}]",
+    "at": "2026-11-17T08:19:41.919Z"
+   }
+  ],
+  "talk|borrow": [
+   {
+    "sentence": "She goes across to Mrs. Nolan and asks her for the loan of a shilling.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "goes across to Mrs. Nolan",
+      "verb": "talk",
+      "person": "nolan",
+      "place": "nolan_rooms",
+      "goods": null,
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "asks her for the loan of a shilling",
+      "verb": "borrow",
+      "person": null,
+      "place": null,
+      "goods": "the loan of a shilling",
+      "amount": 12,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "nolan_rooms"
+     },
+     {
+      "op": "request",
+      "of": "nolan",
+      "kind": "loan",
+      "pence": 12,
+      "what": "the loan of a shilling"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"request\",\"of\":\"{c0.person}\",\"kind\":\"loan\",\"pence\":\"{c1.amount}\",\"what\":\"{c1.goods}\"}]",
+    "at": "2026-11-17T08:19:49.245Z"
+   },
+   {
+    "sentence": "She goes down to Mrs. Pollock and asks her for the loan of sixpence.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "goes down to Mrs. Pollock",
+      "verb": "talk",
+      "person": "mrspollock",
+      "place": null,
+      "goods": null,
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "asks her for the loan of sixpence",
+      "verb": "borrow",
+      "person": null,
+      "place": null,
+      "goods": "the loan of sixpence",
+      "amount": 6,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "pollock_rooms"
+     },
+     {
+      "op": "request",
+      "of": "mrspollock",
+      "kind": "loan",
+      "pence": 6,
+      "what": "the loan of sixpence"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"request\",\"of\":\"{c0.person}\",\"kind\":\"loan\",\"pence\":\"{c1.amount}\",\"what\":\"{c1.goods}\"}]",
+    "at": "2026-11-17T08:19:53.237Z"
+   },
+   {
+    "sentence": "She goes across to Mrs. Nolan and asks her for the loan of ninepence.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "goes across to Mrs. Nolan",
+      "verb": "talk",
+      "person": "nolan",
+      "place": "nolan_rooms",
+      "goods": null,
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "asks her for the loan of ninepence",
+      "verb": "borrow",
+      "person": null,
+      "place": null,
+      "goods": "the loan of ninepence",
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "nolan_rooms"
+     },
+     {
+      "op": "request",
+      "of": "nolan",
+      "kind": "loan",
+      "pence": 9,
+      "for": "the loan of ninepence"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"request\",\"of\":\"{c0.person}\",\"kind\":\"loan\"}]",
+    "at": "2026-11-17T08:19:56.612Z"
+   }
+  ],
+  "buy|go": [
+   {
+    "sentence": "She buys a pennyworth of milk at Barker's, then goes home.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "buys a pennyworth of milk at Barker's",
+      "verb": "buy",
+      "person": "barker",
+      "place": "chandler",
+      "goods": "a pennyworth of milk",
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "goes home",
+      "verb": "go",
+      "person": null,
+      "place": "ada_home",
+      "goods": null,
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "chandler"
+     },
+     {
+      "op": "buy",
+      "what": "a pennyworth of milk",
+      "qty": 1,
+      "at": "chandler"
+     },
+     {
+      "op": "go",
+      "to": "ada_home"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{home:c0.person}\"}]",
+    "at": "2026-11-17T08:20:04.263Z"
+   },
+   {
+    "sentence": "She buys a quarter of tea at Barker's, then goes home.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "buys a quarter of tea at Barker's",
+      "verb": "buy",
+      "person": "barker",
+      "place": "chandler",
+      "goods": "a quarter of tea",
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "goes home",
+      "verb": "go",
+      "person": null,
+      "place": "ada_home",
+      "goods": null,
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "chandler"
+     },
+     {
+      "op": "buy",
+      "what": "a quarter of tea",
+      "qty": 1,
+      "at": "chandler"
+     },
+     {
+      "op": "go",
+      "to": "ada_home"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{home:c0.person}\"}]",
+    "at": "2026-11-17T08:20:07.685Z"
+   },
+   {
+    "sentence": "She buys a pound of sugar at Barker's, then goes home.",
+    "self": "ada",
+    "cs": [
+     {
+      "text": "buys a pound of sugar at Barker's",
+      "verb": "buy",
+      "person": "barker",
+      "place": "chandler",
+      "goods": "a pound of sugar",
+      "amount": 240,
+      "item": null
+     },
+     {
+      "text": "goes home",
+      "verb": "go",
+      "person": null,
+      "place": "ada_home",
+      "goods": null,
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "chandler"
+     },
+     {
+      "op": "buy",
+      "what": "a pound of sugar",
+      "qty": 1,
+      "at": "chandler"
+     },
+     {
+      "op": "go",
+      "to": "ada_home"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{home:c0.person}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{home:c0.person}\"}]",
+    "at": "2026-11-17T08:20:11.156Z"
+   },
+   {
+    "sentence": "He goes to the chemist's for a bottle of cough mixture for Joan, then goes home.",
+    "self": "arthur",
+    "cs": [
+     {
+      "text": "goes to the chemist's for a bottle of cough mixture for Joan",
+      "verb": "buy",
+      "person": "joan",
+      "place": "chemist_islington",
+      "goods": "a bottle of cough mixture",
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "goes home",
+      "verb": "go",
+      "person": null,
+      "place": "arthur_home",
+      "goods": null,
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "chemist_islington"
+     },
+     {
+      "op": "buy",
+      "what": "bottle of cough mixture",
+      "qty": 1,
+      "at": "chemist_islington",
+      "pence": 10
+     },
+     {
+      "op": "go",
+      "to": "arthur_home"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{c0.place}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{c0.place}\"},{\"op\":\"go\",\"to\":\"{home:c0.person}\"}]",
+    "at": "2026-11-17T08:20:18.686Z"
+   },
+   {
+    "sentence": "He goes to the chemist's for some camphorated oil for Joan, then goes home.",
+    "self": "arthur",
+    "cs": [
+     {
+      "text": "goes to the chemist's for some camphorated oil for Joan",
+      "verb": "buy",
+      "person": "joan",
+      "place": "chemist_islington",
+      "goods": "some camphorated oil",
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "goes home",
+      "verb": "go",
+      "person": null,
+      "place": "arthur_home",
+      "goods": null,
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "chemist_islington"
+     },
+     {
+      "op": "buy",
+      "what": "camphorated oil",
+      "qty": 1,
+      "at": "chemist_islington",
+      "pence": 6
+     },
+     {
+      "op": "go",
+      "to": "arthur_home"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{c0.place}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{c0.place}\"},{\"op\":\"go\",\"to\":\"{home:c0.person}\"}]",
+    "at": "2026-11-17T08:20:22.660Z"
+   }
+  ],
+  "go|go": [
+   {
+    "sentence": "He goes to the chemist's for a box of cough lozenges for Joan, then goes home.",
+    "self": "arthur",
+    "cs": [
+     {
+      "text": "goes to the chemist's for a box of cough lozenges for Joan",
+      "verb": "go",
+      "person": "joan",
+      "place": "chemist_islington",
+      "goods": "a box of cough lozenges",
+      "amount": null,
+      "item": null
+     },
+     {
+      "text": "goes home",
+      "verb": "go",
+      "person": null,
+      "place": "arthur_home",
+      "goods": null,
+      "amount": null,
+      "item": null
+     }
+    ],
+    "ops": [
+     {
+      "op": "go",
+      "to": "chemist_islington"
+     },
+     {
+      "op": "buy",
+      "what": "a box of cough lozenges",
+      "qty": 1,
+      "at": "chemist_islington",
+      "pence": 4
+     },
+     {
+      "op": "go",
+      "to": "arthur_home"
+     }
+    ],
+    "key": "[{\"op\":\"go\",\"to\":\"{c0.place}\"},{\"op\":\"buy\",\"what\":\"{c0.goods}\",\"at\":\"{c0.place}\"},{\"op\":\"go\",\"to\":\"{home:c0.person}\"}]",
+    "at": "2026-11-17T08:20:26.339Z"
+   }
+  ]
+ },
+ "stats": {
+  "learned": 5,
+  "used": 4,
+  "shadow": 4,
+  "agree": 2,
+  "disagree": 2,
+  "retired": 0,
+  "tested": 5,
+  "failedTests": 0
+ }
+}

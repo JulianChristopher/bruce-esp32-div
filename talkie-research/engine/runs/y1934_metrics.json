@@ -1,0 +1,704 @@
+{
+ "METRICS": {
+  "probes": [],
+  "diaries": [
+   {
+    "day": 0,
+    "who": "ada",
+    "facts": 2,
+    "kept": 0
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "facts": 4,
+    "kept": 4
+   },
+   {
+    "day": 0,
+    "who": "thomas",
+    "facts": 1,
+    "kept": 0
+   }
+  ],
+  "days": [
+   {
+    "day": 0,
+    "asks": 50,
+    "money": {
+     "ada": 18,
+     "arthur": 44,
+     "thomas": 9582
+    },
+    "needs": {
+     "ada": {
+      "hunger": 23.625,
+      "energy": 8.3,
+      "warmth": 10.6875,
+      "social": 8.5
+     },
+     "arthur": {
+      "hunger": 22.5,
+      "energy": 8.3,
+      "warmth": 2.75,
+      "social": 0
+     },
+     "thomas": {
+      "hunger": 21.375,
+      "energy": 7.5,
+      "warmth": 0,
+      "social": 12.75
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 17.73086290002495,
+      "arousal": 10,
+      "mood": 1.9623094976569273,
+      "surprise": 0
+     },
+     "arthur": {
+      "stress": 3.2404765944099725,
+      "arousal": 10,
+      "mood": 6.111181183072285,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 7.446972590391964,
+      "arousal": 10,
+      "mood": 1.8083051121585538,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "coal": 2
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h7": 1.5
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 1,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h7": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h7": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "gas_penny": 2,
+      "read_paper": 3,
+      "eat_home": 6,
+      "clean_office": 1,
+      "rest": 10,
+      "desk_work": 4,
+      "chief_work": 4,
+      "finsbury": 1,
+      "lunch_bun": 1,
+      "lunch_chop": 1,
+      "talk": 2,
+      "go_home": 3,
+      "d_lend": 1,
+      "light_fire": 1,
+      "sleep": 3
+     },
+     "moves": 11,
+     "npcMoves": 46,
+     "perceived": 7,
+     "facts": 0,
+     "told": 0,
+     "fares": 4
+    }
+   }
+  ],
+  "plans": [],
+  "planRaw": [
+   {
+    "day": 0,
+    "k": "ada",
+    "ans": "On Tuesday she would turn the mattress in Bert's bed, and wash and mend his socks. On Wednesday she would clear away the breakfast things, and set the place to rights for the day. On Thursday she would wash and iron Bert's shirts.",
+    "items": 3
+   },
+   {
+    "day": 0,
+    "k": "arthur",
+    "ans": "On Tuesday he would post his letters, and on Wednesday see about getting a pair of boots soled and heeled.",
+    "items": 1
+   },
+   {
+    "day": 0,
+    "k": "thomas",
+    "ans": "Tuesday, he was to take stock, and look at his accounts.",
+    "items": 0
+   },
+   {
+    "day": 0,
+    "k": "thomas",
+    "ans": "On Tuesday he was to see to theisputed accounts of Mr.",
+    "items": 1
+   }
+  ],
+  "leak": [
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "ada",
+    "id": "us_president",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": true,
+    "answer": "She answered, \"Hoover.\""
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "ada",
+    "id": "war",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "She answered, \"No.\""
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "ada",
+    "id": "us_president_elected",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": true,
+    "answer": "She answered, \"Hoover.\""
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "ada",
+    "id": "german_chancellor",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "answer": "Germany is governed by .."
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "arthur",
+    "id": "us_president",
+    "after": true,
+    "leak": false,
+    "uptake": true,
+    "stale": false,
+    "answer": "President Roosevelt."
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "arthur",
+    "id": "war",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": ""
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "arthur",
+    "id": "us_president_elected",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "answer": ""
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "arthur",
+    "id": "german_chancellor",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "answer": ""
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "thomas",
+    "id": "us_president",
+    "after": true,
+    "leak": false,
+    "uptake": true,
+    "stale": false,
+    "answer": "He answered, \"Franklin D. Roosevelt.\""
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "thomas",
+    "id": "war",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "He answered that England was not at war."
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "thomas",
+    "id": "us_president_elected",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "answer": "He answered, \"Mr. Cleveland.\""
+   },
+   {
+    "day": 0,
+    "iso": "1934-03-05",
+    "who": "thomas",
+    "id": "german_chancellor",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "answer": "He answered, \"The Emperor.\""
+   }
+  ],
+  "knowledge": [
+   {
+    "id": "g1",
+    "day": 0,
+    "about": "street",
+    "text": "Mrs. Nellie Booth of No. 17 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g2",
+    "day": 0,
+    "about": "street",
+    "text": "Mrs. Win Fenton of No. 18 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g3",
+    "day": 0,
+    "about": "street",
+    "text": "Mrs. Kate Ward of No. 19 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g4",
+    "day": 0,
+    "about": "street",
+    "text": "Mrs. Mary Collins of No. 27 took a pair of sheets to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g5",
+    "day": 0,
+    "about": "street",
+    "text": "Mrs. Ivy Hollis of No. 29 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   }
+  ],
+  "standing": [
+   {
+    "day": 0,
+    "ada": 0
+   }
+  ],
+  "street": [
+   {
+    "day": 0,
+    "households": 30,
+    "people": 107,
+    "slateAtBarkers": "0s. 0d.",
+    "pledgedAtLambs": 10,
+    "inArrears": 22,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 0,
+    "flu": 0,
+    "outOfSteadyWork": 0,
+    "events": [
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn"
+    ]
+   }
+  ],
+  "decisions": [
+   {
+    "day": 0,
+    "t": 1095,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Lend Mrs. Ivy Hayes 2s. 0d.",
+    "chosenScore": null,
+    "best": "Step across the landing to Mrs. Nolan for a cup of tea and the news of the buildings (2 mi",
+    "bestScore": -18.229166666666643,
+    "worstScore": -19.64583333333331,
+    "n": 6,
+    "ms": 49
+   }
+  ]
+ },
+ "STATS": {
+  "asks": 50,
+  "choices": 9,
+  "unreadable": 4,
+  "votes": 0,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 2,
+  "lines": 10,
+  "emptyLines": 1,
+  "diaryFallback": 0,
+  "probes": [],
+  "askKinds": {
+   "other": 4,
+   "plan": 4,
+   "leak": 12,
+   "greet": 6,
+   "choose": 8,
+   "talk": 6,
+   "decide": 4,
+   "diary": 3,
+   "dream": 3
+  },
+  "maxLen": 1835,
+  "lenSum": 45124,
+  "aborted": 62,
+  "ms": 20932,
+  "timed": 41,
+  "planItems": 5,
+  "planUnread": 1,
+  "leak": {
+   "asked": 12,
+   "leaks": 0,
+   "uptake": 2,
+   "after": 9,
+   "stale": 2
+  },
+  "failedReq": 62,
+  "retries": 9,
+  "fetchMs": 1,
+  "zoom": {
+   "on": 2,
+   "off": 41
+  },
+  "autoChoices": 42,
+  "papers": 3,
+  "bookRetry": 2,
+  "bookWrong": 2,
+  "echo": 2,
+  "echoLeft": 1,
+  "bookRight": 1,
+  "visits": 1,
+  "deeds": {
+   "sleep": 1,
+   "lend": 1
+  },
+  "deliberations": 1,
+  "foresight": 1,
+  "pickedOwn": 1,
+  "judged": 1,
+  "dreams": 3,
+  "gm": {
+   "calls": 1,
+   "ms": 2784,
+   "cost": 0.0008557200000000001,
+   "errors": 0
+  },
+  "prov": {
+   "kept": 0,
+   "replaced": 0,
+   "dropped": 0
+  },
+  "rules": {
+   "learned": 0,
+   "used": 0,
+   "shadow": 0,
+   "agree": 0,
+   "disagree": 0,
+   "retired": 0,
+   "tested": 0,
+   "failedTests": 0
+  }
+ },
+ "W": {
+  "wage": 840,
+  "day": 1,
+  "t": 1380,
+  "coin": {
+   "where": "floor",
+   "finder": null
+  },
+  "ledger": {
+   "steps": 1,
+   "errors": 2,
+   "assigned": true,
+   "need": 3,
+   "verdict": null
+  },
+  "audit": {
+   "steps": 0,
+   "errors": 0,
+   "verdict": null,
+   "raise": null
+  },
+  "paid": {},
+  "rentPaid": {},
+  "doctor": null,
+  "extraHours": null,
+  "loan": null,
+  "facts": [],
+  "bertWork": true,
+  "joanIll": false,
+  "rentDue": false,
+  "rentOwing": false,
+  "gossip": {
+   "g1": {
+    "id": "g1",
+    "text": "Mrs. Nellie Booth of No. 17 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g2": {
+    "id": "g2",
+    "text": "Mrs. Win Fenton of No. 18 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g3": {
+    "id": "g3",
+    "text": "Mrs. Kate Ward of No. 19 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g4": {
+    "id": "g4",
+    "text": "Mrs. Mary Collins of No. 27 took a pair of sheets to Lamb's.",
+    "about": "street",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g5": {
+    "id": "g5",
+    "text": "Mrs. Ivy Hollis of No. 29 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g6": {
+    "id": "g6",
+    "text": "Mrs. Ivy Hayes of No. 7 asks Mrs. Turner for the loan of two shillings till Saturday.",
+    "about": "ada",
+    "day": 0,
+    "origin": "ada"
+   },
+   "g7": {
+    "id": "g7",
+    "text": "Mrs. Turner lent Mrs. Ivy Hayes 2s. 0d. when she was hard up",
+    "about": "ada",
+    "day": 0,
+    "origin": "nolan"
+   }
+  },
+  "nsal": {
+   "fenn": 0.7,
+   "nb_h7": 1
+  },
+  "prom": {},
+  "former": {},
+  "birthday": false,
+  "standWords": "",
+  "quiet": false,
+  "debtada": false,
+  "debtarthur": false,
+  "topicCache": {
+   "ada>bert": {
+    "topic": "what the paper says: THE NEW YEAR opens gloomily: more than two and a half million are out of work, and the coal and cotton trades are in…"
+   },
+   "arthur>edith": {
+    "topic": "what the paper says: THE NEW YEAR opens gloomily: more than two and a half million are out of work, and the coal and cotton trades are in…"
+   },
+   "arthur>joan": {
+    "topic": "what the paper says: THE NEW YEAR opens gloomily: more than two and a half million are out of work, and the coal and cotton trades are in…"
+   },
+   "thomas>dunn": {
+    "topic": "what the paper says: THE NEW YEAR opens gloomily: more than two and a half million are out of work, and the coal and cotton trades are in…"
+   },
+   "ada>arthur": {
+    "topic": "the neighbourhood"
+   },
+   "ada>thomas": {
+    "topic": "a silver pencil she found under a desk in the clerks' room"
+   },
+   "ada>fenn": {
+    "topic": "a silver pencil she found under a desk in the clerks' room"
+   },
+   "arthur>thomas": {
+    "topic": "what the paper says: THE NEW YEAR opens gloomily: more than two and a half million are out of work, and the coal and cotton trades are in…"
+   },
+   "arthur>fenn": {
+    "topic": "what the paper says: THE NEW YEAR opens gloomily: more than two and a half million are out of work, and the coal and cotton trades are in…"
+   },
+   "thomas>arthur": {
+    "topic": "the weather"
+   },
+   "thomas>fenn": {
+    "topic": "how things are with them"
+   },
+   "ada>nb_h7": {
+    "topic": "the weather"
+   }
+  },
+  "factQ": {},
+  "found": {
+   "what": "a silver pencil",
+   "value": 24,
+   "owner": "fenn",
+   "day": 0,
+   "where": "ada"
+  },
+  "pre": {
+   "fenn": [
+    {
+     "day": 0,
+     "text": "Mr. Arthur Hale talked with him about what the paper says: THE NEW YEAR opens gloomily: more than ."
+    }
+   ],
+   "nb_h7": [
+    {
+     "day": 0,
+     "text": "Mrs. Ivy Hayes of No. 7 asks Mrs. Turner for the loan of two shillings till Saturday."
+    }
+   ]
+  },
+  "chorusDay": {},
+  "visitDay": 0,
+  "visitor": null,
+  "dreams": [
+   {
+    "day": 0,
+    "who": "ada",
+    "text": "She dreamt that she was walking along a street, and came to a great building, in the doorway of which stood a benevolent old gentleman, who asked her what she wanted.  She told him she wanted work.",
+    "nightmare": false,
+    "recalled": false
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "text": "He dreamt that he was discharged from the insurance office.",
+    "nightmare": false,
+    "recalled": true
+   },
+   {
+    "day": 0,
+    "who": "thomas",
+    "text": "He dreamt that he was promoted to be chief clerk, and that Mr. Hale was made second in command.",
+    "nightmare": false,
+    "recalled": true
+   }
+  ]
+ }
+}

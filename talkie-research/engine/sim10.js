@@ -821,7 +821,7 @@ function lifeAndDeath() {
   for (const e of DEC.lifeEvents(WORLD, W.day, Math.random, { mortal: process.env.MORTAL === '1', scale: +(process.env.LIFESCALE || 1) })) {
     const p = WORLD.people[e.id], nm = p.name;
     if (e.kind === 'death') {
-      STATS.deaths = (STATS.deaths || 0) + 1; say(`   ✝ ${nm} died, aged ${e.age}.`);
+      STATS.deaths = (STATS.deaths || 0) + 1; say(`   ✝ ${nm} died, aged ${e.age}.`); if ((CLOSE[e.id] || []).length) W.greatDay = W.day;
       for (const k of (CLOSE[e.id] || [])) if (A[k]) { remember(k, `${nm} died${e.age >= 65 ? ', at a good age' : ''}.`, [e.id], 3); if (A[k].chem) jolt(k, 'shock', ['bert', 'edith', 'joan'].includes(e.id) ? 60 : 20); }
       rumour(`${nm} has died`, e.id, (CLOSE[e.id] || []).filter(k => A[k]));
       if (SUCCEED[e.id]) { const [n2, sheet] = SUCCEED[e.id]; Object.assign(p, { name: n2, short: n2, sheet, dead: false, away: false, age: 35 }); say(`   ${n2} takes on the place.`); }
@@ -830,7 +830,7 @@ function lifeAndDeath() {
       const id = 'baby_' + W.day, f = Math.random() < 0.49, home = p.home;
       WORLD.people[id] = { id, name: `the ${p.short === 'Edith' ? 'Hales\'' : p.short + "'s"} baby`, short: 'the baby', f, home, place: home, money: 0, inv: {}, rel: {}, know: {}, obs: [], busyUntil: 0, needs: { hunger: 0, energy: 0, warmth: 0, social: 0 }, age: 0,
         sheet: `a baby ${f ? 'girl' : 'boy'}, born ${LONGDATE(W.day)}, ${dateOf(W.day).getUTCFullYear()}`, routine: () => home }; NPC[id] = WORLD.people[id];
-      for (const k in A) A[k].op[id] = 0; STATS.births = (STATS.births || 0) + 1; say(`   ✿ ${p.name} has had a baby ${f ? 'girl' : 'boy'}.`);
+      for (const k in A) A[k].op[id] = 0; STATS.births = (STATS.births || 0) + 1; W.greatDay = W.day; say(`   ✿ ${p.name} has had a baby ${f ? 'girl' : 'boy'}.`);
       for (const k of Object.keys(A).filter(k => A[k].home === home)) remember(k, `${p.short} had a baby ${f ? 'girl' : 'boy'} to-day.`, [e.id, id], 3);
       rumour(`${p.name} has had a baby ${f ? 'girl' : 'boy'}`, e.id, Object.keys(A).filter(k => A[k].home === home));
     }
@@ -1179,6 +1179,11 @@ const RULES = new RULEMOD.Rules(process.env.RULES === '0' ? null : RULESFILE);
 // time by events, weekly plans, background people who come to matter (tempo1931.js)
 // FAST=1 (the long run): memory probes weekly, dreams and diaries on Sundays, greetings by habit mostly
 const FAST = process.env.FAST === '1';
+// SAMPLE=n (the long run): the full life of the persons is played one week in n, and in any week after a great event
+// (a death, a birth, a lost place, notice to quit); in the other weeks habit, plans, duties and other people's
+// decisions run on (the period model still speaks for those), but there is no talk, probing, dreaming or deliberating
+const SAMPLE = +(process.env.SAMPLE || 1);
+function quietDay(d) { if (SAMPLE <= 1) return false; if (Math.floor(d / 7) % SAMPLE === 0) return false; return !(W.greatDay != null && d - W.greatDay < 7); }
 const TEMPO = require('./tempo1931.js'), TEMPOMODE = process.env.TEMPO || 'zoom', ZMIN = +(process.env.ZMIN || 35), FLOOR = +(process.env.FLOOR || 3), PLANSON = process.env.PLANS !== '0';
 const PROM = new TEMPO.Promotion(W);
 const WEEK = {   // the fixed points of each person's week, as the engine knows them
@@ -1515,7 +1520,7 @@ async function act(k) {
   const a = A[k]; WORLD.mover = k;
   if (GMON && ((a.gmMiss || 0) >= 2 || (WORLD.t - (a.gmReviewAt ?? WORLD.t - 999) >= 360 && (TEMPOMODE === 'fine' || (a.ownSinceReview || 0) > 0)))) { a.ownSinceReview = 0; try { await gmReview(k); } catch (e) { STATS.gmErrors = (STATS.gmErrors || 0) + 1; } }
   const newcomers = presentAt(k).some(p => !a.metToday.has(p));
-  for (const p of presentAt(k)) if (!a.metToday.has(p)) { if (FAST && Math.random() < 0.7) { a.metToday.add(p); if (A[p]) A[p].metToday.add(k); continue; } await greet(k, p); }
+  for (const p of presentAt(k)) if (!a.metToday.has(p)) { if (W.quiet || (FAST && Math.random() < 0.7)) { a.metToday.add(p); if (A[p]) A[p].metToday.add(k); continue; } await greet(k, p); }
   for (const o of a.obs.splice(0)) if (!/came in|left\./.test(o.text)) remember(k, `(Seen) ${o.text}`, [], 1);
   const all = WORLD.affordances(k);
   const opts = all.slice(0, 6); if (!opts.length) { a.busyUntil = WORLD.t + 15; return; }
@@ -1539,6 +1544,7 @@ async function act(k) {
     a.sal = sal; const floor = (a.forksToday || 0) < FLOOR && sal.z >= 15 && WORLD.mod >= hm(12) && (a.sinceAsked || 0) >= 4; const zoomed = sal.z >= ZMIN || floor; STATS.zoom = STATS.zoom || { on: 0, off: 0 }; STATS.zoom[zoomed ? 'on' : 'off']++;
     if (!zoomed) fork = (unanswered && urg.w >= 85) || visitor || (a.sinceAsked || 0) >= 16;
   }
+  if (W.quiet) fork = !!visitor;
   // no list from the engine: at a fork the person is asked openly (several thoughts at weighty moments, one otherwise);
   // the engine only checks what is possible. If nothing usable comes, they do the usual thing (habit, System 1).
   let freeAct = null;
@@ -1584,7 +1590,7 @@ async function act(k) {
   const res = WORLD.perform(k, o);
   if (['worship', 'pray'].includes(o.a.id)) jolt(k, 'comfort', 15); if (o.a.id === 'sleep') { a.chem.arousal = 10; }
   let result = res;
-  if (res && res.talk) { if (res.verb && res.verb !== 'talk') res.topic = `${res.verb === 'quarrel' ? 'a quarrel' : res.verb === 'comfort' ? 'comforting' : res.verb === 'apologise' ? 'an apology' : res.verb === 'thank' ? 'thanks' : res.verb === 'warn' ? 'a warning' : 'a promise'}: ${res.topic}`; const t = res.topic ? { topic: res.topic } : (W.topicCache || {})[k + '>' + res.talk] || topicFor(k, res.talk); result = await converse(k, { to: res.talk, ...t }); if (res.request) await consent(res.talk, k, res.request); }
+  if (res && res.talk) { if (res.verb && res.verb !== 'talk') res.topic = `${res.verb === 'quarrel' ? 'a quarrel' : res.verb === 'comfort' ? 'comforting' : res.verb === 'apologise' ? 'an apology' : res.verb === 'thank' ? 'thanks' : res.verb === 'warn' ? 'a warning' : 'a promise'}: ${res.topic}`; const t = res.topic ? { topic: res.topic } : (W.topicCache || {})[k + '>' + res.talk] || topicFor(k, res.talk); if (W.quiet) { result = `${a.short} spoke with ${nameOf(res.talk)} about ${t.topic}.`; remember(k, result, [res.talk], 1); if (t.fact) t.fact(); } else result = await converse(k, { to: res.talk, ...t }); if (res.request) await consent(res.talk, k, res.request); }
   else if (res && res.book) result = await bookWork(res.book);
   else if (res && res.lookup) result = await lookupBook(k, res.lookup);
   if (REG.pending.length) { const made = await REG.nameNew(WORLD); for (const it of made) if (it.entity === 'person' && WORLD.people[it.id]) NPC[it.id] = WORLD.people[it.id]; for (const it of made) say(`      ✚ new in the world: ${it.name} (${it.entity}, ${it.kind}${it.district ? ', ' + it.district : ''})`); STATS.created = (STATS.created || 0) + made.length; }
@@ -1611,7 +1617,7 @@ async function interrupts(d, t) {
     if (W.missedClean >= 2 && !W['warned' + W.missedClean]) {
       W['warned' + W.missedClean] = true;
       const r = await duty('thomas', `Mrs. Turner, the charwoman, has failed to come and clean the office ${W.missedClean} times this winter without a word of excuse. Does Mr. Thomas give her notice and find another charwoman?`, 'gives her notice', 'gives her one more chance', 'gives her notice');
-      if (r.yes) { jolt('ada', 'shock', 50); jolt('ada', 'surprise', -40); F.adaDismissed = true; rumour('Mrs. Turner has lost her place at the Moorgate insurance office', 'ada', ['thomas', 'fenn']); setState('job', ['ada', 'thomas', 'arthur'], 'Mrs. Turner has been given notice at the Moorgate office'); remember('ada', 'Mr. Thomas has given her notice: she has lost her place cleaning the Moorgate office, twelve shillings a week.', ['thomas', 'money', 'work'], 3); remember('thomas', 'He gave Mrs. Turner notice for not coming to clean.', ['ada'], 3); fact('ada', 'Why did you lose your place at the Moorgate office?', ['I missed coming to clean', 'The office closed', 'I gave notice myself'], 0); say('   ✶ Mrs. Turner is given notice at the Moorgate office.'); }
+      if (r.yes) { W.greatDay = W.day; jolt('ada', 'shock', 50); jolt('ada', 'surprise', -40); F.adaDismissed = true; rumour('Mrs. Turner has lost her place at the Moorgate insurance office', 'ada', ['thomas', 'fenn']); setState('job', ['ada', 'thomas', 'arthur'], 'Mrs. Turner has been given notice at the Moorgate office'); remember('ada', 'Mr. Thomas has given her notice: she has lost her place cleaning the Moorgate office, twelve shillings a week.', ['thomas', 'money', 'work'], 3); remember('thomas', 'He gave Mrs. Turner notice for not coming to clean.', ['ada'], 3); fact('ada', 'Why did you lose your place at the Moorgate office?', ['I missed coming to clean', 'The office closed', 'I gave notice myself'], 0); say('   ✶ Mrs. Turner is given notice at the Moorgate office.'); }
       else remember('ada', "Mr. Thomas sent word that she must not miss the office again, or she will lose her place.", ['thomas', 'work'], 3);
     }
   }
@@ -1665,7 +1671,8 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     if (d > 0 && dateOf(d).getUTCMonth() === 0 && dateOf(d).getUTCDate() === 1) newYear();
     morningEvents(); letters(); try { lifeAndDeath(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; }
     for (const c of PROM.daily(W.day)) { const nm = nameOf(c.id); if (c.up) { STATS.promoted = (STATS.promoted || 0) + 1; say(`   ⇧ ${nm} has come to matter: ${heshe(c.id)} will remember ${hisher(c.id)} dealings with the household.`); } else { STATS.demoted = (STATS.demoted || 0) + 1; say(`   ⇩ ${nm} goes back into the background.`); } }
-    W.t = hm(6); try { if (!FAST || DOW(d) === 'mon') await morningProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; await ensureBrowser(); }
+    W.quiet = quietDay(d); if (W.quiet) STATS.quietDays = (STATS.quietDays || 0) + 1;
+    W.t = hm(6); try { if (!W.quiet && (!FAST || DOW(d) === 'mon')) await morningProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; await ensureBrowser(); }
     for (let t = hm(6, 15); t <= hm(23); t += STEP) {
       WORLD.t = d * 1440 + t; W.t = t;
       WORLD.runDue(); WORLD.stepBackground(); WORLD.decay(STEP); dueMoney(t); institutions(t); npcGossip(); for (const k in A) chemStep(k, STEP); neighbourAtDoor(t);
@@ -1690,11 +1697,11 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     fs.writeFileSync(path.join(OUT, 'state.json'), JSON.stringify({ W, STATS, world: { t: WORLD.t, flags: WORLD.flags, stats: WORLD.stats, objects: WORLD.objects, people: Object.fromEntries(Object.entries(WORLD.people).map(([k, p]) => [k, { place: p.place, money: p.money, inv: p.inv, needs: p.needs }])) }, agents: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, { place: a.place, money: a.money, op: a.op, mem: a.mem }])) }, null, 1));
     const keyDay = [0, 3, 5, 10, 11, 29, 30, 43, 57, 59, 73, 84].includes(d) || W.facts.some(f => f.day === d);
     try {
-      if (DOW(d) === 'sun') for (const k in A) await reflect(k);
+      if (DOW(d) === 'sun' && !W.quiet) for (const k in A) await reflect(k);
       if (DOW(d) === 'sun' && PLANSON) for (const k in A) await weekPlan(k, d + 1);
-      if (DOW(d) === 'sun' || (keyDay && !FAST)) for (const k in A) await diary(k);
+      if (!W.quiet && (DOW(d) === 'sun' || (keyDay && !FAST))) for (const k in A) await diary(k);
     } catch (e) { STATS.errors = (STATS.errors || 0) + 1; await ensureBrowser(); }
-    try { if (!off('dreams') && (!FAST || DOW(d) === 'sun')) for (const k in A) await dream(k); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; }
+    try { if (!off('dreams') && !W.quiet && (!FAST || DOW(d) === 'sun')) for (const k in A) await dream(k); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; }
     if (d + 1 < ND && dateOf(d + 1).getUTCMonth() !== dateOf(d).getUTCMonth()) { try { for (const k in A) await monthReview(k); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }
     if (DOW(d) === 'sun') consolidate();
     METRICS.days.push({ day: d, asks: STATS.asks - asks0, money: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, a.money])), needs: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, { ...a.needs }])), chem: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, { ...a.chem }])), inv: { ...A.ada.inv }, op: JSON.parse(JSON.stringify(Object.fromEntries(Object.entries(A).map(([k, a]) => [k, a.op])))), world: { ...WORLD.stats, performed: { ...WORLD.stats.performed } } });

@@ -495,7 +495,8 @@ async function chorus(t, only = null, forced = null) {
     const offer = { coal: 'go across with a few lumps of coal', food: 'go across with a bit of bread and dripping', ill: `go across and sit with ${himher(k)} an hour`, low: `go across and sit with ${himher(k)} a while over a cup of tea` }[want];
     const ctx = `${clock(W.t)}, ${DAYS[W.day]}; ${WEATHER[W.day]}.\nCHARACTER: ${sheetOf(q)}${PROM.promoted(q) ? `\nREMEMBERS: ${PROM.memory(q).join(' ')}` : ''}`;
     const ans = (await ask(`${ctx}\n\n${nameOf(q)} could see that ${seen}. Does ${nameOf(q)} ${offer}? Answer in the form: ${She} goes across, because ... or: ${She} does not go, because ...`)) || '';
-    const head = ans.split(/because/i)[0], yes = /\b(goes|went|takes|brings|comes)\b/i.test(head) && !/\b(does not|doesn't|did not|will not|won't|not go)\b/i.test(head);
+    // she comes unless she says she does not (talkie says it many ways: goes across, crosses the landing, knocks, takes a few lumps)
+    const head = ans.split(/because/i)[0], no = /\b(does not|doesn't|did not|didn't|will not|won't|would not|wouldn't|not go|stays( at home| where she is| in)?|keeps to her|refuses|declines)\b/i.test(head), yes = !no && /\b[a-z]+s\b|\bwent\b|\btook\b|\bcame\b/i.test(head.replace(/^(mrs|mr)\.?\s+\w+\s+\w+\s*/i, ''));
     STATS.chorus = STATS.chorus || { asked: 0, came: 0 }; STATS.chorus.asked++;
     say(`   ♡ ${nameOf(q)} ${yes ? 'comes across' : 'stays at home'} (${want}): ${sentences(ans, 1)}`);
     if (!yes) continue;

@@ -41,4 +41,19 @@ function holidayOf(t) {   // t: ms (UTC midnight) -> name of the day, or null
   if (x.getUTCMonth() === 7 && x.getUTCDay() === 1 && x.getUTCDate() <= 7) return 'August Bank Holiday';
   return null;
 }
-module.exports = { ageText, yearlyConsolidate, value, words, easter, holidayOf };
+// life events of the people around the main persons, by the base rates of the time (no script): a death by the
+// Bermondsey rates for the person's age (health1931.js), a birth to a married woman of twenty to forty (the borough's
+// birth rate). The main persons themselves only with MORTAL=1. Ages come from the sheets and move on each New Year.
+const AGED = new RegExp(`\\baged (${NW})\\b`, 'i');
+function ageOf(p) { if (p.age != null) return p.age; const m = String(p.sheet || '').match(AGED); p.age = m ? value(m[1]) : null; return p.age; }
+function lifeEvents(w, day, R, opts = {}) {
+  const H = require('./health1931.js'), out = [];
+  for (const p of Object.values(w.people)) {
+    if (p.dead || (p.main && !opts.mortal) || p.registry || /^nb_/.test(p.id) || p.id === 'doctor') continue;
+    const age = ageOf(p); if (age == null) continue;
+    if (R() < H.baseDeath(age) * (opts.scale || 1)) { p.dead = true; p.away = true; p.place = null; out.push({ kind: 'death', id: p.id, age }); continue; }
+    if (p.f && age >= 20 && age <= 40 && /\b(wife|married)\b/i.test(p.sheet || '') && !(p.lastBirth != null && day - p.lastBirth < 640) && R() < (opts.birthP || 0.09) * (opts.scale || 1) / 365) { p.lastBirth = day; out.push({ kind: 'birth', id: p.id, age }); }
+  }
+  return out;
+}
+module.exports = { ageText, yearlyConsolidate, value, words, easter, holidayOf, ageOf, lifeEvents };

@@ -837,6 +837,11 @@ function lifeAndDeath() {
     }
   }
 }
+// a run that starts in a later year starts with everybody as many years older (the sheets are written for January 1931)
+function ageToStart() { const yrs = dateOf(0).getUTCFullYear() - 1931; if (yrs <= 0) return;
+  for (const p of Object.values(WORLD.people)) { const a0 = DEC.ageOf(p); if (p.sheet) p.sheet = DEC.ageText(p.sheet, yrs); if (a0 != null) p.age = a0 + yrs; }
+  for (const k in A) { if (PROSE.PORTRAIT[k]) PROSE.PORTRAIT[k] = DEC.ageText(PROSE.PORTRAIT[k], yrs); if (typeof SHEET !== 'undefined' && SHEET[k]) SHEET[k] = DEC.ageText(SHEET[k], yrs); }
+  say(`   ✦ The run begins in ${dateOf(0).getUTCFullYear()}: everybody is ${yrs} year${yrs > 1 ? 's' : ''} older than in January 1931.`); }
 // knowledge that moves with the calendar: what each person says of the world's great facts, once a month (leak1931.js)
 const LEAK = require('./leak1931.js');
 async function leakProbes() {
@@ -1663,6 +1668,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     W.day = d; W.t = 0; WORLD.t = d * 1440 + hm(6); for (const k in A) { A[k].metToday = new Set(); A[k].forksToday = 0; if (A[k].awayUntil > d * 1440 + hm(6)) continue; if (A[k].busyUntil > d * 1440 + hm(6, 15)) A[k].busyUntil = d * 1440 + hm(6, 15); A[k].place = A[k].home; }
     say(`\n######## ${DAYS[d]}${HOL[d] ? ' — ' + HOL[d] : ''} (${WEATHER[d]}) ########`);
     const asks0 = STATS.asks;
+    if (d === 0) ageToStart();
     if (d === 0) for (const k in A) await formative(k);
     if (d === 0 && PLANSON) for (const k in A) { try { await weekPlan(k, 0); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }
     if (d === 0 || dateOf(d).getUTCDate() === 1) { try { await leakProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }

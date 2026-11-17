@@ -40,6 +40,8 @@ function presentOf(verbPhrase) {   // "would buy coal" / "will buy coal" / "buys
     const irr = { go: 'goes', do: 'does', have: 'has', be: 'is', try: 'tries', carry: 'carries', pay: 'pays', buy: 'buys', say: 'says', fetch: 'fetches', wash: 'washes', mend: 'mends', watch: 'watches', catch: 'catches', reach: 'reaches', teach: 'teaches', see: 'sees' };
     const third = irr[w] || (/(s|sh|ch|x|z|o)$/.test(w) ? w + 'es' : /[^aeiou]y$/.test(w) ? w.slice(0, -1) + 'ies' : w + 's');
     v = [third, ...rest].join(' '); }
+  // "... and collect premiums": a second verb joined by 'and' agrees too
+  v = v.replace(/\b(and|then)\s+(go|do|buy|pay|get|take|collect|lie|sit|see|fetch|walk|come|make|bring|write|read|visit|call|look|mend|wash|clean|cook|ask|tell|stay|keep|put|give|send|spend|sell|try)\b(?!s)/gi, (x, c, w) => `${c} ${presentOf('would ' + w)}`);
   return v;
 }
 // days: the absolute day indices of the coming week (from `from`, the next 7 days), with their weekday names
@@ -52,7 +54,10 @@ function parsePlan(text, from, dowOf, k, max = 5) {
     let day = null; for (let d = from; d < from + 7; d++) if (dowOf(d) === dow) { day = d; break; }
     if (day === null) continue;
     let deed = presentOf(m[2]).replace(/\s+(and|but)\s*$/i, '').replace(/\b(and|then)\s+(would|will|shall)\s+(\w+)/gi, (x, c, mod, v) => `${c} ${presentOf('would ' + v)}`).trim();
-    if (!deed || /^(is|was|has|had|feels|thinks|hopes|wonders|may|might|could)\b/i.test(deed)) continue;   // not a deed
+    // "thought of clearing the arrears", "resolved to pay them off": the deed after the thought, or nothing
+    const mind = deed.match(/^(?:thought|thinks|resolved|resolves|decided|decides|meant|means|intended|intends|hoped|hopes|wanted|wants|planned|plans)\s+(?:to|that she would|that he would)\s+(.+)$/i);
+    if (mind) deed = presentOf('would ' + mind[1]);
+    if (!deed || /^(is|was|has|had|feels|felt|thinks|thought|hopes|hoped|wonders|wondered|may|might|could|would|should|must)\b/i.test(deed)) continue;   // not a deed
     const key = day + ':' + deed.toLowerCase().slice(0, 30); if (seen.has(key)) continue; seen.add(key);
     out.push({ who: k, day, dow, text: `${/^(she|he)\b/i.test(deed) ? '' : (k && k.f === false ? 'He ' : '')}${deed}`, status: 'due', tries: 0 });
   }

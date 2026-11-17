@@ -1095,7 +1095,9 @@ const WEEK = {   // the fixed points of each person's week, as the engine knows 
 function freeHour(k) { const dw = DOW(W.day), t = WORLD.mod; if (t >= hm(21)) return false;
   if (k === 'ada') return dw === 'sun' ? t >= hm(9) : t >= hm(12, 45);
   return dw === 'sun' ? t >= hm(9) : dw === 'sat' ? t >= hm(13, 30) : t >= hm(17, 45); }
-function planNow(k) { if (!PLANSON || !freeHour(k) || A[k].busyUntil > WORLD.t) return null; return (A[k].plans || []).find(p => p.day === W.day && p.status === 'due') || null; }
+const MORNING = /\b(morning|early|breakfast|before work|holiday|day off|lies? abed|stays? (at home|in bed|indoors)|keeps? (his|her) bed|all day)\b/i;
+function planNow(k) { if (!PLANSON || A[k].busyUntil > WORLD.t || WORLD.mod >= hm(21)) return null;   // morning things at the first turn of the day, the rest at a free hour
+  return (A[k].plans || []).find(p => p.day === W.day && p.status === 'due' && (MORNING.test(p.text) || freeHour(k))) || null; }
 const DAYCAP = dw => TEMPO.DAYNAMES[TEMPO.DOWS.indexOf(dw)].replace(/^./, c => c.toUpperCase());
 function closeWeek(k) {   // what came of last week's plan, remembered plainly
   for (const p of (A[k].plans || [])) {

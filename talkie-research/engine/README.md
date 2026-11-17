@@ -113,3 +113,41 @@ with a sick child, and Ada answers by her own free deed. `node streettest.js` ru
   longer than the straight line; the clerks take the tram for a penny or twopence, Ada walks). Ada's walk to Moorgate:
   44 minutes; Arthur by tram: 26. Every quarter hour the place of every named person is written to `positions.jsonl`,
   every move with its time to `moves.jsonl`.
+
+## Open world (v11): open deeds, learned rules, time by salience, calibration
+
+Design and order of work: `../DESIGN-dynamic.md`. The engine codes only grounded variables; everything else is
+composed, checked and remembered.
+
+- **Open deeds** (`ops1931.js`, `gm.js`, `registry1931.js`). When the grammar cannot place a sentence of talkie's
+  (several deeds in one sentence, unknown things or places), the game master (a modern Claude model through the
+  headless `claude -p`, answering only in typed fields) writes a short program of primitive operations: go, wait,
+  buy, pay, earn, give, use, pledge, sell, redeem, need, relate, request, talk, create, schedule, away, despair. The
+  engine tries the program on a fork of the world, checks every step (money, ownership, opening hours, distance,
+  price bands of 1931, casual pay rates), and either offers it as the deed or sends the reason back for one repair.
+  Other people's will is never decided by the program: `request` asks them (talkie speaks for them). `create`
+  adds a place, person or thing the deed needs (generate once, persist; talkie names it); places out of London are
+  refused, a journey out of London is `away`.
+- **Provenance of words.** Text a character reads comes only from the character's own sentence, the world's names
+  or the engine's vocabulary. The game master's free text (for, topic, what, hint) is kept only if every content
+  word has such a source; otherwise it is replaced by the character's own clause or dropped. Refusals reach the
+  character in engine words ("it could not be done"), never in the words of the frame.
+- **Learned rules** (`rules1931.js`). A program the game master wrote becomes a template whose arguments point to
+  slots of the sentence (the person, the place, the goods in the character's words, the sum, the thing owned, the
+  shop that sells the goods). Two agreeing cases make a rule; the cases are its tests (each must be re-created from
+  its own slots). Rules are applied without a model call and audited against the game master now and then; a rule
+  that disagrees more often than it agrees is retired. Rules persist (`RULES`, `RULES_SEED`).
+- **Time by salience, weekly plans, promotion** (`tempo1931.js`). talkie is asked only when something is at stake
+  for a person (needs, the mind, rent, illness, arrangements, a plan for the day, a visitor, company); otherwise
+  habit runs on (`TEMPO=fine` restores the old behaviour, `ZMIN` sets the threshold). On Sunday evening (and at the
+  start) each person says what he or she means to see to in the coming week; each item is tried on its day as an
+  open deed, and the week's end notes what was done. Background people with much to do with the main persons are
+  promoted (they remember the dealings, and the memory goes into their decisions and talk) and let go after a
+  fortnight without dealings.
+- **Calibration** (`calib1931.js`). The Buildings (30 households by rule) run for whole years with many seeds on
+  the real day data; births, deaths, infant deaths and men out of work are measured against the Medical Officer of
+  Health's figures for Bermondsey and the Ministry of Labour's local unemployment. Priors live in one place in
+  `street1931.js` (`tune()`); `runs/calib_decade.json` holds the decade check (mean absolute error 1931-1940: 1.5 a
+  thousand for death and birth rates, 1.4 points for men out of work).
+- Tests: `opstest.js` (open deeds in real situations), `rulestest.js` (rules learned and audited with the live game
+  master), `prosetest.js`, `streettest.js`.

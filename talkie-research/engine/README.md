@@ -151,3 +151,24 @@ composed, checked and remembered.
   thousand for death and birth rates, 1.4 points for men out of work).
 - Tests: `opstest.js` (open deeds in real situations), `rulestest.js` (rules learned and audited with the live game
   master), `prosetest.js`, `streettest.js`.
+
+## Running the decade
+
+```
+cd talkie-research/engine
+FAST=1 SAMPLE=4 DAYS=3652 RUN=decade RULES_SEED=runs/open4_rules.json node sim10.js > decade.log 2>&1
+# after any interruption (the same RUN or OUTDIR):
+FAST=1 SAMPLE=4 DAYS=3652 RUN=decade RESUME=1 node sim10.js >> decade.log 2>&1
+```
+
+| Play | talkie calls a day | wall time a day | 3,652 days | game master |
+|---|---|---|---|---|
+| default (time by salience) | 60 | 5.7 min | about 15 days | about 51,000 calls, $55-60 |
+| `FAST=1 SAMPLE=4` (one week in four in full) | 14 | 1.6 min | about 4 days | about 15,000 calls, about $16 |
+| `FAST=1 SAMPLE=8` | about 9 (estimate) | about 1.1 min (estimate) | about 3 days | about $11 |
+
+Measured on 7-day runs (s4_1931) and four sampled weeks (dec28); game-master calls cost about $0.001 each. A run
+writes a checkpoint every evening; scheduled letters and court days are lost on resume. A cloud container can be
+replaced: keep `OUTDIR` where it survives, or push the run directory now and then. The monthly leakage probes
+(`leak1931.js`) and the yearly New Year (ages, memory) run by themselves; `MORTAL=1` lets the main persons die by
+the rates too.

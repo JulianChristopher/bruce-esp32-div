@@ -25,7 +25,7 @@ async function localAsk(msg) {
   STATS.ms = (STATS.ms || 0) + (Date.now() - t0); STATS.timed = (STATS.timed || 0) + 1;
   return (out || '').trim() || null;
 }
-const OUT = path.join(__dirname, process.env.RUN || 'sim10');
+const OUT = process.env.OUTDIR || path.join(__dirname, process.env.RUN || 'sim10');   // OUTDIR: a run directory elsewhere (a long run kept where it survives)
 fs.mkdirSync(OUT, { recursive: true });
 const sleep = ms => new Promise(r => setTimeout(r, FAKE ? 0 : ms));
 const STORY = []; const TRACE = []; const STATS = { asks: 0, choices: 0, unreadable: 0, votes: 0, ledgerRight: 0, ledgerWrong: 0, convs: 0, lines: 0, emptyLines: 0, diaryFallback: 0, probes: [] };
@@ -848,6 +848,37 @@ function lifeAndDeath() {
     }
   }
 }
+// checkpoint and resume (a long run in a container that may be restarted): each evening the state needed to go on
+// with the next day; RESUME=1 (same RUN or OUTDIR) goes on from there. Arrangements already scheduled (a letter in
+// the post, a court day) are closures and are lost on resume, except a journey's return, which is set again.
+function checkpoint(d) {
+  const plain = o => { const r = {}; for (const [k, v] of Object.entries(o)) if (typeof v !== 'function' && !(v instanceof Set)) r[k] = v; return r; };
+  const agents = {}; for (const k in A) agents[k] = plain(A[k]);
+  const people = {}; for (const [id, p] of Object.entries(WORLD.people)) if (!A[id]) people[id] = plain(p);
+  const cp = { day: d, T0, W, agents, people, world: { t: WORLD.t, flags: WORLD.flags, stats: WORLD.stats, objects: WORLD.objects, queue: WORLD.queue.map(x => ({ t: x.t, label: x.label })) },
+    street: STREET.snapshot(), life: LIFE ? { ill: LIFE.ill, log: LIFE.log.slice(-200) } : null, portrait: PROSE.PORTRAIT, sheet: typeof SHEET !== 'undefined' ? SHEET : null, STATS, METRICS };
+  fs.writeFileSync(path.join(OUT, 'checkpoint.tmp'), JSON.stringify(cp)); fs.renameSync(path.join(OUT, 'checkpoint.tmp'), path.join(OUT, 'checkpoint.json'));
+}
+function resume() {
+  const cp = JSON.parse(fs.readFileSync(path.join(OUT, 'checkpoint.json'), 'utf8'));
+  if (cp.T0 !== T0) throw new Error('checkpoint is for another START');
+  Object.assign(WORLD.flags, cp.world.flags); for (const [k, v] of Object.entries(cp.W)) W[k] = v;
+  WORLD.t = cp.world.t; WORLD.stats = cp.world.stats; WORLD.objects = cp.world.objects;
+  for (const k in A) Object.assign(A[k], cp.agents[k] || {});
+  for (const [id, o] of Object.entries(cp.people)) {
+    if (WORLD.people[id]) Object.assign(WORLD.people[id], o);
+    else { WORLD.people[id] = { ...o, routine: /^baby_/.test(id) ? (() => o.home) : (() => null) }; }
+    if (o.dead) WORLD.people[id].routine = () => null; NPC[id] = WORLD.people[id];
+  }
+  STREET.restore(cp.street);
+  if (cp.life) { LIFE = LIFE || LIFEMOD.makeLife(lifeEnv()); for (const k of Object.keys(LIFE.ill)) delete LIFE.ill[k]; Object.assign(LIFE.ill, cp.life.ill); LIFE.log.splice(0, LIFE.log.length, ...cp.life.log); }
+  Object.assign(PROSE.PORTRAIT, cp.portrait || {}); if (cp.sheet && typeof SHEET !== 'undefined') Object.assign(SHEET, cp.sheet);
+  Object.assign(STATS, cp.STATS); for (const [k, v] of Object.entries(cp.METRICS)) METRICS[k] = v;
+  W.storyOut = 0; W.traceOut = 0; STATS.resumes = (STATS.resumes || 0) + 1; STATS.resumeLost = (STATS.resumeLost || 0) + cp.world.queue.filter(x => x.t > WORLD.t).length;
+  for (const k in A) if (A[k].awayUntil > WORLD.t) { const a = A[k]; WORLD.schedule(a.awayUntil, () => { a.away = false; a.awayUntil = 0; a.place = a.home; a.busyUntil = WORLD.t; remember(k, `${a.short} came home again.`, [], 2); }, 'return'); }
+  say(`\n######## Resumed after ${DAYS[cp.day]} (${cp.world.queue.filter(x => x.t > WORLD.t).length} arrangements lost) ########`);
+  return cp.day + 1;
+}
 // a run that starts in a later year starts with everybody as many years older (the sheets are written for January 1931)
 function ageToStart() { const yrs = dateOf(0).getUTCFullYear() - 1931; if (yrs <= 0) return;
   for (const p of Object.values(WORLD.people)) { const a0 = DEC.ageOf(p); if (p.sheet) p.sheet = DEC.ageText(p.sheet, yrs); if (a0 != null) p.age = a0 + yrs; }
@@ -1562,6 +1593,10 @@ async function act(k) {
     if (!zoomed) fork = (unanswered && urg.w >= 85) || visitor || (a.sinceAsked || 0) >= 16;
   }
   if (W.quiet) fork = !!visitor;
+  // work is the day's fixed duty: in its hours the period model is asked only when something cannot wait
+  // (charwomen and clerks went to work whatever they felt; two missed mornings cost Ada her place twice)
+  const workNow = habitStep && /clean|desk|chief|finsbury|ledger|entries|correspondence|office/.test(habitStep.a.id);
+  if (TEMPOMODE !== 'fine' && workNow && !visitor && !(urg && urg.w >= 90)) { if (fork) STATS.workKept = (STATS.workKept || 0) + 1; fork = false; }
   // no list from the engine: at a fork the person is asked openly (several thoughts at weighty moments, one otherwise);
   // the engine only checks what is possible. If nothing usable comes, they do the usual thing (habit, System 1).
   let freeAct = null;
@@ -1675,7 +1710,8 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
 (async () => {
   if (!FAKE && !LOCAL) { const { chromium } = require('playwright'); const proxy = process.env.HTTPS_PROXY ? { server: process.env.HTTPS_PROXY } : undefined; browser = await chromium.launch({ proxy }); }
   const N = Math.min(+(process.env.DAYS || ND), ND), STEP = 15;
-  for (let d = 0; d < N; d++) {
+  const D0 = process.env.RESUME === '1' && fs.existsSync(path.join(OUT, 'checkpoint.json')) ? resume() : 0;
+  for (let d = D0; d < N; d++) {
     W.day = d; W.t = 0; WORLD.t = d * 1440 + hm(6); for (const k in A) { A[k].metToday = new Set(); A[k].forksToday = 0; if (A[k].awayUntil > d * 1440 + hm(6)) continue; if (A[k].busyUntil > d * 1440 + hm(6, 15)) A[k].busyUntil = d * 1440 + hm(6, 15); A[k].place = A[k].home; }
     say(`\n######## ${DAYS[d]}${HOL[d] ? ' — ' + HOL[d] : ''} (${WEATHER[d]}) ########`);
     const asks0 = STATS.asks;
@@ -1732,6 +1768,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
       fs.writeFileSync(path.join(OUT, 'story.txt'), STORY.join('\n'));
       fs.writeFileSync(path.join(OUT, 'trace.json'), JSON.stringify(TRACE));
     }
+    try { checkpoint(d); } catch (e) { STATS.checkpointErrors = (STATS.checkpointErrors || 0) + 1; say(`   !! checkpoint: ${e.message}`); }
   }
   say('\n######## Final memory examination ########');
   W.day = Math.min(N, DAYS.length - 1); for (const k in A) A[k].place = A[k].home;

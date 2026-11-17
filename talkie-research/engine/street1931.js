@@ -159,6 +159,12 @@ function makeStreet(seed = 31) {
       ill: live.reduce((s, h) => s + Object.keys(h.ill).length, 0), flu: live.reduce((s, h) => s + Object.values(h.ill).filter(v => v.flu).length, 0), outOfSteadyWork: live.reduce((s, h) => s + h.members.filter(x => x.unemployedUntil > S.day).length, 0) };
   };
   S.describe = h => `${h.title} and family, No. ${h.no}: ${h.members.map(x => `${x.first} (${x.age}${x.job ? ', ' + JOBS[x.job].name : ''})`).join(', ')}; ${h.rooms} room${h.rooms > 1 ? 's' : ''} at ${money(h.rent)}; ${h.trait}.`;
+  // for a long run that must go on after an interruption: the households and the street's memory, and back again
+  S.snapshot = function () { return { hh, day: S.day, slateTotal: S.slateTotal, standing: S.standing, log: S.log.slice(-300), nextId }; };
+  S.restore = function (o) {
+    hh.splice(0, hh.length, ...(o.hh || [])); S.day = o.day; S.slateTotal = o.slateTotal || 0; S.standing = o.standing || {}; S.log.splice(0, S.log.length, ...(o.log || []));
+    nextId = o.nextId || (Math.max(0, ...hh.map(h => +String(h.id).replace(/\D/g, '') || 0)) + 1); used.clear(); for (const h of hh) if (!h.out) used.add(h.sur);
+  };
   return S;
 }
 function tune(o) { if (o.BIRTH_P != null) BIRTH_P = o.BIRTH_P; if (o.RESCUE != null) RESCUE = o.RESCUE; if (o.EVICT_AFTER != null) EVICT_AFTER = o.EVICT_AFTER; if (o.ROW_P != null) ROW_P = o.ROW_P; if (o.ARREST_P != null) ARREST_P = o.ARREST_P; if (o.CASUAL != null) CASUAL = o.CASUAL; if (o.SLACK_K != null) SLACK_K = o.SLACK_K; if (o.MOVE_P != null) MOVE_P = o.MOVE_P; for (const [k, v] of Object.entries(o.jobs || {})) Object.assign(JOBS[k], v); }

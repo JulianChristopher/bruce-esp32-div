@@ -1,0 +1,2679 @@
+{
+ "METRICS": {
+  "probes": [
+   {
+    "day": 1,
+    "age": 1,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday, the 2nd of January?",
+    "kind": "life",
+    "aided": false,
+    "final": false,
+    "ok": true,
+    "answer": "Yes, in full",
+    "truth": "Yes, in full",
+    "tally": [
+     2,
+     1
+    ],
+    "raws": [
+     "O: Yes; I paid the rent on Friday, the 2nd of January.",
+     "O: I did not.",
+     "O: I did pay it."
+    ]
+   },
+   {
+    "day": 2,
+    "age": 1,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the quarterly ledger?",
+    "kind": "life",
+    "aided": true,
+    "final": false,
+    "ok": true,
+    "answer": "In perfect order",
+    "truth": "In perfect order",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: He found it in perfect order.",
+     "O: Mr. Thomas found the quarterly ledger in perfect order."
+    ]
+   },
+   {
+    "day": 3,
+    "age": 2,
+    "who": "ada",
+    "q": "What became of your husband's watch?",
+    "kind": "life",
+    "aided": false,
+    "final": false,
+    "ok": false,
+    "answer": null,
+    "truth": "I redeemed it from the pawnbroker",
+    "tally": [
+     0,
+     1,
+     1
+    ],
+    "raws": [
+     "O: It went into Barker's.",
+     "O: It became lost.",
+     "O: It was sold.",
+     "C: ",
+     "C: It is still at the pawnshop."
+    ]
+   },
+   {
+    "day": 4,
+    "age": 1,
+    "who": "arthur",
+    "q": "Which member of the Royal Family died at the beginning of January?",
+    "kind": "news",
+    "aided": false,
+    "final": false,
+    "ok": false,
+    "answer": null,
+    "truth": "The Princess Royal, the King's sister",
+    "tally": [
+     1,
+     0,
+     1
+    ],
+    "raws": [
+     "O: ",
+     "O: ",
+     "O: ",
+     "C: It was a quarter past six in the morning on Tuesday, the 6th of January, 1931, and the day was bitter and hard-froste",
+     "C: I answer, \"The Duke of York died.\""
+    ]
+   },
+   {
+    "day": 5,
+    "age": 2,
+    "who": "thomas",
+    "q": "Which member of the Royal Family died at the beginning of January?",
+    "kind": "news",
+    "aided": false,
+    "final": false,
+    "ok": false,
+    "answer": null,
+    "truth": "The Princess Royal, the King's sister",
+    "tally": [
+     0,
+     1,
+     1
+    ],
+    "raws": [
+     "O: Princess Louise died on January the first.",
+     "O: Princess Louise died at the beginning of January.",
+     "O: ",
+     "C: I answer, \"The Duke of York.\"",
+     "C: I answered him, \"The Prince of Wales.\""
+    ]
+   },
+   {
+    "day": 6,
+    "age": 3,
+    "who": "ada",
+    "q": "Which member of the Royal Family died at the beginning of January?",
+    "kind": "news",
+    "aided": true,
+    "final": false,
+    "ok": true,
+    "answer": "The Princess Royal, the King's sister",
+    "truth": "The Princess Royal, the King's sister",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: She answers, \"The Princess Royal died.\"",
+     "O: She answers, \"The Princess Royal died.\""
+    ]
+   },
+   {
+    "day": 7,
+    "age": 7,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday, the 2nd of January?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": false,
+    "answer": "No, I asked the collector to wait",
+    "truth": "Yes, in full",
+    "tally": [
+     0,
+     2
+    ],
+    "raws": [
+     "O: I did not.",
+     "O: ",
+     "O: I did not pay the rent on Friday, the 2nd of January."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 6,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the quarterly ledger?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "In perfect order",
+    "truth": "In perfect order",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: He found them in perfect order.",
+     "O: Mr. Thomas found the quarterly ledger in a state of exact and perfect order."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 6,
+    "who": "ada",
+    "q": "What became of your husband's watch?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": false,
+    "answer": "It is still at the pawnshop",
+    "truth": "I redeemed it from the pawnbroker",
+    "tally": [
+     0,
+     0,
+     2
+    ],
+    "raws": [
+     "O: It became",
+     "O: It went into pawn again.",
+     "O: It became",
+     "C: It is still at the pawnshop.",
+     "C: It remains at the pawnshop."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 4,
+    "who": "arthur",
+    "q": "Which member of the Royal Family died at the beginning of January?",
+    "kind": "news",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "The Princess Royal, the King's sister",
+    "truth": "The Princess Royal, the King's sister",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: ",
+     "O: It was half-past ten at night on Friday, the 9th of January, 1931, and the time and place were London, and Mr. Arthur",
+     "O: ",
+     "C: For the short Answer (to the Question, \"Which member of the Royal Family died at the beginning of January?\") \"The Pri",
+     "C: The Princess Royal, Victoria, daughter of King Edward and Queen Alexandra, died on January 6, 1931. The Prince of Wal"
+    ]
+   },
+   {
+    "day": 7,
+    "age": 4,
+    "who": "thomas",
+    "q": "Which member of the Royal Family died at the beginning of January?",
+    "kind": "news",
+    "aided": false,
+    "final": true,
+    "ok": false,
+    "answer": "The Prince of Wales",
+    "truth": "The Princess Royal, the King's sister",
+    "tally": [
+     0,
+     1,
+     0
+    ],
+    "raws": [
+     "O: ",
+     "O: Princess Louise died on January 2nd.",
+     "O: It was a quarter to twelve, and Mr. Thomas turned to the house door, shutting it, and went upstairs to bed.",
+     "C: ",
+     "C: Mr. Thomas answered, \"The Prince of Wales.\""
+    ]
+   },
+   {
+    "day": 7,
+    "age": 4,
+    "who": "ada",
+    "q": "Which member of the Royal Family died at the beginning of January?",
+    "kind": "news",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "The Princess Royal, the King's sister",
+    "truth": "The Princess Royal, the King's sister",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: A",
+     "O: It was midnight on Sunday, the 11th of January, 1931, and the night was calm and clear.",
+     "O: A member of the Royal Family died at the beginning of January, 1931."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 1,
+    "who": "arthur",
+    "q": "What did Mr. Thomas announce in the week before the audit?",
+    "kind": "life",
+    "aided": false,
+    "final": true,
+    "ok": true,
+    "answer": "The auditors were coming on Monday",
+    "truth": "The auditors were coming on Monday",
+    "tally": [
+     2,
+     0,
+     0
+    ],
+    "raws": [
+     "O: Mr. Thomas announced in the week before the audit that the books must be ready for the auditors on Monday.\n\nHALF-HOUR",
+     "O: He announced that the auditors come on Monday, and the books must be ready for them."
+    ]
+   },
+   {
+    "day": 7,
+    "age": 1,
+    "who": "ada",
+    "q": "What did your sister Lizzie write to you about in January?",
+    "kind": "letter",
+    "aided": false,
+    "final": true,
+    "ok": false,
+    "answer": "That she was ill",
+    "truth": "Work for Bert at the hop-picking in September",
+    "tally": [
+     0,
+     0,
+     2
+    ],
+    "raws": [
+     "O: Lizzie wrote to say",
+     "O: Lizzie wrote to say",
+     "O: ",
+     "C: She wrote that she was ill, and could not come to London.",
+     "C: She wrote to say that she was ill."
+    ]
+   }
+  ],
+  "diaries": [
+   {
+    "day": 0,
+    "who": "ada",
+    "facts": 4,
+    "kept": 1
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "facts": 4,
+    "kept": 3
+   },
+   {
+    "day": 0,
+    "who": "thomas",
+    "facts": 3,
+    "kept": 0
+   },
+   {
+    "day": 1,
+    "who": "ada",
+    "facts": 1,
+    "kept": 1
+   },
+   {
+    "day": 1,
+    "who": "arthur",
+    "facts": 2,
+    "kept": 0
+   },
+   {
+    "day": 1,
+    "who": "thomas",
+    "facts": 1,
+    "kept": 0
+   },
+   {
+    "day": 2,
+    "who": "ada",
+    "facts": 4,
+    "kept": 0
+   },
+   {
+    "day": 2,
+    "who": "arthur",
+    "facts": 4,
+    "kept": 4
+   },
+   {
+    "day": 2,
+    "who": "thomas",
+    "facts": 2,
+    "kept": 2
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 3,
+    "who": "arthur",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 3,
+    "who": "thomas",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 5,
+    "who": "ada",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 5,
+    "who": "arthur",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 5,
+    "who": "thomas",
+    "facts": 0,
+    "kept": 0
+   },
+   {
+    "day": 6,
+    "who": "ada",
+    "facts": 3,
+    "kept": 3
+   },
+   {
+    "day": 6,
+    "who": "arthur",
+    "facts": 3,
+    "kept": 0
+   },
+   {
+    "day": 6,
+    "who": "thomas",
+    "facts": 1,
+    "kept": 1
+   }
+  ],
+  "days": [
+   {
+    "day": 0,
+    "asks": 42,
+    "money": {
+     "ada": 400,
+     "arthur": 884,
+     "thomas": 11142
+    },
+    "needs": {
+     "ada": {
+      "hunger": 23.625,
+      "energy": 6,
+      "warmth": 10.4375,
+      "social": 26.5
+     },
+     "arthur": {
+      "hunger": 22.5,
+      "energy": 8.3,
+      "warmth": 2.75,
+      "social": 0
+     },
+     "thomas": {
+      "hunger": 21.375,
+      "energy": 7.5,
+      "warmth": 0,
+      "social": 12.75
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 24.59962372271859,
+      "arousal": 10,
+      "mood": 2.818547727108215,
+      "surprise": 0
+     },
+     "arthur": {
+      "stress": 5.278917206975594,
+      "arousal": 10,
+      "mood": 3.8633639479791957,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 8.90701745817535,
+      "arousal": 10,
+      "mood": 0.6183234921095283,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "coal": 2
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "read_paper": 3,
+      "gas_penny": 2,
+      "eat_home": 6,
+      "clean_office": 1,
+      "rest": 10,
+      "desk_work": 4,
+      "chief_work": 4,
+      "finsbury": 1,
+      "lunch_bun": 1,
+      "lunch_chop": 1,
+      "talk": 2,
+      "go_home": 3,
+      "d_pawn_watch": 1,
+      "d_go": 1,
+      "light_fire": 1,
+      "sleep": 3
+     },
+     "moves": 13,
+     "npcMoves": 49,
+     "perceived": 7,
+     "facts": 0,
+     "told": 0,
+     "fares": 4
+    }
+   },
+   {
+    "day": 1,
+    "asks": 49,
+    "money": {
+     "ada": 209,
+     "arthur": 209,
+     "thomas": 10238
+    },
+    "needs": {
+     "ada": {
+      "hunger": 35.125,
+      "energy": 8.3,
+      "warmth": 43.912499999999994,
+      "social": 0
+     },
+     "arthur": {
+      "hunger": 22.5,
+      "energy": 8.3,
+      "warmth": 2.75,
+      "social": 0
+     },
+     "thomas": {
+      "hunger": 21.375,
+      "energy": 7.5,
+      "warmth": 0,
+      "social": 12.75
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 9.136317580255405,
+      "arousal": 10,
+      "mood": -5.305862260617682,
+      "surprise": -0.9693551957930517
+     },
+     "arthur": {
+      "stress": 3.527257792446036,
+      "arousal": 10,
+      "mood": 5.940702716224491,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 7.12063632369075,
+      "arousal": 10,
+      "mood": 1.9534431749436865,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "coal": 5,
+     "food": 3
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "read_paper": 6,
+      "gas_penny": 5,
+      "eat_home": 11,
+      "clean_office": 2,
+      "rest": 21,
+      "desk_work": 6,
+      "chief_work": 6,
+      "finsbury": 2,
+      "lunch_bun": 1,
+      "lunch_chop": 1,
+      "talk": 6,
+      "go_home": 7,
+      "d_pawn_watch": 1,
+      "d_go": 1,
+      "light_fire": 2,
+      "sleep": 6,
+      "d_walk": 1,
+      "buy_food": 1,
+      "market": 1,
+      "redeem_watch": 1,
+      "gm_deed": 1,
+      "buy_coal": 1
+     },
+     "moves": 25,
+     "npcMoves": 97,
+     "perceived": 12,
+     "facts": 0,
+     "told": 0,
+     "fares": 8
+    }
+   },
+   {
+    "day": 2,
+    "asks": 31,
+    "money": {
+     "ada": 201,
+     "arthur": 195,
+     "thomas": 10222
+    },
+    "needs": {
+     "ada": {
+      "hunger": 24.75,
+      "energy": 4.5,
+      "warmth": 55.412499999999994,
+      "social": 0
+     },
+     "arthur": {
+      "hunger": 24.75,
+      "energy": 6,
+      "warmth": 22.5,
+      "social": 0
+     },
+     "thomas": {
+      "hunger": 24.75,
+      "energy": 6,
+      "warmth": 18.874999999999996,
+      "social": 27
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 17.05692240836625,
+      "arousal": 10,
+      "mood": -0.10307044181845448,
+      "surprise": -0.00019723312068000676
+     },
+     "arthur": {
+      "stress": 0.5390715936304183,
+      "arousal": 10,
+      "mood": 12.351398827301344,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 5.730311506899885,
+      "arousal": 10,
+      "mood": 4.456468536662735,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "coal": 3
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "read_paper": 9,
+      "gas_penny": 8,
+      "eat_home": 19,
+      "clean_office": 2,
+      "rest": 51,
+      "desk_work": 6,
+      "chief_work": 6,
+      "finsbury": 2,
+      "lunch_bun": 1,
+      "lunch_chop": 1,
+      "talk": 7,
+      "go_home": 9,
+      "d_pawn_watch": 1,
+      "d_go": 2,
+      "light_fire": 4,
+      "sleep": 9,
+      "d_walk": 2,
+      "buy_food": 1,
+      "market": 1,
+      "redeem_watch": 1,
+      "gm_deed": 1,
+      "buy_coal": 1,
+      "d_pray": 1,
+      "worship": 3,
+      "walk_park": 1
+     },
+     "moves": 33,
+     "npcMoves": 129,
+     "perceived": 13,
+     "facts": 0,
+     "told": 0,
+     "fares": 10
+    }
+   },
+   {
+    "day": 3,
+    "asks": 26,
+    "money": {
+     "ada": 131,
+     "arthur": 174,
+     "thomas": 10204
+    },
+    "needs": {
+     "ada": {
+      "hunger": 36.25,
+      "energy": 8.3,
+      "warmth": 34.724999999999994,
+      "social": 0
+     },
+     "arthur": {
+      "hunger": 18,
+      "energy": 8.3,
+      "warmth": 2.75,
+      "social": 0
+     },
+     "thomas": {
+      "hunger": 21.375,
+      "energy": 7.5,
+      "warmth": 0,
+      "social": 12.75
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 9.11136517483047,
+      "arousal": 10,
+      "mood": -3.538716974074195,
+      "surprise": -4.013070137964071e-8
+     },
+     "arthur": {
+      "stress": 3.4698006397409973,
+      "arousal": 10,
+      "mood": 10.355955176279725,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 6.603977659790226,
+      "arousal": 10,
+      "mood": 5.2813455098399045,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "coal": 5,
+     "paper": 1,
+     "food": 5
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "read_paper": 12,
+      "gas_penny": 10,
+      "eat_home": 24,
+      "clean_office": 3,
+      "rest": 62,
+      "desk_work": 10,
+      "chief_work": 10,
+      "finsbury": 3,
+      "lunch_bun": 1,
+      "lunch_chop": 3,
+      "talk": 7,
+      "go_home": 12,
+      "d_pawn_watch": 1,
+      "d_go": 4,
+      "light_fire": 6,
+      "sleep": 12,
+      "d_walk": 2,
+      "buy_food": 3,
+      "market": 1,
+      "redeem_watch": 1,
+      "gm_deed": 2,
+      "buy_coal": 2,
+      "d_pray": 1,
+      "worship": 3,
+      "walk_park": 1,
+      "d_busy": 2
+     },
+     "moves": 46,
+     "npcMoves": 176,
+     "perceived": 23,
+     "facts": 0,
+     "told": 0,
+     "fares": 14
+    }
+   },
+   {
+    "day": 4,
+    "asks": 23,
+    "money": {
+     "ada": 128,
+     "arthur": 153,
+     "thomas": 10174
+    },
+    "needs": {
+     "ada": {
+      "hunger": 23.625,
+      "energy": 4.5,
+      "warmth": 30.287499999999994,
+      "social": 0
+     },
+     "arthur": {
+      "hunger": 18,
+      "energy": 8.3,
+      "warmth": 2.75,
+      "social": 0
+     },
+     "thomas": {
+      "hunger": 24.75,
+      "energy": 6,
+      "warmth": 0,
+      "social": 12.75
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 6.474411775420781,
+      "arousal": 10,
+      "mood": 0.5587176122189769,
+      "surprise": -8.165328356968737e-12
+     },
+     "arthur": {
+      "stress": 3.555983430115128,
+      "arousal": 10,
+      "mood": 8.046292415315738,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 7.0826854269094,
+      "arousal": 10,
+      "mood": 3.3251957252119273,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "coal": 3,
+     "paper": 1,
+     "food": 3
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h3": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h3": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h3": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "read_paper": 15,
+      "gas_penny": 12,
+      "eat_home": 29,
+      "clean_office": 3,
+      "rest": 74,
+      "desk_work": 14,
+      "chief_work": 14,
+      "finsbury": 4,
+      "lunch_bun": 1,
+      "lunch_chop": 5,
+      "talk": 7,
+      "go_home": 15,
+      "d_pawn_watch": 1,
+      "d_go": 4,
+      "light_fire": 8,
+      "sleep": 15,
+      "d_walk": 2,
+      "buy_food": 3,
+      "market": 1,
+      "redeem_watch": 1,
+      "gm_deed": 2,
+      "buy_coal": 2,
+      "d_pray": 1,
+      "worship": 3,
+      "walk_park": 1,
+      "d_busy": 3,
+      "d_eat_out": 1
+     },
+     "moves": 57,
+     "npcMoves": 222,
+     "perceived": 30,
+     "facts": 0,
+     "told": 0,
+     "fares": 18
+    }
+   },
+   {
+    "day": 5,
+    "asks": 20,
+    "money": {
+     "ada": 125,
+     "arthur": 130,
+     "thomas": 10156
+    },
+    "needs": {
+     "ada": {
+      "hunger": 23.625,
+      "energy": 4.5,
+      "warmth": 30.974999999999994,
+      "social": 0
+     },
+     "arthur": {
+      "hunger": 16.875,
+      "energy": 7.5,
+      "warmth": 2.125,
+      "social": 0
+     },
+     "thomas": {
+      "hunger": 21.375,
+      "energy": 7.5,
+      "warmth": 0,
+      "social": 12.75
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 8.345601363234328,
+      "arousal": 10,
+      "mood": -4.014324864524898,
+      "surprise": -1.6613860432287983e-15
+     },
+     "arthur": {
+      "stress": 5.05136748031199,
+      "arousal": 10,
+      "mood": 1.086718494880552,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 6.624793193413033,
+      "arousal": 10,
+      "mood": 3.270108939806473,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "coal": 2,
+     "paper": 1,
+     "food": 1
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h3": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h3": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h3": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "read_paper": 18,
+      "gas_penny": 14,
+      "eat_home": 35,
+      "clean_office": 4,
+      "rest": 83,
+      "desk_work": 18,
+      "chief_work": 18,
+      "finsbury": 5,
+      "lunch_bun": 1,
+      "lunch_chop": 7,
+      "talk": 7,
+      "go_home": 19,
+      "d_pawn_watch": 1,
+      "d_go": 5,
+      "light_fire": 9,
+      "sleep": 18,
+      "d_walk": 2,
+      "buy_food": 3,
+      "market": 1,
+      "redeem_watch": 1,
+      "gm_deed": 2,
+      "buy_coal": 2,
+      "d_pray": 1,
+      "worship": 3,
+      "walk_park": 1,
+      "d_busy": 3,
+      "d_eat_out": 1,
+      "d_mend": 1
+     },
+     "moves": 70,
+     "npcMoves": 269,
+     "perceived": 39,
+     "facts": 0,
+     "told": 0,
+     "fares": 24
+    }
+   },
+   {
+    "day": 6,
+    "asks": 25,
+    "money": {
+     "ada": 56,
+     "arthur": 109,
+     "thomas": 10138
+    },
+    "needs": {
+     "ada": {
+      "hunger": 24.75,
+      "energy": 20,
+      "warmth": 54.912499999999994,
+      "social": 0
+     },
+     "arthur": {
+      "hunger": 18,
+      "energy": 8.3,
+      "warmth": 2.75,
+      "social": 0
+     },
+     "thomas": {
+      "hunger": 21.375,
+      "energy": 7.5,
+      "warmth": 0,
+      "social": 12.75
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 25.555884763011296,
+      "arousal": 10,
+      "mood": 1.4245190241802936,
+      "surprise": -3.3803950851281265e-19
+     },
+     "arthur": {
+      "stress": 3.5946541892379003,
+      "arousal": 10,
+      "mood": 6.1173016661087685,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 7.853646803891482,
+      "arousal": 10,
+      "mood": -2.7410683939401452,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "coal": 1,
+     "paper": 1,
+     "food": 5,
+     "quinine and ammoniated tinctur": 1
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h3": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h3": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 2,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h3": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "read_paper": 21,
+      "gas_penny": 16,
+      "eat_home": 41,
+      "clean_office": 5,
+      "rest": 93,
+      "desk_work": 22,
+      "chief_work": 22,
+      "finsbury": 6,
+      "lunch_bun": 1,
+      "lunch_chop": 9,
+      "talk": 7,
+      "go_home": 23,
+      "d_pawn_watch": 1,
+      "d_go": 5,
+      "light_fire": 10,
+      "sleep": 20,
+      "d_walk": 2,
+      "buy_food": 5,
+      "market": 1,
+      "redeem_watch": 1,
+      "gm_deed": 3,
+      "buy_coal": 2,
+      "d_pray": 1,
+      "worship": 3,
+      "walk_park": 1,
+      "d_busy": 3,
+      "d_eat_out": 1,
+      "d_mend": 1,
+      "own": 1
+     },
+     "moves": 84,
+     "npcMoves": 316,
+     "perceived": 45,
+     "facts": 0,
+     "told": 0,
+     "fares": 28
+    }
+   }
+  ],
+  "plans": [
+   {
+    "who": "ada",
+    "day": 3,
+    "dow": "mon",
+    "text": "washes the office towels",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "arthur",
+    "day": 3,
+    "dow": "mon",
+    "text": "goes to bed early, and so to sleep soundly",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "thomas",
+    "day": 3,
+    "dow": "mon",
+    "text": "goes to Brighton for a holiday and would return on Thursday night",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   }
+  ],
+  "knowledge": [
+   {
+    "id": "g1",
+    "day": 1,
+    "about": "street",
+    "text": "Mr. Fred Riley of No. 11 came home from the Nelson the worse for drink, and there was a row.",
+    "reach": 7,
+    "maxHops": 2,
+    "distorted": 2,
+    "knownBy": [
+     "ada",
+     "nolan",
+     "barker",
+     "lamb",
+     "pc",
+     "pollock",
+     "hughes"
+    ]
+   },
+   {
+    "id": "g2",
+    "day": 1,
+    "about": "street",
+    "text": "Ted Price of No. 21 has been stood off from his place as a carman.",
+    "reach": 5,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan",
+     "barker",
+     "lamb",
+     "pc",
+     "hughes"
+    ]
+   },
+   {
+    "id": "g3",
+    "day": 2,
+    "about": "street",
+    "text": "Betty Price of No. 21 died, a baby of a few months.",
+    "reach": 4,
+    "maxHops": 0,
+    "distorted": 1,
+    "knownBy": [
+     "ada",
+     "nolan",
+     "barker",
+     "lamb",
+     "pc",
+     "hughes"
+    ]
+   },
+   {
+    "id": "g4",
+    "day": 4,
+    "about": "ada",
+    "text": "Mrs. Dot Mahoney of No. 3 asks if Mrs. Turner will sit with Sonny an hour while she goes to the chemist's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "ada"
+    ]
+   }
+  ],
+  "standing": [
+   {
+    "day": 0,
+    "ada": 0
+   },
+   {
+    "day": 1,
+    "ada": 0
+   },
+   {
+    "day": 2,
+    "ada": 0
+   },
+   {
+    "day": 3,
+    "ada": 0
+   },
+   {
+    "day": 4,
+    "ada": 0
+   },
+   {
+    "day": 5,
+    "ada": -0.3
+   },
+   {
+    "day": 6,
+    "ada": -0.3
+   }
+  ],
+  "street": [
+   {
+    "day": 0,
+    "households": 30,
+    "people": 107,
+    "slateAtBarkers": "5s. 10d.",
+    "pledgedAtLambs": 1,
+    "inArrears": 0,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 0,
+    "flu": 0,
+    "outOfSteadyWork": 0,
+    "events": [
+     "pawn"
+    ]
+   },
+   {
+    "day": 1,
+    "households": 30,
+    "people": 107,
+    "slateAtBarkers": "1s. 0d.",
+    "pledgedAtLambs": 1,
+    "inArrears": 0,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 0,
+    "flu": 0,
+    "outOfSteadyWork": 1,
+    "events": [
+     "row",
+     "row",
+     "stoodoff",
+     "pawn"
+    ]
+   },
+   {
+    "day": 2,
+    "households": 30,
+    "people": 106,
+    "slateAtBarkers": "4s. 5d.",
+    "pledgedAtLambs": 1,
+    "inArrears": 0,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 0,
+    "flu": 0,
+    "outOfSteadyWork": 1,
+    "events": [
+     "death"
+    ]
+   },
+   {
+    "day": 3,
+    "households": 30,
+    "people": 106,
+    "slateAtBarkers": "4s. 5d.",
+    "pledgedAtLambs": 5,
+    "inArrears": 4,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 0,
+    "flu": 0,
+    "outOfSteadyWork": 1,
+    "events": [
+     "pawn"
+    ]
+   },
+   {
+    "day": 4,
+    "households": 30,
+    "people": 106,
+    "slateAtBarkers": "4s. 7d.",
+    "pledgedAtLambs": 5,
+    "inArrears": 4,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 1,
+    "flu": 1,
+    "outOfSteadyWork": 1,
+    "events": [
+     "flu"
+    ]
+   },
+   {
+    "day": 5,
+    "households": 30,
+    "people": 106,
+    "slateAtBarkers": "6s. 5d.",
+    "pledgedAtLambs": 5,
+    "inArrears": 4,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 1,
+    "flu": 1,
+    "outOfSteadyWork": 1,
+    "events": []
+   },
+   {
+    "day": 6,
+    "households": 30,
+    "people": 106,
+    "slateAtBarkers": "9s. 11d.",
+    "pledgedAtLambs": 5,
+    "inArrears": 4,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 1,
+    "flu": 1,
+    "outOfSteadyWork": 1,
+    "events": []
+   }
+  ],
+  "decisions": [
+   {
+    "day": 0,
+    "t": 1095,
+    "who": "ada",
+    "mode": "deliberate",
+    "urgent": [
+     "rent"
+    ],
+    "chosen": "Pawn her late husband's silver watch for 10s. 0d. (4 minutes' walk)",
+    "chosenScore": null,
+    "best": "Buy bread, margarine, tea and a bit of bacon at Barker's: three meals for two (2s. 3d.); 0",
+    "bestScore": -2.4666666666666472,
+    "worstScore": -4.2666666666666515,
+    "n": 6,
+    "ms": 1035
+   },
+   {
+    "day": 0,
+    "t": 1125,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [
+     "rent"
+    ],
+    "chosen": "Go to Mrs. Turner's two rooms in Bermondsey (4 minutes' walk)",
+    "chosenScore": null,
+    "best": "Pawn her wedding ring at Lamb's for 5s. 0d.",
+    "bestScore": 8.183333333333351,
+    "worstScore": -4.816666666666649,
+    "n": 8,
+    "ms": 1424
+   },
+   {
+    "day": 1,
+    "t": 375,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Sit by the fire and rest",
+    "chosenScore": 21.35,
+    "best": "Read the Daily Herald over breakfast (1d.)",
+    "bestScore": 21.35,
+    "worstScore": 21.35,
+    "n": 2,
+    "ms": 302,
+    "regret": 0,
+    "rel": 1
+   },
+   {
+    "day": 1,
+    "t": 435,
+    "who": "thomas",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Take a walk",
+    "chosenScore": null,
+    "best": "Sit by the fire and rest",
+    "bestScore": 34.99166666666667,
+    "worstScore": 34.99166666666667,
+    "n": 1,
+    "ms": 179
+   },
+   {
+    "day": 1,
+    "t": 990,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [
+     "hunger"
+    ],
+    "chosen": "Goes to Barker's, the grocer, and buys tea, coffee, and sugar, on credit",
+    "chosenScore": null,
+    "best": "Buy a hundredweight of coal at Barker's (1s.); 1 fires' worth left (2 minutes' walk)",
+    "bestScore": 11.537499999999998,
+    "worstScore": -0.8249999999999993,
+    "n": 2,
+    "ms": 139
+   },
+   {
+    "day": 2,
+    "t": 555,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Pray quietly",
+    "chosenScore": null,
+    "best": "Sit by the fire and rest",
+    "bestScore": 7.695833333333335,
+    "worstScore": 7.695833333333335,
+    "n": 1,
+    "ms": 6
+   },
+   {
+    "day": 2,
+    "t": 765,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Go to Mrs. Turner's two rooms in Bermondsey (7 minutes' walk)",
+    "chosenScore": null,
+    "best": "Go home (7 minutes' walk)",
+    "bestScore": -16.212499999999995,
+    "worstScore": -16.212499999999995,
+    "n": 1,
+    "ms": 5
+   },
+   {
+    "day": 2,
+    "t": 765,
+    "who": "thomas",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Take a walk (17 minutes' walk)",
+    "chosenScore": null,
+    "best": "Go home (17 minutes' walk)",
+    "bestScore": 32.245833333333344,
+    "worstScore": 32.245833333333344,
+    "n": 1,
+    "ms": 7
+   },
+   {
+    "day": 3,
+    "t": 405,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Go to the Hales' house in Islington",
+    "chosenScore": null,
+    "best": "Have breakfast",
+    "bestScore": 5.291666666666668,
+    "worstScore": 5.291666666666668,
+    "n": 2,
+    "ms": 10
+   },
+   {
+    "day": 3,
+    "t": 405,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [
+     "work"
+    ],
+    "chosen": "Goes to the newsagent and tobacconist's and buys a penny evening paper",
+    "chosenScore": null,
+    "best": "Sit by the fire and rest her feet",
+    "bestScore": -14.174999999999997,
+    "worstScore": -14.174999999999997,
+    "n": 1,
+    "ms": 6
+   },
+   {
+    "day": 3,
+    "t": 765,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "thinks of clearing up arrears of work (these arrears are arrears of rent, and sh",
+    "chosenScore": null,
+    "best": "Buy bread, margarine, tea and a bit of bacon at Barker's: three meals for two (2s. 3d.); 0",
+    "bestScore": -14.170833333333318,
+    "worstScore": -14.170833333333318,
+    "n": 1,
+    "ms": 5
+   },
+   {
+    "day": 3,
+    "t": 810,
+    "who": "thomas",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Go to the clerks' room of the Moorgate Fire and Life Assurance Company (2 minutes' walk)",
+    "chosenScore": null,
+    "n": 0,
+    "ms": 1
+   },
+   {
+    "day": 3,
+    "t": 1080,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "works in peace",
+    "chosenScore": null,
+    "best": "Have tea with the family",
+    "bestScore": 3.7083333333333552,
+    "worstScore": 3.7083333333333552,
+    "n": 2,
+    "ms": 9
+   },
+   {
+    "day": 4,
+    "t": 420,
+    "who": "ada",
+    "mode": "deliberate",
+    "urgent": [
+     "work"
+    ],
+    "chosen": "Sit by the fire and rest her feet",
+    "chosenScore": -7.089583333333332,
+    "best": "Light the fire (5 fires' worth of coal left)",
+    "bestScore": -5.172916666666664,
+    "worstScore": -9.416666666666666,
+    "n": 3,
+    "ms": 13,
+    "regret": 1.9,
+    "rel": 0.55
+   },
+   {
+    "day": 4,
+    "t": 480,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [
+     "work",
+     "cold"
+    ],
+    "chosen": "Sit by the fire and rest her feet",
+    "chosenScore": -10.227083333333328,
+    "best": "Light the fire (5 fires' worth of coal left)",
+    "bestScore": -8.039583333333328,
+    "worstScore": -10.366666666666662,
+    "n": 3,
+    "ms": 11,
+    "regret": 2.2,
+    "rel": 0.06
+   },
+   {
+    "day": 4,
+    "t": 1050,
+    "who": "thomas",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Eat a chop and potatoes at the Lyons tea-shop in Moorgate (1s. 0d.) (2 minutes' walk)",
+    "chosenScore": null,
+    "best": "Go home (33 minutes' walk)",
+    "bestScore": 26.15000000000002,
+    "worstScore": 26.15000000000002,
+    "n": 1,
+    "ms": 5
+   },
+   {
+    "day": 4,
+    "t": 1080,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "continues work",
+    "chosenScore": null,
+    "best": "Have tea with the family",
+    "bestScore": 1.9583333333333552,
+    "worstScore": 1.9583333333333552,
+    "n": 2,
+    "ms": 10
+   },
+   {
+    "day": 4,
+    "t": 1095,
+    "who": "ada",
+    "mode": "deliberate",
+    "urgent": [
+     "cold"
+    ],
+    "chosen": "Sit by the fire and rest her feet",
+    "chosenScore": -11.787499999999975,
+    "best": "Light the fire (4 fires' worth of coal left)",
+    "bestScore": -11.787499999999975,
+    "worstScore": -14.87083333333331,
+    "n": 6,
+    "ms": 33,
+    "regret": 0,
+    "rel": 1
+   },
+   {
+    "day": 5,
+    "t": 1080,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Go to the clerks' room of the Moorgate Fire and Life Assurance Company (26 minutes' walk)",
+    "chosenScore": null,
+    "best": "Have tea with the family",
+    "bestScore": 0.20833333333335524,
+    "worstScore": 0.20833333333335524,
+    "n": 2,
+    "ms": 12
+   },
+   {
+    "day": 5,
+    "t": 1185,
+    "who": "thomas",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Sit by the fire and rest",
+    "chosenScore": 35.90833333333335,
+    "best": "Listen to the wireless by the fire",
+    "bestScore": 35.90833333333335,
+    "worstScore": 35.90833333333335,
+    "n": 2,
+    "ms": 20,
+    "regret": 0,
+    "rel": 1
+   },
+   {
+    "day": 5,
+    "t": 1215,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Sits down and sews",
+    "chosenScore": null,
+    "best": "Sit by the fire and rest her feet",
+    "bestScore": -14.843749999999972,
+    "worstScore": -14.843749999999972,
+    "n": 1,
+    "ms": 11
+   },
+   {
+    "day": 6,
+    "t": 1080,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "takes his holiday, and lie abed till noon",
+    "chosenScore": null,
+    "best": "Have tea with the family",
+    "bestScore": -1.9583333333333108,
+    "worstScore": -1.9583333333333108,
+    "n": 2,
+    "ms": 10
+   },
+   {
+    "day": 6,
+    "t": 1080,
+    "who": "ada",
+    "mode": "habit",
+    "urgent": [],
+    "chosen": "Put a penny in the gas meter for light",
+    "chosenScore": -21.99583333333331,
+    "best": "Buy a hundredweight of coal at Barker's (1s. 3d., dearer in the frost); 1 fires' worth lef",
+    "bestScore": -16.612499999999976,
+    "worstScore": -21.99583333333331,
+    "n": 3,
+    "ms": 25,
+    "regret": 5.4,
+    "rel": 0
+   },
+   {
+    "day": 6,
+    "t": 1155,
+    "who": "ada",
+    "mode": "deliberate",
+    "urgent": [],
+    "chosen": "Borrows two shillings from Mrs. Mahoney, and goes to the chemist's to buy quinine and ammo",
+    "chosenScore": null,
+    "best": "Buy a hundredweight of coal at Barker's (1s. 3d., dearer in the frost); 1 fires' worth lef",
+    "bestScore": -15.543749999999974,
+    "worstScore": -23.541666666666636,
+    "n": 3,
+    "ms": 18
+   }
+  ]
+ },
+ "STATS": {
+  "asks": 252,
+  "choices": 44,
+  "unreadable": 4,
+  "votes": 0,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 9,
+  "lines": 48,
+  "emptyLines": 9,
+  "diaryFallback": 0,
+  "probes": [],
+  "maxLen": 2100,
+  "lenSum": 331122,
+  "aborted": 255,
+  "ms": 147098,
+  "timed": 229,
+  "planItems": 9,
+  "fetchMs": 2,
+  "zoom": {
+   "on": 11,
+   "off": 316
+  },
+  "autoChoices": 304,
+  "papers": 21,
+  "duties": 2,
+  "bookRight": 7,
+  "failedReq": 255,
+  "retries": 46,
+  "promptEcho": 16,
+  "bookRetry": 3,
+  "bookFixed": 3,
+  "deeds": {
+   "pawn": 6,
+   "go": 5,
+   "rest": 6,
+   "walk": 3,
+   "buy": 6,
+   "pray": 1,
+   "work": 3,
+   "eat": 1,
+   "read": 2,
+   "mend": 1,
+   "borrow": 1
+  },
+  "gmOpen": 11,
+  "gmOpenOk": 6,
+  "gmOps": {
+   "go": 7,
+   "pledge": 1,
+   "buy": 5,
+   "request": 2,
+   "earn": 1,
+   "create": 1
+  },
+  "deliberations": 9,
+  "agreed": 4,
+  "judged": 24,
+  "trimmed": 52,
+  "secondThoughts": 2,
+  "openRetry": 3,
+  "open": 13,
+  "openUsed": 11,
+  "openVerbs": {
+   "go": 5,
+   "rest": 1,
+   "walk": 1,
+   "pray": 1,
+   "other": 1,
+   "eat": 1,
+   "work": 1
+  },
+  "dreams": 21,
+  "gm": {
+   "calls": 79,
+   "ms": 261354,
+   "cost": 0.07119392,
+   "errors": 0
+  },
+  "prov": {
+   "kept": 14,
+   "replaced": 0,
+   "dropped": 2
+  },
+  "rules": {
+   "learned": 1,
+   "used": 1,
+   "shadow": 1,
+   "agree": 1,
+   "disagree": 0,
+   "retired": 0,
+   "tested": 1,
+   "failedTests": 0
+  },
+  "echo": 3,
+  "echoLeft": 1,
+  "distorted": 3,
+  "npcGossip": 12,
+  "foresight": 3,
+  "pickedOwn": 3,
+  "gossip": 1,
+  "nullReplies": 2,
+  "consents": 1,
+  "planUnread": 2,
+  "nightmares": 5,
+  "ruleLearned": 1,
+  "ruleUsed": 1,
+  "planDone": 5,
+  "gmOpenRefused": 3,
+  "openRefused": 1,
+  "visits": 2,
+  "letters": 1,
+  "openEmpty": 1,
+  "errors": 14,
+  "named": 1,
+  "created": 1
+ },
+ "W": {
+  "wage": 840,
+  "day": 7,
+  "t": 1380,
+  "coin": {
+   "where": "floor",
+   "finder": null
+  },
+  "ledger": {
+   "steps": 3,
+   "errors": 0,
+   "assigned": true,
+   "need": 3,
+   "verdict": "in perfect order"
+  },
+  "audit": {
+   "steps": 4,
+   "errors": 0,
+   "verdict": null,
+   "raise": null
+  },
+  "paid": {
+   "ada0": true,
+   "arthur0": true
+  },
+  "rentPaid": {
+   "0": true
+  },
+  "doctor": null,
+  "extraHours": null,
+  "loan": null,
+  "facts": [
+   {
+    "day": 0,
+    "who": "ada",
+    "q": "Did you pay the rent on Friday, the 2nd of January?",
+    "opts": [
+     "Yes, in full",
+     "No, I asked the collector to wait"
+    ],
+    "truth": 0,
+    "kind": "life",
+    "asked": 1
+   },
+   {
+    "day": 1,
+    "who": "arthur",
+    "q": "In what state did Mr. Thomas find the quarterly ledger?",
+    "opts": [
+     "In perfect order",
+     "Complete but with mistakes",
+     "Not finished"
+    ],
+    "truth": 0,
+    "kind": "life",
+    "asked": 1
+   },
+   {
+    "day": 1,
+    "who": "ada",
+    "q": "What became of your husband's watch?",
+    "opts": [
+     "I redeemed it from the pawnbroker",
+     "The pawnbroker sold it",
+     "It is still at the pawnshop"
+    ],
+    "truth": 0,
+    "kind": "life",
+    "asked": 1
+   },
+   {
+    "day": 3,
+    "who": "arthur",
+    "q": "Which member of the Royal Family died at the beginning of January?",
+    "opts": [
+     "The Princess Royal, the King's sister",
+     "The Prince of Wales",
+     "The Duke of York"
+    ],
+    "truth": 0,
+    "kind": "news",
+    "asked": 1
+   },
+   {
+    "day": 3,
+    "who": "thomas",
+    "q": "Which member of the Royal Family died at the beginning of January?",
+    "opts": [
+     "The Princess Royal, the King's sister",
+     "The Prince of Wales",
+     "The Duke of York"
+    ],
+    "truth": 0,
+    "kind": "news",
+    "asked": 1
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "q": "Which member of the Royal Family died at the beginning of January?",
+    "opts": [
+     "The Princess Royal, the King's sister",
+     "The Prince of Wales",
+     "The Duke of York"
+    ],
+    "truth": 0,
+    "kind": "news",
+    "asked": 1
+   },
+   {
+    "day": 6,
+    "who": "arthur",
+    "q": "What did Mr. Thomas announce in the week before the audit?",
+    "opts": [
+     "The auditors were coming on Monday",
+     "The office would close early",
+     "Wages would be paid late"
+    ],
+    "truth": 0,
+    "kind": "life"
+   },
+   {
+    "day": 6,
+    "who": "ada",
+    "q": "What did your sister Lizzie write to you about in January?",
+    "opts": [
+     "Work for Bert at the hop-picking in September",
+     "That she was coming to London",
+     "That she was ill"
+    ],
+    "truth": 0,
+    "kind": "letter"
+   }
+  ],
+  "bertWork": true,
+  "joanIll": false,
+  "rentDue": false,
+  "rentOwing": false,
+  "gossip": {
+   "g1": {
+    "id": "g1",
+    "text": "Mr. Fred Riley of No. 11 came home from the Nelson the worse for drink, and there was a row.",
+    "about": "street",
+    "day": 1,
+    "origin": "nolan",
+    "reach": 7,
+    "distorted": 2,
+    "maxHops": 2,
+    "versions": [
+     {
+      "to": "ada",
+      "hops": 2,
+      "retained": 1
+     }
+    ]
+   },
+   "g2": {
+    "id": "g2",
+    "text": "Ted Price of No. 21 has been stood off from his place as a carman.",
+    "about": "street",
+    "day": 1,
+    "origin": "nolan",
+    "reach": 5
+   },
+   "g3": {
+    "id": "g3",
+    "text": "Betty Price of No. 21 died, a baby of a few months.",
+    "about": "street",
+    "day": 2,
+    "origin": "nolan",
+    "reach": 4,
+    "distorted": 1
+   },
+   "g4": {
+    "id": "g4",
+    "text": "Mrs. Dot Mahoney of No. 3 asks if Mrs. Turner will sit with Sonny an hour while she goes to the chemist's.",
+    "about": "ada",
+    "day": 4,
+    "origin": "ada"
+   },
+   "g5": {
+    "id": "g5",
+    "text": "Mrs. Dot Mahoney of No. 3 asks Mrs. Turner for the loan of two shillings till Saturday.",
+    "about": "ada",
+    "day": 6,
+    "origin": "ada"
+   }
+  },
+  "nsal": {
+   "fenn": 0.26400466093749997,
+   "barker": 0.7542990312499998,
+   "nb_h3": 1.7225,
+   "reg_mrs_mahoney_a_neighbour": 0.7
+  },
+  "prom": {},
+  "former": {},
+  "birthday": false,
+  "standWords": "",
+  "debtada": false,
+  "debtarthur": false,
+  "topicCache": {
+   "arthur>edith": {
+    "topic": "the garden and the seedlings"
+   },
+   "arthur>joan": {
+    "topic": "what the paper says: Britons, accustomed to iron-handed discipline aboard the ships of His Majesty’s navy, were astonished today at…"
+   },
+   "ada>bert": {
+    "topic": "what the paper says: Britons, accustomed to iron-handed discipline aboard the ships of His Majesty’s navy, were astonished today at…"
+   },
+   "thomas>dunn": {
+    "topic": "the weather"
+   },
+   "ada>arthur": {
+    "topic": "how things are at home"
+   },
+   "ada>thomas": {
+    "topic": "a silver pencil she found under a desk in the clerks' room"
+   },
+   "ada>fenn": {
+    "topic": "a silver pencil she found under a desk in the clerks' room"
+   },
+   "arthur>thomas": {
+    "topic": "the weather"
+   },
+   "arthur>fenn": {
+    "topic": "how things are with them"
+   },
+   "thomas>arthur": {
+    "topic": "what the paper says: Britons, accustomed to iron-handed discipline aboard the ships of His Majesty’s navy, were astonished today at…"
+   },
+   "thomas>fenn": {
+    "topic": "how things are with them"
+   },
+   "ada>lamb": {
+    "topic": "the weather"
+   },
+   "ada>pc": {
+    "topic": "how the day has gone"
+   },
+   "ada>barker": {
+    "topic": "the weather"
+   },
+   "ada>mrspollock": {
+    "topic": "how things are with them"
+   },
+   "ada>nolan": {
+    "topic": "the news in the paper"
+   },
+   "ada>nb_h3": {
+    "topic": "the weather"
+   },
+   "ada>reg_mrs_mahoney_a_neighbour": {
+    "topic": "what the paper says: Britons, accustomed to iron-handed discipline aboard the ships of His Majesty’s navy, were astonished today at…"
+   }
+  },
+  "factQ": {
+   "arthurWhich member of the Royal Family died at the beginning of January?": true,
+   "thomasWhich member of the Royal Family died at the beginning of January?": true,
+   "adaWhich member of the Royal Family died at the beginning of January?": true
+  },
+  "found": {
+   "what": "a silver pencil",
+   "value": 24,
+   "owner": "fenn",
+   "day": 0,
+   "where": "ada"
+  },
+  "pre": {
+   "fenn": [
+    {
+     "day": 0,
+     "text": "Mr. Arthur Hale talked with him about what the paper says: THE NEW YEAR opens gloomily: more than ."
+    }
+   ],
+   "barker": [
+    {
+     "day": 1,
+     "text": "Mrs. Ada Turner talked with him about She goes to Barker's, the grocer, and buys tea, coffee, and ."
+    },
+    {
+     "day": 1,
+     "text": "Mrs. Ada Turner asked him She goes to Barker's, the grocer, and buys tea, coffee, and sugar, on credit; he refused."
+    }
+   ],
+   "nb_h3": [
+    {
+     "day": 4,
+     "text": "Mrs. Dot Mahoney of No. 3 asks if Mrs. Turner will sit with Sonny an hour while she goes to the chemist's."
+    },
+    {
+     "day": 6,
+     "text": "Mrs. Dot Mahoney of No. 3 asks Mrs. Turner for the loan of two shillings till Saturday."
+    }
+   ],
+   "reg_mrs_mahoney_a_neighbour": [
+    {
+     "day": 6,
+     "text": "Mrs. Ada Turner talked with her about from Mrs. Mahoney, and goes to the chemist's to buy quinine ."
+    }
+   ]
+  },
+  "visitDay": 6,
+  "rentAsked0": true,
+  "rentOwingCount": 0,
+  "st": {
+   "rent": {
+    "who": [
+     "ada"
+    ],
+    "text": "The rent is paid up",
+    "day": 0
+   },
+   "watch": {
+    "who": [
+     "ada"
+    ],
+    "text": "Her husband's watch, pawned on NaN undefined, was redeemed from the pawnbroker and is back at home",
+    "day": 1
+   }
+  },
+  "dreams": [
+   {
+    "day": 0,
+    "who": "ada",
+    "text": "She dreamt that she was in a land flowing with milk and honey, where there was abundance of food for all.",
+    "nightmare": false,
+    "recalled": true
+   },
+   {
+    "day": 1,
+    "who": "ada",
+    "text": "She dreamt that Barker told her to pawn the watch again, as he had no more need of it.",
+    "nightmare": false,
+    "recalled": true
+   },
+   {
+    "day": 1,
+    "who": "arthur",
+    "text": "He dreamt that he was being examined in an insurance office.",
+    "nightmare": false,
+    "recalled": false
+   },
+   {
+    "day": 1,
+    "who": "thomas",
+    "text": "He dreamt that Hale was promoted to be chief clerk, and he himself was promoted to be second.",
+    "nightmare": false,
+    "recalled": false
+   },
+   {
+    "day": 2,
+    "who": "ada",
+    "text": "She dreamt that her sister Lizzie was dead, and that she herself was sitting beside the body, in a little room at Paddock Wood, with Bert kneeling at her knees, and sobbing.",
+    "nightmare": true,
+    "recalled": true
+   },
+   {
+    "day": 2,
+    "who": "arthur",
+    "text": "He dreamt that he was standing in a great crowd at Cheapside and Ludgate Circus, watching the Lord Mayor go by to be sworn in at the Guildhall.",
+    "nightmare": false,
+    "recalled": false
+   },
+   {
+    "day": 2,
+    "who": "thomas",
+    "text": "He dreamt that he was reading Trollope in an armchair by the fireside, and listening to the wireless talks on Sunday evening.",
+    "nightmare": false,
+    "recalled": false
+   },
+   {
+    "day": 3,
+    "who": "ada",
+    "text": "She dreamt that her sister Lizzie was dead, and that she herself was standing beside the coffin in the little parlour at Paddock Wood.",
+    "nightmare": true,
+    "recalled": true
+   },
+   {
+    "day": 3,
+    "who": "arthur",
+    "text": "He dreamt that he was standing in a great crowd, and heard Mr. Ramsay MacDonald say:",
+    "nightmare": false,
+    "recalled": false
+   },
+   {
+    "day": 3,
+    "who": "thomas",
+    "text": "He dreamt that he was reading aloud to an old gentleman in a train, and the old gentleman was so pleased that he gave him a",
+    "nightmare": false,
+    "recalled": true
+   },
+   {
+    "day": 4,
+    "who": "ada",
+    "text": "She dreamt that she was kneeling on a black and shining floor, in a great church, and that the floor slope d gcntly downwards to a black, shining river.",
+    "nightmare": false,
+    "recalled": true
+   },
+   {
+    "day": 4,
+    "who": "arthur",
+    "text": "He dreamt that he and Joan were walking hand in hand down a pleasant country lane, and that all the people they passed smiled on them kindly.",
+    "nightmare": false,
+    "recalled": false
+   },
+   {
+    "day": 4,
+    "who": "thomas",
+    "text": "He dreamt that he was walking in a pleasant green country, and came to a great plain, where he saw people gathering hay.",
+    "nightmare": false,
+    "recalled": true
+   },
+   {
+    "day": 5,
+    "who": "ada",
+    "text": "She dreamt that Bert was dead, and that she was left all alone in the world.",
+    "nightmare": true,
+    "recalled": false
+   },
+   {
+    "day": 5,
+    "who": "arthur",
+    "text": "He dreamt that he was working in an office, and a great fire broke out, and the whole place was burned to the ground.",
+    "nightmare": true,
+    "recalled": false
+   },
+   {
+    "day": 5,
+    "who": "thomas",
+    "text": "He dreamt that his only son had gone wrong, and was sentenced to penal servitude.",
+    "nightmare": false,
+    "recalled": false
+   },
+   {
+    "day": 6,
+    "who": "ada",
+    "text": "She dreamt that she saw Lizzie walking with a strange man in a field.",
+    "nightmare": false,
+    "recalled": true
+   },
+   {
+    "day": 6,
+    "who": "arthur",
+    "text": "He dreamt that the auditors came, and he was terribly nervous.",
+    "nightmare": false,
+    "recalled": true
+   },
+   {
+    "day": 6,
+    "who": "thomas",
+    "text": "He dreamt that he died, and went straight to heaven.",
+    "nightmare": true,
+    "recalled": false
+   }
+  ],
+  "redeemed": true,
+  "redeemDue": false,
+  "missedClean": 1,
+  "visitor": null,
+  "auditDue": true
+ }
+}

@@ -199,11 +199,22 @@ const HOL = new Proxy({}, { get: (_, d) => (/^\d+$/.test(String(d)) ? require('.
 const BANK = [], GOODFRI = null;
 const isRest = d => DOW(d) === 'sun' || BANK.includes(d) || d === GOODFRI;
 const { newsFor } = require('./news1931.js'); const CHRONOS = require('./chronos1931.js'); const FETCH = require('./decade/fetch1930s.js'); const DECADE = require('./decade/chronos1930s.js');
-const paperText = d => newsFor(d).map(x => x.text).join(' ');
+// the news of a day by its date: the 1931 selection (news1931.js) for the first months of 1931, otherwise the day's
+// wire stories of the decade (decade/news), British ones first, the dateline taken off
+const T1931 = Date.UTC(1931, 0, 2);
+function newsOn(d) {
+  const t = T0 + d * 864e5, i = Math.round((t - T1931) / 864e5);
+  if (new Date(t).getUTCFullYear() === 1931 && i >= 0) { const n = newsFor(i); if (n.length) return n; }
+  const day = DECADE.day(SIMDATE.iso(d)) || {}, st = (day.news || []).filter(x => x && x.text && x.text.length > 120 && require('./ops1931.js').periodOK(x.text));
+  const brit = st.filter(x => /united kingdom|england|britain|ireland|scotland|wales/i.test(x.country || '') || /london/i.test(x.place || ''));
+  return (brit.length ? brit : st).sort((a, b) => (a.rank || 9) - (b.rank || 9)).slice(0, 2).map(x => ({ p: null,
+    text: `${String(x.place || '').toUpperCase()}. ${x.text.replace(/^[A-Z][A-Za-z .,'-]+,\s+[A-Z][a-z]+\.?\s+\d+\s*(\([A-Z]+\))?\s*[—-]+\s*/, '').slice(0, 320).replace(/\s+\S*$/, '')}…` }));
+}
+const paperText = d => newsOn(d).map(x => x.text).join(' ');
 function readPaper(k, name, cost) {
   const local = k === 'ada' && DOW(W.day) === 'fri' ? STREET.log.filter(e => e.day > W.day - 7 && ['court', 'eviction'].includes(e.kind)).slice(-2).map(e => ({ text: `LOCAL NEWS. ${e.text[0].toUpperCase() + e.text.slice(1)}.` })) : [];
   const star = (FETCH.cached('star', SIMDATE.iso(W.day)) || { items: [] }).items.filter(x => x.british && x.text.length > 150);
-  const base = newsFor(W.day), seenW = new Set(base.flatMap(x => words(x.text)));
+  const base = newsOn(W.day), seenW = new Set(base.flatMap(x => words(x.text)));
   const fresh = star.find(x => words(x.text.slice(0, 200)).filter(w => !seenW.has(w)).length > 8);
   const cable = fresh ? [{ text: `${fresh.place}. ${fresh.text.replace(/\s*\S*$/, '').replace(/[^.]*$/, '').trim() || fresh.text}` }] : [];
   const items = [...base, ...cable, ...CHRONOS.paperItems(W.day, k, WORLD.mod), ...local]; A[k].money -= cost; A[k].readDay = W.day;
@@ -1547,7 +1558,7 @@ async function act(k) {
     const ill = !!(F['ill_' + k] || (k === 'arthur' && F.joanIll) || (k === 'ada' && F.ill_bert));
     const sal = TEMPO.salience({ urg: urg ? urg.w : 0, stress: a.chem.stress, rentToday: k === 'ada' && F.rentDue && WORLD.mod >= hm(17), rentOwing: k === 'ada' && F.rentOwing, illHome: ill,
       arranged: (W.arranged || []).some(x => x.key.startsWith(k + '>') && x.at >= WORLD.t && x.at - WORLD.t <= 180), planDue: !!planNow(k), visitor, newPresent: newcomers, free: ['sat', 'sun'].includes(DOW(W.day)) && freeHour(k) });
-    a.sal = sal; const floor = (a.forksToday || 0) < FLOOR && WORLD.mod >= hm(12) && (a.sinceAsked || 0) >= (sal.z >= 15 ? 4 : 6);   // a few of one's own decisions every day, even a calm one const zoomed = sal.z >= ZMIN || floor; STATS.zoom = STATS.zoom || { on: 0, off: 0 }; STATS.zoom[zoomed ? 'on' : 'off']++;
+    a.sal = sal; const floor = (a.forksToday || 0) < FLOOR && WORLD.mod >= hm(12) && (a.sinceAsked || 0) >= (sal.z >= 15 ? 4 : 6);   /* a few of one's own decisions every day, even a calm one */ const zoomed = sal.z >= ZMIN || floor; STATS.zoom = STATS.zoom || { on: 0, off: 0 }; STATS.zoom[zoomed ? 'on' : 'off']++;
     if (!zoomed) fork = (unanswered && urg.w >= 85) || visitor || (a.sinceAsked || 0) >= 16;
   }
   if (W.quiet) fork = !!visitor;

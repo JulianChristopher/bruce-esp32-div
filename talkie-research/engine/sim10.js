@@ -1043,37 +1043,83 @@ function findAff(k, id, pred = () => true) { return WORLD.affordances(k).find(x 
 const VERBS = require('./verbs.js');
 // ---------- the game master (gm.js): a modern model that maps free sentences to engine operations and notices when a
 // person is stuck or caught in a literary pattern; it answers only in fixed structures, never in words a character sees
-const GM = require('./gm.js'); GM.setLog(OUT); const GMON = !FAKE && process.env.GM !== '0';
+const GM = require('./gm.js'); GM.setLog(OUT); const GMON = (!FAKE || process.env.GM === '1') && process.env.GM !== '0';
 const { goodsIn } = require('./goods1931.js');
 function gmCtx(k) {
   const a = A[k], present = WORLD.presentWith(k).map(p => ({ id: p.id, name: p.name }));
   const key = ['ada', 'arthur', 'thomas', 'bert', 'nolan', 'barker', 'lamb', 'gedge', 'edith', 'joan', 'fenn', 'pc', 'doctor', 'hughes', 'relieving', 'pollock', 'mrspollock', 'bray', 'dunn', 'simms'];
   const people = [...new Set([...key, ...present.map(p => p.id)])].filter(id => WORLD.people[id] || id === 'doctor').map(id => ({ id, name: WORLD.people[id] ? WORLD.people[id].name : 'Dr. Gray' }));
-  const places = Object.keys(WORLD.places).map(id => ({ id, open: !WORLD.places[id].open || WORLD.isOpen(id) }));
+  const places = Object.keys(WORLD.places).map(id => ({ id: `${id} (${WORLD.places[id].kind}${WORLD.places[id].district ? ', ' + WORLD.places[id].district : ''})`, open: !WORLD.places[id].open || WORLD.isOpen(id) }));
+  for (const q of Object.values(WORLD.people)) if (q.registry && !people.some(x => x.id === q.id)) people.push({ id: q.id, name: q.name });
   const objs = Object.values(WORLD.objects);
   return { date: DAYS[W.day], time: clock(WORLD.mod), who: k, name: a.name, place: `${PLACE[a.place]} [${a.place}]`, purse: money(Math.max(0, a.money)),
     rentDue: k === 'ada' && (F.rentDue || F.rentOwing) ? (F.rentOwing ? 'owing; the collector comes again on Monday evening' : 'due tonight; the collector calls at seven') : '',
-    own: objs.filter(o => o.at === k && o.value).map(o => o.name), inPawn: k === 'ada' ? objs.filter(o => o.at === 'lamb').map(o => o.name) : [],
+    own: Object.entries(WORLD.objects).filter(([, o]) => o.at === k && o.value).map(([id, o]) => `${id}=${o.name}`), inPawn: k === 'ada' ? Object.entries(WORLD.objects).filter(([, o]) => o.at === 'lamb').map(([id, o]) => `${id}=${o.name}`) : [],
+    extra: `Stock at home: food for ${WORLD.count(k, 'food')} meals, coal for ${WORLD.count(k, 'coal')} fires.${k === 'ada' ? ' Barker gives credit only if asked and willing.' : ''}`,
     present, people, places, recent: TRACE.filter(x => x.agent === k).slice(-6).map(x => `${x.time}: ${String(x.result || x.choice).slice(0, 120)}`) };
 }
+// ---------- the world registry: what deeds bring into being, named by talkie (registry1931.js) ----------
+const OPSMOD = require('./ops1931.js'), { Registry } = require('./registry1931.js');
+async function nameNew(it) {   // the period model gives a new place or person its name, in the words of 1931
+  if (it.entity === 'thing') return null;
+  const where = it.district ? `in ${it.district[0].toUpperCase() + it.district.slice(1)}` : 'in London';
+  const q = it.entity === 'place' ? `In ${DAYS[W.day].split(', ').slice(1).join(', ')}, ${where}, there was ${it.hint}. What was it called? Answer in the form: It was called ...`
+    : `In ${DAYS[W.day].split(', ').slice(1).join(', ')}, ${where}, there was ${it.hint}. What was ${it.f ? 'her' : 'his'} name? Answer in the form: ${it.f ? 'Her' : 'His'} name was ...`;
+  const a = sentences((await ask(q)) || '', 1);
+  const m = a.match(it.entity === 'place' ? /called\s+(?:the\s+)?([^.,;]{3,40})/i : /name was\s+([^.,;]{3,40})/i); if (!m) return null;
+  let name = m[1].trim().replace(/["“”]/g, ''); if (it.entity === 'place' && !/^the /i.test(name) && !/'s$/.test(name)) name = 'the ' + name;
+  STATS.named = (STATS.named || 0) + 1; return { name, desc: `${name}, ${it.hint.replace(/^(a|an)\s+/i, '')}` };
+}
+const REG = new Registry(OUT, { namer: nameNew }); REG.load(WORLD);
+// what a deed set going for later (ops 'schedule'): carried out by the engine with words of its own
+function scheduled(k, ev) {
+  const a = A[k], who = ev.who && WORLD.people[ev.who] ? WORLD.people[ev.who] : null, pence = Math.max(0, Math.round(+ev.pence || 0));
+  STATS.gmEvents = STATS.gmEvents || {}; STATS.gmEvents[ev.event] = (STATS.gmEvents[ev.event] || 0) + 1;
+  if (ev.event === 'repay' && who) { if (who.money >= pence && pence > 0) { who.money -= pence; a.money += pence; remember(k, `${who.name} paid back ${money(pence)}, as promised.`, [ev.who], 3); } else remember(k, `${who.name} did not pay back the money as promised.`, [ev.who], 3); }
+  else if (ev.event === 'visit' && who) { if (a.place === a.home) { who.place = a.home; who.away = false; remember(k, `${who.name} came to see ${himher(k)}, as had been arranged.`, [ev.who], 2); } }
+  else if (ev.event === 'letter' && who) remember(k, `A letter came from ${who.name}.`, [ev.who], 2);
+  else if (ev.event === 'court') { const fined = Math.random() < 0.5; if (fined) a.money -= 60; remember(k, fined ? `${a.short} was fined five shillings at Tower Bridge Police Court.` : `The magistrate bound ${himher(k)} over.`, ['pc'], 3); }
+  else if (ev.event === 'collect' && who) { if (a.money >= pence && pence > 0) { a.money -= pence; who.money += pence; remember(k, `${who.name} called and was paid ${money(pence)}.`, [ev.who], 2); } else remember(k, `${who.name} called for ${money(pence)} and went away without it.`, [ev.who], 3); }
+  else if (ev.event === 'deliver') { WORLD.add(k, /coal/i.test(ev.for || '') ? 'coal' : 'food', 2); remember(k, `What had been ordered was delivered${ev.for ? ': ' + String(ev.for).slice(0, 40) : ''}.`, [], 1); }
+  else if (ev.event === 'return' && who) { const ob = Object.values(WORLD.objects).find(o => o.at === ev.who && o.lentBy === k); if (ob) { ob.at = k; remember(k, `${who.name} brought back ${ob.name}.`, [ev.who], 2); } }
+  else if (ev.event === 'meet' && who) { remember(k, `${a.short} was to meet ${who.name} now.`, [ev.who], 2); if (who.place !== a.place && !who.main) { who.place = a.place; who.away = false; } }
+  else if (ev.event === 'work') { if (a.busyUntil <= WORLD.t && pence > 0 && pence <= 24) { a.money += pence; a.busyUntil = WORLD.t + 120; remember(k, `${a.short} did the work ${heshe(k)} had promised${ev.for ? ' (' + String(ev.for).slice(0, 40) + ')' : ''}, and was paid ${money(pence)}.`, [], 2); } }
+}
+const scheduler = (w, k, ev) => { WORLD.schedule(ev.at, () => scheduled(k, ev), 'deed: ' + ev.event); };
+const SECOND = /(\band\b|\bthen\b|,)\s+(then\s+)?(goes|buys|pawns|pledges|takes|gives|asks|sends|borrows|pays|lights|sits|comes|returns|fetches|puts|gets|brings|tells|writes|spends|sells|begs|calls|makes|cooks|leaves|walks|hurries|redeems|lends|minds|helps|cleans|washes|carries|orders|changes|exchanges|hands)\b/i;
 const findItem = t => { const s = ' ' + (t || '').toLowerCase() + ' '; const hit = VERBS.ITEMS.find(([re]) => re.test(s)); return hit ? hit[1] : null; };
 // a free sentence to a deed: the grammar first; if it cannot place the sentence, the game master
 async function resolveFree(k, said) {
   const it = INTENT.parse(said); let r = it ? resolve(k, it) : null;
   const frameVerb = (VERBS.frame(said) || {}).verb;
-  const unclear = !it || !r || (r.why && /not clear|nobody to|nothing of that kind|nowhere of that kind|not understood/.test(r.why)) || (frameVerb === 'other' && !(r && r.aff));
+  const several = SECOND.test(said);   // more than one deed in the sentence: the grammar would take only the first
+  const unclear = several || !it || !r || (r.why && /not clear|nobody to|nothing of that kind|nowhere of that kind|not understood|no such|there is nothing|has no /.test(r.why)) || (frameVerb === 'other' && !(r && r.aff));
   if (!unclear || !GMON) return { it, r: r || { why: 'not understood' } };
+  if (r && r.aff && /^d_despair/.test(r.aff.a.id)) return { it, r };
+  // the open deed: the game master writes a program of primitive operations, the engine tries it, one repair round
+  STATS.gmOpen = (STATS.gmOpen || 0) + 1;
+  const ctx = gmCtx(k), opts = { registry: REG, sentence: said, label: said.replace(/^(she|he)\s+/i, '').replace(/\.$/, '').replace(/^./, c => c.toUpperCase()).slice(0, 110), priceFactor: (DECADE.day(SIMDATE.iso(W.day)) || {}).priceFactor || 1, scheduler };
+  let g = await GM.resolve(ctx, said), lastWhy = null;
+  for (let attempt = 0; attempt < 2 && g; attempt++) {
+    if (!g.plausible) { STATS.gmImplausible = (STATS.gmImplausible || 0) + 1; return { it, r: { why: 'that would not be done in 1931' } }; }
+    if (!g.ops.length || g.ops[0].op === 'none') { const rest = findAff(k, 'rest') || (r && r.aff) || null; return { it: it || { text: said, verb: 'rest' }, r: rest ? { aff: rest } : { why: 'nothing is done' } }; }
+    const d = OPSMOD.deedOf(WORLD, k, g.ops, opts);
+    if (d.despair) { const dd = VERBS.deed(WORLD, k, { verb: 'despair', goods: [], persons: [], text: said }); return { it: it || { text: said, verb: 'despair' }, r: dd }; }
+    if (d.aff) { STATS.gmOpenOk = (STATS.gmOpenOk || 0) + 1; if (attempt) STATS.gmRepaired = (STATS.gmRepaired || 0) + 1; STATS.gmOps = STATS.gmOps || {}; for (const o of g.ops) STATS.gmOps[o.op] = (STATS.gmOps[o.op] || 0) + 1; return { it: it || { text: said, verb: 'gm' }, r: { aff: d.aff } }; }
+    lastWhy = d.why; if (attempt === 0) g = await GM.resolve(ctx, said, d.why);
+  }
+  if (lastWhy) { STATS.gmOpenRefused = (STATS.gmOpenRefused || 0) + 1; return { it: it || { text: said, verb: 'gm' }, r: { why: lastWhy } }; }
   STATS.gmInterpret = (STATS.gmInterpret || 0) + 1;
-  const g = await GM.interpret(gmCtx(k), said);
-  if (!g) return { it, r: r || { why: 'not understood' } };
-  if (g.op === 'none') { const rest = findAff(k, 'rest') || (r && r.aff) || null; return { it: it || { text: said, verb: 'rest' }, r: rest ? { aff: rest } : { why: 'nothing is done' } }; }
-  if (!g.plausible) { STATS.gmImplausible = (STATS.gmImplausible || 0) + 1; return { it, r: { why: 'that would not be done in 1931 (game master)' } }; }
-  const item = findItem(g.item), f = { verb: g.op, goods: goodsIn(g.goods), item, persons: g.person && (WORLD.people[g.person] || g.person === 'doctor') ? [g.person] : [], place: g.place && WORLD.places[g.place] ? g.place : null, amount: g.pence || null, purpose: null,
-    text: g.item && !item ? `${heshe(k)} ${g.op}s ${/^(her|his|the|a|an) /i.test(g.item) ? g.item : 'the ' + g.item}.` : said, out: g.place === 'pub' };
+  const gi = await GM.interpret(gmCtx(k), said);
+  if (!gi) return { it, r: r || { why: 'not understood' } };
+  if (gi.op === 'none') { const rest = findAff(k, 'rest') || (r && r.aff) || null; return { it: it || { text: said, verb: 'rest' }, r: rest ? { aff: rest } : { why: 'nothing is done' } }; }
+  if (!gi.plausible) { STATS.gmImplausible = (STATS.gmImplausible || 0) + 1; return { it, r: { why: 'that would not be done in 1931 (game master)' } }; }
+  const item = findItem(gi.item), f = { verb: gi.op, goods: goodsIn(gi.goods), item, persons: gi.person && (WORLD.people[gi.person] || gi.person === 'doctor') ? [gi.person] : [], place: gi.place && WORLD.places[gi.place] ? gi.place : null, amount: gi.pence || null, purpose: null,
+    text: gi.item && !item ? `${heshe(k)} ${gi.op}s ${/^(her|his|the|a|an) /i.test(gi.item) ? gi.item : 'the ' + gi.item}.` : said, out: gi.place === 'pub' };
   let r2 = null; try { r2 = VERBS.deed(WORLD, k, f); } catch (e) { r2 = null; }
-  if (r2 && r2.plan && A[k].place !== A[k].home) { const gh = findAff(k, 'go_home'); if (gh) { A[k].plan = { text: said, verb: g.op }; r2 = { aff: gh }; } }
+  if (r2 && r2.plan && A[k].place !== A[k].home) { const gh = findAff(k, 'go_home'); if (gh) { A[k].plan = { text: said, verb: gi.op }; r2 = { aff: gh }; } }
   STATS.gmMapped = (STATS.gmMapped || 0) + (r2 && r2.aff ? 1 : 0);
-  return { it: it || { text: said, verb: g.op }, r: r2 && (r2.aff || r2.why) ? r2 : { why: 'not understood' } };
+  return { it: it || { text: said, verb: gi.op }, r: r2 && (r2.aff || r2.why) ? r2 : { why: 'not understood' } };
 }
 // every few hours, or when a person keeps failing: is the person stuck, or caught in a literary pattern? the world's ordinary answer
 async function gmReview(k) {
@@ -1369,6 +1415,7 @@ async function act(k) {
   if (res && res.talk) { if (res.verb && res.verb !== 'talk') res.topic = `${res.verb === 'quarrel' ? 'a quarrel' : res.verb === 'comfort' ? 'comforting' : res.verb === 'apologise' ? 'an apology' : res.verb === 'thank' ? 'thanks' : res.verb === 'warn' ? 'a warning' : 'a promise'}: ${res.topic}`; const t = res.topic ? { topic: res.topic } : (W.topicCache || {})[k + '>' + res.talk] || topicFor(k, res.talk); result = await converse(k, { to: res.talk, ...t }); if (res.request) await consent(res.talk, k, res.request); }
   else if (res && res.book) result = await bookWork(res.book);
   else if (res && res.lookup) result = await lookupBook(k, res.lookup);
+  if (REG.pending.length) { const made = await REG.nameNew(WORLD); for (const it of made) say(`      ✚ new in the world: ${it.name} (${it.entity}, ${it.kind}${it.district ? ', ' + it.district : ''})`); STATS.created = (STATS.created || 0) + made.length; }
   if (typeof result !== 'string') result = `${a.short}: ${o.label}.`;
   say(`      ⇒ ${result}`);
   if (!(res && res.talk)) { if (a.mem.length === before && !/rested|had a meal|went to bed|went home/.test(result)) remember(k, result, presentAt(k)); for (const p of presentAt(k)) remember(p, `(Seen) ${result}`, [k], 1); }

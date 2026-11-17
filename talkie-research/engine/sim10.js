@@ -1723,9 +1723,15 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     if (d + 1 < ND && dateOf(d + 1).getUTCMonth() !== dateOf(d).getUTCMonth()) { try { for (const k in A) await monthReview(k); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }
     if (DOW(d) === 'sun') consolidate();
     METRICS.days.push({ day: d, asks: STATS.asks - asks0, money: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, a.money])), needs: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, { ...a.needs }])), chem: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, { ...a.chem }])), inv: { ...A.ada.inv }, op: JSON.parse(JSON.stringify(Object.fromEntries(Object.entries(A).map(([k, a]) => [k, a.op])))), world: { ...WORLD.stats, performed: { ...WORLD.stats.performed } } });
-    STATS.gm = GM.STATS; STATS.prov = OPSMOD.PROV; STATS.rules = RULES.stats; fs.writeFileSync(path.join(OUT, 'metrics.json'), JSON.stringify({ METRICS, STATS, W }, null, 1));
-    fs.writeFileSync(path.join(OUT, 'story.txt'), STORY.join('\n'));
-    fs.writeFileSync(path.join(OUT, 'trace.json'), JSON.stringify(TRACE));
+    STATS.gm = GM.STATS; STATS.prov = OPSMOD.PROV; STATS.rules = RULES.stats; if (!(FAST || SAMPLE > 1 || N > 60) || DOW(d) === 'sun' || d === N - 1) fs.writeFileSync(path.join(OUT, 'metrics.json'), JSON.stringify({ METRICS, STATS, W }, null, 1));
+    if (FAST || SAMPLE > 1 || N > 60) {   // a long run: append the day to story.txt and trace.jsonl, keep only a tail in memory
+      W.storyOut = W.storyOut || 0; W.traceOut = W.traceOut || 0;
+      fs.appendFileSync(path.join(OUT, 'story.txt'), STORY.slice(W.storyOut).join('\n') + '\n'); fs.appendFileSync(path.join(OUT, 'trace.jsonl'), TRACE.slice(W.traceOut).map(x => JSON.stringify(x)).join('\n') + '\n');
+      if (STORY.length > 400) STORY.splice(0, STORY.length - 200); if (TRACE.length > 400) TRACE.splice(0, TRACE.length - 200); W.storyOut = STORY.length; W.traceOut = TRACE.length;
+    } else {
+      fs.writeFileSync(path.join(OUT, 'story.txt'), STORY.join('\n'));
+      fs.writeFileSync(path.join(OUT, 'trace.json'), JSON.stringify(TRACE));
+    }
   }
   say('\n######## Final memory examination ########');
   W.day = Math.min(N, DAYS.length - 1); for (const k in A) A[k].place = A[k].home;
@@ -1737,7 +1743,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
   for (const [lab, fl] of [['life', p => p.kind !== 'news'], ['news', p => p.kind === 'news'], ['aided', p => p.aided], ['unaided', p => !p.aided], ['final', p => p.final]]) { const x = P.filter(fl); say(`MEMORY ${lab}: ${x.filter(p => p.ok).length}/${x.length}, unreadable ${x.filter(p => p.answer === null).length}`); }
   say(`DIARIES: ${D.reduce((s, x) => s + x.kept, 0)}/${D.reduce((s, x) => s + x.facts, 0)} key facts kept`);
   STATS.gm = GM.STATS; STATS.prov = OPSMOD.PROV; STATS.rules = RULES.stats; fs.writeFileSync(path.join(OUT, 'metrics.json'), JSON.stringify({ METRICS, STATS, W }, null, 1));
-  fs.writeFileSync(path.join(OUT, 'story.txt'), STORY.join('\n'));
+  if (FAST || SAMPLE > 1 || N > 60) fs.appendFileSync(path.join(OUT, 'story.txt'), STORY.slice(W.storyOut || 0).join('\n') + '\n'); else fs.writeFileSync(path.join(OUT, 'story.txt'), STORY.join('\n'));
   if (browser) await browser.close();
   console.log('DONE');
 })();

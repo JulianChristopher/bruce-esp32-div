@@ -18,7 +18,8 @@ const T0 = SIMDATE.T0;
 const FLU_WEEKS = ['1931-01-10', '1931-01-17', '1931-01-24', '1931-01-31', '1931-02-07', '1931-02-14', '1931-02-21', '1931-02-28', '1931-03-07', '1931-03-14', '1931-03-21', '1931-03-28', '1931-04-04'];
 const FLU_DEATHS = [12, 22, 40, 66, 95, 116, 108, 88, 70, 58, 50, 40, 32];
 const LONDON_POP = 4397000;   // County of London, census of 1931
-function fluDeathsWeek(d) { const t = T0 + d * 864e5; for (let i = 0; i < FLU_WEEKS.length; i++) if (t <= Date.parse(FLU_WEEKS[i])) return FLU_DEATHS[i]; return 20; }
+function fluDeathsWeek(d) { const t = T0 + d * 864e5; for (let i = 0; i < FLU_WEEKS.length; i++) if (t <= Date.parse(FLU_WEEKS[i])) return FLU_DEATHS[i];
+  const m = new Date(t).getUTCMonth(); return [11, 0, 1, 2].includes(m) ? 15 : 5; }   // after the winter of 1931: the ordinary season (more in winter), no epidemic
 // infections run about ten days ahead of deaths; case fatality ~0.4 % over all ages gives the daily chance of catching it
 const CFR = 0.004;
 function fluHazard(d, crowded = false) { const deaths = fluDeathsWeek(d + 10) / 7; return deaths / CFR / LONDON_POP * (crowded ? 1.4 : 1); }

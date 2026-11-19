@@ -82,7 +82,7 @@ function fluNews(d) {
   const H = require('./health1931.js'), wd = dateOf(d).getUTCDay(); if (wd !== 3) return null;   // the Registrar-General's return, in Wednesday's papers
   if (iso(d) === '1931-02-18') return 'INFLUENZA. Deaths from influenza in London in the week ended Saturday numbered 116, the highest figure of the winter; doctors report the epidemic at its height.';
   const now = H.fluDeathsWeek(d - 4), before = H.fluDeathsWeek(d - 11);
-  if (now < 20) return null;
+  if (now < 25) return null;   // the ordinary season is not news
   return now > before * 1.1 ? 'INFLUENZA. The influenza is spreading in London; the deaths from it rose again last week, and doctors are busy in every district.'
     : now < before * 0.9 ? 'INFLUENZA. The deaths from influenza in London fell last week, and it is hoped that the epidemic has passed its worst.' : 'INFLUENZA. The influenza still has a hold on London.';
 }

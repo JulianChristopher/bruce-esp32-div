@@ -181,6 +181,7 @@ function clock(min) {
 // of known age every morning; metrics are written to metrics.json.
 const SIMDATE = require('./simdate.js'), T0 = SIMDATE.T0, ND = Math.max(90, +(process.env.DAYS || 90));   // START (default Friday 2 January 1931: the first days after talkie's knowledge ends)
 const dateOf = d => new Date(T0 + d * 864e5);
+const SD = d => Math.round((T0 + d * 864e5 - Date.UTC(1931, 0, 2)) / 864e5);   // the day of the 1931 story (0 = Friday 2 January 1931), for its scripted beats
 const ORD = n => n + ((n % 10 === 1 && n !== 11) ? 'st' : (n % 10 === 2 && n !== 12) ? 'nd' : (n % 10 === 3 && n !== 13) ? 'rd' : 'th');
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const WD = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -417,12 +418,13 @@ function letter(k, from, text, about, f) {
   say(`   ✉ ${A[k].short} has a letter from ${from}: ${text}`); STATS.letters = (STATS.letters || 0) + 1;
 }
 function letters() {   // the post comes in the morning
-  const d = W.day;
-  if (d === 6) letter('ada', 'her sister Lizzie, at Paddock Wood in Kent', 'A happy New Year to them both. The hop-gardens will want pickers in September; Bert could have work there for three weeks, and they would be glad to see Ada too.', ['bert'], ['What did your sister Lizzie write to you about in January?', ['Work for Bert at the hop-picking in September', 'That she was coming to London', 'That she was ill']]);
-  if (d === 41) letter('arthur', "Mrs. Bray, Edith's mother, at Colchester", 'She thanks them for a happy fortnight, sends Joan a shilling postal order towards her birthday, and says her rheumatism is better for the change.', ['edith', 'joan'], ['Who wrote to you after Mrs. Bray went home, and from where?', ["Mrs. Bray, from Colchester", 'Your brother, from Leeds', 'Nobody']]);
+  const d = W.day, sd = SD(W.day);
+  if (sd === 6) letter('ada', 'her sister Lizzie, at Paddock Wood in Kent', 'A happy New Year to them both. The hop-gardens will want pickers in September; Bert could have work there for three weeks, and they would be glad to see Ada too.', ['bert'], ['What did your sister Lizzie write to you about in January?', ['Work for Bert at the hop-picking in September', 'That she was coming to London', 'That she was ill']]);
+  if (sd === 41) letter('arthur', "Mrs. Bray, Edith's mother, at Colchester", 'She thanks them for a happy fortnight, sends Joan a shilling postal order towards her birthday, and says her rheumatism is better for the change.', ['edith', 'joan'], ['Who wrote to you after Mrs. Bray went home, and from where?', ["Mrs. Bray, from Colchester", 'Your brother, from Leeds', 'Nobody']]);
   if (W.pawnedDay !== undefined && !W.redeemed && !W.forfeit && d - W.pawnedDay === 60) letter('ada', 'the pawnbroker', `A printed card: the ticket for the watch runs out on ${SHORTDATE(W.pawnedDay + 70)}; unless it is redeemed by then it will be sold.`, ['watch'], ['What did the card from the pawnbroker say?', ['The ticket for the watch would soon run out', 'The watch had been stolen', 'Nothing; no card came']]);
   if (W.rentOwingCount >= 2 && !W.noticeSent) { W.noticeSent = true; letter('ada', 'the landlord', 'Notice: unless the arrears of rent are paid by Saturday week, she must give up the rooms.', ['rent'], ['What did the landlord write to you?', ['That I must pay the arrears or leave the rooms', 'That the rent was going down', 'Nothing']]); }
-  if (d === 72) letter('thomas', 'the directors of the company', 'The Board accepts his retirement at the end of April with thanks for thirty-one years of service, and asks him to name his successor as chief clerk by Friday the 27th of March.', ['arthur'], ['What did the directors ask of you in their letter in March?', ['To name my successor as chief clerk', 'To stay on another year', 'To dismiss Mr. Hale']]);
+  if (sd === 72) { W.retire = true; setState('retire', ['arthur', 'ada', 'thomas'], 'Mr. Thomas is to retire at the end of April'); for (const k of ['arthur', 'ada']) remember(k, 'Mr. Thomas is to retire at the end of April; the directors have asked him to name his successor as chief clerk.', ['thomas'], 3); }
+  if (sd === 72) letter('thomas', 'the directors of the company', 'The Board accepts his retirement at the end of April with thanks for thirty-one years of service, and asks him to name his successor as chief clerk by Friday the 27th of March.', ['arthur'], ['What did the directors ask of you in their letter in March?', ['To name my successor as chief clerk', 'To stay on another year', 'To dismiss Mr. Hale']]);
 }
 // The household budgets of a London charwoman, a ledger clerk and a chief clerk in 1931 (rounded, after the
 // New Survey of London Life and Labour, 1929-31): what is spent every day and week whatever anybody decides.
@@ -463,8 +465,8 @@ function morningEvents() {   // chance and rule (life1931.js) + the company's ow
   METRICS.standing = METRICS.standing || []; METRICS.standing.push({ day: d, ada: +(STREET.standing.ada || 0).toFixed(1) });
   METRICS.street = METRICS.street || []; METRICS.street.push({ day: d, ...STREET.stats(), events: sev.map(e => e.kind) });
   // the company's calendar: the year's books in January, the auditors on the second Monday, the salary review after
-  if (d === 6) { remember('arthur', 'Mr. Thomas announced that the auditors come on Monday, and the books must be ready for them.', ['thomas', 'audit'], 3); remember('thomas', 'He told Mr. Hale that the auditors come on Monday.', ['arthur', 'audit'], 3); W.auditDue = true; fact('arthur', 'What did Mr. Thomas announce in the week before the audit?', ['The auditors were coming on Monday', 'The office would close early', 'Wages would be paid late'], 0); say('   ★ The audit is announced for Monday (company calendar).'); }
-  if (d === 30 && W.audit.raise) { W.wage = 900; setState('wage', ['arthur'], 'Arthur earns £3 15s. a week, after his rise'); remember('arthur', 'His rise of five shillings begins this month, February: his wages are now £3 15s. a week.', ['money', 'thomas'], 3); fact('arthur', 'What are your weekly wages now?', ['Three pounds fifteen shillings', 'Three pounds ten shillings', 'Four pounds'], 0); say("   ★ Arthur's rise begins: £3 15s. a week."); }
+  if (SD(d) === 6) { remember('arthur', 'Mr. Thomas announced that the auditors come on Monday, and the books must be ready for them.', ['thomas', 'audit'], 3); remember('thomas', 'He told Mr. Hale that the auditors come on Monday.', ['arthur', 'audit'], 3); W.auditDue = true; fact('arthur', 'What did Mr. Thomas announce in the week before the audit?', ['The auditors were coming on Monday', 'The office would close early', 'Wages would be paid late'], 0); say('   ★ The audit is announced for Monday (company calendar).'); }
+  if (SD(d) === 30 && W.audit.raise) { W.wage = 900; setState('wage', ['arthur'], 'Arthur earns £3 15s. a week, after his rise'); remember('arthur', 'His rise of five shillings begins this month, February: his wages are now £3 15s. a week.', ['money', 'thomas'], 3); fact('arthur', 'What are your weekly wages now?', ['Three pounds fifteen shillings', 'Three pounds ten shillings', 'Four pounds'], 0); say("   ★ Arthur's rise begins: £3 15s. a week."); }
   if (w === 'fri' || (w === 'mon' && F.rentOwing)) { F.rentDue = true; F.rentDueAt = d * 1440 + hm(19); }
   if (W.pawnedDay !== undefined && !W.redeemed && d - W.pawnedDay >= 70 && !F.watchForfeit) { F.watchForfeit = true; WORLD.obj('watch').at = 'sold'; setState('watch', ['ada'], `Her husband's watch, pawned on ${SHORTDATE(W.pawnedDay)}, was sold by the pawnbroker when the ticket ran out`); note('ada', 'pawn-ticket', 'the ticket has run out; the watch is forfeit'); remember('ada', "The pawnbroker has sold her husband's watch: the ticket ran out before she could redeem it.", ['money'], 3); fact('ada', "What became of your husband's watch?", ['The pawnbroker sold it', 'I redeemed it from the pawnbroker', 'It is still at the pawnshop'], 0); say("   ★ Ada's watch is forfeited."); }
 }
@@ -547,7 +549,7 @@ function dueMoney(t) {
   if (w === 'fri' && t === hm(18) && F.bertWork) { A.ada.money += 138; remember('ada', 'Bert gave her his half of the rent and his board, 11s. 6d.', ['bert', 'rent', 'money'], 2); note('ada', 'purse-book', 'Bert paid rent share and board, 11s. 6d.'); }
   if (w === 'sat' && t === hm(18)) { A.ada.money -= 12; note('ada', 'purse-book', 'burial club and boot club, 1s.'); A.arthur.money -= 252; note('arthur', 'account-book', 'rent 15s., the Prudential 1s., boots and sundries 5s.'); A.thomas.money -= 900; note('thomas', 'account-book', 'rent, rates, housekeeper and coals, £3 15s.');
     const fri = d - 1; if (fri >= 0 && W.paid['arthur' + fri] && !F['hk_' + fri]) { F['hk_' + fri] = 35; A.arthur.money -= 420; note('arthur', 'account-book', 'housekeeping to Edith (the usual), 35s.'); remember('arthur', 'Edith took the usual thirty-five shillings for the housekeeping, as he had not given her any.', ['edith', 'money'], 2); } }
-  if (w === 'fri' && t === hm(17)) { A.thomas.money += 1560; note('thomas', 'account-book', 'salary received, £6 10s.'); }
+  if (w === 'fri' && t === hm(17)) { if (F.thomasRetired) { A.thomas.money += 960; note('thomas', 'account-book', 'pension, £4'); } else { A.thomas.money += 1560; note('thomas', 'account-book', 'salary received, £6 10s.'); } }
   if (!['sat', 'sun'].includes(w) && t === hm(8)) A.arthur.money -= 4;   // tram fares
   for (const k of ['ada', 'arthur']) { const now = A[k].money < 0, was = W['debt' + k]; if (now && !was) { remember(k, k === 'ada' ? "She has run short and is buying on tick at Barker's." : 'He has overspent and is short of money till Friday.', ['money'], 3); setState('debt' + k, [k], k === 'ada' ? "Ada owes Barker the grocer" : 'Arthur is short of money'); say(`   ★ ${A[k].short} has run into debt.`); STATS.debts = (STATS.debts || 0) + 1; } if (!now && was) setState('debt' + k, [k], k === 'ada' ? 'Ada has paid off Barker' : 'Arthur is out of debt again'); W['debt' + k] = now; }
 }
@@ -903,6 +905,38 @@ function ageToStart() { const yrs = dateOf(0).getUTCFullYear() - 1931; if (yrs <
   for (const p of Object.values(WORLD.people)) { const a0 = DEC.ageOf(p); if (p.sheet) p.sheet = DEC.ageText(p.sheet, yrs); if (a0 != null) p.age = a0 + yrs; }
   for (const k in A) { if (PROSE.PORTRAIT[k]) PROSE.PORTRAIT[k] = DEC.ageText(PROSE.PORTRAIT[k], yrs); if (typeof SHEET !== 'undefined' && SHEET[k]) SHEET[k] = DEC.ageText(SHEET[k], yrs); }
   say(`   ✦ The run begins in ${dateOf(0).getUTCFullYear()}: everybody is ${yrs} year${yrs > 1 ? 's' : ''} older than in January 1931.`); }
+// the office's chief clerk: Mr. Thomas until he retires at the end of April 1931; then Mr. Hale, if he was recommended
+// (and so promoted, at five pounds a week), or Mr. Pike from the Leeds branch, a stranger who goes by the book
+const chief = () => (F.thomasRetired ? (W.successor === 'arthur' ? 'arthur' : 'pike') : 'thomas');
+const chiefHere = () => { const c = chief(); return (WORLD.people[c] || {}).place === 'office'; };
+function retireThomas(past = false) {
+  if (F.thomasRetired) return; F.thomasRetired = true; W.greatDay = W.day;
+  if (W.successor === undefined) W.successor = (A.thomas.op.arthur || 0) >= 1 ? 'arthur' : 'pike';   // no recommendation made: his opinion decides
+  const swap = (k, a, b) => { if (PROSE.PORTRAIT[k]) PROSE.PORTRAIT[k] = PROSE.PORTRAIT[k].replace(a, b); if (SHEET[k]) SHEET[k] = SHEET[k].replace(a, b); if (WORLD.people[k].sheet) WORLD.people[k].sheet = WORLD.people[k].sheet.replace(a, b); };
+  swap('thomas', /was chief clerk of the Moorgate Fire and Life Assurance Company and paid the wages on Fridays/, 'had been chief clerk of the Moorgate Fire and Life Assurance Company for thirty-one years, and was now retired on a pension');
+  swap('thomas', /chief clerk of the Moorgate Fire and Life Assurance Company\. (.*?)He pays the clerks' wages and the charwoman's on Fridays\. /, "retired chief clerk of the Moorgate Fire and Life Assurance Company, on a pension. $1");
+  swap('thomas', /chief clerk of the same office; pays the wages on Fridays\./, 'retired chief clerk of the same office, on a pension.');
+  const when = past ? 'at the end of April 1931' : 'at the end of April';
+  remember('thomas', `${past ? 'He retired' : 'He has retired'} from the Moorgate office ${when}, after thirty-one years' service, on a pension.`, ['arthur', 'work'], 3);
+  if (W.successor === 'arthur') {
+    W.wage = Math.max(W.wage, 1200); F.arthurChief = true;
+    swap('arthur', /a ledger clerk of ([a-z-]+) at an insurance office in Moorgate, at three pounds (ten|fifteen) a week/, 'the chief clerk, a man of $1, at the insurance office in Moorgate, at five pounds a week');
+    swap('arthur', /a ledger clerk at the Moorgate Fire and Life Assurance Company, earning £3 1[05]s\. a week/, 'chief clerk of the Moorgate Fire and Life Assurance Company, earning £5 a week');
+    swap('arthur', /ledger clerk at an insurance office in Moorgate, £3 1[05]s\. a week/, 'chief clerk of an insurance office in Moorgate, £5 a week');
+    remember('arthur', `Mr. Thomas ${past ? 'retired' : 'has retired'}, and he ${past ? 'became' : 'is now'} chief clerk at five pounds a week, and pays the wages on Fridays.`, ['thomas', 'work', 'money'], 3);
+    remember('ada', `Mr. Thomas ${past ? 'retired' : 'has retired'}; Mr. Hale is chief clerk now and pays her wages.`, ['thomas', 'arthur'], 2);
+  } else {
+    if (!WORLD.people.pike) { WORLD.people.pike = { id: 'pike', name: 'Mr. Pike', short: 'Mr. Pike', f: false, home: null, place: null, money: 0, inv: {}, rel: {}, know: {}, obs: [], busyUntil: 0, needs: { hunger: 0, energy: 0, warmth: 0, social: 0 }, age: 48,
+      sheet: 'Mr. Pike, aged forty-eight, the new chief clerk, from the Leeds branch of the company; exact, cool, and still a stranger to the office.',
+      routine: w => (w.dow() !== 'sun' && w.mod >= hm(8, 45) && w.mod < (w.dow() === 'sat' ? hm(12, 30) : hm(17, 15)) ? 'office' : null) };
+      NPC.pike = WORLD.people.pike; for (const k in A) A[k].op.pike = 0; VERBSMOD.addPerson(/\b(mr\.? pike|pike)\b/, 'pike'); }
+    remember('arthur', `Mr. Thomas ${past ? 'retired' : 'has retired'}, and Mr. Pike of the Leeds branch ${past ? 'came' : 'has come'} as chief clerk over his head.`, ['thomas', 'pike', 'work'], 3);
+    remember('ada', `Mr. Thomas ${past ? 'retired' : 'has retired'}; Mr. Pike, the new chief clerk, pays her wages now.`, ['thomas', 'pike'], 2);
+  }
+  setState('chief', ['arthur', 'ada', 'thomas'], W.successor === 'arthur' ? 'Mr. Hale is chief clerk at the Moorgate office' : 'Mr. Pike is chief clerk at the Moorgate office');
+  rumour(`Mr. Thomas has retired from the insurance office, and ${W.successor === 'arthur' ? 'Mr. Hale' : 'a Mr. Pike from Leeds'} is chief clerk`, 'thomas', ['ada', 'arthur']);
+  STATS.retired = W.successor; say(`   ✦ Mr. Thomas retires; ${W.successor === 'arthur' ? 'Mr. Hale' : 'Mr. Pike of Leeds'} is chief clerk.`);
+}
 // knowledge that moves with the calendar: what each person says of the world's great facts, once a month (leak1931.js)
 const LEAK = require('./leak1931.js');
 async function putQuestion(k, question, topic) {   // the person's page, a question put to the person, the very words (three tries)
@@ -1701,20 +1735,25 @@ async function interrupts(d, t) {
     else { payRent(false); say(`   🏠 Ada asks Mr. Gedge to wait${has >= due ? ' (though she has the money)' : ''}.`); if (weeks >= 3) { remember('ada', 'Mr. Gedge said that if the arrears are not cleared by next week the landlord will give her notice to quit.', ['gedge', 'rent'], 3); } }
   }
   // nobody cleaned the office this morning / Mr. Hale did not come in: Mr. Thomas notices, and may act
-  if (!['sun'].includes(w) && t === hm(9, 15) && A.thomas.place === 'office' && !F.adaDismissed && A.ada.cleanedDay !== d && !F.ill_ada) {
-    W.missedClean = (W.missedClean || 0) + 1; remember('thomas', `The office was not cleaned this morning; Mrs. Turner did not come (${W.missedClean} time${W.missedClean > 1 ? 's' : ''} this winter).`, ['ada'], 3); say(`   ✶ The office is not cleaned: Mrs. Turner did not come (${W.missedClean}).`);
-    if (W.missedClean >= 2 && !W['warned' + W.missedClean]) {
-      W['warned' + W.missedClean] = true;
-      const r = await duty('thomas', `Mrs. Turner, the charwoman, has failed to come and clean the office ${W.missedClean} times this winter without a word of excuse. Does Mr. Thomas give her notice and find another charwoman?`, 'gives her notice', 'gives her one more chance', 'gives her notice');
-      if (r.yes) { W.greatDay = W.day; jolt('ada', 'shock', 50); jolt('ada', 'surprise', -40); F.adaDismissed = true; rumour('Mrs. Turner has lost her place at the Moorgate insurance office', 'ada', ['thomas', 'fenn']); setState('job', ['ada', 'thomas', 'arthur'], 'Mrs. Turner has been given notice at the Moorgate office'); remember('ada', 'Mr. Thomas has given her notice: she has lost her place cleaning the Moorgate office, twelve shillings a week.', ['thomas', 'money', 'work'], 3); remember('thomas', 'He gave Mrs. Turner notice for not coming to clean.', ['ada'], 3); fact('ada', 'Why did you lose your place at the Moorgate office?', ['I missed coming to clean', 'The office closed', 'I gave notice myself'], 0); say('   ✶ Mrs. Turner is given notice at the Moorgate office.'); }
-      else remember('ada', "Mr. Thomas sent word that she must not miss the office again, or she will lose her place.", ['thomas', 'work'], 3);
+  if (!['sun'].includes(w) && t === hm(9, 15) && chiefHere() && !F.adaDismissed && A.ada.cleanedDay !== d && !F.ill_ada) {
+    const c = chief(); W.missedDays = (W.missedDays || []).filter(x => d - x < 90); W.missedDays.push(d); W.missedClean = W.missedDays.length;
+    if (A[c]) remember(c, `The office was not cleaned this morning; Mrs. Turner did not come (${W.missedClean} time${W.missedClean > 1 ? 's' : ''} lately).`, ['ada'], 3); say(`   ✶ The office is not cleaned: Mrs. Turner did not come (${W.missedClean}).`);
+    if (W.missedClean >= 2 && !W['warned' + d]) {
+      W['warned' + d] = true;
+      const r = A[c] ? await duty(c, `Mrs. Turner, the charwoman, has failed to come and clean the office ${W.missedClean} times lately without a word of excuse. Does ${A[c].name} give her notice and find another charwoman?`, 'gives her notice', 'gives her one more chance', 'gives her notice')
+        : { yes: W.missedClean >= 3 };   // Mr. Pike goes by the book: a warning, then notice
+      if (r.yes) { W.greatDay = W.day; jolt('ada', 'shock', 50); jolt('ada', 'surprise', -40); F.adaDismissed = true; rumour('Mrs. Turner has lost her place at the Moorgate insurance office', 'ada', ['thomas', 'fenn']); setState('job', ['ada', 'thomas', 'arthur'], 'Mrs. Turner has been given notice at the Moorgate office'); remember('ada', `${nameOf(c)} has given her notice: she has lost her place cleaning the Moorgate office, twelve shillings a week.`, [c, 'money', 'work'], 3); if (A[c]) remember(c, 'He gave Mrs. Turner notice for not coming to clean.', ['ada'], 3); fact('ada', 'Why did you lose your place at the Moorgate office?', ['I missed coming to clean', 'The office closed', 'I gave notice myself'], 0); say('   ✶ Mrs. Turner is given notice at the Moorgate office.'); }
+      else remember('ada', `${nameOf(c)} sent word that she must not miss the office again, or she will lose her place.`, [c, 'work'], 3);
     }
   }
-  if (!['sat', 'sun'].includes(w) && t === hm(10) && A.thomas.place === 'office' && A.arthur.place !== 'office' && !F.ill_arthur) { W.missedArthur = (W.missedArthur || 0) + 1; remember('thomas', `Mr. Hale has not come in this morning, without a word (${W.missedArthur}).`, ['arthur'], 3); A.thomas.op.arthur = Math.max(-2, (A.thomas.op.arthur || 0) - 1); say(`   ✶ Arthur is missing from the office (${W.missedArthur}).`); }
+  if (!['sat', 'sun'].includes(w) && t === hm(10) && chief() === 'pike' && chiefHere() && A.arthur.place !== 'office' && !F.ill_arthur && !A.arthur.away) { W.missedArthur = (W.missedArthur || 0) + 1; if (W.missedArthur % 3 === 0) remember('arthur', 'Mr. Pike has noticed that he has not always been in his place in the mornings, and has said so.', ['pike', 'work'], 3); }
+  if (!['sat', 'sun'].includes(w) && t === hm(10) && chief() === 'thomas' && A.thomas.place === 'office' && A.arthur.place !== 'office' && !F.ill_arthur) { W.missedArthur = (W.missedArthur || 0) + 1; remember('thomas', `Mr. Hale has not come in this morning, without a word (${W.missedArthur}).`, ['arthur'], 3); A.thomas.op.arthur = Math.max(-2, (A.thomas.op.arthur || 0) - 1); say(`   ✶ Arthur is missing from the office (${W.missedArthur}).`); }
   if (w === 'fri' && t === hm(8, 30) && A.ada.place === 'office' && !W.paid['ada' + d] && !F.adaDismissed) {
-    const payer = A.thomas.place === 'office' ? 'thomas' : A.arthur.place === 'office' ? 'arthur' : null;
+    const c = chief();
+    if (c === 'pike' && chiefHere()) { W.paid['ada' + d] = true; A.ada.money += 144; jolt('ada', 'relief', 10); remember('ada', "Mr. Pike paid her the week's wages, twelve shillings, to the minute.", ['pike', 'money'], 2); }
+    const payer = c === 'pike' ? null : c === 'arthur' ? (A.arthur.place === 'office' ? 'arthur' : null) : A.thomas.place === 'office' ? 'thomas' : A.arthur.place === 'office' ? 'arthur' : null;
     if (payer) {
-      const r = await duty(payer, `It is Friday, pay-day. Mrs. Turner, the charwoman, is here; her week's wages of twelve shillings are due, and she needs them for her rent.${payer === 'arthur' ? " Mr. Thomas is away, and has left the wages in Mr. Hale's charge." : ''} Does ${A[payer].name} pay Mrs. Turner her wages now?`, 'pays her now', 'does not pay her now', 'pay');
+      const r = await duty(payer, `It is Friday, pay-day. Mrs. Turner, the charwoman, is here; her week's wages of twelve shillings are due, and she needs them for her rent.${payer === 'arthur' ? (c === 'arthur' ? ' As chief clerk, Mr. Hale pays the wages on Fridays.' : " Mr. Thomas is away, and has left the wages in Mr. Hale's charge.") : ''} Does ${A[payer].name} pay Mrs. Turner her wages now?`, 'pays her now', 'does not pay her now', 'pay');
       if (r.yes) { jolt('ada', 'relief', 15); W.paid['ada' + d] = true; A.ada.money += 144; note(payer, 'wages-book', 'Mrs. Turner, charwoman, paid 12s.'); remember('ada', `${A[payer].name} paid her the week's wages, twelve shillings.`, [payer, 'money'], 2); remember(payer, "He paid Mrs. Turner her week's wages.", ['ada'], 2); }
       else { remember('ada', `${A[payer].name} did not pay her wages this Friday.`, [payer, 'money'], 3); fact('ada', `Were you paid your wages at the insurance office on ${LONGDATE(d)}?`, ['Yes', 'No'], 1); }
     }
@@ -1722,15 +1761,15 @@ async function interrupts(d, t) {
   // the pay envelope: handed out from half past four on Friday; if he has gone, it waits for him in the office till Saturday dinner-time
   const payday = w === 'fri' ? d : w === 'sat' ? d - 1 : null;
   if (payday !== null && ((w === 'fri' && t >= hm(16, 30)) || (w === 'sat' && t <= hm(13))) && !W.paid['arthur' + payday] && A.arthur.place === 'office') { W.paid['arthur' + payday] = true; F['paid_arthur_' + payday] = true; A.arthur.money += W.wage; note('arthur', 'account-book', `wages received, ${money(W.wage)}`); remember('arthur', `He was paid his week's wages, ${money(W.wage)}`, ['thomas', 'money'], 2); say(`   (Wages: Arthur receives ${money(W.wage)})`); }
-  if (d === 0 && t === hm(9) && !W.ledger.assigned) { W.ledger.assigned = true; remember('arthur', 'Mr. Thomas set him to balance the quarterly ledger.', ['thomas', 'ledger'], 3); remember('thomas', 'He set Mr. Hale to balance the quarterly ledger.', ['arthur', 'ledger'], 3); say('   (Mr. Thomas sets Arthur to the quarterly ledger.)'); }
-  if (d === 10 && t === hm(17) && W.auditDue && !W.audit.verdict) say(`   (The auditors examine the books.) ${verdict('audit')}`);
-  if (d === 11 && t === hm(9) && W.audit.verdict && W.audit.raise === null && A.thomas.place === 'office') {
+  if (SD(d) === 0 && t === hm(9) && !W.ledger.assigned) { W.ledger.assigned = true; remember('arthur', 'Mr. Thomas set him to balance the quarterly ledger.', ['thomas', 'ledger'], 3); remember('thomas', 'He set Mr. Hale to balance the quarterly ledger.', ['arthur', 'ledger'], 3); say('   (Mr. Thomas sets Arthur to the quarterly ledger.)'); }
+  if (SD(d) === 10 && t === hm(17) && W.auditDue && !W.audit.verdict) say(`   (The auditors examine the books.) ${verdict('audit')}`);
+  if (SD(d) === 11 && t === hm(9) && W.audit.verdict && W.audit.raise === null && A.thomas.place === 'office') {
     const r = await duty('thomas', `The auditors have found Mr. Hale's books ${W.audit.verdict}. Mr. Hale has served the company faithfully for ten years at £3 10s. a week. Does Mr. Thomas recommend him to the directors for a rise of five shillings a week?`, 'recommends him', 'does not recommend him', 'recommend');
     W.audit.raise = r.yes; note('thomas', 'office diary', r.yes ? 'recommended Mr. Hale for a rise of 5s. a week' : 'did not recommend Mr. Hale for a rise');
     if (r.yes) { remember('arthur', 'Mr. Thomas told him he would recommend him for a rise of five shillings a week, from February.', ['thomas', 'money'], 3); remember('thomas', 'He recommended Mr. Hale for a rise.', ['arthur'], 3); fact('arthur', 'What did Mr. Thomas tell you after the audit?', ['He would recommend me for a rise', 'He would dismiss me', 'Nothing'], 0); }
     else fact('arthur', 'What did Mr. Thomas tell you after the audit?', ['He would recommend me for a rise', 'He would dismiss me', 'Nothing'], 2);
   }
-  if (d === 84 && t === hm(9) && W.retire && W.successor === undefined && A.thomas.place === 'office') {
+  if (SD(d) === 84 && t === hm(9) && W.retire && W.successor === undefined && A.thomas.place === 'office') {
     const r = await duty('thomas', `Mr. Thomas must now recommend his successor as chief clerk: either Mr. Hale, who has served ten years (his audit books were ${W.audit.verdict || 'not examined'}; Mr. Thomas ${opinionWords('thomas', 'arthur')} him), or Mr. Pike, an experienced clerk from the Leeds branch whom he hardly knows. Does Mr. Thomas recommend Mr. Hale?`, 'recommends Mr. Hale', 'recommends Mr. Pike instead', 'recommends Mr\\.? Hale');
     W.successor = r.yes ? 'arthur' : 'pike'; setState('successor', ['arthur', 'ada', 'thomas'], r.yes ? 'Mr. Hale is recommended as the next chief clerk' : 'Mr. Pike of Leeds is recommended as the next chief clerk');
     for (const k of ['arthur', 'thomas', 'ada']) remember(k, r.yes ? 'Mr. Thomas has recommended Mr. Hale to succeed him as chief clerk.' : 'Mr. Thomas has recommended Mr. Pike of the Leeds branch to succeed him as chief clerk.', ['thomas', 'arthur'], 3);
@@ -1760,6 +1799,8 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     try { const t0 = Date.now(); await Promise.race([FETCH.ensure(SIMDATE.iso(d)), new Promise(r => setTimeout(r, 120000))]); STATS.fetchMs = (STATS.fetchMs || 0) + Date.now() - t0; } catch (e) { STATS.fetchErrors = (STATS.fetchErrors || 0) + 1; }
     FETCH.prefetch([1, 2, 3].map(k => SIMDATE.iso(d + k)));
     if (d > 0 && dateOf(d).getUTCMonth() === 0 && dateOf(d).getUTCDate() === 1) newYear();
+    if (d === 0) { const s0 = SIMDATE.iso(0); if (s0 >= '1931-03-15') W.retire = true; if (s0 >= '1931-03-28' && W.successor === undefined) W.successor = process.env.SUCCESSOR || 'arthur'; }
+    if (!F.thomasRetired && W.retire && SIMDATE.iso(d) >= '1931-05-01') retireThomas(d === 0);
     morningEvents(); letters(); try { lifeAndDeath(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; }
     for (const c of PROM.daily(W.day)) { const nm = nameOf(c.id); if (c.up) { STATS.promoted = (STATS.promoted || 0) + 1; say(`   ⇧ ${nm} has come to matter: ${heshe(c.id)} will remember ${hisher(c.id)} dealings with the household.`); } else { STATS.demoted = (STATS.demoted || 0) + 1; say(`   ⇩ ${nm} goes back into the background.`); } }
     W.quiet = quietDay(d); if (W.quiet) STATS.quietDays = (STATS.quietDays || 0) + 1;
@@ -1786,7 +1827,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     }
     try { fs.appendFileSync(path.join(OUT, 'positions.jsonl'), POS.splice(0).map(x => JSON.stringify(x)).join('\n') + '\n'); fs.appendFileSync(path.join(OUT, 'moves.jsonl'), (WORLD.track || []).splice(0).map(x => JSON.stringify(x)).join('\n') + '\n'); } catch (e) {}
     fs.writeFileSync(path.join(OUT, 'state.json'), JSON.stringify({ W, STATS, world: { t: WORLD.t, flags: WORLD.flags, stats: WORLD.stats, objects: WORLD.objects, people: Object.fromEntries(Object.entries(WORLD.people).map(([k, p]) => [k, { place: p.place, money: p.money, inv: p.inv, needs: p.needs }])) }, agents: Object.fromEntries(Object.entries(A).map(([k, a]) => [k, { place: a.place, money: a.money, op: a.op, mem: a.mem }])) }, null, 1));
-    const keyDay = [0, 3, 5, 10, 11, 29, 30, 43, 57, 59, 73, 84].includes(d) || W.facts.some(f => f.day === d);
+    const keyDay = [0, 3, 5, 10, 11, 29, 30, 43, 57, 59, 73, 84].includes(SD(d)) || W.facts.some(f => f.day === d);
     try {
       if (DOW(d) === 'sun' && !W.quiet) for (const k in A) await reflect(k);
       if (DOW(d) === 'sun' && PLANSON) for (const k in A) await weekPlan(k, d + 1);

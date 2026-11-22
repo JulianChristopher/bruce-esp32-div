@@ -18,6 +18,7 @@ const NW = '(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:-(?:one|
 const AGE_RE = new RegExp(`\\b(aged |of )(${NW})(?=[,.;)]| at\\b| years\\b| and\\b|$)|(, )(${NW})(, was\\b)|\\b(${NW})( years old)\\b`, 'gi');
 function ageText(text, years = 1) {
   if (!text || !years) return text;
+  text = String(text).replace(/(, )(\d{1,2})(, [a-z])/g, (m, a, n, b) => `${a}${+n + years}${b}`).replace(/\((\d{1,2})\)/g, (m, n) => `(${+n + years})`);
   // a child grows out of the words of childhood: "a little daughter, Joan, of sixteen" is "a daughter, Joan, of sixteen"
   const grown = String(text).replace(new RegExp(`\\b(a |his |her |the )?little (daughter|son|girl|boy)(,? \\w+,? (?:of|aged) )(${NW})\\b`, 'gi'), (m, art, w, mid, n) => { const v = value(n); return v != null && v + years >= 13 ? `${art || ''}${w}${mid}${n}` : m; });
   return grown.replace(AGE_RE, (m, p1, n1, p2, n2, s2, n3, s3) => {

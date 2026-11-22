@@ -147,7 +147,7 @@ const actions = [
   { id: 'desk_work', who: ['arthur'], at: () => 'office', where: () => true, when: w => !sun(w) && w.mod >= hm(8, 15) && (sat(w) ? w.mod < hm(12, 30) : w.mod < hm(17, 15) && !w.between(hm(12, 30), hm(13, 30))),
     dur: w => Math.min(120, (sat(w) ? hm(13) : w.mod < hm(12, 30) ? hm(12, 30) : hm(17, 30)) - w.mod), base: 12, habit: () => true,
     label: w => H(w).arthurWorkLabel(), effect: (w) => H(w).arthurWork() },
-  { id: 'chief_work', who: ['thomas'], at: () => 'office', where: () => true, when: w => !sun(w) && !w.flags.thomasIll && w.mod >= hm(8) && w.mod < (sat(w) ? hm(12, 30) : hm(17, 15)) && !w.between(hm(12, 30), hm(13, 30)),
+  { id: 'chief_work', who: ['thomas'], at: () => 'office', where: () => true, when: w => !sun(w) && !w.flags.thomasIll && !w.flags.thomasRetired && w.mod >= hm(8) && w.mod < (sat(w) ? hm(12, 30) : hm(17, 15)) && !w.between(hm(12, 30), hm(13, 30)),
     dur: w => Math.min(120, (sat(w) ? hm(13) : w.mod < hm(12, 30) ? hm(12, 30) : hm(17, 30)) - w.mod), base: 12, habit: () => true,
     label: w => H(w).thomasWorkLabel(), effect: (w) => H(w).thomasWork() },
   { id: 'lunch_chop', who: ['arthur', 'thomas'], at: () => 'teashop', where: () => true, when: (w, p) => weekday(w) && w.between(hm(12, 30), hm(13, 30)) && !(p.ateAt > w.t - 150), cost: 14, payee: () => null, dur: 45, meets: { hunger: 60, warmth: 20 }, base: 4,

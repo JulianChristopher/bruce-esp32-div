@@ -201,8 +201,12 @@ const isRest = d => DOW(d) === 'sun' || BANK.includes(d) || d === GOODFRI;
 const { newsFor } = require('./news1931.js'); const CHRONOS = require('./chronos1931.js'); const FETCH = require('./decade/fetch1930s.js'); const DECADE = require('./decade/chronos1930s.js');
 // an American wire story told as a London paper would print it: no dateline, no agency, dollars in words
 const wireText = t => String(t || '')
-  .replace(/^[A-Z][A-Za-z .,'-]+?,\s+[A-Z][a-z]+\.?\s+\d+\.?\s*(?:\(\s*[A-Z]*\s*\)\s*)*(?:\([A-Z][a-z]+day\)\s*)?[—-]+\s*/, '')
-  .replace(/^\s*\(\s*(?:AP|UP|INS|NANA|PE)?\s*\)\s*[—-]*\s*/, '').replace(/\s*[—-]*\(\s*(?:AP|UP|INS|NANA|PE)\s*\)[—-]*\s*/g, ' ')
+  .replace(/^[\s|“"'‘]+/, '').replace(/^[({]?\s*(?:copyright,?\s*\d*,?\s*)?by the associated press\.?\s*[)}]?\.?\s*/i, '').replace(/^\(copyright[^)]*\)\s*/i, '')
+  // the dateline only: a place in capitals (LONDON, NEW YORK), or a place with its date (London, July 21), or a place and
+  // its country (Cannes, France), each closed by a dash; nothing that could be the first words of the story
+  .replace(/^(?:[A-Z][A-Z.' ]{1,30}(?:,\s*[A-Z][A-Za-z.' ]{1,30})?(?:,?\s*[A-Z][a-z]+\.?\s+\d{1,2})?|[A-Z][a-z]+(?: [A-Z][a-z]+)?,(?:\s*[A-Z][a-z]+(?: [A-Z][a-z]+)?,)?\s*[A-Z][a-z]+\.?\s+\d{1,2}|[A-Z][a-z]+(?: [A-Z][a-z]+)?,\s*[A-Z][a-z]+(?: [A-Z][a-z]+)?(?=\s*[—–-])|[A-Z][a-z]+(?=\s*[—–-]))\.?\s*[.,]?\s*(?:\([^)]{0,14}\)\s*)*[.,]?\s*[—–-]+\s*(?:\([^)]{0,14}\)\s*[.,]?\s*[—–-]*\s*)?/, '')
+  .replace(/\s*\((?:#|\d|\/?P|U\.?R\.?|A\.?P\.?|U\.?P\.?|INS|NANA|WP|PE|[^)]{0,3}\?)\)\s*[.,]?\s*[—–-]*\s*/g, ' ')
+  .replace(/^(?:W?UP|AP|INS|NANA)\s*[—–-]+\s*/, '')
   .replace(/\$\s?([\d,]+(?:\.\d+)?)(\s?(?:million|billion))?/g, (m, n, big) => `${n}${big || ''} dollars`).replace(/\s+/g, ' ').trim();
 // the news of a day by its date: the 1931 selection (news1931.js) for the first months of 1931, otherwise the day's
 // wire stories of the decade (decade/news), British ones first, the dateline taken off
@@ -211,9 +215,16 @@ function newsOn(d) {
   const t = T0 + d * 864e5, i = Math.round((t - T1931) / 864e5);
   if (new Date(t).getUTCFullYear() === 1931 && i >= 0) { const n = newsFor(i); if (n.length) return n; }
   const day = DECADE.day(SIMDATE.iso(d)) || {}, st = (day.news || []).filter(x => x && x.text && x.text.length > 120 && require('./ops1931.js').periodOK(x.text));
-  const brit = st.filter(x => /united kingdom|england|britain|ireland|scotland|wales/i.test(x.country || '') || /london/i.test(x.place || ''));
-  return (brit.length ? brit : st).sort((a, b) => (a.rank || 9) - (b.rank || 9)).slice(0, 2).map(x => ({ p: null,
-    text: `${String(x.place || '').toUpperCase()}. ${wireText(x.text).slice(0, 320).replace(/\s+\S*$/, '')}…` }));
+  // as an editor of the day would choose: the longer story, British news before foreign, and the great matters of state
+  // (a government, a king, an election, a war) before the rest; the same story twice only once
+  const MAJOR = /\b(president\w*|king|prime minister|chancellor\w*|government\w*|parliament\w*|cabinet|election\w*|elected|abdicat\w*|treat(?:y|ies)|war|gold standard|budget)\b/i;
+  const brit = x => /united kingdom|england|britain|ireland|scotland|wales/i.test(x.country || '') || /london/i.test(x.place || '');
+  const score = x => (x.size || 0) + (brit(x) ? 15 : 0) + (MAJOR.test(x.text.slice(0, 300)) ? 25 : 0);
+  const chosen = []; for (const x of st.slice().sort((a, b) => score(b) - score(a))) {
+    const w = new Set(wireText(x.text).toLowerCase().match(/[a-z]{4,}/g) || []), dup = chosen.some(c => { const v = new Set(wireText(c.text).toLowerCase().match(/[a-z]{4,}/g) || []); let n = 0; for (const t of w) if (v.has(t)) n++; return n / Math.max(1, Math.min(w.size, v.size)) > 0.45; });
+    if (!dup) chosen.push(x); if (chosen.length === 2) break; }
+  return chosen.map(x => ({ p: null,
+    text: `${x.country && x.place ? String(x.place).toUpperCase() + '. ' : ''}${wireText(x.text).slice(0, 320).replace(/\s+\S*$/, '')}…` }));   // a place only when the record knows its country
 }
 const paperText = d => newsOn(d).map(x => x.text).join(' ');
 function readPaper(k, name, cost) {

@@ -1811,7 +1811,8 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
       POS.push([d, t, Object.fromEntries(Object.values(WORLD.people).filter(p => p.place && !p.away).map(p => [p.id, p.place]))]);
       await interrupts(d, t);
       try { await chorus(t); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; }
-      const idle = Object.keys(A).filter(k => A[k].busyUntil <= WORLD.t);
+      if (process.env.FORCEAWAY && d === 0 && t === hm(8)) { const [fk, fn] = process.env.FORCEAWAY.split(':'); if (A[fk]) WORLD.hooks.away(fk, +fn || 1, 'a journey for the test'); }   // test hook
+      const idle = Object.keys(A).filter(k => A[k].busyUntil <= WORLD.t && !(A[k].awayUntil > WORLD.t));   // a person away from London does not act here (the deed's own end must not call him back)
       if (t >= hm(23)) { for (const k of idle) { A[k].busyUntil = (d + 1) * 1440 + hm(6, 15); A[k].needs.energy = 20; say(`   (${A[k].short} drops off to sleep at last.)`); } break; }
       const groups = {}; for (const k of idle) (groups[A[k].place] = groups[A[k].place] || []).push(k);
       await Promise.all(Object.values(groups).map(async ks => {

@@ -201,7 +201,7 @@ function deedOf(w, k, ops, ctx = {}) {
     effect: (w2, p2) => {   // in the real world: the registry creates for good and events are scheduled; in a fork (the engine's foresight) only trials
       const real = w2 === w; if (!real) w2.places = Object.assign({}, w2.places);
       const t0 = w2.t; const r = run(w2, p2.id, ops, real ? ctx : { ...ctx, registry: ctx.registry && ctx.registry.trial ? ctx.registry.trial() : null, scheduler: null }); w2.t = t0; if (!r.ok) return `${p2.short} meant to ${(ctx.sentence || 'do something').replace(/^(she|he)\s+/i, '').replace(/\.$/, '')}, but ${r.why}.`;
-      if (r.ret && r.ret.talk) return r.ret; return `${p2.short} ${r.text.join(', ')}.`; } },
+      if (r.ret && r.ret.talk) return r.ret; return `${p2.short} ${r.text.join(', ')}.`.replace(/\.\.$/, '.'); } },
     x: null, at: p.place, walk: 0, cost: 0, u: 0, label };
   return { aff, minutes: trial.minutes, preview: trial.text };
 }

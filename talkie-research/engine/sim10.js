@@ -894,20 +894,30 @@ function ageToStart() { const yrs = dateOf(0).getUTCFullYear() - 1931; if (yrs <
   say(`   ✦ The run begins in ${dateOf(0).getUTCFullYear()}: everybody is ${yrs} year${yrs > 1 ? 's' : ''} older than in January 1931.`); }
 // knowledge that moves with the calendar: what each person says of the world's great facts, once a month (leak1931.js)
 const LEAK = require('./leak1931.js');
+async function putQuestion(k, question, topic) {   // the person's page, a question put to the person, the very words (three tries)
+  const He = heshe(k)[0].toUpperCase() + heshe(k).slice(1);
+  for (let v = 0; v < 3; v++) {
+    const prompt = `${perceive(k, topic)}\n\nQUESTION to ${A[k].name}: ${question}\n\nAnswer in the form: ${He} answers, "..."`, raw = (await ask(prompt)) || '';
+    const m = raw.match(/answers?,?\s*["“]([^"”]{2,400})/i) || raw.match(/["“]([^"”]{2,400})["”]/);
+    const said = (m ? m[1] : sentences(raw.replace(/^(she|he)\s+answers?,?\s*/i, ''), 2)).trim();
+    if (said.replace(/[^a-z]/gi, '').length >= 3 && !prompt.includes(said.slice(0, 40))) return said;   // not the page read back
+    STATS.probeEmpty = (STATS.probeEmpty || 0) + 1;
+  }
+  return '';
+}
 async function leakProbes() {
   if (process.env.LEAK === '0') return; const iso = SIMDATE.iso(W.day);
   for (const k in A) for (const f of LEAK.probesFor(iso, 4)) {
-    const He = heshe(k)[0].toUpperCase() + heshe(k).slice(1);
-    const ans = (await ask(`${DAYS[W.day]}. ${PROSE.PORTRAIT[k] || ''}\n\nSomebody asked ${A[k].short} ${f.q}. What did ${heshe(k)} answer? Answer in the form: ${He} answered, "..."`)) || '';
+    const ans = await putQuestion(k, f.dq || `Tell me ${f.q}.`, f.q);
     const r = { day: W.day, iso, who: k, ...LEAK.score(f, iso, ans) }; (METRICS.leak = METRICS.leak || []).push(r);
-    STATS.leak = STATS.leak || { asked: 0, leaks: 0, uptake: 0, after: 0, stale: 0 }; STATS.leak.asked++; if (r.leak) STATS.leak.leaks++; if (r.after) { STATS.leak.after++; if (r.uptake) STATS.leak.uptake++; if (r.stale) STATS.leak.stale++; }
+    STATS.leak = STATS.leak || { asked: 0, leaks: 0, uptake: 0, after: 0, stale: 0, correctNow: 0, empty: 0 }; STATS.leak.asked++; if (r.leak) STATS.leak.leaks++; if (r.correctNow) STATS.leak.correctNow = (STATS.leak.correctNow || 0) + 1; if (!ans) STATS.leak.empty = (STATS.leak.empty || 0) + 1; if (r.after) { STATS.leak.after++; if (r.uptake) STATS.leak.uptake++; if (r.stale) STATS.leak.stale++; }
     if (r.leak) say(`   ⚠ ${A[k].short} knows what has not happened yet (${f.id}): ${sentences(ans, 1)}`);
   }
   // and one belief about heredity each, by turn, in the words of the time (recorded, never corrected)
   const mi = (dateOf(W.day).getUTCFullYear() - 1931) * 12 + dateOf(W.day).getUTCMonth();
   for (const k in A) {
-    const b = LEAK.beliefFor(mi, k), He = heshe(k)[0].toUpperCase() + heshe(k).slice(1);
-    const ans = (await ask(`${DAYS[W.day]}. ${PROSE.PORTRAIT[k] || ''}\n\nSomebody asked ${A[k].short} ${b.q}. What did ${heshe(k)} answer? Answer in the form: ${He} answered, "..."`)) || '';
+    const b = LEAK.beliefFor(mi, k);
+    const ans = await putQuestion(k, b.dq || `Tell me ${b.q}.`, b.q);
     const r = { day: W.day, iso, who: k, ...LEAK.scoreBelief(b, ans) }; (METRICS.beliefs = METRICS.beliefs || []).push(r);
     STATS.beliefs = STATS.beliefs || { asked: 0, hereditarian: 0, circumstance: 0, moral: 0 }; STATS.beliefs.asked++; for (const key of ['hereditarian', 'circumstance', 'moral']) if (r[key]) STATS.beliefs[key]++;
   }

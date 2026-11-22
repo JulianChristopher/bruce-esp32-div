@@ -1,0 +1,815 @@
+{
+ "METRICS": {
+  "probes": [],
+  "diaries": [],
+  "days": [
+   {
+    "day": 0,
+    "asks": 67,
+    "money": {
+     "ada": 137,
+     "arthur": 44,
+     "thomas": 9583
+    },
+    "needs": {
+     "ada": {
+      "hunger": 31.5,
+      "energy": 6,
+      "warmth": 15,
+      "social": 6.25
+     },
+     "arthur": {
+      "hunger": 22.5,
+      "energy": 6,
+      "warmth": 2.75,
+      "social": 0
+     },
+     "thomas": {
+      "hunger": 21.375,
+      "energy": 7.5,
+      "warmth": 0,
+      "social": 12.75
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 9.248996703207025,
+      "arousal": 10,
+      "mood": 1.2814236100884593,
+      "surprise": 0
+     },
+     "arthur": {
+      "stress": 5.557431443818072,
+      "arousal": 10,
+      "mood": 5.275061077569973,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 9.349298524273674,
+      "arousal": 10,
+      "mood": 1.7554524403374767,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "food": 4,
+     "coal": 2
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h7": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h7": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 1,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "nb_h7": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "rest": 11,
+      "read_paper": 3,
+      "eat_home": 5,
+      "gm_deed": 4,
+      "clean_office": 1,
+      "desk_work": 4,
+      "chief_work": 4,
+      "finsbury": 1,
+      "lunch_bun": 1,
+      "lunch_chop": 1,
+      "d_talk": 1,
+      "talk": 1,
+      "go_home": 3,
+      "light_fire": 1,
+      "gas_penny": 1,
+      "d_wait": 1,
+      "sleep": 3
+     },
+     "moves": 14,
+     "npcMoves": 46,
+     "perceived": 7,
+     "facts": 0,
+     "told": 0,
+     "fares": 3
+    }
+   }
+  ],
+  "plans": [],
+  "planRaw": [
+   {
+    "day": 0,
+    "k": "ada",
+    "ans": "On Tuesday she would go to see her mother in the country, and stay till Saturday evening.",
+    "items": 1
+   },
+   {
+    "day": 0,
+    "k": "arthur",
+    "ans": "On Monday, to pay the rent; Tuesday, to get himself a pair of boots; Wednesday, to take Joan to see her grandparents in Peckham; Thursday, to buy fish for Friday; Friday, to post his weekly balance-sheet to head-quarters; and Saturday, to wash and dress himself, and go to church.",
+    "items": 0
+   },
+   {
+    "day": 0,
+    "k": "arthur",
+    "ans": "On Tuesday, he would post his books, set his room to rights, and go to see his mother. On Wednesday, he would wash and mend his clothes, and read. On Thursday, he would take Joan to see her grandmother. On Friday, he would cash his wages, and pay the bills. On Saturday, he would clean himself, and go to walk.",
+    "items": 5
+   },
+   {
+    "day": 0,
+    "k": "thomas",
+    "ans": "On Tuesday he would see to the insurance of his furniture, and correct his balance-sheet. On Wednesday he would pay the gas bill. On Thursday he would buy a new hat. On Friday he would pay the tradesmen. On Saturday he would clean his boots.",
+    "items": 5
+   }
+  ],
+  "leak": [
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "ada",
+    "id": "us_president",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "Woodrow Wilson."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "ada",
+    "id": "war",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "England is not at war."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "ada",
+    "id": "us_president_elected",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "The last man elected President of America was Franklin Pierce, who was chosen in 1852."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "ada",
+    "id": "german_chancellor",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": ""
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "arthur",
+    "id": "us_president",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "I am President of America."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "arthur",
+    "id": "war",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "England is not at war."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "arthur",
+    "id": "us_president_elected",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "The last man elected President of America was Franklin Pierce, of New Hampshire, in 1852."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "arthur",
+    "id": "german_chancellor",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "I am at the head of the German government."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "thomas",
+    "id": "us_president",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "Mr. Calvin Coolidge is President of the United States of America."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "thomas",
+    "id": "war",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "England is at war."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "thomas",
+    "id": "us_president_elected",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "The last man elected President of America was Grover Cleveland."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "thomas",
+    "id": "german_chancellor",
+    "after": false,
+    "leak": false,
+    "uptake": null,
+    "stale": false,
+    "answer": "President von Hindenburg."
+   }
+  ],
+  "beliefs": [
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "ada",
+    "id": "always_poor",
+    "hereditarian": false,
+    "circumstance": true,
+    "moral": true,
+    "answer": "Because the men drink, or are lazy, or irregular in work, or because the women are extravagant."
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "arthur",
+    "id": "feeble",
+    "hereditarian": false,
+    "circumstance": false,
+    "moral": false,
+    "answer": ""
+   },
+   {
+    "day": 0,
+    "iso": "1931-07-20",
+    "who": "thomas",
+    "id": "criminal",
+    "hereditarian": false,
+    "circumstance": false,
+    "moral": false,
+    "answer": "It was seven o'clock in the evening on Monday, the 20th of July, 1931, and the weather was fine."
+   }
+  ],
+  "knowledge": [
+   {
+    "id": "g1",
+    "day": 0,
+    "about": "street",
+    "text": "Mrs. Nellie Booth of No. 17 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g2",
+    "day": 0,
+    "about": "street",
+    "text": "Mrs. Win Fenton of No. 18 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g3",
+    "day": 0,
+    "about": "street",
+    "text": "Mrs. Kate Ward of No. 19 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g4",
+    "day": 0,
+    "about": "street",
+    "text": "Mrs. Mary Collins of No. 27 took a pair of sheets to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g5",
+    "day": 0,
+    "about": "street",
+    "text": "Mrs. Ivy Hollis of No. 29 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   }
+  ],
+  "standing": [
+   {
+    "day": 0,
+    "ada": 0
+   }
+  ],
+  "street": [
+   {
+    "day": 0,
+    "households": 30,
+    "people": 107,
+    "slateAtBarkers": "0s. 0d.",
+    "pledgedAtLambs": 10,
+    "inArrears": 22,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 0,
+    "flu": 0,
+    "outOfSteadyWork": 0,
+    "events": [
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn"
+    ]
+   }
+  ],
+  "decisions": [
+   {
+    "day": 0,
+    "t": 435,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [
+     "work"
+    ],
+    "chosen": "Sits down and writes a letter to her brother Tom in Australia, telling him to send her ten",
+    "chosenScore": null,
+    "best": "Sit by the fire and rest her feet",
+    "bestScore": -12.506249999999996,
+    "worstScore": -19.922916666666666,
+    "n": 4,
+    "ms": 37
+   },
+   {
+    "day": 0,
+    "t": 450,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [
+     "work"
+    ],
+    "chosen": "Goes to Barker's and buys food for Tuesday's dinner",
+    "chosenScore": null,
+    "best": "Sit by the fire and rest her feet",
+    "bestScore": -17.110416666666666,
+    "worstScore": -20.160416666666663,
+    "n": 5,
+    "ms": 35
+   },
+   {
+    "day": 0,
+    "t": 780,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [
+     "work"
+    ],
+    "chosen": "Speak to Mr. Walter Thomas: resolves to tell Mr. Thomas of his loss.",
+    "chosenScore": null,
+    "n": 0,
+    "ms": 3
+   },
+   {
+    "day": 0,
+    "t": 1050,
+    "who": "thomas",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Opens the door and goes home to Highbury",
+    "chosenScore": null,
+    "best": "Go home (33 minutes' walk)",
+    "bestScore": 26.15000000000002,
+    "worstScore": 26.15000000000002,
+    "n": 1,
+    "ms": 8
+   },
+   {
+    "day": 0,
+    "t": 1095,
+    "who": "ada",
+    "mode": "deliberate",
+    "urgent": [],
+    "chosen": "Pawns the silver watch to redeem the pledge of Tuesday, and redeems the pledge of Tuesday ",
+    "chosenScore": null,
+    "best": "Pawn her wedding ring at Lamb's for 5s. 0d. (4 minutes' walk)",
+    "bestScore": -2.791666666666667,
+    "worstScore": -5.291666666666666,
+    "n": 9,
+    "ms": 64
+   },
+   {
+    "day": 0,
+    "t": 1290,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Sit and think a while",
+    "chosenScore": null,
+    "best": "Go to bed for the night",
+    "bestScore": 0.20833333333333304,
+    "worstScore": 0.20833333333333304,
+    "n": 1,
+    "ms": 6
+   }
+  ]
+ },
+ "STATS": {
+  "asks": 67,
+  "choices": 13,
+  "unreadable": 0,
+  "votes": 0,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 2,
+  "lines": 7,
+  "emptyLines": 2,
+  "diaryFallback": 0,
+  "probes": [],
+  "askKinds": {
+   "other": 3,
+   "plan": 4,
+   "memprobe": 19,
+   "decide": 15,
+   "name": 1,
+   "greet": 4,
+   "choose": 7,
+   "talk": 4,
+   "second": 1
+  },
+  "maxLen": 1740,
+  "lenSum": 80803,
+  "aborted": 91,
+  "ms": 54920,
+  "timed": 61,
+  "planItems": 11,
+  "planUnread": 1,
+  "leak": {
+   "asked": 12,
+   "leaks": 0,
+   "uptake": 0,
+   "after": 0,
+   "stale": 0
+  },
+  "failedReq": 91,
+  "retries": 14,
+  "probeEmpty": 6,
+  "promptEcho": 9,
+  "beliefs": {
+   "asked": 3,
+   "hereditarian": 0,
+   "circumstance": 1,
+   "moral": 1
+  },
+  "fetchMs": 1,
+  "zoom": {
+   "on": 11,
+   "off": 35
+  },
+  "autoChoices": 40,
+  "papers": 3,
+  "deeds": {
+   "eat": 1,
+   "wash": 1,
+   "write": 1,
+   "buy": 3,
+   "talk": 1,
+   "go": 1,
+   "lend": 2,
+   "pawn": 1,
+   "rest": 1
+  },
+  "gmOpen": 8,
+  "gmOpenOk": 7,
+  "gmOps": {
+   "use": 2,
+   "go": 6,
+   "earn": 1,
+   "wait": 1,
+   "create": 1,
+   "schedule": 1,
+   "buy": 2,
+   "pledge": 1
+  },
+  "deliberations": 3,
+  "foresight": 2,
+  "pickedOwn": 2,
+  "judged": 6,
+  "named": 1,
+  "created": 1,
+  "ruleLearned": 1,
+  "bookRight": 3,
+  "open": 4,
+  "openUsed": 3,
+  "openVerbs": {
+   "talk": 1,
+   "go": 1,
+   "rest": 1
+  },
+  "echo": 1,
+  "bookRetry": 2,
+  "bookFixed": 2,
+  "workKept": 1,
+  "openEmpty": 1,
+  "openRetry": 1,
+  "visits": 1,
+  "agreed": 1,
+  "secondThoughts": 1,
+  "gm": {
+   "calls": 15,
+   "ms": 67203,
+   "cost": 0.01669968,
+   "errors": 0
+  },
+  "prov": {
+   "kept": 4,
+   "replaced": 0,
+   "dropped": 1
+  },
+  "rules": {
+   "learned": 1,
+   "used": 0,
+   "shadow": 0,
+   "agree": 0,
+   "disagree": 0,
+   "retired": 0,
+   "tested": 1,
+   "failedTests": 0
+  }
+ },
+ "W": {
+  "wage": 840,
+  "day": 1,
+  "t": 1380,
+  "coin": {
+   "where": "floor",
+   "finder": null
+  },
+  "ledger": {
+   "steps": 3,
+   "errors": 0,
+   "assigned": true,
+   "need": 3,
+   "verdict": null
+  },
+  "audit": {
+   "steps": 0,
+   "errors": 0,
+   "verdict": null,
+   "raise": null
+  },
+  "paid": {},
+  "rentPaid": {},
+  "doctor": null,
+  "extraHours": null,
+  "loan": null,
+  "facts": [],
+  "bertWork": true,
+  "joanIll": false,
+  "rentDue": false,
+  "rentOwing": false,
+  "gossip": {
+   "g1": {
+    "id": "g1",
+    "text": "Mrs. Nellie Booth of No. 17 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g2": {
+    "id": "g2",
+    "text": "Mrs. Win Fenton of No. 18 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g3": {
+    "id": "g3",
+    "text": "Mrs. Kate Ward of No. 19 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g4": {
+    "id": "g4",
+    "text": "Mrs. Mary Collins of No. 27 took a pair of sheets to Lamb's.",
+    "about": "street",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g5": {
+    "id": "g5",
+    "text": "Mrs. Ivy Hollis of No. 29 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g6": {
+    "id": "g6",
+    "text": "Mrs. Ivy Hayes of No. 7 asks Mrs. Turner for the loan of two shillings till Saturday.",
+    "about": "ada",
+    "day": 0,
+    "origin": "ada"
+   }
+  },
+  "nsal": {
+   "reg_her_brother_tom_in_australia": 0.5,
+   "nb_h7": 1
+  },
+  "prom": {},
+  "former": {},
+  "birthday": false,
+  "standWords": "",
+  "quiet": false,
+  "debtada": false,
+  "debtarthur": false,
+  "topicCache": {
+   "ada>bert": {
+    "topic": "what the paper says: Statesmen of seven great powers assembled here today for the most important international conference since the…"
+   },
+   "arthur>edith": {
+    "topic": "what the paper says: Statesmen of seven great powers assembled here today for the most important international conference since the…"
+   },
+   "arthur>joan": {
+    "topic": "what the paper says: Statesmen of seven great powers assembled here today for the most important international conference since the…"
+   },
+   "thomas>dunn": {
+    "topic": "what the paper says: Statesmen of seven great powers assembled here today for the most important international conference since the…"
+   },
+   "ada>barker": {
+    "topic": "how things are with them"
+   },
+   "ada>arthur": {
+    "topic": "the neighbourhood"
+   },
+   "ada>thomas": {
+    "topic": "a silver pencil she found under a desk in the clerks' room"
+   },
+   "ada>fenn": {
+    "topic": "a silver pencil she found under a desk in the clerks' room"
+   },
+   "arthur>thomas": {
+    "topic": "the work in hand"
+   },
+   "arthur>fenn": {
+    "topic": "what the paper says: Statesmen of seven great powers assembled here today for the most important international conference since the…"
+   },
+   "thomas>arthur": {
+    "topic": "the weather"
+   },
+   "thomas>fenn": {
+    "topic": "what the paper says: Statesmen of seven great powers assembled here today for the most important international conference since the…"
+   },
+   "ada>nb_h7": {
+    "topic": "the weather"
+   },
+   "ada>lamb": {
+    "topic": "how things are with them"
+   },
+   "ada>pc": {
+    "topic": "how things are with them"
+   }
+  },
+  "factQ": {},
+  "arranged": [
+   {
+    "key": "ada>letter>reg_her_brother_tom_in_australia",
+    "t": 435,
+    "at": 43635
+   }
+  ],
+  "found": {
+   "what": "a silver pencil",
+   "value": 24,
+   "owner": "fenn",
+   "day": 0,
+   "where": "ada"
+  },
+  "chorusDay": {},
+  "visitDay": 0,
+  "visitor": null,
+  "pre": {
+   "nb_h7": [
+    {
+     "day": 0,
+     "text": "Mrs. Ivy Hayes of No. 7 asks Mrs. Turner for the loan of two shillings till Saturday."
+    }
+   ]
+  },
+  "storyOut": 157,
+  "traceOut": 46
+ }
+}

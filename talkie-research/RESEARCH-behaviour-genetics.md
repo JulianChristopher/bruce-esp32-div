@@ -209,3 +209,23 @@ for the death rate, 1.3 points for men out of work).
 
 Not verified in this session: the exact holdout R-squared values of the Fragile Families Challenge (the full paper
 could not be reached), the Estonian 2 % and 6 % (press report), the life2vec 78 % (press report).
+
+## 6. First measurements in the simulation (22 November 2026)
+
+- **Determinism check** (`calib1931.js`, 100 street-decades, 2,914 households): a household's traits explain 0.4 %
+  of its hardship per year, its economic position (earners, casual work, size, rent) 12 %, both together 12 %; 3.5 %
+  of households are evicted while they live there. The street is not scripted: most of what befalls a household is
+  the course of its own years. Traits weigh less than the research suggests (Roberts et al. 2007 find personality as
+  predictive as station); a modest effect of household ways on spending is now in, the weight stays small.
+- **20-22 July 1931, live** (`runs/july3`, `runs/probe1`): the papers of 22 July carried the division on the
+  sterilisation bill (Arthur and Mr. Thomas read it). No leakage in 24 probes (nobody named Roosevelt, Hitler or the
+  next war). Knowledge of the present is thin and old: Ada named Woodrow Wilson as President of America, Mr. Thomas
+  Calvin Coolidge, both named Franklin Pierce (1852) or Grover Cleveland as the last man elected; Mr. Thomas gave
+  Hindenburg for Germany (right); Arthur twice answered as if he were the office ("I am President of America").
+  talkie's world knowledge of 1931 is weak, so what the persons know of current affairs must come from the papers of
+  the simulation; the monthly probes now count knowledge of the present (`correctNow`) beside leakage and uptake.
+- **Beliefs about heredity**: Ada on why some families are always in want: "Because the men drink, or are lazy, or
+  irregular in work, or because the women are extravagant" (circumstance and character, not blood), in keeping with
+  a chapel-going working woman; the first questions to Arthur and Mr. Thomas came back empty or read the page back,
+  and are now asked as the memory probes are (the person's page, a question put to the person, three tries, echoes
+  refused).

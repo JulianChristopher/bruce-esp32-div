@@ -30,4 +30,19 @@ function score(f, iso, answer) {
   const saysNow = f.now.test(a) && !(f.negated && f.negated.test(a)), saysBefore = f.before.test(a), future = f.futureRe ? f.futureRe.test(a) : false;
   return { id: f.id, after, leak: !after && (f.futureRe ? future : saysNow), uptake: after ? saysNow : null, stale: after && !saysNow && saysBefore, answer: a.slice(0, 160) };
 }
-module.exports = { FACTS, probesFor, score };
+// beliefs about heredity, asked in the words of the time and never corrected: a measure of how the period model's
+// people of 1931 explain why lives go as they do (by birth and blood, by circumstance, by character and God)
+const BELIEFS = [
+  { id: 'always_poor', q: 'why some families in a street were always in want, from one generation to the next' },
+  { id: 'drunkard', q: "whether a drunkard's children would take to drink themselves" },
+  { id: 'feeble', q: 'whether the feeble-minded should be stopped from marrying and having children' },
+  { id: 'clever_boy', q: 'whether a clever boy from a poor home could rise in the world' },
+  { id: 'criminal', q: 'whether some people were born to be criminals' },
+  { id: 'twins', q: 'why two brothers brought up in the same home could turn out so differently' }
+];
+const HERED = /\b(blood|born|breed|bred|breeding|stock|inherit\w*|in them|in their nature|by nature|runs? in|taint\w*|bad lot|like father|father before|heredit\w*|germ|degenerat\w*|feeble-minded parents|the seed)\b/i;
+const CIRC = /\b(drink|wages|work|out of work|unemploy\w*|bringing[- ]up|brought up|upbringing|circumstances?|surroundings|poverty|poor food|hunger|luck|chance|schooling|education|example|the home|company|bad times|the times|opportunit\w*)\b/i;
+const MORAL = /\b(god|sin\w*|idle\w*|lazy|laziness|thrift\w*|wicked\w*|providence|will of|character|self-respect|temperance|grace|the devil|vice)\b/i;
+function beliefFor(monthIndex, k) { const i = (monthIndex + ({ ada: 0, arthur: 2, thomas: 4 }[k] || 0)) % BELIEFS.length; return BELIEFS[i]; }
+function scoreBelief(b, answer) { const a = String(answer || ''); return { id: b.id, hereditarian: HERED.test(a), circumstance: CIRC.test(a), moral: MORAL.test(a), answer: a.slice(0, 200) }; }
+module.exports = { FACTS, probesFor, score, BELIEFS, beliefFor, scoreBelief };

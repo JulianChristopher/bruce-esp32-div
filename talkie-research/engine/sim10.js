@@ -199,6 +199,11 @@ const HOL = new Proxy({}, { get: (_, d) => (/^\d+$/.test(String(d)) ? require('.
 const BANK = [], GOODFRI = null;
 const isRest = d => DOW(d) === 'sun' || BANK.includes(d) || d === GOODFRI;
 const { newsFor } = require('./news1931.js'); const CHRONOS = require('./chronos1931.js'); const FETCH = require('./decade/fetch1930s.js'); const DECADE = require('./decade/chronos1930s.js');
+// an American wire story told as a London paper would print it: no dateline, no agency, dollars in words
+const wireText = t => String(t || '')
+  .replace(/^[A-Z][A-Za-z .,'-]+?,\s+[A-Z][a-z]+\.?\s+\d+\.?\s*(?:\(\s*[A-Z]*\s*\)\s*)*(?:\([A-Z][a-z]+day\)\s*)?[—-]+\s*/, '')
+  .replace(/^\s*\(\s*(?:AP|UP|INS|NANA|PE)?\s*\)\s*[—-]*\s*/, '').replace(/\s*[—-]*\(\s*(?:AP|UP|INS|NANA|PE)\s*\)[—-]*\s*/g, ' ')
+  .replace(/\$\s?([\d,]+(?:\.\d+)?)(\s?(?:million|billion))?/g, (m, n, big) => `${n}${big || ''} dollars`).replace(/\s+/g, ' ').trim();
 // the news of a day by its date: the 1931 selection (news1931.js) for the first months of 1931, otherwise the day's
 // wire stories of the decade (decade/news), British ones first, the dateline taken off
 const T1931 = Date.UTC(1931, 0, 2);
@@ -208,7 +213,7 @@ function newsOn(d) {
   const day = DECADE.day(SIMDATE.iso(d)) || {}, st = (day.news || []).filter(x => x && x.text && x.text.length > 120 && require('./ops1931.js').periodOK(x.text));
   const brit = st.filter(x => /united kingdom|england|britain|ireland|scotland|wales/i.test(x.country || '') || /london/i.test(x.place || ''));
   return (brit.length ? brit : st).sort((a, b) => (a.rank || 9) - (b.rank || 9)).slice(0, 2).map(x => ({ p: null,
-    text: `${String(x.place || '').toUpperCase()}. ${x.text.replace(/^[A-Z][A-Za-z .,'-]+,\s+[A-Z][a-z]+\.?\s+\d+\s*(\([A-Z]+\))?\s*[—-]+\s*/, '').slice(0, 320).replace(/\s+\S*$/, '')}…` }));
+    text: `${String(x.place || '').toUpperCase()}. ${wireText(x.text).slice(0, 320).replace(/\s+\S*$/, '')}…` }));
 }
 const paperText = d => newsOn(d).map(x => x.text).join(' ');
 function readPaper(k, name, cost) {
@@ -285,6 +290,8 @@ for (const key of ['bertWork', 'joanIll', 'rentDue', 'rentOwing']) Object.define
 
 const nameOf = k => (A[k] || NPC[k] || WORLD.people[k] || {}).name || (k === 'doctor' ? 'Dr. Gray' : String(k));   // background people made later (the registry) are named too
 const isF = k => A[k] ? A[k].f : !!(NPC[k] || WORLD.people[k] || {}).f;
+// what the background people say (answers, decisions, talk): kept to measure how alike the period model makes them
+function voice(id, text) { if (!id || A[id] || !text) return; const V = (METRICS.voices = METRICS.voices || []); V.push({ id, day: W.day, text: String(text).slice(0, 240) }); if (V.length > 600) V.shift(); }
 const sheetOf = q => (NPC[q] || WORLD.people[q] || {}).sheet || (WORLD.people[q] ? WORLD.people[q].name : String(q));
 const hisher = k => isF(k) ? 'her' : 'his';
 const heshe = k => isF(k) ? 'she' : 'he';
@@ -509,7 +516,7 @@ async function chorus(t, only = null, forced = null) {
     const ans = (await ask(`${ctx}\n\n${nameOf(q)} could see that ${seen}. Does ${nameOf(q)} ${offer}? Answer in the form: ${She} goes across, because ... or: ${She} does not go, because ...`)) || '';
     // she comes unless she says she does not (talkie says it many ways: goes across, crosses the landing, knocks, takes a few lumps)
     const head = ans.split(/because/i)[0], no = /\b(does not|doesn't|did not|didn't|will not|won't|would not|wouldn't|not go|stays( at home| where she is| in)?|keeps to her|refuses|declines)\b/i.test(head), yes = !no && /\b[a-z]+s\b|\bwent\b|\btook\b|\bcame\b/i.test(head.replace(/^(mrs|mr)\.?\s+\w+\s+\w+\s*/i, ''));
-    STATS.chorus = STATS.chorus || { asked: 0, came: 0 }; STATS.chorus.asked++;
+    STATS.chorus = STATS.chorus || { asked: 0, came: 0 }; STATS.chorus.asked++; voice(q, ans);
     say(`   ♡ ${nameOf(q)} ${yes ? 'comes across' : 'stays at home'} (${want}): ${sentences(ans, 1)}`);
     if (!yes) continue;
     STATS.chorus.came++; W.chorusLast = W.chorusLast || {}; W.chorusLast[k + want] = W.day;
@@ -793,7 +800,7 @@ async function converse(k, talk) {
     if (r && /^(?:that|whether|how)\b/i.test(r)) { STATS.reported = (STATS.reported || 0) + 1; r = cleanSpeech(await ask(msg + `\n\n(Give the very words spoken, inside quotation marks.)`)); if (r && /^(?:that|whether|how)\b/i.test(r)) r = ''; }
     if (r) (SAID[sp] = SAID[sp] || []).push(r), SAID[sp] = SAID[sp].slice(-8);
     if (!r) { STATS.emptyLines++; break; }
-    lines.push(`${nameOf(sp).toUpperCase()}: "${r}"`); say(`      ${nameOf(sp)}: "${r}"`);
+    lines.push(`${nameOf(sp).toUpperCase()}: "${r}"`); say(`      ${nameOf(sp)}: "${r}"`); voice(sp, r);
   }
   if (talk.fact) talk.fact();
   { const spoken = {}; for (const l of lines) { const who = Object.keys(WORLD.people).find(id => l.startsWith(nameOf(id).toUpperCase() + ':')); if (who) spoken[who] = (spoken[who] || '') + ' ' + l.replace(/^[^:]*:\s*"?|"$/g, ''); } shareGossip(k, p, spoken); }
@@ -895,6 +902,14 @@ async function leakProbes() {
     const r = { day: W.day, iso, who: k, ...LEAK.score(f, iso, ans) }; (METRICS.leak = METRICS.leak || []).push(r);
     STATS.leak = STATS.leak || { asked: 0, leaks: 0, uptake: 0, after: 0, stale: 0 }; STATS.leak.asked++; if (r.leak) STATS.leak.leaks++; if (r.after) { STATS.leak.after++; if (r.uptake) STATS.leak.uptake++; if (r.stale) STATS.leak.stale++; }
     if (r.leak) say(`   ⚠ ${A[k].short} knows what has not happened yet (${f.id}): ${sentences(ans, 1)}`);
+  }
+  // and one belief about heredity each, by turn, in the words of the time (recorded, never corrected)
+  const mi = (dateOf(W.day).getUTCFullYear() - 1931) * 12 + dateOf(W.day).getUTCMonth();
+  for (const k in A) {
+    const b = LEAK.beliefFor(mi, k), He = heshe(k)[0].toUpperCase() + heshe(k).slice(1);
+    const ans = (await ask(`${DAYS[W.day]}. ${PROSE.PORTRAIT[k] || ''}\n\nSomebody asked ${A[k].short} ${b.q}. What did ${heshe(k)} answer? Answer in the form: ${He} answered, "..."`)) || '';
+    const r = { day: W.day, iso, who: k, ...LEAK.scoreBelief(b, ans) }; (METRICS.beliefs = METRICS.beliefs || []).push(r);
+    STATS.beliefs = STATS.beliefs || { asked: 0, hereditarian: 0, circumstance: 0, moral: 0 }; STATS.beliefs.asked++; for (const key of ['hereditarian', 'circumstance', 'moral']) if (r[key]) STATS.beliefs[key]++;
   }
 }
 async function monthReview(k) {   // a line per person and month that is never forgotten; written by the engine,
@@ -1451,7 +1466,7 @@ async function consent(q, k, it) {
   let yes = 0, no = 0, why = '';
   for (let v = 0; v < 3; v++) {
     const ans = (await ask(`${ctx}\n\n${who} has just asked ${nameOf(q)} ${it.about}\n\nDoes ${nameOf(q)} ${what}? Answer in the form: ${He} agrees, because ... or: ${He} refuses, because ...`)) || '';
-    const head = ans.split(/because/i)[0];
+    const head = ans.split(/because/i)[0]; voice(q, ans);
     if (/\b(refuses?|declines?|will not|won't|cannot|can't|does not|doesn't|says no)\b/i.test(head)) no++; else if (/\b(agrees?|consents?|will|lends?|gives?|lets?|says yes)\b/i.test(head)) yes++;
     if (!why && ans) why = sentences(ans, 1);
   }

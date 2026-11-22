@@ -32,6 +32,9 @@ const JOBS = {
 };
 // priors tuned against the records by calib1931.js (Medical Officer of Health, Bermondsey; Ministry of Labour)
 const BIRTHS = { 1931: 17.4, 1932: 16.6, 1933: 14.0, 1934: 14.8, 1935: 14.5, 1936: 15.4, 1937: 14.4, 1938: 14.8, 1939: 13.4, 1940: 13.4 };   // live births a 1000, Bermondsey
+// how a household's ways weigh on its spending (modest: traits predict outcomes about as much as station does, not more;
+// Roberts et al. 2007), checked by the determinism report of calib1931.js
+const THRIFT = { steady: 0.95, chapel: 0.96, close: 0.95, 'a drinker': 1.06, 'hard-pressed': 1.04, generous: 1.02 };
 let BIRTH_P = 0.13, RESCUE = 0.5, EVICT_AFTER = 8, ROW_P = 0.25, ARREST_P = 0.02, CASUAL = 1.15, SLACK_K = 2, MOVE_P = 0.1;
 const TRAITS = ['generous', 'close', 'proud', 'a drinker', 'a great talker', 'chapel', 'Catholic', 'quarrelsome', 'steady', 'hard-pressed'];
 const money = d => { d = Math.round(d); const s = Math.floor(Math.abs(d) / 12), p = Math.abs(d) % 12; return `${d < 0 ? 'minus ' : ''}${s}s. ${p}d.`; };
@@ -80,7 +83,7 @@ function makeStreet(seed = 31) {
       // the dole for the man out of steady work (signing at the Exchange; paid Fridays)
       if (ctx.dow === 'fri') for (const x of people(h)) if (x.unemployedUntil > d && x.m && x.age >= 18) h.cash += 24 * (people(h).filter(y => y.age < 14).length) + (people(h).some(y => !y.m && y.age >= 18) ? 108 : 0);
       // spending: food and, in winter, coal
-      const need = Math.round((people(h).reduce((s, x) => s + (x.age >= 14 ? 7 : 4), 0) + (ctx.cold ? 2 * h.rooms : h.rooms)) * (ctx.priceFactor || 1));   // prices follow the official cost-of-living index
+      const need = Math.round((people(h).reduce((s, x) => s + (x.age >= 14 ? 7 : 4), 0) + (ctx.cold ? 2 * h.rooms : h.rooms)) * (ctx.priceFactor || 1) * (THRIFT[h.trait] || 1) * (THRIFT[h.trait2] || 1));   // prices follow the official cost-of-living index; the household's ways a little
       if (h.cash >= need) h.cash -= need;
       else {
         let short = need - h.cash; h.cash = 0;

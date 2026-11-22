@@ -21,6 +21,16 @@ for (const run of process.argv.slice(2)) {
     gm: S.gm ? { calls: S.gm.calls, cost: +(S.gm.cost || 0).toFixed(3) } : null, openDeeds: S.gmOpen || 0, rulesUsed: S.ruleUsed || 0,
     melodrama: (() => { const th = log.split('\n').filter(l => / thinks: \(in (her|his) own words\)/.test(l)); const dark = th.filter(l => /\b(die|dies|dying|death|dead|starv\w*|ruin\w*|despair\w*|drown\w*|beg|begs|begging|steal\w*|workhouse|suicide|grave|hopeless|wretched|misery)\b/i.test(l)); return { thoughts: th.length, dark: dark.length, share: th.length ? +(dark.length / th.length).toFixed(2) : null }; })(),
     chorus: S.chorus || null,
+    // how alike the background people sound: mean word overlap between answers of different people, against the
+    // same person's own answers; and the phrase most often shared between different people
+    homogeneity: (() => { const V = M.voices || []; if (V.length < 6) return null;
+      const W = t => new Set((t.toLowerCase().match(/[a-z]{4,}/g) || []).filter(w => !/^(that|this|with|have|because|what|will|would|there|their|they|them|when|from|been|were|your|said|says|answers|goes|does)$/.test(w)));
+      const sets = V.map(v => ({ id: v.id, w: W(v.text), t: v.text.toLowerCase() })); let cross = 0, nc = 0, same = 0, ns = 0;
+      for (let i = 0; i < sets.length; i++) for (let j = i + 1; j < Math.min(sets.length, i + 60); j++) { const a = sets[i].w, b = sets[j].w; if (!a.size || !b.size) continue; let inter = 0; for (const x of a) if (b.has(x)) inter++; const jac = inter / (a.size + b.size - inter); if (sets[i].id === sets[j].id) { same += jac; ns++; } else { cross += jac; nc++; } }
+      const grams = {}; for (const v of sets) { const ws = v.t.match(/[a-z']+/g) || []; const seen = new Set(); for (let i = 0; i + 3 <= ws.length; i++) { const g = ws.slice(i, i + 3).join(' '); if (seen.has(g)) continue; seen.add(g); (grams[g] = grams[g] || new Set()).add(v.id); } }
+      const top = Object.entries(grams).filter(([g]) => !/^(she|he) (goes|does|answers|agrees|refuses)/.test(g)).sort((a, b) => b[1].size - a[1].size)[0];
+      return { voices: V.length, speakers: new Set(V.map(v => v.id)).size, crossSimilarity: nc ? +(cross / nc).toFixed(3) : null, sameSimilarity: ns ? +(same / ns).toFixed(3) : null, topSharedPhrase: top ? `${top[0]} (${top[1].size} people)` : null }; })(),
+    beliefs: S.beliefs || null,
     endMoney: last.money || null, probesOk: (M.probes || []).filter(p => p.final).length ? `${(M.probes || []).filter(p => p.final && p.ok).length}/${(M.probes || []).filter(p => p.final).length}` : null });
 }
 console.log(JSON.stringify(rows, null, 1));

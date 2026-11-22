@@ -59,9 +59,15 @@ const PROVIDERS = {
     const top = items.filter(x => !/^(Preamble|Private Business|Orders|Business|Clause|New Clause|Class|Schedule)/i.test(x.title)).slice(0, 3);
     for (const x of top) {   // the opening words of the debate, as the papers would report them
       const p = await get(x.url, false); await sleep(400);
-      if (p) x.opening = clean(p.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;/g, "'").replace(/&[a-z]+;/g, ' ')).replace(/^.*?(HC Deb [^ ]+ [^ ]+ [^ ]+ vol \d+ cc?[\d-]+W?)/, '').slice(0, 700);
+      if (!p) continue;
+      const text = clean(p.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;/g, "'").replace(/&[a-z]+;/g, ' '));
+      x.opening = text.replace(/^.*?(HC Deb [^ ]+ [^ ]+ [^ ]+ vol \d+ cc?[\d-]+W?)/, '').slice(0, 700);
+      // how the House decided, in the words of the record: the last question put and the last division on it
+      const qs = [...text.matchAll(/Question put,?\s+(That [^§]{10,400}?\.)(?=\s|$)/g)], dv = [...text.matchAll(/The House divided:\s*Ayes,\s*([\d,]+);\s*Noes,\s*([\d,]+)/g)];
+      if (qs.length) x.question = qs[qs.length - 1][1].replace(/\s+\d{3,4}\s+/g, ' ').trim();
+      if (dv.length) x.division = { ayes: +dv[dv.length - 1][1].replace(/,/g, ''), noes: +dv[dv.length - 1][2].replace(/,/g, '') };
     }
-    return { date, sitting: true, items: top };
+    return { date, sitting: true, items: top, v: 2 };
   }
 };
 const file = (src, date) => path.join(CACHE, src, date + '.json');
@@ -70,7 +76,7 @@ const inflight = {};
 async function ensure(date, sources = Object.keys(PROVIDERS)) {
   const out = {};
   for (const src of sources) {
-    let v = cached(src, date);
+    let v = cached(src, date); if (src === 'hansard' && v && v.sitting && !v.v) v = null;   // fetched before the divisions were read: again
     if (!v) {
       const key = src + date;
       inflight[key] = inflight[key] || PROVIDERS[src](date).then(r => { if (r) { fs.mkdirSync(path.join(CACHE, src), { recursive: true }); fs.writeFileSync(file(src, date), JSON.stringify(r)); } delete inflight[key]; return r; }).catch(() => { delete inflight[key]; return null; });

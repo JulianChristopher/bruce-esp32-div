@@ -18,7 +18,9 @@ const NW = '(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:-(?:one|
 const AGE_RE = new RegExp(`\\b(aged |of )(${NW})(?=[,.;)]| at\\b| years\\b| and\\b|$)|(, )(${NW})(, was\\b)|\\b(${NW})( years old)\\b`, 'gi');
 function ageText(text, years = 1) {
   if (!text || !years) return text;
-  return String(text).replace(AGE_RE, (m, p1, n1, p2, n2, s2, n3, s3) => {
+  // a child grows out of the words of childhood: "a little daughter, Joan, of sixteen" is "a daughter, Joan, of sixteen"
+  const grown = String(text).replace(new RegExp(`\\b(a |his |her |the )?little (daughter|son|girl|boy)(,? \\w+,? (?:of|aged) )(${NW})\\b`, 'gi'), (m, art, w, mid, n) => { const v = value(n); return v != null && v + years >= 13 ? `${art || ''}${w}${mid}${n}` : m; });
+  return grown.replace(AGE_RE, (m, p1, n1, p2, n2, s2, n3, s3) => {
     const n = n1 || n2 || n3, v = value(n); if (v === null || v > 110) return m;
     const nw = /^\d+$/.test(n) ? String(v + years) : words(v + years); const cased = /^[A-Z]/.test(n) ? nw[0].toUpperCase() + nw.slice(1) : nw;
     return n1 ? `${p1}${cased}` : n2 ? `${p2}${cased}${s2}` : `${cased}${s3}`;

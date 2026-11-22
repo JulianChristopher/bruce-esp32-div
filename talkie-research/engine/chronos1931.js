@@ -67,8 +67,22 @@ function footballNews(d, keen = ['Millwall', 'Arsenal']) {
 // ---------- Parliament: what the papers say the House did at its last sitting ----------
 const DULL = /^(New Clause|Clause|Class [IVX]+|First Schedule|Second Schedule|Preamble|Supply|Ways And Means|Standing Committee|New Writ|Orders|Business|Statistics|Personnel|Number O[ef])/i;
 const tidy = t => t.replace(/- (\w)/g, '$1').replace(/'S\b/g, "'s").replace(/\s*\[(Lords|Money)\]/g, '').replace(/\s+/g, ' ').trim();
+// a division of the House, told as the papers told it, from the question and the figures of the record
+function divisionWords(x) {
+  if (!x || !x.division || !x.question) return null;
+  const { ayes, noes } = x.division, carried = ayes > noes, q = x.question.replace(/\.$/, '');
+  const short = s => (s.length > 170 ? s.slice(0, 170).replace(/[;,]?\s+\S*$/, '') + ' ...' : s);
+  let m;
+  if ((m = q.match(/^That leave be given to bring in a Bill (to .+?)(?:;|$)/i))) return `Leave to bring in a Bill ${short(m[1])} was ${carried ? 'given' : 'refused'} by ${Math.max(ayes, noes)} votes to ${Math.min(ayes, noes)}.`;
+  if ((m = q.match(/^That the Bill be now read a Second time/i))) return `The ${tidy(x.title).replace(/\.$/, '')} was ${carried ? 'read a second time' : 'defeated on the second reading'} by ${Math.max(ayes, noes)} votes to ${Math.min(ayes, noes)}.`;
+  return `On the question, "${short(q)}", the House divided: ${ayes} for and ${noes} against.`;
+}
 function parliamentNews(d) {
+  let FETCH = null; try { FETCH = require('./decade/fetch1930s.js'); } catch (e) {}
   for (let back = 1; back <= 4; back++) {
+    const c = FETCH && FETCH.cached('hansard', iso(d - back));
+    const div = c && c.sitting && (c.items || []).map(divisionWords).find(Boolean);
+    if (div) { const when = back === 1 ? 'Yesterday' : `On ${['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dateOf(d - back).getUTCDay()]}`; return `IN PARLIAMENT. ${when}, in the House of Commons: ${div}`; }
     const items = (HANS[iso(d - back)] || []).filter(([t]) => !DULL.test(t)).slice(0, 2);
     if (!items.length) continue;
     const when = back === 1 ? 'yesterday' : `on ${['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dateOf(d - back).getUTCDay()]}`;

@@ -202,7 +202,7 @@ const isRest = d => DOW(d) === 'sun' || BANK.includes(d) || d === GOODFRI;
 const { newsFor } = require('./news1931.js'); const CHRONOS = require('./chronos1931.js'); const FETCH = require('./decade/fetch1930s.js'); const DECADE = require('./decade/chronos1930s.js');
 // an American wire story told as a London paper would print it: no dateline, no agency, dollars in words
 const wireText = t => String(t || '')
-  .replace(/^[\s|“"'‘]+/, '').replace(/^[({]?\s*(?:copyright,?\s*\d*,?\s*)?by the associated press\.?\s*[)}]?\.?\s*/i, '').replace(/^\(copyright[^)]*\)\s*/i, '')
+  .replace(/^[\s|“"'‘]+/, '').replace(/^[A-Z][A-Z .'-]{1,30}\.\s*(?=\((?:copyright|by)\b)/i, '').replace(/^[({]?\s*(?:copyright,?\s*\d*,?\s*)?by the associated press\.?\s*[)}]?\.?\s*/i, '').replace(/^\(copyright[^)]*\)\s*/i, '')
   // the dateline only: a place in capitals (LONDON, NEW YORK), or a place with its date (London, July 21), or a place and
   // its country (Cannes, France), each closed by a dash; nothing that could be the first words of the story
   .replace(/^(?:[A-Z][A-Z.' ]{1,30}(?:,\s*[A-Z][A-Za-z.' ]{1,30})?(?:,?\s*[A-Z][a-z]+\.?\s+\d{1,2})?|[A-Z][a-z]+(?: [A-Z][a-z]+)?,(?:\s*[A-Z][a-z]+(?: [A-Z][a-z]+)?,)?\s*[A-Z][a-z]+\.?\s+\d{1,2}|[A-Z][a-z]+(?: [A-Z][a-z]+)?,\s*[A-Z][a-z]+(?: [A-Z][a-z]+)?(?=\s*[—–-])|[A-Z][a-z]+(?=\s*[—–-]))\.?\s*[.,]?\s*(?:\([^)]{0,14}\)\s*)*[.,]?\s*[—–-]+\s*(?:\([^)]{0,14}\)\s*[.,]?\s*[—–-]*\s*)?/, '')
@@ -545,10 +545,12 @@ async function chorus(t, only = null, forced = null) {
 function dueMoney(t) {
   const d = W.day, w = DOW(d);
   if (w === 'fri' && t === hm(12, 30) && A.ada.place === 'finsbury') { const days = (A.ada.fins || []).filter(x => x > d - 7 && x <= d).length + 1; const pay = Math.min(6, days) * 20; A.ada.money += pay; remember('ada', `She was paid ${money(pay)} at Finsbury Circus for ${Math.min(6, days)} days' work.`, ['money'], days < 5 ? 3 : 1); note('ada', 'purse-book', `paid at Finsbury Circus, ${money(pay)}`); }
-  if (w === 'fri' && t === hm(18) && !F.bertWork && W.dole && W.bertOutSince !== undefined && d - W.bertOutSince >= 3) { A.ada.money += 108; remember('ada', 'Bert gave her nine shillings out of his dole money.', ['bert', 'money'], 2); note('ada', 'purse-book', 'Bert gave 9s. from the dole'); }
-  if (w === 'fri' && t === hm(18) && F.bertWork) { A.ada.money += 138; remember('ada', 'Bert gave her his half of the rent and his board, 11s. 6d.', ['bert', 'rent', 'money'], 2); note('ada', 'purse-book', 'Bert paid rent share and board, 11s. 6d.'); }
+  if (w === 'fri' && t === hm(18) && !F.bertWork && !F.bertLeft && W.dole && W.bertOutSince !== undefined && d - W.bertOutSince >= 3) { A.ada.money += 108; remember('ada', 'Bert gave her nine shillings out of his dole money.', ['bert', 'money'], 2); note('ada', 'purse-book', 'Bert gave 9s. from the dole'); }
+  if (w === 'fri' && t === hm(18) && W.bert && W.bert.stage === 'married' && W.bert.withAda && WORLD.people[W.bert.id] && !WORLD.people[W.bert.id].dead) { A.ada.money += 96; note('ada', 'purse-book', `${WORLD.people[W.bert.id].short}'s board, 8s.`); }
+  if (w === 'fri' && t === hm(18) && F.bertWork && !F.bertLeft) { A.ada.money += 138; remember('ada', 'Bert gave her his half of the rent and his board, 11s. 6d.', ['bert', 'rent', 'money'], 2); note('ada', 'purse-book', 'Bert paid rent share and board, 11s. 6d.'); }
   if (w === 'sat' && t === hm(18)) { A.ada.money -= 12; note('ada', 'purse-book', 'burial club and boot club, 1s.'); A.arthur.money -= 252; note('arthur', 'account-book', 'rent 15s., the Prudential 1s., boots and sundries 5s.'); A.thomas.money -= 900; note('thomas', 'account-book', 'rent, rates, housekeeper and coals, £3 15s.');
     const fri = d - 1; if (fri >= 0 && W.paid['arthur' + fri] && !F['hk_' + fri]) { F['hk_' + fri] = 35; A.arthur.money -= 420; note('arthur', 'account-book', 'housekeeping to Edith (the usual), 35s.'); remember('arthur', 'Edith took the usual thirty-five shillings for the housekeeping, as he had not given her any.', ['edith', 'money'], 2); } }
+  if (w === 'fri' && t === hm(18, 30) && W.joan && W.joan.wage && WORLD.people.joan && !WORLD.people.joan.dead) { A.arthur.money += Math.max(0, W.joan.wage - 24); note('arthur', 'account-book', `Joan's money, less her pocket-money, ${money(Math.max(0, W.joan.wage - 24))}`); }
   if (w === 'fri' && t === hm(17)) { if (F.thomasRetired) { A.thomas.money += 960; note('thomas', 'account-book', 'pension, £4'); } else { A.thomas.money += 1560; note('thomas', 'account-book', 'salary received, £6 10s.'); } }
   if (!['sat', 'sun'].includes(w) && t === hm(8)) A.arthur.money -= 4;   // tram fares
   for (const k of ['ada', 'arthur']) { const now = A[k].money < 0, was = W['debt' + k]; if (now && !was) { remember(k, k === 'ada' ? "She has run short and is buying on tick at Barker's." : 'He has overspent and is short of money till Friday.', ['money'], 3); setState('debt' + k, [k], k === 'ada' ? "Ada owes Barker the grocer" : 'Arthur is short of money'); say(`   ★ ${A[k].short} has run into debt.`); STATS.debts = (STATS.debts || 0) + 1; } if (!now && was) setState('debt' + k, [k], k === 'ada' ? 'Ada has paid off Barker' : 'Arthur is out of debt again'); W['debt' + k] = now; }
@@ -936,6 +938,100 @@ function retireThomas(past = false) {
   setState('chief', ['arthur', 'ada', 'thomas'], W.successor === 'arthur' ? 'Mr. Hale is chief clerk at the Moorgate office' : 'Mr. Pike is chief clerk at the Moorgate office');
   rumour(`Mr. Thomas has retired from the insurance office, and ${W.successor === 'arthur' ? 'Mr. Hale' : 'a Mr. Pike from Leeds'} is chief clerk`, 'thomas', ['ada', 'arthur']);
   STATS.retired = W.successor; say(`   ✦ Mr. Thomas retires; ${W.successor === 'arthur' ? 'Mr. Hale' : 'Mr. Pike of Leeds'} is chief clerk.`);
+}
+// the course of the families' lives (lifecourse1931.js): Bert's courting and marriage, Joan's schooling and first place,
+// timed by the rates of the time; what is decided in them is asked of the persons (Ada, Arthur) and named by talkie
+const LC = require('./lifecourse1931.js');
+const MONTHNAME = d => `${MONTHS[dateOf(d).getUTCMonth()]} ${dateOf(d).getUTCFullYear()}`;
+function swapText(k, a, b) { if (PROSE.PORTRAIT[k]) PROSE.PORTRAIT[k] = PROSE.PORTRAIT[k].replace(a, b); if (typeof SHEET !== 'undefined' && SHEET[k]) SHEET[k] = SHEET[k].replace(a, b); if (WORLD.people[k] && WORLD.people[k].sheet) WORLD.people[k].sheet = WORLD.people[k].sheet.replace(a, b); }
+async function bertCourts(d) {
+  const work = LC.GIRLS_WORK[Math.floor(Math.random() * LC.GIRLS_WORK.length)], age = 18 + Math.floor(Math.random() * 5);
+  const a = sentences((await ask(`In ${MONTHNAME(d)}, in Bermondsey, Bert Turner, a docker, began walking out with a girl of ${DEC.words(age)} who worked at ${work}. What was her name? Answer in the form: Her name was ...`)) || '', 1);
+  const m = a.match(/name was\s+([A-Z][a-z]+(?:\s+[A-Z][a-z']+)?)/); const full = m && m[1].split(/\s+/).length === 2 ? m[1] : ['Lily Hollis', 'Florrie Peck', 'Nellie Wicks', 'Rose Gurney'][Math.floor(Math.random() * 4)];
+  const [first, last] = full.split(/\s+/); W.bert.n = (W.bert.n || 0) + 1; const id = 'bertsgirl' + W.bert.n;
+  WORLD.people[id] = { id, name: full, short: first, f: true, home: null, place: null, money: 0, inv: {}, rel: {}, know: {}, obs: [], busyUntil: 0, needs: { hunger: 0, energy: 0, warmth: 0, social: 0 }, age,
+    sheet: `${full}, aged ${DEC.words(age)}, who works at ${work}; walking out with Bert Turner.`, routine: w => (w.dow() === 'sun' && w.mod >= hm(16) && w.mod < hm(18, 30) ? 'ada_home' : null) };   // Sunday tea at Ada's
+  NPC[id] = WORLD.people[id]; for (const k in A) A[k].op[id] = 0; VERBSMOD.addPerson(new RegExp(`\\b(${first}|miss ${last})\\b`, 'i'), id);
+  Object.assign(W.bert, { stage: 'courting', weeks: 0, id, name: full, work });
+  remember('ada', `Bert has begun walking out with ${full}, who works at ${work}.`, ['bert', id], 3); rumour(`Bert Turner is walking out with ${full}`, 'bert', ['ada']); PROM.bump(id, 2, 'She began walking out with Bert Turner.', W.day);
+  STATS.courting = (STATS.courting || 0) + 1; say(`   ♥ Bert is walking out with ${full}, who works at ${work}.`);
+}
+function bertParts() {
+  const p = WORLD.people[W.bert.id]; if (p) { p.away = true; p.place = null; p.routine = () => null; }
+  remember('ada', `Bert and ${W.bert.name} have parted.`, ['bert'], 3); say(`   ♥ Bert and ${W.bert.name} have parted.`); STATS.partings = (STATS.partings || 0) + 1;
+  Object.assign(W.bert, { stage: 'single', weeks: 0 });
+}
+async function bertEngaged(d) {
+  let w = d + 21; while (DOW(w) !== 'sat') w++;   // the banns are read on three Sundays, and they marry on a Saturday
+  Object.assign(W.bert, { stage: 'engaged', wedding: SIMDATE.iso(w) });
+  remember('ada', `Bert and ${W.bert.name} are to be married on ${LONGDATE(w)}; the banns are to be read at St. James's.`, ['bert', W.bert.id], 3);
+  say(`   ♥ Bert and ${W.bert.name} are to be married on ${LONGDATE(w)}.`);
+  const r = await duty('ada', `Bert and ${W.bert.name} are to be married on ${LONGDATE(w)}, and they have no rooms of their own. Rooms in the Buildings are seven or eight shillings a week. Does Ada have them to live with her in her two rooms after the wedding, till they can find rooms of their own?`, 'has them to live with her', 'tells them to find rooms of their own', 'has them');
+  W.bert.withAda = r.yes;
+}
+function bertMarries() {
+  const p = WORLD.people[W.bert.id], bert = WORLD.people.bert; W.greatDay = W.day; W.bert.stage = 'married'; STATS.weddings = (STATS.weddings || 0) + 1;
+  if (p) { p.sheet = p.sheet.replace(/; walking out with Bert Turner\./, `; Bert Turner's wife, married on ${LONGDATE(W.day)}.`); p.away = false; }
+  if (W.bert.withAda) {
+    if (p) { p.home = 'ada_home'; p.routine = w => (w.dow() !== 'sun' && w.mod >= hm(7, 30) && w.mod < hm(18) ? null : 'ada_home'); }
+    swapText('ada', /with her son Bert, a docker/, `with her son Bert, a docker, and his wife ${p ? p.short : ''}`);
+    remember('ada', `Bert and ${W.bert.name} were married at St. James's, Bermondsey; they are living with her till they find rooms of their own.`, ['bert', W.bert.id], 3);
+  } else {
+    WORLD.places.bert_rooms = { name: `Bert and ${p ? p.short : 'his wife'}'s rooms in the Buildings`, kind: 'home', district: 'bermondsey', warmth: 50 };
+    try { const G = require('./geo1931.js'); if (G.C.ada_home) G.C.bert_rooms = [G.C.ada_home[0] + 0.0006, G.C.ada_home[1] + 0.0004]; } catch (e) {}
+    const base = bert.routine; bert.home = 'bert_rooms'; bert.routine = w => { const r = base(w); return r === 'ada_home' ? 'bert_rooms' : r; };
+    if (p) { p.home = 'bert_rooms'; p.routine = w => (w.dow() !== 'sun' && w.mod >= hm(7, 30) && w.mod < hm(18) ? null : 'bert_rooms'); }
+    F.bertLeft = true;
+    swapText('ada', /lived in two rooms in Bermondsey with her son Bert, a docker\./, 'lived alone in two rooms in Bermondsey; her son Bert, a docker, was married and lived in the Buildings near by.');
+    swapText('ada', /living in Bermondsey with her son Bert, a docker\./, 'living alone in Bermondsey; her son Bert, a docker, is married and lives near by.');
+    remember('ada', `Bert and ${W.bert.name} were married at St. James's, Bermondsey, and have taken rooms of their own in the Buildings; she is alone in her two rooms.`, ['bert', W.bert.id], 3);
+  }
+  rumour(`Bert Turner and ${W.bert.name} were married at St. James's`, 'bert', ['ada']); say(`   ♥ Bert and ${W.bert.name} are married${W.bert.withAda ? '; they live with Ada' : '; they have rooms of their own'}.`);
+}
+async function lifeCourse(d) {
+  const iso = SIMDATE.iso(d), w = DOW(d);
+  W.bert = W.bert || { stage: 'single', weeks: 0 };
+  const bert = WORLD.people.bert;
+  if (w === 'mon' && bert && !bert.dead && ['single', 'courting'].includes(W.bert.stage)) {
+    if (W.bert.stage === 'courting') W.bert.weeks++;
+    const e = LC.courtingWeek(W.bert, DEC.ageOf(bert) || 20, Math.random);
+    if (e === 'court') await bertCourts(d); else if (e === 'break') bertParts(); else if (e === 'engaged') await bertEngaged(d);
+  }
+  if (process.env.LIFETEST === 'bert') { if (d === 0) await bertCourts(d); if (d === 1) { await bertEngaged(d); W.bert.wedding = SIMDATE.iso(d + 1); } }   // test hook
+  if (W.bert.stage === 'engaged' && iso >= W.bert.wedding) bertMarries();
+  // Joan: the scholarship examination at eleven, the leaving age, the first place
+  const joan = WORLD.people.joan; W.joan = W.joan || { school: 'elementary' };
+  if (!joan || joan.dead) return;
+  if (!W.joan.examined && iso >= '1934-05-07' && iso < '1934-09-01') {
+    W.joan.examined = true; const r0 = Math.random(), offer = process.env.JOANOFFER || (r0 < LC.SCHOOL.secondary ? 'secondary' : r0 < LC.SCHOOL.secondary + LC.SCHOOL.central ? 'central' : null);
+    if (offer) {
+      const what = offer === 'secondary' ? 'a junior county scholarship to the secondary school; she would stay at school till she is sixteen, and the uniform and books will cost two or three pounds' : 'a place at the central school; she would stay at school till she is fifteen, and learn shorthand and book-keeping';
+      const r = await duty('arthur', `Joan has won ${what}, while a girl who leaves at fourteen brings home ten shillings a week. Does Arthur let Joan take it?`, 'lets her take it', 'does not let her take it', 'lets her');
+      if (r.yes) { W.joan.school = offer; A.arthur.money -= offer === 'secondary' ? 600 : 120; swapText('joan', /lively, curious, full of questions\./, offer === 'secondary' ? 'lively, curious; a scholarship girl at the secondary school.' : 'lively, curious; a pupil at the central school.'); }
+      remember('arthur', r.yes ? `Joan won ${offer === 'secondary' ? 'a scholarship to the secondary school' : 'a place at the central school'}, and he let her take it.` : `Joan won ${offer === 'secondary' ? 'a scholarship' : 'a place at the central school'}, but he could not let her take it.`, ['joan'], 3);
+      STATS.joanOffer = offer + (r.yes ? ':taken' : ':refused'); W.greatDay = W.day; say(`   ✎ Joan is offered ${offer === 'secondary' ? 'a scholarship' : 'a central-school place'}; ${r.yes ? 'Arthur lets her take it' : 'Arthur cannot let her take it'}.`);
+    }
+  }
+  if (!W.joan.left && iso >= LC.leavingDate(Date.UTC(1923, 2, 1), W.joan.school)) {
+    W.joan.left = true; W.greatDay = W.day; const opts = LC.FIRST_PLACES[W.joan.school], L4 = ['A', 'B', 'C', 'D'];
+    const q = `${perceive('arthur', 'Joan leaves school, her first place, work, wages')}\n\nJoan has left school. Which place do Arthur and Edith find for her?\n${opts.map((o, i) => `(${L4[i]}) ${o[0]}${o[1] ? `, ${money(o[1])} a week` : ''}`).join('\n')}\n\nAnswer with the letter only.`;
+    let i = 0; try { const c = await choose(q, opts.map(o => o[0]), 2); if (c.i !== null) i = c.i; } catch (e) {}
+    const [job, wage] = opts[i]; W.joan.job = job; W.joan.wage = wage;
+    swapText('joan', /(lively, curious[^.]*\.)/, `$1 She has left school and is ${job.replace(/^to stay/, 'staying')}.`);
+    if (wage) joan.routine = w2 => (w2.dow() === 'sun' ? (w2.between(hm(10, 30), hm(12, 30)) ? 'church' : 'arthur_home') : (w2.mod >= hm(8, 15) && w2.mod < (w2.dow() === 'sat' ? hm(13) : hm(18, 15)) ? null : 'arthur_home'));
+    remember('arthur', `Joan has left school${wage ? `, and is ${job}, at ${money(wage)} a week` : ', and is to stay at home and help her mother'}.`, ['joan'], 3);
+    STATS.joanPlace = job; say(`   ✎ Joan leaves school: ${job}${wage ? ', ' + money(wage) + ' a week' : ''}.`);
+  }
+}
+// what the persons would have read in the papers of the years before a run that starts late (the editor's choice of
+// a few days: each of the last twelve months, and two days a year before that), kept as the past
+function catchUp() {
+  const s0 = Date.parse(SIMDATE.iso(0)); if (s0 <= Date.UTC(1931, 1, 1)) return;
+  const days = []; for (let t = Date.UTC(1931, 2, 15); t < s0 - 20 * 864e5; ) { const dt = new Date(t), monthsBack = (new Date(s0).getUTCFullYear() - dt.getUTCFullYear()) * 12 + new Date(s0).getUTCMonth() - dt.getUTCMonth();
+    if (monthsBack <= 12 || [2, 8].includes(dt.getUTCMonth())) days.push(t); t = Date.UTC(dt.getUTCFullYear(), dt.getUTCMonth() + 1, 15); }
+  let n = 0; for (const t of days) { const d = Math.round((t - T0) / 864e5), it = newsOn(d)[0]; if (!it) continue; n++;
+    for (const k in A) A[k].mem.push({ day: 'past', t: 0, text: `In ${MONTHS[new Date(t).getUTCMonth()]} ${new Date(t).getUTCFullYear()} the papers said: ${it.text.slice(0, 220)}`, about: ['news'], imp: 2 }); }
+  STATS.catchUp = n; say(`   ✦ The papers of the years before: ${n} days remembered.`);
 }
 // knowledge that moves with the calendar: what each person says of the world's great facts, once a month (leak1931.js)
 const LEAK = require('./leak1931.js');
@@ -1791,7 +1887,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     W.day = d; W.t = 0; WORLD.t = d * 1440 + hm(6); for (const k in A) { A[k].metToday = new Set(); A[k].forksToday = 0; if (A[k].awayUntil > d * 1440 + hm(6)) continue; if (A[k].busyUntil > d * 1440 + hm(6, 15)) A[k].busyUntil = d * 1440 + hm(6, 15); A[k].place = A[k].home; }
     say(`\n######## ${DAYS[d]}${HOL[d] ? ' — ' + HOL[d] : ''} (${WEATHER[d]}) ########`);
     const asks0 = STATS.asks;
-    if (d === 0) ageToStart();
+    if (d === 0) { ageToStart(); catchUp(); }
     if (d === 0) for (const k in A) await formative(k);
     if (d === 0 && PLANSON) for (const k in A) { try { await weekPlan(k, 0); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }
     if (d === 0 || dateOf(d).getUTCDate() === 1) { try { await leakProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }
@@ -1802,6 +1898,7 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     if (d === 0) { const s0 = SIMDATE.iso(0); if (s0 >= '1931-03-15') W.retire = true; if (s0 >= '1931-03-28' && W.successor === undefined) W.successor = process.env.SUCCESSOR || 'arthur'; }
     if (!F.thomasRetired && W.retire && SIMDATE.iso(d) >= '1931-05-01') retireThomas(d === 0);
     morningEvents(); letters(); try { lifeAndDeath(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; }
+    try { await lifeCourse(d); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; say(`   !! life course: ${e.message}`); }
     for (const c of PROM.daily(W.day)) { const nm = nameOf(c.id); if (c.up) { STATS.promoted = (STATS.promoted || 0) + 1; say(`   ⇧ ${nm} has come to matter: ${heshe(c.id)} will remember ${hisher(c.id)} dealings with the household.`); } else { STATS.demoted = (STATS.demoted || 0) + 1; say(`   ⇩ ${nm} goes back into the background.`); } }
     W.quiet = quietDay(d); if (W.quiet) STATS.quietDays = (STATS.quietDays || 0) + 1;
     W.t = hm(6); try { if (!W.quiet && (!FAST || DOW(d) === 'mon')) await morningProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; await ensureBrowser(); }

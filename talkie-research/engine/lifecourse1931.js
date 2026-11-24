@@ -39,4 +39,17 @@ function courtingWeek(state, age, R) {
   if (state.stage === 'courting') { if (R() < BREAK_UP / 52) return 'break'; if (state.weeks >= ENGAGED_AFTER && R() < 1.5 / 52) return 'engaged'; }
   return null;
 }
-module.exports = { MARRY, BREAK_UP, ENGAGED_AFTER, GIRLS_WORK, SCHOOL, leavingDate, FIRST_PLACES, courtingWeek };
+// names when talkie gives none (the site's moderation refuses some questions about courting): girls' Christian names
+// common among births of 1904-1914 in England and Wales (ONS, historical top 100 names), and surnames common in
+// England and Wales with the Irish names of Dockhead and Bermondsey
+const GIRLS_NAMES = ['Mary', 'Florence', 'Doris', 'Edith', 'Dorothy', 'Annie', 'Margaret', 'Alice', 'Elizabeth', 'Elsie', 'Gladys', 'Ethel', 'Lilian', 'Hilda', 'Ivy', 'Winifred', 'Violet', 'Lily', 'Kathleen', 'Nellie'];
+const SURNAMES = ['Smith', 'Jones', 'Williams', 'Taylor', 'Brown', 'Davies', 'Wilson', 'Evans', 'Johnson', 'Robinson', 'Wright', 'Wood', 'Thompson', 'White', 'Walker', 'Green', 'Hall', 'Harris', 'Clarke', 'Cooper', 'King', 'Baker', 'Martin', 'Hill', 'Ward', 'Murphy', 'Sullivan', 'Driscoll', 'Mahoney', 'Collins'];
+// a Christian name and surname out of an answer ("Her name was Mary Jones.", "Mary Jones.", "...sweetheart's name was
+// Mary Smith"), not one of the names to avoid (the persons of the story)
+function parseName(answer, avoid = []) {
+  const a = String(answer || '').split(/(?<=[.!?])\s/)[0], bad = new RegExp(`^(?:${['Bert', 'Turner', 'Ada', 'Mrs', 'Mr', 'Miss', 'Sunday', 'Bermondsey', 'Her', 'She', 'The', ...avoid].join('|')})$`);
+  for (const m of a.matchAll(/\b([A-Z][a-z]{2,})\s+([A-Z][a-z']{2,})\b/g)) if (!bad.test(m[1]) && !bad.test(m[2]) && !/'s$/.test(m[2])) return `${m[1]} ${m[2]}`;
+  return null;
+}
+function drawName(R, avoid = []) { const ss = SURNAMES.filter(x => !avoid.includes(x)); return `${GIRLS_NAMES[Math.floor(R() * GIRLS_NAMES.length)]} ${ss[Math.floor(R() * ss.length)]}`; }
+module.exports = { MARRY, BREAK_UP, ENGAGED_AFTER, GIRLS_WORK, SCHOOL, leavingDate, FIRST_PLACES, courtingWeek, GIRLS_NAMES, SURNAMES, parseName, drawName };

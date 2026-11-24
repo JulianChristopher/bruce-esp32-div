@@ -95,7 +95,7 @@ talkie surprise score).
 4. Calibration dashboard against the records; anti-melodrama measures; several seeds per run (3.7, 3.8).
 5. The decade: ageing, life events, yearly memory consolidation, leakage probes, optional model change (3.9).
 
-## 5. State of the work (17 November 2026)
+## 5. State of the work (24 November 2026)
 
 What was built in the order of section 4, and what the runs showed (logs and metrics in `engine/runs/`).
 
@@ -119,8 +119,11 @@ had sent Ada to the pawnshop instead of the office, and two missed mornings cost
 no notice, no despair; coal is bought when the box is all but empty, and a neighbour helps out with coal at most once
 a week (in the run before, the neighbours had kept Ada in coal evening after evening).
 
-Open points: promotion needs longer runs to be judged; a run started in a later year knows nothing of the years
-before it (it should read the main news of the missing years first); the portraits age in their numbers but keep words such as
-"little daughter"; life events beyond deaths and births (courting and marriage, a new place, the death of a main
-person with `MORTAL=1`) are left to the persons' plans and to later work; the scripted letters of 1931 assume the
-run starts on 2 January 1931.
+Done since the first list of open points (24 November 2026): a run started in a later year first reads what the
+papers said in the years before; the portraits grow out of the words of childhood ("little daughter"); the scripted
+beats of 1931 go by the date, not by the run's day; Mr. Thomas retires and the succession is decided; the family
+lives move on by the rates of the time (`lifecourse1931.js`: Bert's courting, engagement and marriage, with Ada
+deciding where the young couple live; Joan's scholarship examination at eleven, her leaving age and her first place,
+decided by Arthur). Open points: promotion needs longer runs to be judged; a new place or new rooms for the main
+persons themselves, and Ada's or Arthur's own changes of life, are left to their plans; the death of a main person
+(`MORTAL=1`) ends that person's part, with no one to take it on.

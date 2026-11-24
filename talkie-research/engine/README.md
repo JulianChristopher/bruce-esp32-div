@@ -149,6 +149,24 @@ composed, checked and remembered.
   Health's figures for Bermondsey and the Ministry of Labour's local unemployment. Priors live in one place in
   `street1931.js` (`tune()`); `runs/calib_decade.json` holds the decade check (mean absolute error 1931-1940: 1.5 a
   thousand for death and birth rates, 1.4 points for men out of work).
+- **The course of the family lives** (`lifecourse1931.js`). Bert walks out, may part, is engaged and marries by the
+  rates of the 1931 census (single men: 86 % at 20-24, 47 % at 25-29, 22 % at 30-34; within the decade he marries
+  about two times in three, at about twenty-five). talkie names the girl; the banns are read at St. James's; Ada
+  decides whether the young couple live with her or take rooms of their own near by (then his money goes with him
+  and she is alone). Joan sits the scholarship examination at eleven (May 1934: a secondary-school scholarship 5 %,
+  a central-school place 16 %); Arthur decides whether she may take it; she leaves school at fourteen (Easter 1937),
+  fifteen or sixteen, Arthur chooses her first place, and her board goes into the household. Mr. Thomas retires
+  (the succession: Arthur or a stranger as chief clerk).
+- **A late start** (`START=1936-03-02`): everybody is older by the years since January 1931, and the persons first
+  read what the papers said in the years before (the editor's choice of a day a month for the last year, two days
+  a year before that), kept as the past. Before the first plans the family's past is settled: Mr. Thomas's
+  retirement, Joan's examination and leaving (Arthur is asked as in play), Bert's walking out and marriage by the
+  same weekly chances (talkie names the girl, Ada decides where the young couple live). The street's own past
+  (deaths, births, removals) is not reconstructed. Test hooks: `JOANOFFER=central|secondary`,
+  `BERTPAST=courting|engaged|married`, `LIFETEST=bert` (courting, engagement and wedding on the first three days).
+- **The site's moderation** refuses a few questions (0-2 % of calls; a question about a girl's name and courting
+  among them): the girl's name is then asked in a second form, and failing that drawn from the names of the time
+  (girls' names common among births of 1904-1914, ONS; common surnames and the Irish names of Bermondsey).
 - Tests: `opstest.js` (open deeds in real situations), `rulestest.js` (rules learned and audited with the live game
   master), `prosetest.js`, `streettest.js`.
 

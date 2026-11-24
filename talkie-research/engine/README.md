@@ -158,12 +158,19 @@ composed, checked and remembered.
   fifteen or sixteen, Arthur chooses her first place, and her board goes into the household. Mr. Thomas retires
   (the succession: Arthur or a stranger as chief clerk).
 - **A late start** (`START=1936-03-02`): everybody is older by the years since January 1931, and the persons first
-  read what the papers said in the years before (the editor's choice of a day a month for the last year, two days
-  a year before that), kept as the past. Before the first plans the family's past is settled: Mr. Thomas's
+  read what the papers said in the years before (the greatest day of each of the last twelve months by the
+  editor's score, and of each half-year before that), kept as the past. Before the first plans the family's past is settled: Mr. Thomas's
   retirement, Joan's examination and leaving (Arthur is asked as in play), Bert's walking out and marriage by the
   same weekly chances (talkie names the girl, Ada decides where the young couple live). The street's own past
   (deaths, births, removals) is not reconstructed. Test hooks: `JOANOFFER=central|secondary`,
   `BERTPAST=courting|engaged|married`, `LIFETEST=bert` (courting, engagement and wedding on the first three days).
+- **The paper of a day** (1931 after the hand-checked winter, and the decade): two of the day's wire stories, as a
+  London editor would choose them: British news before European and Empire news, the number of (American) papers
+  that ran a story counted with a damper, the great matters of state and changes of power, an event told by several
+  stories of the day; a column or a letter to the editor and a story days old count less. A record whose dateline
+  lies two days or more after the paper's day is misdated and left out: over 1931-1939 the earlier choice printed
+  132 such stories from the future, the present one 1. On 31 January 1933 the paper now prints Hitler's
+  appointment (it printed the Italian reply on war debts before).
 - **The site's moderation** refuses a few questions (0-2 % of calls; a question about a girl's name and courting
   among them): the girl's name is then asked in a second form, and failing that drawn from the names of the time
   (girls' names common among births of 1904-1914, ONS; common surnames and the Irish names of Bermondsey).

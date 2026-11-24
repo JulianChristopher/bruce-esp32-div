@@ -17,6 +17,10 @@
 | `unemployment_local.json` | per cent of insured workers unemployed, quarterly, men/women/juveniles: Bermondsey 1927–1939 (e.g. men 19 % Oct 1930, 24 % Apr 1933, 9 % Jul 1939), Islington 1929–1939, and the counts for Bermondsey, Islington, Southwark | Ministry of Labour Local Unemployment Index, via A Vision of Britain through Time | to July 1939 |
 | `figures_*.json` | other answers in the House with figures of unemployment | Historic Hansard | scattered |
 
+The paper of a day takes two of these stories by an editor's score (`sim10.js`, `newsPicks`); a story whose
+dateline lies two days or more after its day is a misdated record (3.7 % of the dated ones: 727 of 19,494) and is
+left out, so that no one reads news before it happened.
+
 Computed for every day: sunrise and sunset in clock time (with Summer Time), lighting-up time, the moon,
 bank holidays (Good Friday, Easter Monday, Whit Monday, August Bank Holiday, Christmas, Boxing Day, the Silver Jubilee
 1935 and the Coronation 1937; no August Bank Holiday in 1940), fog days from the weather.

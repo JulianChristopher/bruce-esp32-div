@@ -208,24 +208,51 @@ const wireText = t => String(t || '')
   .replace(/^(?:[A-Z][A-Z.' ]{1,30}(?:,\s*[A-Z][A-Za-z.' ]{1,30})?(?:,?\s*[A-Z][a-z]+\.?\s+\d{1,2})?|[A-Z][a-z]+(?: [A-Z][a-z]+)?,(?:\s*[A-Z][a-z]+(?: [A-Z][a-z]+)?,)?\s*[A-Z][a-z]+\.?\s+\d{1,2}|[A-Z][a-z]+(?: [A-Z][a-z]+)?,\s*[A-Z][a-z]+(?: [A-Z][a-z]+)?(?=\s*[—–-])|[A-Z][a-z]+(?=\s*[—–-]))\.?\s*[.,]?\s*(?:\([^)]{0,14}\)\s*)*[.,]?\s*[—–-]+\s*(?:\([^)]{0,14}\)\s*[.,]?\s*[—–-]*\s*)?/, '')
   .replace(/\s*\((?:#|\d|\/?P|U\.?R\.?|A\.?P\.?|U\.?P\.?|INS|NANA|WP|PE|[^)]{0,3}\?)\)\s*[.,]?\s*[—–-]*\s*/g, ' ')
   .replace(/^(?:W?UP|AP|INS|NANA)\s*[—–-]+\s*/, '')
+  // a byline, a headline or a copyright line before a dateline in capitals with its date ("Copyright 1934 United Press
+  // BERLIN, July 2. — ", "Protest by Ethiopia GENEVA, March 6 — ", "LONDON, Jan. 30 (AP). "): all of it goes
+  .replace(/^.{0,80}?\b[A-Z]{3,}[A-Z .'-]*(?:,\s*[A-Z][A-Za-z.' ]{1,25}?)?,?\s+(?:Jan|Feb|Mar|Apr|May|June?|July?|Aug|Sept?|Oct|Nov|Dec)[a-z]*\.?,?\s+\d{1,2}\b(?:\s*\([^)]{0,14}\))*[^A-Za-z(]{0,12}(?:\([^)]{0,14}\)[^A-Za-z]{0,6})*(?:\b(?:UP|AP|INS)\b\s*)?/, '')
+  // a dateline in small letters at the very start ("Dublin, Irish Free State, Feb. 22— ", "Belfast, Me., Sept. 8.—- ")
+  .replace(/^(?:\([^)]{0,60}\)\s*|\(?[Cc]opyright,?\s*\d{4},?\s*(?:[Bb]y\s+)?(?:[Tt]he\s+)?(?:[Aa]ssociated|[Uu]nited)\s+[Pp]ress\.?\)?\s*)?[A-Z][a-z]+(?:[ ,]+[A-Z][A-Za-z.'-]*){0,4},?\s+(?:Jan|Feb|Mar|Apr|May|June?|July?|Aug|Sept?|Oct|Nov|Dec)[a-z]*\.?,?\s+\d{1,2}\b[^A-Za-z(]{0,12}/, '')
   .replace(/\$\s?([\d,]+(?:\.\d+)?)(\s?(?:million|billion))?/g, (m, n, big) => `${n}${big || ''} dollars`).replace(/\s+/g, ' ').trim();
 // the news of a day by its date: the 1931 selection (news1931.js) for the first months of 1931, otherwise the day's
 // wire stories of the decade (decade/news), British ones first, the dateline taken off
 const T1931 = Date.UTC(1931, 0, 2);
+// the day a wire story's dateline names, against the day of the paper (days; null without a dateline): a record whose
+// dateline lies two days or more after the paper's day is misdated (3.7 % of dated records), news from the future
+const MON3 = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+function datelineDelta(text, iso) {
+  const m = String(text).slice(0, 140).match(/\b(Jan|Feb|Mar|Apr|May|June?|July?|Aug|Sept?|Oct|Nov|Dec)[a-z]*\.?,?\s+(\d{1,2})\b(?![,.]?\d)/);
+  if (!m) return null; const mo = MON3.indexOf(m[1].slice(0, 3).toLowerCase()), da = +m[2]; if (mo < 0 || da < 1 || da > 31) return null;
+  const t = Date.parse(iso), y = new Date(t).getUTCFullYear(); let best = null;
+  for (const yy of [y - 1, y, y + 1]) { const dd = Math.round((Date.UTC(yy, mo, da) - t) / 864e5); if (best === null || Math.abs(dd) < Math.abs(best)) best = dd; }
+  return best;
+}
+// as an editor of the day would choose: British news before European and Empire news before the rest (the record's
+// rank), the number of papers that ran a story counted with a damper (they were American papers), the great matters of
+// state and changes of power, an event told by several stories of the day or several from one city; a column or a
+// letter (written to "you", or "To the Editor") and a story days old count less; the same story twice only once
+const NEWSMAJOR = /\b(president\w*|king|queen|throne|prime minister|chancellor\w*|premier|dictator\w*|parliament\w*|cabinet|election\w*|elected|abdicat\w*|treat(?:y|ies)|war(?! debts?)|gold standard|budget|into power|to power|seized power|took office|resign\w*|assassinat\w*|revolution\w*|coup|mobili[sz]\w*|invad\w*|invasion|ultimatum|armistice|annex\w*|reichstag|league of nations)\b/i;
+const wordSet = t => new Set(String(t).toLowerCase().match(/[a-z]{4,}/g) || []);
+const setOverlap = (a, b) => { let n = 0; for (const t of a) if (b.has(t)) n++; return n / Math.max(1, Math.min(a.size, b.size)); };
 function newsOn(d) {
   const t = T0 + d * 864e5, i = Math.round((t - T1931) / 864e5);
   if (new Date(t).getUTCFullYear() === 1931 && i >= 0) { const n = newsFor(i); if (n.length) return n; }
-  const day = DECADE.day(SIMDATE.iso(d)) || {}, st = (day.news || []).filter(x => x && x.text && x.text.length > 120 && require('./ops1931.js').periodOK(x.text));
-  // as an editor of the day would choose: the longer story, British news before foreign, and the great matters of state
-  // (a government, a king, an election, a war) before the rest; the same story twice only once
-  const MAJOR = /\b(president\w*|king|prime minister|chancellor\w*|government\w*|parliament\w*|cabinet|election\w*|elected|abdicat\w*|treat(?:y|ies)|war|gold standard|budget)\b/i;
-  const brit = x => /united kingdom|england|britain|ireland|scotland|wales/i.test(x.country || '') || /london/i.test(x.place || '');
-  const score = x => (x.size || 0) + (brit(x) ? 15 : 0) + (MAJOR.test(x.text.slice(0, 300)) ? 25 : 0);
-  const chosen = []; for (const x of st.slice().sort((a, b) => score(b) - score(a))) {
-    const w = new Set(wireText(x.text).toLowerCase().match(/[a-z]{4,}/g) || []), dup = chosen.some(c => { const v = new Set(wireText(c.text).toLowerCase().match(/[a-z]{4,}/g) || []); let n = 0; for (const t of w) if (v.has(t)) n++; return n / Math.max(1, Math.min(w.size, v.size)) > 0.45; });
-    if (!dup) chosen.push(x); if (chosen.length === 2) break; }
-  return chosen.map(x => ({ p: null,
+  return newsPicks(d).map(({ x }) => ({ p: null,
     text: `${x.country && x.place ? String(x.place).toUpperCase() + '. ' : ''}${wireText(x.text).slice(0, 320).replace(/\s+\S*$/, '')}…` }));   // a place only when the record knows its country
+}
+// the day's two stories from the wire records, with the editor's score
+function newsPicks(d) {
+  const iso = SIMDATE.iso(d), day = DECADE.day(iso) || {}, st = (day.news || []).filter(x => x && x.text && x.text.length > 120 && require('./ops1931.js').periodOK(x.text) && !(datelineDelta(x.text, iso) >= 2));
+  const brit = x => /united kingdom|england|britain|ireland|scotland|wales/i.test(x.country || '') || /london/i.test(x.place || '');
+  const W = st.map(x => wordSet(x.text.slice(0, 400))), cover = st.map((x, k) => W.filter((v, j) => j !== k && setOverlap(W[k], v) > 0.22).length);
+  const persons = x => (x.text.replace(/["“][^"”]*["”]/g, ' ').match(/\b(I|me|my|we|our|us|you|your)\b/g) || []).length;
+  const score = (x, k) => [0, 0, 18, 30][x.rank || (brit(x) ? 3 : 1)] + 8 * Math.log2(1 + (x.size || 0)) + (NEWSMAJOR.test(x.text.slice(0, 300)) ? 25 : 0)
+    + 12 * Math.min(cover[k], 3) + 8 * Math.min(x.place ? st.filter(y => y !== x && y.place === x.place).length : 0, 2)
+    - (persons(x) >= 2 ? 40 : 0) - (/^\W*to the editor/i.test(x.text) ? 60 : 0) - (datelineDelta(x.text, iso) < -3 ? 30 : 0);
+  const sc = new Map(st.map((x, k) => [x, score(x, k)]));
+  const chosen = []; for (const x of st.slice().sort((a, b) => sc.get(b) - sc.get(a))) {
+    const w = wordSet(wireText(x.text)); if (!chosen.some(c => setOverlap(w, wordSet(wireText(c.text))) > 0.45)) chosen.push(x); if (chosen.length === 2) break; }
+  return chosen.map(x => ({ x, s: sc.get(x) }));
 }
 const paperText = d => newsOn(d).map(x => x.text).join(' ');
 function readPaper(k, name, cost) {
@@ -1064,12 +1091,18 @@ async function pastCourse() {
   await bertCourts(court, true); W.bert.weeks = st.weeks;
   if (st.stage !== 'courting') { const w = await bertEngaged(engaged); if (w < 0) bertMarries(w); }
 }
-// what the persons would have read in the papers of the years before a run that starts late (the editor's choice of
-// a few days: each of the last twelve months, and two days a year before that), kept as the past
+// what the persons would have read in the papers of the years before a run that starts late (the greatest day of each
+// of the last twelve months by the editor's score, and of each half-year before that), kept as the past
 function catchUp() {
   const s0 = Date.parse(SIMDATE.iso(0)); if (s0 <= Date.UTC(1931, 1, 1)) return;
-  const days = []; for (let t = Date.UTC(1931, 2, 15); t < s0 - 20 * 864e5; ) { const dt = new Date(t), monthsBack = (new Date(s0).getUTCFullYear() - dt.getUTCFullYear()) * 12 + new Date(s0).getUTCMonth() - dt.getUTCMonth();
-    if (monthsBack <= 12 || [2, 8].includes(dt.getUTCMonth())) days.push(t); t = Date.UTC(dt.getUTCFullYear(), dt.getUTCMonth() + 1, 15); }
+  const best = (a, b) => { let bt = null, bs = -Infinity; for (let t = a; t < Math.min(b, s0 - 7 * 864e5); t += 864e5) { const p = newsPicks(Math.round((t - T0) / 864e5))[0]; if (p && p.s > bs) { bs = p.s; bt = t; } } return bt; };
+  const periods = [], y0 = new Date(s0).getUTCFullYear(), m0 = new Date(s0).getUTCMonth();
+  for (let y = 1931; y <= y0; y++) for (let m = 0; m < 12; m++) {
+    const monthsBack = (y0 - y) * 12 + m0 - m; if (monthsBack < 1 || (y === 1931 && m < 2)) continue;
+    if (monthsBack <= 12) periods.push([Date.UTC(y, m, 1), Date.UTC(y, m + 1, 1)]);
+    else if (m === 0 || m === 6 || (y === 1931 && m === 2)) periods.push([Date.UTC(y, m, 1), Math.min(Date.UTC(y, m < 6 ? 6 : 12, 1), Date.UTC(y0, m0 - 12, 1))]);   // a half-year: its greatest day
+  }
+  const days = periods.map(([a, b]) => best(a, b)).filter(t => t !== null);
   let n = 0; for (const t of days) { const d = Math.round((t - T0) / 864e5), it = newsOn(d)[0]; if (!it) continue; n++;
     for (const k in A) A[k].mem.push({ day: 'past', t: 0, text: `In ${MONTHS[new Date(t).getUTCMonth()]} ${new Date(t).getUTCFullYear()} the papers said: ${it.text.slice(0, 220)}`, about: ['news'], imp: 2 }); }
   STATS.catchUp = n; say(`   ✦ The papers of the years before: ${n} days remembered.`);

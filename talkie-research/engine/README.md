@@ -164,6 +164,30 @@ composed, checked and remembered.
   same weekly chances (talkie names the girl, Ada decides where the young couple live). The street's own past
   (deaths, births, removals) is not reconstructed. Test hooks: `JOANOFFER=central|secondary`,
   `BERTPAST=courting|engaged|married`, `LIFETEST=bert` (courting, engagement and wedding on the first three days).
+- **The war** (`war1939.js`, September 1939 to the end of 1940). The rules of the day come from the decade's records
+  (`decade/institutions1930s.json`): the black-out from 1 September 1939 (the street-lamps out, the ways a quarter
+  slower after dark, black-out stuff for the windows), the declaration of war, the evacuation (a child under five goes
+  with its mother if the head of the household decides so, in September 1939 and again after the first night of the
+  Blitz; six in ten were home again by January 1940), registration for the ration books and the rations (bacon,
+  butter, sugar from 8 January 1940; meat, tea, margarine later), the call-up of the men of the story by their age and
+  calling (registration by age groups; dockers of 25 and over reserved: Bert registers and stays at the docks; young
+  Mr. Fenn, 28 in 1940, registers in April and is called up), the cost of living (55 per cent above 1914 before the
+  war, 74 in January 1940, 93 at the end of November). The Blitz from 7 September 1940: London raided on 57 nights
+  running, then on most nights (known quiet and heavy nights); when the sirens sound each main person chooses where
+  to go (asked of talkie the first night, after a near miss and once a week), told what the neighbours do (the railway
+  arches, the Underground, a basement, an Anderson shelter, the cupboard under the stairs) and answering in free words
+  (three asks, the kind most often named): asked with letters, talkie answers by position ("A." to every order of the
+  options); in its own words it is steady (Ada: "She goes to bed, because she has no place to go to", four of four;
+  Arthur takes the family to his mother's, four of four). A relation's house is another district. The night's chances follow the district's air-raid
+  death-rate of 1940 (Bermondsey 5.2 a thousand, the highest in London; Islington about 2.0; 1.4 seriously injured
+  for each death), with the shelter's risk; the main persons are hurt, not killed, unless `MORTAL=1`. A bomb near a home
+  blows the windows in (a cold fortnight) or worse. In the fire raid on the City (29 December 1940) the Moorgate office
+  may burn. Stated judgements (the shelter risks, the share of homes damaged, the quiet nights after November) are
+  marked in the module. Test hooks: `WARSCALE` (multiplies the chances of a night), `BIRTHTEST=<mother>` (a baby on the
+  first day, e.g. `BERTPAST=married BIRTHTEST=bertsgirl1`), `DUTYLOG=1` (the raw answers to every yes-or-no question).
+- **No births against a biography**: Edith has none by the rates ('the doctor said there should be no more',
+  `bio1931.js`). **An empty answer** from the site after many asks (the same prompt answers in a fresh page) is asked
+  once more after a pause.
 - **The paper of a day** (1931 after the hand-checked winter, and the decade): two of the day's wire stories, as a
   London editor would choose them: British news before European and Empire news, the number of (American) papers
   that ran a story counted with a damper, the great matters of state and changes of power, an event told by several
@@ -192,7 +216,10 @@ FAST=1 SAMPLE=4 DAYS=3652 RUN=decade RESUME=1 node sim10.js >> decade.log 2>&1
 | `FAST=1 SAMPLE=4` (one week in four in full) | 14 | 1.6 min | about 4 days | about 15,000 calls, about $16 |
 | `FAST=1 SAMPLE=8` | about 9 (estimate) | about 1.1 min (estimate) | about 3 days | about $11 |
 
-Measured on 7-day runs (s4_1931) and four sampled weeks (dec28); game-master calls cost about $0.001 each. A run
+Measured on 7-day runs (s4_1931) and four sampled weeks (dec28); game-master calls cost about $0.001 each. A dry run of
+the whole decade without the model and without fetching (`FAKE=1 FAST=1 SAMPLE=4 NOFETCH=1 DAYS=3652`) takes about
+eleven minutes and checks the machinery of all ten years (no errors on 24 November 2026; the run directory grows to
+about 200 MB, most of it the positions). A run
 writes a checkpoint every evening; scheduled letters and court days are lost on resume. A cloud container can be
 replaced: keep `OUTDIR` where it survives, or push the run directory now and then. The monthly leakage probes
 (`leak1931.js`) and the yearly New Year (ages, memory) run by themselves; `MORTAL=1` lets the main persons die by

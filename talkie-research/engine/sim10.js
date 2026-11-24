@@ -113,13 +113,18 @@ async function chat(msgs) {           // several turns in one chat window
   finally { if (p) putPage(p); }
   return out;
 }
-const isEcho = (a, m) => !!a && (/CHARACTER:|REMEMBERS:|PURSE:|QUESTION to/.test(a) || (a.length > 40 && m.includes(a.slice(0, 40))));
+// the page read back is an echo; an answer in the very words of the answer form is not ("He sends Edith and the baby into
+// the country, because ..." is what was asked for)
+const isEcho = (a, m) => !!a && (/CHARACTER:|REMEMBERS:|PURSE:|QUESTION to/.test(a) || (a.length > 40 && m.replace(/\n\s*Answer (?:in|with)[\s\S]*$/, '').includes(a.slice(0, 40))));
 // what the period model is asked, by kind (for the cost of a long run): read off the answer form of each prompt
 const ASKKIND = [[/QUESTION to /, 'memprobe'], [/has just come in\. What does|greets (him|her): "/, 'greet'], [/goes across, because/, 'chorus'], [/It was settled that/, 'settle'], [/(says|answers), "\.\.\."/, 'talk'], [/answered, "\.\.\."/, 'leak'], [/thinks (him|her) \.\.\., because/, 'reflect'], [/To-day I \.\.\./, 'diary'],
   [/dreamt that|dream-book/, 'dream'], [/It was called|name was \.\.\./, 'name'], [/On \(day\)/, 'plan'], [/agrees, because \.\.\. or:/, 'consent'], [/chooses to \.\.\., because|\(one sentence\)/, 'decide'],
   [/goes through with it/, 'second'], [/Yes, because \.\.\. or: No, because/, 'plausible'], [/, because \.\.\. or: /, 'duty'], [/letter only/, 'choose'], [/Answer with|Answer in the form/, 'other']];
 let DUMPN = 0; function dump(m) { const kind = (ASKKIND.find(([re]) => re.test(m)) || [null, 'other'])[1]; STATS.askKinds = STATS.askKinds || {}; STATS.askKinds[kind] = (STATS.askKinds[kind] || 0) + 1; if (DUMPN++ < +(process.env.DUMP || 0)) try { fs.appendFileSync(path.join(OUT, 'prompts.txt'), `\n==== #${DUMPN} (${m.length} chars) ====\n${m}\n`); } catch (e) {} }
-const ask = async m => { dump(m); let a = (await chat([m]))[0]; if (!FAKE && isEcho(a, m)) { STATS.promptEcho = (STATS.promptEcho || 0) + 1; a = (await chat([m]))[0]; if (isEcho(a, m)) a = null; } return a; };
+const ask = async m => { dump(m); let a = (await chat([m]))[0]; if (!FAKE && isEcho(a, m)) { STATS.promptEcho = (STATS.promptEcho || 0) + 1; a = (await chat([m]))[0]; if (isEcho(a, m)) a = null; }
+  // an empty answer after many asks is the site's, not the model's (the same prompt answers in a fresh page): wait, ask once more
+  if (!FAKE && !LOCAL && !a) { STATS.emptyRetry = (STATS.emptyRetry || 0) + 1; await sleep(8000); a = (await chat([m]))[0]; if (a && isEcho(a, m)) a = null; }
+  return a; };
 class Session {                     // a chat window that stays open: talkie sees the whole exchange
   constructor() { this.n = 0; this.page = null; }
   async send(msg) {
@@ -756,6 +761,7 @@ function perceiveProse(k, query = '') {
     ['scene', [S(scene(k)), S(household(k))].filter(Boolean).join(' ')],
     ['feels', S([WORLD.needWords(k), typeof feelWords === 'function' && a.chem ? feelWords(k) : ''].filter(Boolean).join('; '))],
     ['known', core(k) ? S(core(k).slice(0, 280)) : ''],
+    ['times', (() => { const t = WAR.times(SIMDATE.iso(W.day), warRules(W.day), WORLD.mod); return t ? S(t) : ''; })()],
     ['now', (() => { const st = off('states') ? '' : states(k, query); return st ? S(st) : ''; })()],
     ['values', query && !off('values') ? S(values(k, query)) : ''],
     ['wants', goalsTxt],
@@ -769,7 +775,7 @@ function perceiveProse(k, query = '') {
   // paragraphs as a novel sets them: the moment and the person; the place; what weighs on the mind
   const para = ids => parts.filter(x => ids.includes(x[0])).map(x => x[1]).join(' ');
   // what presses comes last, as a novel sets the turn of a scene; memory before it
-  return [para(['when', 'who']), para(['where', 'scene', 'feels']), para(['remembers', 'books', 'opinions']), para(['values', 'wants', 'known', 'now'])].filter(Boolean).join('\n\n');
+  return [para(['when', 'who']), para(['where', 'scene', 'feels']), para(['remembers', 'books', 'opinions']), para(['values', 'wants', 'known', 'times', 'now'])].filter(Boolean).join('\n\n');
 }
 function perceive(k, query = '') {
   if (PROSEON) return perceiveProse(k, query);
@@ -783,6 +789,7 @@ function perceive(k, query = '') {
     `PLACE: ${PLACE[a.place]}. PRESENT: ${pres.length ? pres.join('; ') : 'nobody else'}. PURSE: ${money(a.money)}.`,
     (() => { const f = [WORLD.needWords(k), typeof feelWords === 'function' && a.chem ? feelWords(k) : ''].filter(Boolean).join('; '); return f ? `FEELS: ${f}.` : ''; })(),
     core(k) ? `KNOWN: ${core(k).slice(0, 280)}` : '',
+    (() => { const t = WAR.times(SIMDATE.iso(W.day), warRules(W.day), WORLD.mod); return t ? `TIMES: ${t}` : ''; })(),
     (() => { const st = off('states') ? '' : states(k, query); return st ? `NOW: ${st}` : ''; })(),
     query && !off('values') ? `VALUES: ${values(k, query)}` : '',
     (() => { const g = typeof goals === 'function' ? goals(k) : []; return g.length ? `WANTS TO: ${g.map(x => x.text).join('; ')}.` : ''; })(),
@@ -879,23 +886,30 @@ const SUCCEED = { barker: ['Mrs. Barker', "Mrs. Barker, the grocer's widow, who 
   lamb: ['Mr. Lamb the younger', "Mr. Lamb the younger, who kept on his father's pawnshop; dry and exact like the old man, but quicker."],
   gedge: ['Mr. Hogg', "Mr. Hogg, the landlord's new collector; young, brisk, goes by the book."], pc: ['P.C. Marsh', 'Police-Constable Marsh, new on the Bermondsey beat; fair, but does not know the people yet.'],
   relieving: ['the new relieving officer', 'the new relieving officer at the Guardians; exact with the forms.'] };
+// the biographies rule out what they rule out: 'Edith lost a baby in 1925 and the doctor said there should be no more'
+// (bio1931.js), so no births to Edith by the rates
+function noBirthsByBio() { if (WORLD.people.edith) WORLD.people.edith.noBirths = true; }
 function lifeAndDeath() {
-  for (const e of DEC.lifeEvents(WORLD, W.day, Math.random, { mortal: process.env.MORTAL === '1', scale: +(process.env.LIFESCALE || 1) })) {
+  noBirthsByBio();
+  for (const e of DEC.lifeEvents(WORLD, W.day, Math.random, { mortal: process.env.MORTAL === '1', scale: +(process.env.LIFESCALE || 1) })) lifeEvent(e);
+}
+function lifeEvent(e) {   // e: { kind: 'death' | 'birth', id, age, cause? ('raid') }
+  {
     const p = WORLD.people[e.id], nm = p.name, bertsOwn = W.bert && W.bert.id === e.id, house = p.home ? Object.keys(A).filter(k => A[k].home === p.home) : [];
     const close = [...new Set([...(CLOSE[e.id] || []), ...(bertsOwn ? ['ada'] : []), ...house])];   // the household knows at once
     if (e.kind === 'death') {
-      STATS.deaths = (STATS.deaths || 0) + 1; say(`   ✝ ${nm[0].toUpperCase() + nm.slice(1)} died, aged ${e.age}.`); if (close.length) W.greatDay = W.day;
+      STATS.deaths = (STATS.deaths || 0) + 1; const died = e.cause === 'raid' ? 'was killed in the air raid' : 'died'; say(`   ✝ ${nm[0].toUpperCase() + nm.slice(1)} ${died}, aged ${e.age}.`); if (close.length) W.greatDay = W.day;
       if (bertsOwn && W.bert.stage !== 'single') { remember('ada', `${nm}, ${W.bert.stage === 'married' ? "Bert's wife" : "Bert's young woman"}, has died.`, ['bert', e.id], 3); Object.assign(W.bert, { stage: 'single', weeks: 0, widowed: W.bert.stage === 'married' }); }
-      for (const k of close) if (A[k]) { remember(k, `${nm[0].toUpperCase() + nm.slice(1)} died${e.age >= 65 ? ', at a good age' : ''}.`, [e.id], 3); if (A[k].chem) jolt(k, 'shock', ['bert', 'edith', 'joan'].includes(e.id) ? 60 : bertsOwn || house.includes(k) ? 40 : 20); }
+      for (const k of close) if (A[k]) { remember(k, `${nm[0].toUpperCase() + nm.slice(1)} ${died}${e.age >= 65 && !e.cause ? ', at a good age' : ''}.`, [e.id], 3); if (A[k].chem) jolt(k, 'shock', ['bert', 'edith', 'joan'].includes(e.id) ? 60 : bertsOwn || house.includes(k) ? 40 : 20); }
       if (bertsOwn && W.bert.withAda) swapText('ada', `, and his wife ${p.short}`, '');
-      rumour(`${nm} has died`, e.id, close.filter(k => A[k]));
+      rumour(`${nm} ${e.cause === 'raid' ? 'was killed in the raid' : 'has died'}`, e.id, close.filter(k => A[k]));
       if (SUCCEED[e.id]) { const [n2, sheet] = SUCCEED[e.id]; Object.assign(p, { name: n2, short: n2, sheet, dead: false, away: false, age: 35 }); say(`   ${n2} takes on the place.`); }
       else { p.routine = () => null; if (A[e.id]) { A[e.id].busyUntil = Infinity; } }
     } else if (e.kind === 'birth') {
-      const id = 'baby_' + W.day, f = Math.random() < 0.49, home = p.home;
+      const id = WORLD.people['baby_' + W.day] ? 'baby_' + W.day + '_' + e.id : 'baby_' + W.day, f = Math.random() < 0.49, home = p.home;
       if (bertsOwn) { W.bert.wifeWorks = false; p.routine = () => home; }   // a mother gives up her place
       WORLD.people[id] = { id, name: p.short === 'Edith' ? "the Hales' baby" : bertsOwn ? "Bert's baby" : `${p.short}'s baby`, short: 'the baby', f, home, place: home, money: 0, inv: {}, rel: {}, know: {}, obs: [], busyUntil: 0, needs: { hunger: 0, energy: 0, warmth: 0, social: 0 }, age: 0,
-        sheet: `a baby ${f ? 'girl' : 'boy'}, born ${LONGDATE(W.day)}, ${dateOf(W.day).getUTCFullYear()}`, routine: () => home }; NPC[id] = WORLD.people[id];
+        mother: e.id, sheet: `a baby ${f ? 'girl' : 'boy'}, born ${LONGDATE(W.day)}, ${dateOf(W.day).getUTCFullYear()}`, routine: () => home }; NPC[id] = WORLD.people[id];
       for (const k in A) A[k].op[id] = 0; STATS.births = (STATS.births || 0) + 1; W.greatDay = W.day; say(`   ✿ ${p.name} has had a baby ${f ? 'girl' : 'boy'}.`);
       const told = [...new Set([...Object.keys(A).filter(k => A[k].home === home), ...close.filter(k => A[k])])];
       for (const k of told) remember(k, bertsOwn && k === 'ada' ? `${p.short}, Bert's wife, had a baby ${f ? 'girl' : 'boy'} to-day; she is a grandmother now.` : `${p.short} had a baby ${f ? 'girl' : 'boy'} to-day.`, [e.id, id], 3);
@@ -1059,8 +1073,12 @@ async function joanCourse(d) {
   if (!W.joan.left && iso >= leaving) {
     const pastLeave = d === 0 && Date.parse(iso) - Date.parse(leaving) > 14 * 864e5, leftWhen = `${MONTHS[new Date(leaving).getUTCMonth()]} ${leaving.slice(0, 4)}`;
     W.joan.left = true; W.greatDay = W.day; const opts = LC.FIRST_PLACES[W.joan.school], L4 = ['A', 'B', 'C', 'D'];
-    const q = `${perceive('arthur', 'Joan leaves school, her first place, work, wages')}\n\n${pastLeave ? `Joan left school in ${leftWhen}. Which place did Arthur and Edith find for her?` : 'Joan has left school. Which place do Arthur and Edith find for her?'}\n${opts.map((o, i) => `(${L4[i]}) ${o[0]}${o[1] ? `, ${money(o[1])} a week` : ''}`).join('\n')}\n\nAnswer with the letter only.`;
-    let i = 0; try { const c = await choose(q, opts.map(o => o[0]), 2); if (c.i !== null) i = c.i; } catch (e) {}
+    // three asks, the options in a new order each time (talkie leans to the first letter): the place most often chosen
+    const page = perceive('arthur', 'Joan leaves school, her first place, work, wages'), tally = opts.map(() => 0);
+    for (let v = 0; v < 3; v++) { const order = opts.map((_, oi) => oi).sort(() => Math.random() - 0.5);
+      const q = `${page}\n\n${pastLeave ? `Joan left school in ${leftWhen}. Which place did Arthur and Edith find for her?` : 'Joan has left school. Which place do Arthur and Edith find for her?'}\n${order.map((oi, j2) => `(${L4[j2]}) ${opts[oi][0]}${opts[oi][1] ? `, ${money(opts[oi][1])} a week` : ''}`).join('\n')}\n\nAnswer with the letter only.`;
+      try { const a = await ask(q), j2 = pick(a, order.map(oi => opts[oi][0])); if (j2 !== null) tally[order[j2]]++; } catch (e) {} }
+    const top = Math.max(...tally), best = tally.map((t, oi) => t === top ? oi : -1).filter(oi => oi >= 0); let i = best[Math.floor(Math.random() * best.length)] || 0;
     const [job, wage] = opts[i]; W.joan.job = job; W.joan.wage = wage;
     swapText('joan', /(lively, curious[^.]*\.)/, `$1 She has left school and is ${job.replace(/^to stay/, 'staying')}.`);
     if (wage) joan.routine = w2 => (w2.dow() === 'sun' ? (w2.between(hm(10, 30), hm(12, 30)) ? 'church' : 'arthur_home') : (w2.mod >= hm(8, 15) && w2.mod < (w2.dow() === 'sat' ? hm(13) : hm(18, 15)) ? null : 'arthur_home'));
@@ -1090,6 +1108,132 @@ async function pastCourse() {
   if (!court) return say('   ✦ Bert is still single.');
   await bertCourts(court, true); W.bert.weeks = st.weeks;
   if (st.stage !== 'courting') { const w = await bertEngaged(engaged); if (w < 0) bertMarries(w); }
+}
+// ======================= the war (war1939.js) =======================
+const WAR = require('./war1939.js');
+const warRules = d => DECADE.rules(SIMDATE.iso(d));
+const districtOf = id => (WORLD.places[(A[id] && A[id].home) || (WORLD.people[id] || {}).home] || {}).district || null;
+const WAR_SCENE = { home: 'The sirens have gone; the guns are thudding, and the house shakes when the bombs fall.', arches: 'The sirens have gone; half the Buildings are in the shelter under the railway arches, on benches and blankets, and the guns are thudding.',
+  tube: 'The sirens have gone; the platform of the Underground is packed with people lying on blankets.', public: 'The sirens have gone; the public shelter is crowded and close, and the guns are thudding.',
+  anderson: 'The sirens have gone; the Anderson shelter in the garden is damp and cold, and the guns are thudding.', relations: 'The sirens have gone; the guns are thudding in the distance, and the house is full of relations come for the night.' };
+// what the neighbours do, told in the question (talkie's reading ends in 1930: it knows the raids of 1917, not the shelters of 1940)
+const SHELTERS = { ada: { asks: 'She goes to', go: 'go', told: 'the public shelter under the railway arches, some to the Underground at London Bridge, and some stayed in their rooms under the stairs',
+    names: { arches: 'the public shelter under the railway arches', tube: 'the Underground at London Bridge', public: 'the shelter in the basement of the Buildings', home: 'her rooms', anderson: "a neighbour's Anderson shelter" } },
+  arthur: { asks: 'He takes them to', go: 'take his family', told: 'the public shelter in the street, some to the Underground at Highbury, Mrs. Simms next door to her Anderson shelter in the garden, and some stayed in the cupboard under the stairs',
+    names: { public: 'the public shelter in the street', tube: 'the Underground at Highbury', anderson: "Mrs. Simms's Anderson shelter", home: 'the cupboard under the stairs', arches: 'the public shelter in the street' } },
+  thomas: { asks: 'He goes to', go: 'go', told: 'the public shelter in the street, some to the Underground at Highbury, some to the Anderson shelters in their gardens, and some stayed in their cellars',
+    names: { public: 'the public shelter in the street', tube: 'the Underground at Highbury', anderson: 'an Anderson shelter in the garden', home: 'the cellar of his house', arches: 'the public shelter in the street' } } };
+function shelterPlace(k, kind) {   // a shelter away from home is a place of its own near the home
+  if (kind === 'home' || kind === 'anderson') return A[k].home;
+  const id = kind === 'relations' ? `shelter_relations_${k}` : `shelter_${kind}_${districtOf(k)}`;
+  if (!WORLD.places[id]) { const nm = kind === 'relations' ? (A[k].shelterName || 'the house of relations') : (SHELTERS[k] ? SHELTERS[k].names[kind] : kind); WORLD.places[id] = { name: nm, kind: 'shelter', district: kind === 'relations' ? 'london' : districtOf(k), warmth: 40 };
+    try { const G = require('./geo1931.js'), c = G.C[A[k].home]; if (c) G.C[id] = [c[0] + (kind === 'tube' ? 0.004 : 0.0012), c[1] + 0.001]; } catch (e) {} }
+  return id;
+}
+async function chooseShelter(k, first) {   // asked in talkie's own words (three times; the kind most often named)
+  const S = SHELTERS[k]; if (!S) return;
+  const q = `${perceive(k, 'the air raid, the sirens, a shelter for the night, bombs')}\n\n${first ? 'The sirens are sounding, and German aeroplanes are over London; the docks are burning.' : 'The sirens are sounding again for the night.'} The neighbours are going to ${S.told}. Where does ${A[k].short} ${S.go} for the night? Answer in the form: ${S.asks} ..., because ...`;
+  const tally = {}, said = {};
+  for (let v = 0; v < 3; v++) { let a = null; try { a = await ask(q); } catch (e) {} const kind = WAR.shelterKind(a); if (!kind) continue; tally[kind] = (tally[kind] || 0) + 1;
+    if (!said[kind]) said[kind] = String(a).split(/,?\s*because/i)[0].replace(new RegExp(`^\\s*${S.asks}\\s*`, 'i'), '').replace(/[.;]+$/, '').trim(); }
+  const best = Object.keys(tally).sort((x, y) => tally[y] - tally[x])[0];
+  const before = A[k].shelter; A[k].shelter = best || A[k].shelter || 'home'; A[k].shelterAsked = W.day;
+  // the name of the place: the shelter's own name, or for a relation's house talkie's words if they are its own
+  A[k].shelterName = A[k].shelter === 'relations' && said.relations && said.relations.length <= 60 && /^[a-z]/i.test(said.relations) ? said.relations /* talkie's own words for the place */ : S.names[A[k].shelter] || (A[k].shelter === 'relations' ? 'the house of relations' : 'home');
+  if (A[k].shelter === 'relations' && WORLD.places[`shelter_relations_${k}`]) WORLD.places[`shelter_relations_${k}`].name = A[k].shelterName;
+  STATS.shelters = STATS.shelters || {}; STATS.shelters[k] = A[k].shelter;
+  const stays = A[k].shelter === 'home';
+  if (before !== A[k].shelter) { say(`   ✠ ${A[k].short} ${stays ? 'stays in' : 'goes to'} ${A[k].shelterName} when the sirens sound${tally[A[k].shelter] ? ` (${tally[A[k].shelter]} of 3)` : ''}.`); remember(k, `When the sirens sounded ${first ? 'on the first night of the bombing' : 'at night'}, ${heshe(k)} ${stays ? 'stayed in' : 'went to'} ${A[k].shelterName}.`, ['war', 'shelter'], first ? 3 : 2); }
+}
+function hurt(k, days, where) {   // a main person taken to hospital: off the stage till the return
+  const a = A[k], back = (W.day + days) * 1440 + hm(12); a.awayUntil = back; a.busyUntil = back; a.away = true; a.place = null;
+  WORLD.schedule(back, () => { a.away = false; a.awayUntil = 0; a.place = a.home; a.busyUntil = WORLD.t; remember(k, `${a.short} came home from ${where}.`, ['war'], 3); say(`   ✚ ${a.short} is home from ${where}.`); }, 'return');
+}
+async function raid(d) {
+  const iso = SIMDATE.iso(d), first = !W.war.raids; W.war.raids = (W.war.raids || 0) + 1; W.war.lastRaid = d; STATS.raidNights = (STATS.raidNights || 0) + 1;
+  if (first || WAR.heavy(iso)) { W.greatDay = W.day; say(`   ✠ The sirens: ${first ? 'the first night of the bombing of London' : 'a heavy raid on London'}.`); }
+  for (const k in A) {   // where each goes for the night: asked the first night, after a near miss, and once a week
+    if (A[k].away || (A[k].awayUntil || 0) > WORLD.t || WORLD.people[k].dead) continue;
+    if (!A[k].shelter || (A[k].shelterAsked ?? -99) <= d - 7) await chooseShelter(k, first);
+    const pl = shelterPlace(k, A[k].shelter || 'home'); if (pl !== A[k].place) WORLD.move(k, pl); A[k].place = pl;
+    if (A[k].shelter === 'relations') for (const p of Object.values(WORLD.people)) if (!A[p.id] && !p.dead && !p.away && p.home === A[k].home) WORLD.move(p.id, pl);   // the household goes too
+    A[k].busyUntil = (d + 1) * 1440 + hm(6);   // till the all-clear about dawn
+  }
+  // the night's chances by the district's death-rate of 1940 (war1939.js); the main persons die only with MORTAL=1
+  for (const p of Object.values(WORLD.people)) {
+    if (p.dead || p.away || /^nb_/.test(p.id) || p.registry) continue;
+    const dist = districtOf(p.id); if (!dist) continue;
+    const head = A[p.id] ? p.id : Object.keys(A).find(k => A[k].home === p.home && A[k].place && A[k].place !== null);   // the household shelters together
+    const sh = head ? A[head].shelter : undefined, r0 = WAR.nightRisk(iso, sh === 'relations' ? 'london' : dist, sh), sc = +(process.env.WARSCALE || 1), r = { killed: r0.killed * sc, injured: r0.injured * sc }, x = Math.random(), age = DEC.ageOf(p) ?? 40;   // WARSCALE: a test hook
+    if (x >= r.killed + r.injured) continue;
+    const killed = x < r.killed, mortal = !A[p.id] || process.env.MORTAL === '1';
+    STATS.raidCasualties = (STATS.raidCasualties || 0) + 1;
+    if (killed && mortal) { p.dead = true; p.away = true; p.place = null; lifeEvent({ kind: 'death', id: p.id, age, cause: 'raid' }); continue; }
+    const days = killed ? 28 + Math.floor(Math.random() * 28) : 7 + Math.floor(Math.random() * 21), where = dist === 'bermondsey' ? "Guy's Hospital" : 'the Royal Northern Hospital';
+    say(`   ✚ ${p.name} was hurt in the raid and taken to ${where}.`);
+    const close = [...new Set([...(CLOSE[p.id] || []), ...(W.bert && W.bert.id === p.id ? ['ada'] : []), ...Object.keys(A).filter(k => A[k].home === p.home)])].filter(k => A[k] && k !== p.id);
+    for (const k of close) remember(k, `${p.name[0].toUpperCase() + p.name.slice(1)} was hurt in the raid and taken to ${where}.`, [p.id, 'war'], 3);
+    if (A[p.id]) { remember(p.id, `${heshe(p.id)[0].toUpperCase() + heshe(p.id).slice(1)} was hurt in the raid and taken to ${where}.`, ['war'], 3); hurt(p.id, days, where); }
+    else { p.away = true; p.place = null; WORLD.schedule((W.day + days) * 1440 + hm(12), () => { p.away = false; p.place = p.home; }, 'return'); }
+  }
+  // the homes of the main persons: a bomb near by blows the windows in (a fortnight to mend), or worse (two months)
+  W.war.windows = W.war.windows || {};
+  for (const home of new Set(Object.keys(A).map(k => A[k].home))) {
+    const r0 = WAR.nightRisk(iso, (WORLD.places[home] || {}).district, 'home'), sc = +(process.env.WARSCALE || 1), r = { damaged: r0.damaged * sc, uninhabitable: r0.uninhabitable * sc }, x = Math.random(); if (x >= r.damaged + r.uninhabitable) continue;
+    const bad = x < r.uninhabitable; W.war.windows[home] = d + (bad ? 60 : 14); STATS.homesHit = (STATS.homesHit || 0) + 1;
+    for (const k of Object.keys(A).filter(k => A[k].home === home)) { remember(k, bad ? `A bomb fell close in the night; the roof and the windows of ${hisher(k)} home were wrecked, and only one room is fit to live in.` : `A bomb fell near in the night and blew in the windows of ${hisher(k)} home.`, ['war', 'home'], 3); A[k].shelterAsked = -99; }
+    say(`   ✠ A bomb fell near ${PLACE[home]}: ${bad ? 'the home is half wrecked' : 'the windows are blown in'}.`);
+  }
+  // the City, 29 December 1940: the fire raid burnt out much of the streets about Moorgate (JUDGEMENT: one chance in three for the office)
+  if (iso === '1940-12-29' && !W.war.officeBurnt && Math.random() < 1 / 3) { W.war.officeBurnt = d; for (const k of ['ada', 'arthur', 'thomas']) if (A[k]) remember(k, 'In the great fire raid on the City the office in Moorgate was burnt out.', ['war', 'office'], 3); say('   ✠ The office in Moorgate is burnt out in the fire raid on the City.'); }
+}
+// the evacuation: a child under five goes with its mother, if the household decides so; a child at school goes with the school
+async function evacuate(d, blitz) {
+  for (const head of ['arthur', 'ada']) {
+    const home = A[head] && A[head].home; if (!home || A[head].away) continue;
+    const kids = Object.values(WORLD.people).filter(p => !p.dead && !p.away && p.home === home && !A[p.id] && (DEC.ageOf(p) ?? 99) < 5);
+    if (!kids.length) continue;
+    const mum = WORLD.people[kids[0].mother] || Object.values(WORLD.people).find(p => p.f && !p.dead && p.home === home && !A[p.id] && (DEC.ageOf(p) ?? 0) >= 18 && (DEC.ageOf(p) ?? 99) < 50);
+    const who = `${mum ? mum.short + ' and ' : ''}${kids.length > 1 ? 'the little ones' : 'the baby'}`;
+    const q = blitz ? `London is being bombed every night, and mothers with small children are being sent into the country. Does ${A[head].short} send ${who} away into the country?` : `The children of London are being sent into the country for fear of bombing, and mothers with children under five may go with them. Does ${A[head].short} send ${who} into the country?`;
+    const r = await duty(head, q, `sends ${who} into the country`, 'keeps them at home', 'sends');
+    if (!r.yes) { remember(head, `${A[head].short === 'Ada' ? 'She' : 'He'} kept ${who} at home${blitz ? ' in spite of the bombing' : ' when the children were sent away'}.`, ['war'], 2); continue; }
+    const ids = [mum, ...kids].filter(Boolean).map(p => p.id); for (const id of ids) { WORLD.people[id].away = true; WORLD.people[id].place = null; }
+    W.war.away = [...(W.war.away || []), { head, ids, who, since: d }]; W.greatDay = W.day; STATS.evacuated = (STATS.evacuated || 0) + ids.length;
+    remember(head, `${who[0].toUpperCase() + who.slice(1)} went away into the country${blitz ? ' from the bombing' : ''}.`, ['war', ...ids], 3); say(`   ✠ ${who[0].toUpperCase() + who.slice(1)} go into the country.`);
+  }
+}
+function comeHome(ev) {
+  ev.back = W.day; for (const id of ev.ids) { const p = WORLD.people[id]; if (p && !p.dead) { p.away = false; p.place = p.home; } }
+  remember(ev.head, `${ev.who[0].toUpperCase() + ev.who.slice(1)} came home from the country.`, ['war', ...ev.ids], 3); say(`   ✠ ${ev.who[0].toUpperCase() + ev.who.slice(1)} come home from the country.`);
+}
+async function warCourse(d) {
+  const iso = SIMDATE.iso(d), R = warRules(d); W.war = W.war || {}; W.warR = R;
+  W.sirenAt = WAR.raidNight(iso) ? WAR.sirenAt(CHRONOS.sun(d).set) : null;
+  if (W.war.lastRaid === d - 1) for (const k in A) if (!A[k].away) A[k].needs.energy = Math.max(A[k].needs.energy || 0, A[k].shelter === 'tube' || A[k].shelter === 'arches' ? 55 : 45);   // a broken night
+  if (R.blackout && !W.war.blackout) { W.war.blackout = true; W.greatDay = W.day; say('   ✠ The black-out: no light may show after dark.');
+    for (const [k, cost] of [['ada', 30], ['arthur', 72], ['thomas', 96]]) if (A[k] && !A[k].away) { A[k].money -= cost; remember(k, `${k === 'ada' ? 'She' : 'He'} bought black-out stuff for the windows, ${money(cost)}; no light may show after dark.`, ['war'], 2); } }
+  if (R.war && !W.war.declared) { W.war.declared = true; W.greatDay = W.day; say('   ✠ England is at war with Germany.'); for (const k in A) remember(k, 'On Sunday, the 3rd of September, 1939, England declared war on Germany.', ['war'], 3); }
+  if (R.evacuation && !W.war.evacAsked) { W.war.evacAsked = true; if (iso < '1939-10-01') await evacuate(d, false); }   // the scheme of September 1939 (a later start has passed it)
+  if (R.blitz && !W.war.evacAsked2 && W.war.raids >= 1) { W.war.evacAsked2 = true; await evacuate(d, true); }   // the morning after the first night of bombing
+  if (DOW(d) === 'mon' && !R.blitz) for (const ev of (W.war.away || [])) if (ev.back === undefined && d - ev.since >= 14 && Math.random() < 0.047) comeHome(ev);   // six in ten home by January 1940
+  if (iso >= '1939-11-23' && !W.war.registered) { W.war.registered = true;
+    for (const [k, t] of [['ada', 'She registered her ration book with Mr. Barker for bacon, butter and sugar.'], ['arthur', "Edith registered the family's ration books with the grocer."], ['thomas', 'Mrs. Dunn registered his ration book with the grocer.']]) if (A[k]) remember(k, t, ['war'], 2); }
+  if (iso >= '1940-01-08' && !W.war.rationed) { W.war.rationed = true; say('   ✠ Rationing begins: bacon, butter and sugar.'); }
+  // the call-up of the men of the story, by their age and calling (war1939.js)
+  if (R.callup) for (const p of Object.values(WORLD.people)) {
+    if (p.f || p.dead || A[p.id] || /^nb_|^baby_/.test(p.id) || p.registry) continue;
+    const st = W.war['cu_' + p.id] = W.war['cu_' + p.id] || {}; if (st.done) continue;
+    const age = DEC.ageOf(p); if (age == null) { st.done = true; continue; }
+    const reg = st.reg || (st.reg = WAR.registers(age - (dateOf(d).getUTCFullYear() - 1939), null, p.sheet) || { none: true }); if (reg.none) { st.done = true; continue; }
+    const close = [...new Set([...(CLOSE[p.id] || []), ...Object.keys(A).filter(k => A[k].home === p.home)])].filter(k => A[k]);
+    if (!st.registered && iso >= reg.date) { st.registered = true;
+      if (reg.reserved) { st.done = true; for (const k of close) remember(k, `${p.name[0].toUpperCase() + p.name.slice(1)} registered for military service, but his work is reserved, and he stays at it.`, [p.id, 'war'], 2); say(`   ✠ ${p.name} registers, and is reserved.`); continue; }
+      if (Math.random() < WAR.UNFIT) { st.done = true; for (const k of close) remember(k, `${p.name[0].toUpperCase() + p.name.slice(1)} registered for military service, but the doctors did not pass him.`, [p.id, 'war'], 2); continue; }
+      st.callOn = Math.max(d, Math.round((Date.parse(reg.date) - T0) / 864e5) + WAR.CALLED_AFTER); for (const k of close) remember(k, `${p.name[0].toUpperCase() + p.name.slice(1)} has registered for military service and waits for his papers.`, [p.id, 'war'], 2); }
+    if (st.callOn !== undefined && d >= st.callOn) { st.done = true; p.away = true; p.place = null; p.routine = () => null; W.greatDay = W.day; STATS.calledUp = (STATS.calledUp || 0) + 1;
+      for (const k of close) remember(k, `${p.name[0].toUpperCase() + p.name.slice(1)} has been called up and has gone into the Army.`, [p.id, 'war'], 3); say(`   ✠ ${p.name} is called up for the Army.`); }
+  }
 }
 // what the persons would have read in the papers of the years before a run that starts late (the greatest day of each
 // of the last twelve months by the editor's score, and of each half-year before that), kept as the past
@@ -1234,15 +1378,18 @@ async function morningProbes() {   // two facts each morning, rotating so every 
 async function duty(k, situation, yesText, noText, yesWord) {
   const He = A[k].f ? 'She' : 'He';
   const prompt = `${perceive(k, situation)}\n\n${situation}\n\nAnswer in the form: ${He} ${yesText}, because ... or: ${He} ${noText}, because ...`;
-  let yes = 0, no = 0, why = '';
+  let yes = 0, no = 0, why = '', whyYes = '', whyNo = '';
   for (let v = 0; v < 3; v++) {
     const a = (await ask(prompt)) || '';
-    const isNo = new RegExp(`\\b(does not|do not|doesn't|will not|won't|not ${yesWord}|refuses|declines|asks? (him|her) to wait|begs? (him|her) to wait|puts? (him|her) off)\\b`, 'i').test(a.split(/because/i)[0]);
+    const nw = noText.split(' '), yw = yesText.split(' '), cut = Math.max(2, nw.findIndex((w, i) => w !== yw[i]) + 1);   // the no-form's own first words, past what it shares with the yes-form
+    const head = a.split(/because/i)[0], noStem = nw.slice(0, cut).join(' ').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');   // "keeps them", "tells them", "gives her one
+    const isNo = new RegExp(`\\b(does not|do not|doesn't|will not|won't|not ${yesWord}|refuses|declines|asks? (him|her) to wait|begs? (him|her) to wait|puts? (him|her) off)\\b`, 'i').test(head) || new RegExp(`\\b${noStem}\\b`, 'i').test(head);
     const isYes = !isNo && new RegExp(`\\b${yesWord}`, 'i').test(a.split(/because/i)[0]);
-    if (isYes) yes++; else if (isNo) no++;
+    if (isYes) { yes++; whyYes = whyYes || a; } else if (isNo) { no++; whyNo = whyNo || a; }
+    if (process.env.DUTYLOG === '1') say(`      (duty answer: ${JSON.stringify(a).slice(0, 220)})`);   // test aid: the raw answers
     if (!why && a) why = a;
   }
-  STATS.duties = (STATS.duties || 0) + 1;
+  STATS.duties = (STATS.duties || 0) + 1; why = (yes > no ? whyYes : whyNo) || why;   // the reason of the side that won
   say(`   ⚑ ${A[k].short}: ${situation.split('?')[0]}? → ${yes > no ? 'YES' : 'NO'} (${yes}:${no}) ${sentences(why, 1)}`);
   return { yes: yes > no, why };
 }
@@ -1790,7 +1937,11 @@ function scene(k) {   // what the place is like just now: the senses, the fire, 
   else if (pl === 'arthur_home') out.push(F.joanIll ? 'Joan is in bed upstairs, coughing.' : WORLD.people.joan.place === 'arthur_home' ? 'Joan is playing by the fire.' : '', F.brayVisiting ? 'Mrs. Bray is knitting in the best chair.' : '');
   else if (pl === 'thomas_home') out.push(WORLD.people.dunn.place === 'thomas_home' ? 'Mrs. Dunn is about the house.' : 'The house is quiet.');
   if (['pawnshop', 'chandler', 'market'].includes(pl)) for (const n of STREET.presentAt(pl, W.day, WORLD.mod)) out.push(`${n.name} from the Buildings is here, ${n.doing}.`);
-  if (CHRONOS.isDark(W.day, WORLD.mod)) out.push(pl === 'ada_home' ? (F.gas_ada_home > WORLD.t ? 'The gas is lit.' : 'It is dark but for the fire; there is no penny in the meter.') : WORLD.places[pl] && !/home|office|shop|cafe|pub/.test(WORLD.places[pl].kind) ? 'The street-lamps are lit.' : '');
+  const WR = warRules(W.day), dark = CHRONOS.isDark(W.day, WORLD.mod);
+  if (dark) out.push(pl === 'ada_home' ? (F.gas_ada_home > WORLD.t ? 'The gas is lit.' : 'It is dark but for the fire; there is no penny in the meter.') : WORLD.places[pl] && !/home|office|shop|cafe|pub|shelter/.test(WORLD.places[pl].kind) ? (WR.blackout ? 'The street-lamps are out for the black-out; one can hardly see the kerb.' : 'The street-lamps are lit.') : '');
+  if (dark && WR.blackout && WORLD.places[pl] && /home/.test(WORLD.places[pl].kind)) out.push('The black-out curtains are drawn.');
+  if (W.sirenAt != null && WORLD.mod >= W.sirenAt) out.push(WAR_SCENE[A[k].shelter || 'home'] || WAR_SCENE.home);
+  if (W.war && W.war.windows && W.war.windows[a.home] > W.day && pl === a.home) out.push('The windows were blown in by a bomb; cardboard is tacked over them, and the room is cold.');
   if (WORLD.fogFactor >= 1.5 && WORLD.places[pl] && !/home|office|shop|cafe|pub/.test(WORLD.places[pl].kind)) out.push('The fog is so thick one can hardly see across the street; the lamps are lit at midday and the trams crawl.');
   if (DOW(W.day) === 'sat' && CHRONOS.homeGame(W.day, 'Arsenal') && WORLD.mod >= 13 * 60 && WORLD.mod < 17 * 60 + 30 && WORLD.places[pl] && WORLD.places[pl].district === 'highbury') out.push('The streets are thick with people going to the Arsenal.');
   return out.filter(Boolean).join(' ');
@@ -1963,21 +2114,25 @@ async function ensureBrowser() {   // a long run must survive a crashed browser
     const asks0 = STATS.asks;
     if (d === 0) { ageToStart(); catchUp(); const s0 = SIMDATE.iso(0); if (s0 >= '1931-03-15') W.retire = true; if (s0 >= '1931-03-28' && W.successor === undefined) W.successor = process.env.SUCCESSOR || 'arthur'; if (s0 >= '1931-05-01') retireThomas(true); }
     if (d === 0) { try { await pastCourse(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; say(`   !! past course: ${e.message}`); } }
+    if (d === 0 && process.env.BIRTHTEST && WORLD.people[process.env.BIRTHTEST]) lifeEvent({ kind: 'birth', id: process.env.BIRTHTEST, age: DEC.ageOf(WORLD.people[process.env.BIRTHTEST]) });   // test hook: a baby on the first day
     if (d === 0) for (const k in A) await formative(k);
     if (d === 0 && PLANSON) for (const k in A) { try { await weekPlan(k, 0); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }
     if (d === 0 || dateOf(d).getUTCDate() === 1) { try { await leakProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; } }
     await ensureBrowser();
-    try { const t0 = Date.now(); await Promise.race([FETCH.ensure(SIMDATE.iso(d)), new Promise(r => setTimeout(r, 120000))]); STATS.fetchMs = (STATS.fetchMs || 0) + Date.now() - t0; } catch (e) { STATS.fetchErrors = (STATS.fetchErrors || 0) + 1; }
-    FETCH.prefetch([1, 2, 3].map(k => SIMDATE.iso(d + k)));
+    if (process.env.NOFETCH !== '1') {   // NOFETCH=1: only what is cached (a dry run of the machinery over many years)
+      try { const t0 = Date.now(); await Promise.race([FETCH.ensure(SIMDATE.iso(d)), new Promise(r => setTimeout(r, 120000))]); STATS.fetchMs = (STATS.fetchMs || 0) + Date.now() - t0; } catch (e) { STATS.fetchErrors = (STATS.fetchErrors || 0) + 1; }
+      FETCH.prefetch([1, 2, 3].map(k => SIMDATE.iso(d + k))); }
     if (d > 0 && dateOf(d).getUTCMonth() === 0 && dateOf(d).getUTCDate() === 1) newYear();
     if (!F.thomasRetired && W.retire && SIMDATE.iso(d) >= '1931-05-01') retireThomas(d === 0);
     morningEvents(); letters(); try { lifeAndDeath(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; }
     try { await lifeCourse(d); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; say(`   !! life course: ${e.message}`); }
+    try { await warCourse(d); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; say(`   !! war: ${e.message}`); }
     for (const c of PROM.daily(W.day)) { const nm = nameOf(c.id); if (c.up) { STATS.promoted = (STATS.promoted || 0) + 1; say(`   ⇧ ${nm} has come to matter: ${heshe(c.id)} will remember ${hisher(c.id)} dealings with the household.`); } else { STATS.demoted = (STATS.demoted || 0) + 1; say(`   ⇩ ${nm} goes back into the background.`); } }
     W.quiet = quietDay(d); if (W.quiet) STATS.quietDays = (STATS.quietDays || 0) + 1;
     W.t = hm(6); try { if (!W.quiet && (!FAST || DOW(d) === 'mon')) await morningProbes(); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; await ensureBrowser(); }
     for (let t = hm(6, 15); t <= hm(23); t += STEP) {
-      WORLD.t = d * 1440 + t; W.t = t;
+      WORLD.t = d * 1440 + t; W.t = t; WORLD.darkFactor = W.warR && W.warR.blackout && CHRONOS.isDark(d, t) ? 1.25 : 1;   // JUDGEMENT: a quarter slower in the black-out
+      if (W.sirenAt != null && t === W.sirenAt) { try { await raid(d); } catch (e) { STATS.errors = (STATS.errors || 0) + 1; say(`   !! raid: ${e.stack ? e.stack.slice(0, 200) : e.message}`); } }
       WORLD.runDue(); WORLD.stepBackground(); WORLD.decay(STEP); dueMoney(t); institutions(t); npcGossip(); for (const k in A) chemStep(k, STEP); neighbourAtDoor(t);
       POS.push([d, t, Object.fromEntries(Object.values(WORLD.people).filter(p => p.place && !p.away).map(p => [p.id, p.place]))]);
       await interrupts(d, t);

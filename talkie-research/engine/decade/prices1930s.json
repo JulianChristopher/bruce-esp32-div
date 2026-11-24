@@ -1,17 +1,108 @@
 {
  "_about": "Ministry of Labour working-class cost-of-living index, per cent above July 1914 (all items), as ministers gave it in the House. Between the points the engine interpolates; after the last point it holds, except that the rise from September 1939 to July 1941 (29 per cent of the September 1939 level) is spread evenly ('interpolated').",
  "points": [
-  {"date": "1930-04-01", "pct": 57, "source": "https://api.parliament.uk/historic-hansard/commons/1930/may/08/cost-of-living-index-figure"},
-  {"date": "1931-03-01", "pct": 52, "source": "https://api.parliament.uk/historic-hansard/commons/1931/mar/05/wages"},
-  {"date": "1931-09-01", "pct": 45, "source": "https://api.parliament.uk/historic-hansard/commons/1931/sep/30"},
-  {"date": "1931-10-01", "pct": 45, "source": "https://api.parliament.uk/historic-hansard/written-answers/1935/oct/24/cost-of-living-index-figure"},
-  {"date": "1933-05-01", "pct": 36, "source": "https://api.parliament.uk/historic-hansard/written_answers/1937/dec/21/cost-of-living-index-figure", "note": "the lowest of the five years 1933-37"},
-  {"date": "1933-06-01", "pct": 36, "source": "https://api.parliament.uk/historic-hansard/written_answers/1937/dec/21/cost-of-living-index-figure"},
-  {"date": "1935-10-01", "pct": 45, "source": "https://api.parliament.uk/historic-hansard/written-answers/1935/oct/24/cost-of-living-index-figure"},
-  {"date": "1937-07-01", "pct": 55, "source": "https://api.parliament.uk/historic-hansard/commons/1937/jul/28/cost-of-living"},
-  {"date": "1938-06-01", "pct": 55, "source": "https://api.parliament.uk/historic-hansard/written-answers/1938/jun/17/cost-of-living-great-britain-and-eire", "note": "approximately; the twelve months to June 1938 averaged 57"},
-  {"date": "1939-06-01", "pct": 55, "source": "https://api.parliament.uk/historic-hansard/commons/1939/jun/22/cost-of-living-index", "note": "average of the twelve months to 1 June 1939"},
-  {"date": "1939-09-30", "pct": 65, "source": "https://api.parliament.uk/historic-hansard/written-answers/1939/nov/15/cost-of-living-index", "note": "food 50, all items 65"},
-  {"date": "1941-07-01", "pct": 100, "source": "https://api.parliament.uk/historic-hansard/written-answers/1941/jul/16/cost-of-living", "note": "interpolated: 29 per cent above the September 1939 level (155 x 1.29 = 200)", "status": "derived"}
+  {
+   "date": "1930-04-01",
+   "pct": 57,
+   "source": "https://api.parliament.uk/historic-hansard/commons/1930/may/08/cost-of-living-index-figure"
+  },
+  {
+   "date": "1931-03-01",
+   "pct": 52,
+   "source": "https://api.parliament.uk/historic-hansard/commons/1931/mar/05/wages"
+  },
+  {
+   "date": "1931-09-01",
+   "pct": 45,
+   "source": "https://api.parliament.uk/historic-hansard/commons/1931/sep/30"
+  },
+  {
+   "date": "1931-10-01",
+   "pct": 45,
+   "source": "https://api.parliament.uk/historic-hansard/written-answers/1935/oct/24/cost-of-living-index-figure"
+  },
+  {
+   "date": "1933-05-01",
+   "pct": 36,
+   "source": "https://api.parliament.uk/historic-hansard/written_answers/1937/dec/21/cost-of-living-index-figure",
+   "note": "the lowest of the five years 1933-37"
+  },
+  {
+   "date": "1933-06-01",
+   "pct": 36,
+   "source": "https://api.parliament.uk/historic-hansard/written_answers/1937/dec/21/cost-of-living-index-figure"
+  },
+  {
+   "date": "1935-10-01",
+   "pct": 45,
+   "source": "https://api.parliament.uk/historic-hansard/written-answers/1935/oct/24/cost-of-living-index-figure"
+  },
+  {
+   "date": "1937-07-01",
+   "pct": 55,
+   "source": "https://api.parliament.uk/historic-hansard/commons/1937/jul/28/cost-of-living"
+  },
+  {
+   "date": "1938-06-01",
+   "pct": 55,
+   "source": "https://api.parliament.uk/historic-hansard/written-answers/1938/jun/17/cost-of-living-great-britain-and-eire",
+   "note": "approximately; the twelve months to June 1938 averaged 57"
+  },
+  {
+   "date": "1939-06-01",
+   "pct": 55,
+   "source": "https://api.parliament.uk/historic-hansard/commons/1939/jun/22/cost-of-living-index",
+   "note": "average of the twelve months to 1 June 1939"
+  },
+  {
+   "date": "1939-09-01",
+   "pct": 55,
+   "source": "https://paperspast.natlib.govt.nz/newspapers/DOM19410212.2.67",
+   "note": "'55 per cent immediately before the outbreak of war' (Dominion, 12 February 1941, from the Ministry of Labour)"
+  },
+  {
+   "date": "1939-09-30",
+   "pct": 65,
+   "source": "https://api.parliament.uk/historic-hansard/written-answers/1939/nov/15/cost-of-living-index",
+   "note": "food 50, all items 65"
+  },
+  {
+   "date": "1940-01-01",
+   "pct": 74,
+   "source": "https://paperspast.natlib.govt.nz/newspapers/DOM19410212.2.67",
+   "note": "'at the beginning of 1940 the index figure was 74 per cent above that for July 1914'"
+  },
+  {
+   "date": "1940-02-01",
+   "pct": 77,
+   "source": "https://paperspast.natlib.govt.nz/newspapers/EP19400316.2.94",
+   "note": "Ministry of Labour figure for 1 February 1940 (Evening Post, 16 March 1940)"
+  },
+  {
+   "date": "1940-03-01",
+   "pct": 79,
+   "source": "https://paperspast.natlib.govt.nz/newspapers/EP19400316.2.94",
+   "note": "Ministry of Labour figure for 1 March 1940"
+  },
+  {
+   "date": "1940-04-01",
+   "pct": 79,
+   "source": "https://api.parliament.uk/historic-hansard/written-answers/1940/apr/11/cost-of-living-index",
+   "note": "'the respective figures are 55 and 79' (HC Deb 11 April 1940)"
+  },
+  {
+   "date": "1940-11-30",
+   "pct": 93,
+   "source": "https://paperspast.natlib.govt.nz/newspapers/EP19401221.2.103",
+   "note": "'the official cost of living figures to November 30 were 93 per cent above the July 1914 level' (Evening Post, 21 December 1940, from the Ministry of Labour's National Service Bulletin)",
+   "status": "press report"
+  },
+  {
+   "date": "1941-07-01",
+   "pct": 100,
+   "source": "https://api.parliament.uk/historic-hansard/written-answers/1941/jul/16/cost-of-living",
+   "note": "interpolated: 29 per cent above the September 1939 level (155 x 1.29 = 200)",
+   "status": "derived"
+  }
  ]
 }

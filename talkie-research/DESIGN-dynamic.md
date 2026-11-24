@@ -124,6 +124,14 @@ papers said in the years before; the portraits grow out of the words of childhoo
 beats of 1931 go by the date, not by the run's day; Mr. Thomas retires and the succession is decided; the family
 lives move on by the rates of the time (`lifecourse1931.js`: Bert's courting, engagement and marriage, with Ada
 deciding where the young couple live; Joan's scholarship examination at eleven, her leaving age and her first place,
-decided by Arthur). Open points: promotion needs longer runs to be judged; a new place or new rooms for the main
+decided by Arthur). The war (`war1939.js`): the black-out, the declaration, the evacuation, the rations, the call-up by age
+and calling, the cost of living to the end of 1940, and the Blitz by the district's death-rate of 1940, with the
+shelter chosen by the person. A dry run of the whole decade (3,652 days, no model, no fetching) runs in eleven minutes
+without errors.
+
+Open points: promotion needs longer runs to be judged; a new place or new rooms for the main
 persons themselves, and Ada's or Arthur's own changes of life, are left to their plans; the death of a main person
-(`MORTAL=1`) ends that person's part, with no one to take it on.
+(`MORTAL=1`) ends that person's part, with no one to take it on. The prices and wages of the grammar's own deeds (the
+rent, Ada's wages, coal at Barker's) keep their 1931 figures through the decade; only the open deeds and the street
+follow the cost of living. Being bombed out (a rest centre, new rooms) is not yet modelled: a wrecked home stays
+half usable. The street's young men are not called up; the docks' loss of trade in 1940 does not yet reach Bert.

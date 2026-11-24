@@ -47,9 +47,9 @@ class World {
   travel(a, b, who = this.mover) {   // minutes on foot or by tram: real distances where the places have positions (geo1931.js)
     if (!a || !b || a === b) return 0;
     const g = require('./geo1931.js').minutes(a, b, who);
-    if (g !== null) return Math.round(g * (this.fogFactor || 1));
+    if (g !== null) return Math.round(g * (this.fogFactor || 1) * (this.darkFactor || 1));   // darkFactor: the black-out after dark
     const da = this.district(a), db = this.district(b);
-    const fogF = this.fogFactor || 1;   // in a thick fog everything goes at a crawl
+    const fogF = (this.fogFactor || 1) * (this.darkFactor || 1);   // in a thick fog everything goes at a crawl
     if (da === db) return Math.round(5 * fogF);
     return Math.round((this.routes[da]?.[db] ?? this.routes[db]?.[da] ?? 40) * fogF);
   }

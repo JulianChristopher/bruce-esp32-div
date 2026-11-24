@@ -1,0 +1,1522 @@
+{
+ "METRICS": {
+  "probes": [],
+  "diaries": [
+   {
+    "day": 0,
+    "who": "ada",
+    "facts": 3,
+    "kept": 0
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "facts": 2,
+    "kept": 0
+   },
+   {
+    "day": 0,
+    "who": "thomas",
+    "facts": 0,
+    "kept": 0
+   }
+  ],
+  "days": [
+   {
+    "day": 0,
+    "asks": 73,
+    "money": {
+     "ada": 7,
+     "arthur": -30,
+     "thomas": 9488
+    },
+    "needs": {
+     "ada": {
+      "hunger": 23.625,
+      "energy": 18.700000000000003,
+      "warmth": 47.8125,
+      "social": 0
+     },
+     "arthur": {
+      "hunger": 22.5,
+      "energy": 17.9,
+      "warmth": 44.125,
+      "social": 11.25
+     },
+     "thomas": {
+      "hunger": 21.375,
+      "energy": 17.1,
+      "warmth": 10.5,
+      "social": 24.75
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 18.58831112771344,
+      "arousal": 10,
+      "mood": 5.1702823112031995,
+      "surprise": 0
+     },
+     "arthur": {
+      "stress": 21.996993693493597,
+      "arousal": 10,
+      "mood": 0.22731123945584386,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 5.908822684562057,
+      "arousal": 10,
+      "mood": 1.9498787492033145,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "coal": 1,
+     "a sunday paper": 1
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 1,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "bertsgirl1": 0,
+      "baby_0": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "bertsgirl1": 0,
+      "baby_0": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "bertsgirl1": 0,
+      "baby_0": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "rest": 23,
+      "read_paper": 2,
+      "eat_home": 9,
+      "light_fire": 2,
+      "worship": 3,
+      "d_walk": 1,
+      "go_home": 4,
+      "gm_deed": 1,
+      "walk_park": 1,
+      "gas_penny": 1
+     },
+     "moves": 11,
+     "npcMoves": 39,
+     "perceived": 1,
+     "facts": 0,
+     "told": 0,
+     "fares": 2
+    }
+   },
+   {
+    "day": 1,
+    "asks": 25,
+    "money": {
+     "ada": 129,
+     "arthur": -38,
+     "thomas": 9483
+    },
+    "needs": {
+     "ada": {
+      "hunger": 35.125,
+      "energy": 27.899999999999928,
+      "warmth": 33.25,
+      "social": 0
+     },
+     "arthur": {
+      "hunger": 70.875,
+      "energy": 52.89999999999998,
+      "warmth": 47.625,
+      "social": 24
+     },
+     "thomas": {
+      "hunger": 23.625,
+      "energy": 17.1,
+      "warmth": 0,
+      "social": 12.75
+     }
+    },
+    "chem": {
+     "ada": {
+      "stress": 16.643685554828036,
+      "arousal": 10.000076802654418,
+      "mood": 8.594590725097571,
+      "surprise": 0.2777249134560582
+     },
+     "arthur": {
+      "stress": 37.78391931134289,
+      "arousal": 10,
+      "mood": 3.044782006352424,
+      "surprise": 0
+     },
+     "thomas": {
+      "stress": 5.015541291554939,
+      "arousal": 10,
+      "mood": 4.154784776831556,
+      "surprise": 0
+     }
+    },
+    "inv": {
+     "a sunday paper": 1,
+     "coal": 3,
+     "food": 5
+    },
+    "op": {
+     "ada": {
+      "arthur": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 1,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "bertsgirl1": 0,
+      "baby_0": 0,
+      "nb_h12": 0
+     },
+     "arthur": {
+      "ada": 0,
+      "thomas": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "bertsgirl1": 0,
+      "baby_0": 0,
+      "nb_h12": 0
+     },
+     "thomas": {
+      "ada": 0,
+      "arthur": 0,
+      "edith": 0,
+      "joan": 0,
+      "bert": 0,
+      "nolan": 0,
+      "barker": 0,
+      "lamb": 0,
+      "gedge": 0,
+      "pc": 0,
+      "fenn": 0,
+      "dunn": 0,
+      "pollock": 0,
+      "mrspollock": 0,
+      "hughes": 0,
+      "simms": 0,
+      "relieving": 0,
+      "bray": 0,
+      "bertsgirl1": 0,
+      "baby_0": 0,
+      "nb_h12": 0
+     }
+    },
+    "world": {
+     "performed": {
+      "rest": 39,
+      "read_paper": 4,
+      "eat_home": 14,
+      "light_fire": 4,
+      "worship": 3,
+      "d_walk": 1,
+      "go_home": 6,
+      "gm_deed": 4,
+      "walk_park": 1,
+      "gas_penny": 1,
+      "clean_office": 1,
+      "desk_work": 4,
+      "finsbury": 1,
+      "ask_credit": 1,
+      "buy_food": 2,
+      "pawn_ring": 1,
+      "d_write": 2
+     },
+     "moves": 26,
+     "npcMoves": 89,
+     "perceived": 2,
+     "facts": 0,
+     "told": 0,
+     "fares": 2
+    }
+   }
+  ],
+  "plans": [
+   {
+    "who": "ada",
+    "day": 2,
+    "dow": "tue",
+    "text": "washes and dress the baby, and Bert must have a clean shirt",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "ada",
+    "day": 3,
+    "dow": "wed",
+    "text": "mends Bert's socks and shirts, and turn his underclothing",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "ada",
+    "day": 4,
+    "dow": "thu",
+    "text": "goes to the pawnbroker's, and on Friday she must pay the rent and takes the clean linen home from the wash",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "arthur",
+    "day": 1,
+    "dow": "mon",
+    "text": "posts his letters, and collects the premiums for the week",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "arthur",
+    "day": 2,
+    "dow": "tue",
+    "text": "balances the cash-book",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "arthur",
+    "day": 3,
+    "dow": "wed",
+    "text": "pays the wages",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "arthur",
+    "day": 4,
+    "dow": "thu",
+    "text": "closes the ledger",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "arthur",
+    "day": 5,
+    "dow": "fri",
+    "text": "takes the money to the chief cashier",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "thomas",
+    "day": 1,
+    "dow": "mon",
+    "text": "collects his rents",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "thomas",
+    "day": 2,
+    "dow": "tue",
+    "text": "visits his brother at Lee",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "thomas",
+    "day": 3,
+    "dow": "wed",
+    "text": "shaves",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "thomas",
+    "day": 4,
+    "dow": "thu",
+    "text": "goes to the dentist's",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   },
+   {
+    "who": "thomas",
+    "day": 5,
+    "dow": "fri",
+    "text": "pays the household bills",
+    "status": "due",
+    "tries": 0,
+    "made": 0
+   }
+  ],
+  "planRaw": [
+   {
+    "day": 0,
+    "k": "ada",
+    "ans": "She saw to: Monday, wash the steps and scrub the office-floors; Tuesday, clean windows; Wednesday, polish brasswork; Thursday, go to market; Friday, pay the rent; Saturday, mend Bert's socks; Sunday, read the religious papers.\n\nTuesday, 10 September, was fine, and she cleaned the windows.",
+    "items": 0
+   },
+   {
+    "day": 0,
+    "k": "ada",
+    "ans": "On Monday she would clean the offices, and the baby must be washed and dressed; on Tuesday she would wash and dress the baby, and Bert must have a clean shirt; on Wednesday she would mend Bert's socks and shirts, and turn his underclothing; on Thursday she must go to the pawnbroker's, and on Friday she must pay the rent and take the clean linen home from the wash.",
+    "items": 4
+   },
+   {
+    "day": 0,
+    "k": "arthur",
+    "ans": "On Monday he would post his letters, and collect the premiums for the week; on Tuesday he would balance the cash-book; on Wednesday he would pay the wages; on Thursday he would close the ledger; on Friday he would take the money to the chief cashier.",
+    "items": 5
+   },
+   {
+    "day": 0,
+    "k": "thomas",
+    "ans": "On Monday he would collect his rents; on Tuesday he would visit his brother at Lee; on Wednesday he would shave; on Thursday he would go to the dentist's; on Friday he would pay the household bills; and on Saturday he would clean his boots.",
+    "items": 5
+   },
+   {
+    "day": 0,
+    "k": "ada",
+    "ans": "She saw to:",
+    "items": 0
+   },
+   {
+    "day": 0,
+    "k": "ada",
+    "ans": "She thought: On Monday, she would see to getting coal into the house.",
+    "items": 1
+   },
+   {
+    "day": 0,
+    "k": "arthur",
+    "ans": "On Monday he posted his letters; and collected the premiums for the week; on Tuesday he balanced the cash-book; on Wednesday he sorted the inland correspondence; on Thursday he checked the outdoor staff; and on Friday he received the cheques from the country, and paid the wages.",
+    "items": 5
+   },
+   {
+    "day": 0,
+    "k": "thomas",
+    "ans": "On Monday he proposed to visit his brother at Lee, and to take the tram from High Street, Borough, to Blackheath; on Tuesday to buy himself a new pair of boots; on Wednesday to have his hair cut.",
+    "items": 1
+   }
+  ],
+  "leak": [
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "ada",
+    "id": "us_president",
+    "after": true,
+    "leak": false,
+    "uptake": true,
+    "stale": false,
+    "correctNow": true,
+    "answer": "President Franklin D.  Roosevelt."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "ada",
+    "id": "war",
+    "after": true,
+    "leak": false,
+    "uptake": true,
+    "stale": false,
+    "correctNow": true,
+    "answer": "England is at war.  Q."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "ada",
+    "id": "king2",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "correctNow": false,
+    "answer": "I suppose King George is reigning still."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "ada",
+    "id": "prime_minister2",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "correctNow": false,
+    "answer": "I don't know."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "arthur",
+    "id": "us_president",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": true,
+    "correctNow": false,
+    "answer": "President Hoover is President of the United States."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "arthur",
+    "id": "war",
+    "after": true,
+    "leak": false,
+    "uptake": true,
+    "stale": false,
+    "correctNow": true,
+    "answer": "England is at war."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "arthur",
+    "id": "king2",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "correctNow": false,
+    "answer": "The King."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "arthur",
+    "id": "prime_minister2",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "correctNow": false,
+    "answer": "Prime Minister now is David Lloyd George, who was born in 1863 and had been chancellor of the exchequer in 1908, and has been prime minister since January 1921."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "thomas",
+    "id": "us_president",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": true,
+    "correctNow": false,
+    "answer": "President Hoover."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "thomas",
+    "id": "war",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "correctNow": false,
+    "answer": "I saw an aeroplane pass over the house at midnight."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "thomas",
+    "id": "king2",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": true,
+    "correctNow": false,
+    "answer": "King George the Fifth."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "thomas",
+    "id": "prime_minister2",
+    "after": true,
+    "leak": false,
+    "uptake": false,
+    "stale": false,
+    "correctNow": false,
+    "answer": "Mr. David Lloyd George."
+   }
+  ],
+  "beliefs": [
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "ada",
+    "id": "feeble",
+    "hereditarian": false,
+    "circumstance": false,
+    "moral": false,
+    "answer": "Yes."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "arthur",
+    "id": "criminal",
+    "hereditarian": false,
+    "circumstance": false,
+    "moral": false,
+    "answer": "I don't think so."
+   },
+   {
+    "day": 0,
+    "iso": "1940-09-08",
+    "who": "thomas",
+    "id": "always_poor",
+    "hereditarian": false,
+    "circumstance": false,
+    "moral": true,
+    "answer": "Because some families are thriftless and improvident."
+   }
+  ],
+  "knowledge": [
+   {
+    "id": "g1",
+    "day": 0,
+    "about": "thomas",
+    "text": "Mr. Thomas has retired from the insurance office, and Mr. Hale is chief clerk",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "ada",
+     "arthur"
+    ]
+   },
+   {
+    "id": "g2",
+    "day": 0,
+    "about": "bertsgirl1",
+    "text": "Mary Jones has had a baby boy",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "ada"
+    ]
+   },
+   {
+    "id": "g3",
+    "day": 0,
+    "about": "ada",
+    "text": "Mrs. Kate Nolan went across to Ada with a bit of food",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g4",
+    "day": 1,
+    "about": "street",
+    "text": "Mrs. Gladys Atkins of No. 4 took a pair of sheets to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g5",
+    "day": 1,
+    "about": "street",
+    "text": "Mrs. Nellie Moss of No. 5 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g6",
+    "day": 1,
+    "about": "street",
+    "text": "Mrs. Nellie Booth of No. 17 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g7",
+    "day": 1,
+    "about": "street",
+    "text": "Mrs. Win Peck of No. 22 took the Sunday suit to Lamb's.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   },
+   {
+    "id": "g8",
+    "day": 1,
+    "about": "street",
+    "text": "Mrs. Win Peck of No. 22 has been stood off at the jam factory.",
+    "reach": 1,
+    "maxHops": 0,
+    "distorted": 0,
+    "knownBy": [
+     "nolan"
+    ]
+   }
+  ],
+  "standing": [
+   {
+    "day": 0,
+    "ada": 0
+   },
+   {
+    "day": 1,
+    "ada": 0
+   }
+  ],
+  "street": [
+   {
+    "day": 0,
+    "households": 30,
+    "people": 107,
+    "slateAtBarkers": "15s. 3d.",
+    "pledgedAtLambs": 3,
+    "inArrears": 0,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 0,
+    "flu": 0,
+    "outOfSteadyWork": 0,
+    "events": [
+     "pawn",
+     "pawn",
+     "pawn"
+    ]
+   },
+   {
+    "day": 1,
+    "households": 30,
+    "people": 107,
+    "slateAtBarkers": "15s. 3d.",
+    "pledgedAtLambs": 16,
+    "inArrears": 22,
+    "noticeToQuit": 0,
+    "evicted": 0,
+    "hungry": 0,
+    "ill": 0,
+    "flu": 0,
+    "outOfSteadyWork": 1,
+    "events": [
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "pawn",
+     "stoodoff",
+     "pawn",
+     "pawn"
+    ]
+   }
+  ],
+  "decisions": [
+   {
+    "day": 0,
+    "t": 750,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [
+     "debt"
+    ],
+    "chosen": "Take a walk (6 minutes' walk)",
+    "chosenScore": null,
+    "best": "Go home (6 minutes' walk)",
+    "bestScore": -28.808333333333337,
+    "worstScore": -28.808333333333337,
+    "n": 1,
+    "ms": 9
+   },
+   {
+    "day": 0,
+    "t": 810,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Goes to the newsagent and tobacconist's and buys a Sunday paper",
+    "chosenScore": null,
+    "best": "Sit by the fire and rest her feet",
+    "bestScore": -35.50624999999999,
+    "worstScore": -35.50624999999999,
+    "n": 1,
+    "ms": 7
+   },
+   {
+    "day": 0,
+    "t": 825,
+    "who": "thomas",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Sit by the fire and rest",
+    "chosenScore": 38.875,
+    "best": "Sit by the fire and rest",
+    "bestScore": 38.875,
+    "worstScore": 38.875,
+    "n": 1,
+    "ms": 6,
+    "regret": 0,
+    "rel": 1
+   },
+   {
+    "day": 0,
+    "t": 1155,
+    "who": "ada",
+    "mode": "habit",
+    "urgent": [],
+    "chosen": "Put a penny in the gas meter for light",
+    "chosenScore": -39.031249999999986,
+    "best": "Put a penny in the gas meter for light",
+    "bestScore": -39.031249999999986,
+    "worstScore": -39.78333333333332,
+    "n": 3,
+    "ms": 34,
+    "regret": 0,
+    "rel": 1
+   },
+   {
+    "day": 1,
+    "t": 735,
+    "who": "thomas",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Sit by the fire and rest",
+    "chosenScore": 39.46666666666667,
+    "best": "Have dinner at home",
+    "bestScore": 39.46666666666667,
+    "worstScore": 39.46666666666667,
+    "n": 2,
+    "ms": 8,
+    "regret": 0,
+    "rel": 1
+   },
+   {
+    "day": 1,
+    "t": 765,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Sees to getting coal into the house",
+    "chosenScore": null,
+    "n": 0,
+    "ms": 1
+   },
+   {
+    "day": 1,
+    "t": 945,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [
+     "hunger"
+    ],
+    "chosen": "Goes to the pawnshop and pledges Fred's watch for two shillings and sixpence",
+    "chosenScore": null,
+    "best": "Pawn her winter coat at Lamb's for 4s. 0d. (3 minutes' walk)",
+    "bestScore": -33.874999999999986,
+    "worstScore": -35.374999999999986,
+    "n": 4,
+    "ms": 15
+   },
+   {
+    "day": 1,
+    "t": 1050,
+    "who": "arthur",
+    "mode": "open",
+    "urgent": [
+     "debt"
+    ],
+    "chosen": "Write a letter (26 minutes' walk)",
+    "chosenScore": null,
+    "best": "Go home (26 minutes' walk)",
+    "bestScore": -34.608333333333334,
+    "worstScore": -34.608333333333334,
+    "n": 1,
+    "ms": 5
+   },
+   {
+    "day": 1,
+    "t": 1095,
+    "who": "ada",
+    "mode": "open",
+    "urgent": [],
+    "chosen": "Sit by the fire and rest her feet",
+    "chosenScore": -16.239583333333307,
+    "best": "Read the evening paper that Bert brought home (1d.)",
+    "bestScore": -16.239583333333307,
+    "worstScore": -16.239583333333307,
+    "n": 2,
+    "ms": 24,
+    "regret": 0,
+    "rel": 1
+   }
+  ],
+  "voices": [
+   {
+    "id": "nolan",
+    "day": 0,
+    "text": "Mrs. Kate Nolan goes across, because she fears Ada may be hungry."
+   },
+   {
+    "id": "barker",
+    "day": 1,
+    "text": "Very well."
+   },
+   {
+    "id": "barker",
+    "day": 1,
+    "text": "He agrees, because he thinks she is an honest person, and likely to pay.\nHe refuses, because he thinks she is dishonest, and not likely to pay.\n\nTIME: Two o'clock in the afternoon, Monday, the 9th of September, 1940.\nSCENE:"
+   },
+   {
+    "id": "barker",
+    "day": 1,
+    "text": "He agrees, because Mrs. Turner bears a good character, and pays promptly."
+   },
+   {
+    "id": "barker",
+    "day": 1,
+    "text": "Yes."
+   }
+  ]
+ },
+ "STATS": {
+  "asks": 98,
+  "choices": 11,
+  "unreadable": 2,
+  "votes": 0,
+  "ledgerRight": 0,
+  "ledgerWrong": 0,
+  "convs": 1,
+  "lines": 4,
+  "emptyLines": 1,
+  "diaryFallback": 0,
+  "probes": [],
+  "catchUp": 30,
+  "retired": "arthur",
+  "trimmed": 47,
+  "askKinds": {
+   "duty": 9,
+   "choose": 4,
+   "name": 3,
+   "other": 12,
+   "plan": 8,
+   "memprobe": 16,
+   "decide": 12,
+   "chorus": 1,
+   "reflect": 8,
+   "diary": 3,
+   "dream": 3,
+   "talk": 6,
+   "consent": 3
+  },
+  "maxLen": 2150,
+  "lenSum": 131970,
+  "aborted": 69,
+  "ms": 67929,
+  "timed": 91,
+  "duties": 3,
+  "joanOffer": "central:taken",
+  "joanPlace": "to stay at home and help her mother",
+  "courting": 1,
+  "weddings": 1,
+  "births": 1,
+  "failedReq": 69,
+  "retries": 14,
+  "emptyRetry": 9,
+  "promptEcho": 1,
+  "planUnread": 2,
+  "planItems": 20,
+  "leak": {
+   "asked": 12,
+   "leaks": 0,
+   "uptake": 3,
+   "after": 12,
+   "stale": 3,
+   "correctNow": 3,
+   "empty": 0
+  },
+  "probeEmpty": 1,
+  "beliefs": {
+   "asked": 3,
+   "hereditarian": 0,
+   "circumstance": 0,
+   "moral": 1
+  },
+  "fetchMs": 1,
+  "calledUp": 1,
+  "debts": 2,
+  "zoom": {
+   "on": 22,
+   "off": 67
+  },
+  "autoChoices": 79,
+  "papers": 4,
+  "open": 8,
+  "deeds": {
+   "walk": 1,
+   "buy": 3,
+   "rest": 3,
+   "talk": 3,
+   "pawn": 3,
+   "write": 1,
+   "post": 1
+  },
+  "openUsed": 6,
+  "openVerbs": {
+   "go": 1,
+   "other": 1,
+   "rest": 3,
+   "write": 1
+  },
+  "judged": 9,
+  "gmOpen": 9,
+  "gmOpenOk": 5,
+  "gmOps": {
+   "go": 7,
+   "buy": 2,
+   "pledge": 3,
+   "create": 2,
+   "pay": 1
+  },
+  "chorus": {
+   "asked": 1,
+   "came": 1
+  },
+  "gmOpenRefused": 3,
+  "openRefused": 2,
+  "openRetry": 1,
+  "raidNights": 2,
+  "shelters": {
+   "ada": "home",
+   "arthur": "relations",
+   "thomas": "home"
+  },
+  "dreams": 3,
+  "nightmares": 1,
+  "gm": {
+   "calls": 20,
+   "ms": 102088,
+   "cost": 0.02151384,
+   "errors": 0
+  },
+  "prov": {
+   "kept": 9,
+   "replaced": 0,
+   "dropped": 0
+  },
+  "rules": {
+   "learned": 1,
+   "used": 1,
+   "shadow": 1,
+   "agree": 1,
+   "disagree": 0,
+   "retired": 0,
+   "tested": 1,
+   "failedTests": 0
+  },
+  "evacuated": 2,
+  "workKept": 3,
+  "gmRepaired": 1,
+  "planDone": 3,
+  "echo": 2,
+  "echoLeft": 1,
+  "gossip": 1,
+  "nullReplies": 4,
+  "consents": 1,
+  "ruleLearned": 1,
+  "ruleUsed": 1,
+  "deliberations": 1,
+  "foresight": 1,
+  "pickedOwn": 1,
+  "planFailed": 1,
+  "visits": 1,
+  "created": 2
+ },
+ "W": {
+  "wage": 1200,
+  "day": 2,
+  "t": 1380,
+  "coin": {
+   "where": "floor",
+   "finder": null
+  },
+  "ledger": {
+   "steps": 0,
+   "errors": 0,
+   "assigned": false,
+   "need": 3,
+   "verdict": null
+  },
+  "audit": {
+   "steps": 0,
+   "errors": 0,
+   "verdict": null,
+   "raise": null
+  },
+  "paid": {},
+  "rentPaid": {},
+  "doctor": null,
+  "extraHours": null,
+  "loan": null,
+  "facts": [],
+  "bertWork": true,
+  "joanIll": false,
+  "rentDue": false,
+  "rentOwing": false,
+  "gossip": {
+   "g1": {
+    "id": "g1",
+    "text": "Mr. Thomas has retired from the insurance office, and Mr. Hale is chief clerk",
+    "about": "thomas",
+    "day": 0,
+    "origin": "ada",
+    "reach": 2,
+    "maxHops": 1,
+    "versions": [
+     {
+      "to": "barker",
+      "hops": 1,
+      "retained": 1
+     }
+    ]
+   },
+   "g2": {
+    "id": "g2",
+    "text": "Mary Jones has had a baby boy",
+    "about": "bertsgirl1",
+    "day": 0,
+    "origin": "ada"
+   },
+   "g3": {
+    "id": "g3",
+    "text": "Mrs. Kate Nolan went across to Ada with a bit of food",
+    "about": "ada",
+    "day": 0,
+    "origin": "nolan"
+   },
+   "g4": {
+    "id": "g4",
+    "text": "Mrs. Gladys Atkins of No. 4 took a pair of sheets to Lamb's.",
+    "about": "street",
+    "day": 1,
+    "origin": "nolan"
+   },
+   "g5": {
+    "id": "g5",
+    "text": "Mrs. Nellie Moss of No. 5 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 1,
+    "origin": "nolan"
+   },
+   "g6": {
+    "id": "g6",
+    "text": "Mrs. Nellie Booth of No. 17 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 1,
+    "origin": "nolan"
+   },
+   "g7": {
+    "id": "g7",
+    "text": "Mrs. Win Peck of No. 22 took the Sunday suit to Lamb's.",
+    "about": "street",
+    "day": 1,
+    "origin": "nolan"
+   },
+   "g8": {
+    "id": "g8",
+    "text": "Mrs. Win Peck of No. 22 has been stood off at the jam factory.",
+    "about": "street",
+    "day": 1,
+    "origin": "nolan"
+   },
+   "g9": {
+    "id": "g9",
+    "text": "Mrs. Turner is buying on tick at Barker's",
+    "about": "ada",
+    "day": 1,
+    "origin": "barker"
+   },
+   "g10": {
+    "id": "g10",
+    "text": "Mrs. Annie Tull of No. 12 asks Mrs. Turner for the loan of two shillings till Saturday.",
+    "about": "ada",
+    "day": 1,
+    "origin": "ada"
+   }
+  },
+  "nsal": {
+   "nolan": 1.275,
+   "barker": 1.7,
+   "nb_h12": 1
+  },
+  "prom": {},
+  "former": {},
+  "retire": true,
+  "successor": "arthur",
+  "greatDay": 1,
+  "st": {
+   "chief": {
+    "who": [
+     "arthur",
+     "ada",
+     "thomas"
+    ],
+    "text": "Mr. Hale is chief clerk at the Moorgate office",
+    "day": 0
+   },
+   "debtarthur": {
+    "who": [
+     "arthur"
+    ],
+    "text": "Arthur is short of money",
+    "day": 0
+   },
+   "credit": {
+    "who": [
+     "ada"
+    ],
+    "text": "Barker lets Ada have goods on tick up to 5s. 0d.",
+    "day": 1
+   },
+   "debtada": {
+    "who": [
+     "ada"
+    ],
+    "text": "Ada has paid off Barker",
+    "day": 1
+   }
+  },
+  "bert": {
+   "stage": "married",
+   "weeks": 0,
+   "n": 1,
+   "id": "bertsgirl1",
+   "name": "Mary Jones",
+   "work": "Peek Frean's biscuit factory",
+   "wedding": "1940-05-04",
+   "withAda": true,
+   "married": -127,
+   "wifeWorks": false
+  },
+  "joan": {
+   "school": "central",
+   "examined": true,
+   "left": true,
+   "job": "to stay at home and help her mother",
+   "wage": 0
+  },
+  "birthday": false,
+  "standWords": "",
+  "war": {
+   "blackout": true,
+   "declared": true,
+   "evacAsked": true,
+   "registered": true,
+   "rationed": true,
+   "cu_bert": {
+    "reg": {
+     "date": "1940-06-15",
+     "reserved": true
+    },
+    "registered": true,
+    "done": true
+   },
+   "cu_barker": {
+    "reg": {
+     "none": true
+    },
+    "done": true
+   },
+   "cu_lamb": {
+    "reg": {
+     "none": true
+    },
+    "done": true
+   },
+   "cu_gedge": {
+    "reg": {
+     "none": true
+    },
+    "done": true
+   },
+   "cu_pc": {
+    "reg": {
+     "none": true
+    },
+    "done": true
+   },
+   "cu_fenn": {
+    "reg": {
+     "date": "1940-04-06",
+     "reserved": false
+    },
+    "registered": true,
+    "callOn": 0,
+    "done": true
+   },
+   "cu_pollock": {
+    "reg": {
+     "none": true
+    },
+    "done": true
+   },
+   "cu_hughes": {
+    "reg": {
+     "none": true
+    },
+    "done": true
+   },
+   "cu_relieving": {
+    "reg": {
+     "none": true
+    },
+    "done": true
+   },
+   "raids": 2,
+   "lastRaid": 1,
+   "windows": {},
+   "evacAsked2": true,
+   "away": [
+    {
+     "head": "ada",
+     "ids": [
+      "bertsgirl1",
+      "baby_0"
+     ],
+     "who": "Mary and the baby",
+     "since": 1
+    }
+   ]
+  },
+  "warR": {
+   "dole_man": 204,
+   "dole_man_wife": 360,
+   "means_test": true,
+   "war": true,
+   "blackout": true,
+   "evacuation": true,
+   "callup": true,
+   "ration": {
+    "bacon_oz": 4,
+    "butter_oz": 4,
+    "sugar_oz": 12
+   },
+   "blitz": true,
+   "ration_meat_by_price": true
+  },
+  "sirenAt": 1170,
+  "quiet": false,
+  "debtada": false,
+  "debtarthur": true,
+  "topicCache": {
+   "ada>bert": {
+    "topic": "what is for supper"
+   },
+   "ada>bertsgirl1": {
+    "topic": "how the day has gone"
+   },
+   "ada>baby_0": {
+    "topic": "how the day has gone"
+   },
+   "arthur>edith": {
+    "topic": "Joan's lessons at school"
+   },
+   "arthur>joan": {
+    "topic": "the birds in the garden"
+   },
+   "arthur>thomas": {
+    "topic": "how things are at home"
+   },
+   "thomas>dunn": {
+    "topic": "the weather"
+   },
+   "ada>arthur": {
+    "topic": "the weather"
+   },
+   "ada>barker": {
+    "topic": "how the day has gone"
+   },
+   "ada>pc": {
+    "topic": "the weather"
+   },
+   "ada>lamb": {
+    "topic": "the weather"
+   },
+   "ada>nb_h12": {
+    "topic": "the weather"
+   }
+  },
+  "factQ": {},
+  "chorusDay": {
+   "ada": 0
+  },
+  "chorusLast": {
+   "adafood": 0
+  },
+  "pre": {
+   "nolan": [
+    {
+     "day": 0,
+     "text": "She went across to Ada with a bit of bread."
+    }
+   ],
+   "barker": [
+    {
+     "day": 1,
+     "text": "Mrs. Ada Turner talked with him about having things on the slate till Bert is in work."
+    },
+    {
+     "day": 1,
+     "text": "Mrs. Ada Turner asked him to let her have things on the slate till Bert is in work; he agreed."
+    }
+   ],
+   "nb_h12": [
+    {
+     "day": 1,
+     "text": "Mrs. Annie Tull of No. 12 asks Mrs. Turner for the loan of two shillings till Saturday."
+    }
+   ]
+  },
+  "visitDay": 1,
+  "dreams": [
+   {
+    "day": 0,
+    "who": "ada",
+    "text": "She dreamt that she and Bert and Mary were walking happily hand in hand along a pleasant country road, and came to a stile.  Bert leaped the stile first, and then turned and helped Mary to follow.",
+    "nightmare": false,
+    "recalled": true
+   },
+   {
+    "day": 0,
+    "who": "arthur",
+    "text": "He dreamt that he was dead, and that Mr. Thomas came to his funeral.",
+    "nightmare": true,
+    "recalled": false
+   },
+   {
+    "day": 0,
+    "who": "thomas",
+    "text": "He dreamt that he was walking down Moorgate Street to the City, and there entering the office for the last time.",
+    "nightmare": false,
+    "recalled": false
+   }
+  ],
+  "storyOut": 336,
+  "traceOut": 89,
+  "credit": {
+   "barker": 60
+  },
+  "tickada1": true,
+  "tickRumour": true,
+  "visitor": null
+ }
+}

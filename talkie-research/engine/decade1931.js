@@ -55,7 +55,7 @@ function lifeEvents(w, day, R, opts = {}) {
     if (p.dead || (p.main && !opts.mortal) || p.registry || /^nb_/.test(p.id) || p.id === 'doctor') continue;
     const age = ageOf(p); if (age == null) continue;
     if (R() < H.baseDeath(age) * (opts.scale || 1)) { p.dead = true; p.away = true; p.place = null; out.push({ kind: 'death', id: p.id, age }); continue; }
-    if (p.f && age >= 20 && age <= 40 && /\b(wife|married)\b/i.test(p.sheet || '') && !(p.lastBirth != null && day - p.lastBirth < 640) && R() < (opts.birthP || 0.09) * (opts.scale || 1) / 365) { p.lastBirth = day; out.push({ kind: 'birth', id: p.id, age }); }
+    if (p.f && !p.noBirths && age >= 20 && age <= 40 && /\b(wife|married)\b/i.test(p.sheet || '') && !(p.lastBirth != null && day - p.lastBirth < 640) && R() < (opts.birthP || 0.09) * (opts.scale || 1) / 365) { p.lastBirth = day; out.push({ kind: 'birth', id: p.id, age }); }
   }
   return out;
 }
